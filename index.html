@@ -451,7 +451,7 @@ body {
 
 /* MAIN CONTENT */
 .content{
-  position:relative;z-index:13;
+  position:relative;z-index:150;
   min-height:100vh;
   display:flex;flex-direction:column;align-items:center;
   padding:0 16px 420px;
@@ -495,17 +495,20 @@ body {
 /* PANEL */
 .panel{
   width:min(820px,96vw);margin-top:24px;
-  background:#050f06;
-  border:1px solid rgba(100,210,80,.35);
+  background:rgba(5,15,6,0.92);
+  border:1px solid rgba(100,210,80,.5);
   border-radius:28px;
   padding:clamp(20px,5vw,44px);
   box-shadow:
-    0 24px 80px rgba(0,0,0,.85),
-    inset 0 1px 0 rgba(255,255,255,.04),
-    0 0 0 1px rgba(100,200,70,.08);
+    0 24px 80px rgba(0,0,0,.95),
+    0 0 60px rgba(80,180,55,.15),
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 0 0 1px rgba(100,200,70,.12);
   position:relative;
-  z-index:100;
+  z-index:200;
   isolation:isolate;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 .panel-header{text-align:center;margin-bottom:22px;}
 .panel-title{
@@ -600,10 +603,45 @@ body {
 .btn-contact:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(50,120,40,.5);}
 
 @media(max-width:560px){
+  /* Song list */
   .song-item{flex-wrap:wrap;}
   .song-btns{width:100%;justify-content:flex-end;margin-top:6px;}
   .stage{gap:16px;}
   .audience{padding:0 6px;}
+
+  /* Hide all stage/animal/concert elements on mobile */
+  #drag-squirrel, #drag-squirrel2, #bongo, #drag-keyboard,
+  #drag-eagle1, #drag-eagle2,
+  #drag-light-red, #drag-light-blue, #drag-light-green, #drag-light-yellow,
+  #drag-disco, #drag-raccoon, #drag-mic, #drag-bird, #drag-rabbit, #drag-bear,
+  #drag-flash, .moon, .bird, .cloud {
+    display: none !important;
+  }
+
+  /* Keep campfire but smaller */
+  .campfire { transform: scale(0.7); }
+
+  /* Make content start higher on mobile */
+  .content { padding-top: 30vh; }
+
+  /* Bigger tap targets for buttons */
+  .btn { padding: 12px 18px; font-size: .8rem; }
+
+  /* Tighten up title on mobile */
+  .title-main { font-size: clamp(2rem, 10vw, 3.5rem); }
+  .title-site { font-size: clamp(.9rem, 4vw, 1.3rem); }
+
+  /* Panel full width on mobile */
+  .panel { border-radius: 18px; padding: 20px 14px; }
+}
+
+/* Tablet - show some elements but scaled down */
+@media(min-width:561px) and (max-width:900px){
+  #drag-eagle1, #drag-eagle2,
+  #drag-light-red, #drag-light-blue, #drag-light-green, #drag-light-yellow {
+    display: none !important;
+  }
+  .content { padding-top: 40vh; }
 }
 
 /* VIDEO MODAL */
