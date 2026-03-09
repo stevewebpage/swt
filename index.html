@@ -1487,29 +1487,29 @@ body {
 
 <script>
 // Build song list
+const BASE = "";
 const songs = [
-  { title:"Trump Came Back",                         duration:"4:00", genre:"Country", video:"https://drive.google.com/uc?export=preview&id=1QOm3LQMxChQ56whM3ciNahspSEYkYM60" },
-  { title:"Runnin Wild (Woods Song)",                duration:"4:08", genre:"Country Rock"   },
-  { title:"If Life Ain't Crazy, I Ain't Country",   duration:"3:24", genre:"Country"        },
-  { title:"Same Songs on the Radio",                 duration:"3:48", genre:"Country"        },
-  { title:"She's Got a Crush on Me",                 duration:"2:41", genre:"Country Pop"    },
-  { title:"Love Song",                               duration:"3:58", genre:"Country"        },
-  { title:"Sail Away",                               duration:"3:42", genre:"Country Rock"   },
-  { title:"One More for the Road",                   duration:"3:42", genre:"Country"        },
-  { title:"She Is Sure a Beauty",                    duration:"5:47", genre:"Country"        },
-  { title:"Crazy Boy (Drink Yourself to Death)",     duration:"3:39", genre:"Country"        },
-  { title:"Riding Like the Wind",                    duration:"3:20", genre:"Country Rock"   },
-  { title:"Funk Overdrive (Birthday Suit)",          duration:"3:04", genre:"Funk"           },
-  { title:"Presents of the Lord (Christmas Song)",   duration:"3:49", genre:"Holiday"        },
-  { title:"There's Nothin' Like Me with You",        duration:"3:08", genre:"Country"        },
-  { title:"Star Man",                                duration:"3:50", genre:"Rock"           },
-  { title:"Candy Girl",                              duration:"3:06", genre:"Pop Country"    },
-  { title:"Runaway",                                 duration:"3:18", genre:"Country"        },
-  { title:"Party Town (Top Bound Party Town)",       duration:"2:37", genre:"Country Party"  },
-  { title:"She's So Beautiful",                      duration:"3:08", genre:"Country"        },
-  { title:"Rockin the Night Away",                   duration:"2:39", genre:"Rock Country"   },
-  { title:"Big Money Dreams",                        duration:"2:58", genre:"Country"        },
-  { title:"War Pigs",                                duration:"3:16", genre:"Rock"           },
+  { title:"Trump Came Back",                         duration:"4:00", genre:"Country",       mp3:"tcb.mp3",   video:"https://drive.google.com/uc?export=preview&id=1QOm3LQMxChQ56whM3ciNahspSEYkYM60" },
+  { title:"Runnin Wild (Woods Song)",                duration:"4:08", genre:"Country Rock",   mp3:"rw.mp3"   },
+  { title:"If Life Ain't Crazy, I Ain't Country",   duration:"3:24", genre:"Country",        mp3:"ilac.mp3" },
+  { title:"Same Songs on the Radio",                 duration:"3:48", genre:"Country",        mp3:"sstr.mp3" },
+  { title:"She's Got a Crush on Me",                 duration:"2:41", genre:"Country Pop",    mp3:"sgcm.mp3" },
+  { title:"Love Song",                               duration:"3:58", genre:"Country",        mp3:"ls.mp3"   },
+  { title:"Sail Away",                               duration:"3:42", genre:"Country Rock",   mp3:"sa.mp3"   },
+  { title:"She Is Sure a Beauty",                    duration:"5:47", genre:"Country",        mp3:"sab.mp3"  },
+  { title:"Crazy Boy (Drink Yourself to Death)",     duration:"3:39", genre:"Country",        mp3:"cb.mp3"   },
+  { title:"Riding Like the Wind",                    duration:"3:20", genre:"Country Rock",   mp3:"rltw.mp3" },
+  { title:"Funk Overdrive (Birthday Suit)",          duration:"3:04", genre:"Funk",           mp3:"fo.mp3"   },
+  { title:"Presents of the Lord (Christmas Song)",   duration:"3:49", genre:"Holiday",        mp3:"potl.mp3" },
+  { title:"There's Nothin' Like Me with You",        duration:"3:08", genre:"Country",        mp3:"tnlmy.mp3"},
+  { title:"Star Man",                                duration:"3:50", genre:"Rock",           mp3:"sm.mp3"   },
+  { title:"Candy Girl",                              duration:"3:06", genre:"Pop Country",    mp3:"cg.mp3"   },
+  { title:"Runaway",                                 duration:"3:18", genre:"Country",        mp3:"run.mp3"  },
+  { title:"Party Town",                              duration:"2:37", genre:"Country Party",  mp3:"pt.mp3"   },
+  { title:"She's So Beautiful",                      duration:"3:08", genre:"Country",        mp3:"ssb.mp3"  },
+  { title:"Rockin the Night Away",                   duration:"2:39", genre:"Rock Country",   mp3:"rtna.mp3" },
+  { title:"Big Money Dreams",                        duration:"2:58", genre:"Country",        mp3:"bmd.mp3"  },
+  { title:"War Pigs",                                duration:"3:16", genre:"Rock",           mp3:"wp.mp3"   },
 ];
 
 const ul = document.getElementById('songList');
@@ -1518,19 +1518,45 @@ songs.forEach((s,i) => {
   li.className='song-item';
   const listenBtn = s.video
     ? `<button onclick="openVideo()" class="btn btn-video">🎬 VIDEO</button>`
-    : `<a href="https://musicrow.us" target="_blank" class="btn btn-listen">▶ Listen</a>`;
+    : `<button onclick="playSong(${i})" class="btn btn-listen" id="btn-${i}">▶ Listen</button>`;
   li.innerHTML=`
     <div class="track-num">${i+1}</div>
     <div class="song-info">
       <div class="song-title">${s.title}</div>
       <div class="song-duration">⏱ ${s.duration} &nbsp;·&nbsp; ${s.genre}${s.video?' &nbsp;🎬':''}</div>
+      <audio id="audio-${i}" src="${BASE}${s.mp3}" preload="none"></audio>
     </div>
     <div class="song-btns">
       ${listenBtn}
-      <a href="https://musicrow.us" target="_blank" class="btn btn-buy">⬇️ Download</a>
+      <a href="${BASE}${s.mp3}" download class="btn btn-buy">⬇️ Download</a>
     </div>`;
   ul.appendChild(li);
 });
+
+// Audio player
+let currentAudio = null;
+let currentBtn = null;
+function playSong(i) {
+  const audio = document.getElementById('audio-'+i);
+  const btn   = document.getElementById('btn-'+i);
+  if (currentAudio && currentAudio !== audio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+    if (currentBtn) currentBtn.textContent = '▶ Listen';
+  }
+  if (audio.paused) {
+    audio.play();
+    btn.textContent = '⏸ Pause';
+    currentAudio = audio;
+    currentBtn = btn;
+    audio.onended = () => { btn.textContent = '▶ Listen'; currentAudio = null; currentBtn = null; };
+  } else {
+    audio.pause();
+    btn.textContent = '▶ Listen';
+    currentAudio = null;
+    currentBtn = null;
+  }
+}
 
 // Video modal
 const modal   = document.getElementById('videoModal');
