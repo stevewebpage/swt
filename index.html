@@ -504,7 +504,7 @@ body {
     inset 0 1px 0 rgba(255,255,255,.04),
     0 0 0 1px rgba(100,200,70,.08);
   position:relative;
-  z-index:20;
+  z-index:100;
   isolation:isolate;
 }
 .panel-header{text-align:center;margin-bottom:22px;}
@@ -527,6 +527,7 @@ body {
   content:'';position:absolute;inset:0;
   background:linear-gradient(90deg,rgba(80,180,55,.07) 0%,transparent 60%);
   opacity:0;transition:opacity .28s;
+  pointer-events:none;
 }
 .song-item:hover{border-color:rgba(100,200,75,.5);background:#0e220f;transform:translateX(5px);}
 .song-item:hover::before{opacity:1;}
@@ -553,6 +554,7 @@ body {
   font-family:'Lato',sans-serif;font-size:.72rem;font-weight:900;
   letter-spacing:1.5px;text-transform:uppercase;
   text-decoration:none;cursor:pointer;transition:all .22s ease;white-space:nowrap;
+  pointer-events:auto;position:relative;z-index:200;
 }
 .btn-listen{
   background:linear-gradient(135deg,#3a8830,#5aba48);color:#fff;
@@ -1366,7 +1368,7 @@ body {
 </script>
 
 <!-- DRAGGABLE FLASH HANDLE -->
-<div id="drag-flash" style="position:fixed; top:45vh; left:50%; transform:translateX(-50%); z-index:50; pointer-events:auto; width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.4); box-shadow:0 0 3px 1px rgba(255,255,255,0.5);"></div>
+<div id="drag-flash" style="position:fixed; top:45vh; left:50%; transform:translateX(-50%); z-index:50; pointer-events:none; width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.4); box-shadow:0 0 3px 1px rgba(255,255,255,0.5);"></div>
 <script>
 /* FINALIZED — flash position locked */
 (function(){
