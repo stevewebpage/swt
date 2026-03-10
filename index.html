@@ -55,20 +55,91 @@ body {
 
 /* SUN - softened to blend with photo */
 .sun {
-  position: fixed; top: 28px; left: 50%; transform: translateX(-50%);
-  width: 100px; height: 100px; border-radius: 50%; z-index: 2;
-  background: radial-gradient(circle at 40% 35%, #fffbe0, #ffe566 40%, #ffb030);
+  position: fixed; top: 18px; left: 50%; transform: translateX(-50%);
+  width: 110px; height: 110px; border-radius: 50%; z-index: 2;
+  background: radial-gradient(circle at 38% 32%,
+    #ffffff 0%,
+    #fffde0 12%,
+    #fff5a0 28%,
+    #ffe040 55%,
+    #ffaa00 80%,
+    #ff8800 100%
+  );
   box-shadow:
-    0 0 0 20px rgba(255,230,80,.10),
-    0 0 0 50px rgba(255,200,60,.06),
-    0 0 80px 40px rgba(255,200,60,.2),
-    0 0 160px 80px rgba(255,170,40,.10);
-  animation: sunPulse 2.5s ease-in-out infinite;
-  opacity: .85;
+    0 0 0 8px  rgba(255,248,180,.25),
+    0 0 0 18px rgba(255,230,80,.15),
+    0 0 0 35px rgba(255,210,60,.10),
+    0 0 0 60px rgba(255,180,40,.07),
+    0 0 40px  20px rgba(255,220,80,.55),
+    0 0 90px  50px rgba(255,180,50,.35),
+    0 0 180px 90px rgba(255,150,30,.20),
+    0 0 320px 140px rgba(255,120,20,.10);
+  animation: sunPulse 3s ease-in-out infinite;
+  opacity: 1;
+}
+/* Sun corona ring */
+.sun::before {
+  content:'';
+  position:absolute;
+  inset:-18px;
+  border-radius:50%;
+  background: radial-gradient(circle,
+    transparent 45%,
+    rgba(255,230,80,.18) 55%,
+    rgba(255,200,60,.10) 68%,
+    transparent 80%
+  );
+  animation: coronaSpin 18s linear infinite;
+}
+/* Lens flare streak */
+.sun::after {
+  content:'';
+  position:absolute;
+  top:50%; left:-60px;
+  width:230px; height:3px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,255,220,.0) 20%,
+    rgba(255,255,200,.55) 48%,
+    rgba(255,255,255,.85) 50%,
+    rgba(255,255,200,.55) 52%,
+    rgba(255,255,220,.0) 80%,
+    transparent 100%
+  );
+  transform: translateY(-50%);
+  animation: flareFlicker 4s ease-in-out infinite;
 }
 @keyframes sunPulse {
-  0%,100%{ box-shadow: 0 0 0 20px rgba(255,230,80,.15),0 0 0 50px rgba(255,200,60,.10),0 0 80px 40px rgba(255,200,60,.3),0 0 160px 80px rgba(255,170,40,.15); }
-  50%    { box-shadow: 0 0 0 30px rgba(255,230,80,.2), 0 0 0 70px rgba(255,200,60,.12),0 0 120px 60px rgba(255,200,60,.4),0 0 220px 100px rgba(255,170,40,.18); }
+  0%,100%{
+    box-shadow:
+      0 0 0 8px  rgba(255,248,180,.22),
+      0 0 0 18px rgba(255,230,80,.14),
+      0 0 0 35px rgba(255,210,60,.09),
+      0 0 0 60px rgba(255,180,40,.06),
+      0 0 40px  20px rgba(255,220,80,.50),
+      0 0 90px  50px rgba(255,180,50,.30),
+      0 0 180px 90px rgba(255,150,30,.18),
+      0 0 320px 140px rgba(255,120,20,.09);
+  }
+  50%{
+    box-shadow:
+      0 0 0 12px rgba(255,248,180,.30),
+      0 0 0 26px rgba(255,230,80,.20),
+      0 0 0 50px rgba(255,210,60,.14),
+      0 0 0 85px rgba(255,180,40,.09),
+      0 0 60px  30px rgba(255,220,80,.65),
+      0 0 130px 70px rgba(255,180,50,.42),
+      0 0 240px 110px rgba(255,150,30,.26),
+      0 0 400px 180px rgba(255,120,20,.14);
+  }
+}
+@keyframes coronaSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes flareFlicker {
+  0%,100% { opacity:.4; transform:translateY(-50%) scaleX(1); }
+  50%     { opacity:.9; transform:translateY(-50%) scaleX(1.15); }
 }
 
 /* RAYS */
@@ -569,6 +640,84 @@ body {
   box-shadow:0 4px 14px rgba(200,160,30,.35);
 }
 .btn-buy:hover{background:linear-gradient(135deg,#d08820,#ffd848);transform:translateY(-2px);box-shadow:0 6px 20px rgba(200,160,30,.55);}
+
+/* VENMO PAYMENT MODAL */
+.venmo-overlay{
+  display:none;position:fixed;inset:0;z-index:1000;
+  background:rgba(0,10,0,.88);backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;
+  animation:fadeIn .3s ease;
+}
+.venmo-overlay.open{ display:flex; }
+.venmo-box{
+  position:relative;width:min(420px,92vw);
+  background:rgba(6,22,8,.97);
+  border:1px solid rgba(245,192,48,.45);
+  border-radius:22px;
+  padding:32px 28px 28px;
+  box-shadow:0 30px 100px rgba(0,0,0,.8), 0 0 60px rgba(245,192,48,.12);
+  animation:popUp .35s cubic-bezier(.34,1.56,.64,1);
+  text-align:center;
+}
+.venmo-close{
+  position:absolute;top:14px;right:18px;
+  background:none;border:none;color:rgba(255,255,255,.4);
+  font-size:1.3rem;cursor:pointer;transition:color .2s;
+}
+.venmo-close:hover{color:#ffe066;}
+.venmo-title{
+  font-family:'Abril Fatface',cursive;
+  font-size:clamp(1.2rem,4vw,1.6rem);
+  color:#ffe066;text-shadow:0 0 20px rgba(255,220,80,.5);
+  letter-spacing:1px;margin-bottom:6px;
+}
+.venmo-subtitle{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:.92rem;color:rgba(160,240,140,.75);
+  margin-bottom:18px;line-height:1.5;
+}
+.venmo-qr{
+  width:200px;height:200px;
+  border-radius:14px;
+  border:2px solid rgba(245,192,48,.4);
+  box-shadow:0 4px 24px rgba(0,0,0,.6);
+  object-fit:cover;
+  background:#111;
+  display:block;margin:0 auto 14px;
+}
+.venmo-qr-fallback{
+  width:200px;height:200px;
+  border-radius:14px;
+  border:2px dashed rgba(245,192,48,.4);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:8px;
+  margin:0 auto 14px;
+  color:rgba(255,220,80,.6);font-size:.8rem;
+  background:rgba(255,200,50,.05);
+}
+.venmo-handle{
+  font-family:'Abril Fatface',cursive;
+  font-size:1.3rem;color:#ffe066;
+  letter-spacing:2px;margin-bottom:4px;
+}
+.venmo-price{
+  font-size:.82rem;color:rgba(160,240,140,.8);
+  letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;
+}
+.btn-confirm-download{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:12px 28px;border-radius:30px;border:none;
+  background:linear-gradient(135deg,#b87010,#f5c030);
+  color:#1a0f00;font-family:'Lato',sans-serif;
+  font-size:.8rem;font-weight:900;letter-spacing:2px;
+  text-transform:uppercase;cursor:pointer;
+  box-shadow:0 4px 18px rgba(200,160,30,.45);
+  transition:all .22s ease;text-decoration:none;
+}
+.btn-confirm-download:hover{
+  background:linear-gradient(135deg,#d08820,#ffd848);
+  transform:translateY(-2px);box-shadow:0 6px 24px rgba(200,160,30,.65);
+}
 
 /* FOOTER */
 .footer{
@@ -1484,6 +1633,27 @@ body {
 <div class="bird" style="top:90px; --by:-30px;animation:none;">🦜</div>
 <div class="bird" style="top:145px;--by:5px;  animation:none;font-size:14px;">🐦</div>
 
+<!-- VENMO PAYMENT MODAL -->
+<div class="venmo-overlay" id="venmoModal">
+  <div class="venmo-box">
+    <button class="venmo-close" id="venmoClose" title="Close">✕</button>
+    <div class="venmo-title">💛 Support the Music</div>
+    <div class="venmo-subtitle">Scan the QR code or search Venmo<br>to send a tip before downloading!</div>
+    <img class="venmo-qr" src="venmo-qr.jpg" alt="Venmo QR Code"
+         onerror="this.style.display='none';document.getElementById('venmoFallback').style.display='flex';">
+    <div class="venmo-qr-fallback" id="venmoFallback" style="display:none;">
+      <span style="font-size:2rem;">📱</span>
+      <span>venmo-qr.jpg</span>
+      <span style="font-size:.7rem;opacity:.7;">Place your QR image in<br>the same folder as this page</span>
+    </div>
+    <div class="venmo-handle">@StevenBickham</div>
+    <div class="venmo-price">Any amount is appreciated 🎸</div>
+    <a id="venmoDownloadBtn" href="#" download class="btn-confirm-download">
+      ⬇️ I've Paid — Download Now
+    </a>
+  </div>
+</div>
+
 <!-- VIDEO MODAL -->
 <div class="modal-overlay" id="videoModal">
   <div class="modal-box">
@@ -1568,7 +1738,7 @@ songs.forEach((s,i) => {
     </div>
     <div class="song-btns">
       ${listenBtn}
-      <a href="${BASE}${s.mp3}" download class="btn btn-buy">⬇️ Download</a>
+      <button class="btn btn-buy btn-download" data-mp3="${BASE}${s.mp3}">⬇️ Download</button>
     </div>`;
   ul.appendChild(li);
 });
@@ -1617,6 +1787,34 @@ function closeVideo(){
 closeBtn.addEventListener('click', closeVideo);
 modal.addEventListener('click', e => { if(e.target===modal) closeVideo(); });
 document.addEventListener('keydown', e => { if(e.key==='Escape') closeVideo(); });
+
+// Venmo payment modal
+const venmoModal   = document.getElementById('venmoModal');
+const venmoClose   = document.getElementById('venmoClose');
+const venmoDownBtn = document.getElementById('venmoDownloadBtn');
+
+function openVenmo(mp3path) {
+  venmoDownBtn.href = mp3path;
+  venmoDownBtn.setAttribute('download', '');
+  venmoModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeVenmo() {
+  venmoModal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+venmoClose.addEventListener('click', closeVenmo);
+venmoModal.addEventListener('click', e => { if(e.target === venmoModal) closeVenmo(); });
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeVenmo(); });
+
+// Event delegation for download buttons
+document.addEventListener('click', function(e) {
+  const btn = e.target.closest('.btn-download');
+  if (btn) {
+    e.preventDefault();
+    openVenmo(btn.getAttribute('data-mp3'));
+  }
+});
 
 // Fireflies - lots of them!
 for(let i=0;i<45;i++){
