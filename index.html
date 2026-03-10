@@ -939,20 +939,6 @@ body {
 
 <!-- FLOOR & GRASS -->
 <div class="floor"></div>
-<div class="grass-row">
-  <span class="grass-tuft" style="margin-top:260px;">🌿</span>
-  <span class="grass-tuft" style="margin-top:160px;">🍀</span>
-  <span class="grass-tuft" style="margin-top:80px;">🌿</span>
-  <span class="grass-tuft" style="margin-top:20px;">🌱</span>
-  <span class="grass-tuft" style="margin-top:0px;">🍀</span>
-  <span class="grass-tuft" style="margin-top:0px;">🌿</span>
-  <span class="grass-tuft" style="margin-top:20px;">🌱</span>
-  <span class="grass-tuft" style="margin-top:80px;">🌿</span>
-  <span class="grass-tuft" style="margin-top:160px;">🍀</span>
-  <span class="grass-tuft" style="margin-top:260px;">🌿</span>
-  <span class="grass-tuft" style="margin-top:320px;">🌱</span>
-  <span class="grass-tuft" style="margin-top:320px;">🍀</span>
-</div>
 
 <!-- SPOTLIGHTS -->
 <div class="spotlight spotlight-1"></div>
@@ -961,30 +947,6 @@ body {
 
 <!-- STAGE GLOW -->
 <div class="stage-glow"></div>
-
-<!-- BAND -->
-<div class="stage">
-  <div class="band-member squirrel" style="visibility:hidden;">
-    <div class="instr" style="font-size:clamp(40px,6vw,64px); visibility:hidden;">🪘</div>
-    <div class="animal">🐿️</div>
-    <div class="lbl">Bongos</div>
-  </div>
-  <div class="band-member turtle" style="visibility:hidden;">
-    <div class="instr">🎤</div>
-    <div class="animal">🐦</div>
-    <div class="lbl">Vocals</div>
-  </div>
-  <div class="band-member rabbit" style="visibility:hidden;">
-    <div class="instr">🎸</div>
-    <div class="animal">🐰</div>
-    <div class="lbl">Bass</div>
-  </div>
-  <div class="band-member bear" style="visibility:hidden;">
-    <div class="instr">🥁</div>
-    <div class="animal">🐻</div>
-    <div class="lbl">Drums</div>
-  </div>
-</div>
 
 <!-- MUSICAL NOTES -->
 <div class="notes">
@@ -1026,63 +988,9 @@ body {
 
 
 
-<!-- DRAGGABLE SQUIRREL + BONGO -->
-<!-- DRAGGABLE SQUIRREL -->
-<div id="drag-squirrel" style="position:fixed; bottom:350px; left:calc(50% - 140px); z-index:20; display:flex; flex-direction:column; align-items:center; gap:1px; transform:scaleX(-1); pointer-events:auto;">
-  <div style="font-size:clamp(42px,6vw,68px); filter:drop-shadow(0 4px 12px rgba(0,0,0,.55)); animation:playLead .25s ease-in-out infinite alternate;">🐿️</div>
-</div>
+<!-- DRAGGABLE CONFETTI 1 -->
 
-<!-- DRAGGABLE BONGO -->
-<div id="bongo" style="position:fixed; bottom:280px; left:calc(50% - 140px); z-index:20; display:flex; flex-direction:column; align-items:center; gap:1px; pointer-events:auto;">
-  <div style="font-size:47px; filter:drop-shadow(0 4px 10px rgba(0,0,0,.6));">🪘</div>
-  <div style="font-size:.6rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; color:#ffe066; text-shadow:0 1px 5px rgba(0,0,0,.8);">Bongos</div>
-</div>
-
-<!-- DRAGGABLE SQUIRREL 2 - KEYS -->
-<div id="drag-squirrel2" style="position:fixed; bottom:310px; left:calc(50% + 260px); z-index:20; display:flex; flex-direction:column; align-items:center; gap:1px; pointer-events:auto;">
-  <div style="font-size:clamp(42px,6vw,68px); filter:drop-shadow(0 4px 12px rgba(0,0,0,.55)); animation:playLead .19s ease-in-out infinite alternate;">🐿️</div>
-  <div style="font-size:.6rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; color:#ffe066; text-shadow:0 1px 5px rgba(0,0,0,.8);">Keys</div>
-</div>
-
-<!-- DRAGGABLE KEYBOARD -->
-<div id="drag-keyboard" style="position:fixed; bottom:270px; left:calc(50% + 260px); z-index:20; pointer-events:auto; font-size:48px; filter:drop-shadow(0 4px 10px rgba(0,0,0,.6)); transform:rotate(-90deg);">🎹</div>
-
-<!-- DRAGGABLE EAGLE LEFT -->
-<div id="drag-eagle1" style="position:fixed; bottom:420px; left:5%; z-index:20; display:flex; flex-direction:column; align-items:center; gap:1px; pointer-events:auto;">
-  <div style="font-size:clamp(42px,6vw,68px); filter:drop-shadow(0 4px 12px rgba(0,0,0,.55));">🦅</div>
-  <div style="font-size:.6rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; color:#ffe066; text-shadow:0 1px 5px rgba(0,0,0,.8);">Eagle</div>
-</div>
-
-<!-- DRAGGABLE EAGLE RIGHT -->
-<div id="drag-eagle2" style="position:fixed; bottom:420px; right:5%; z-index:20; display:flex; flex-direction:column; align-items:center; gap:1px; pointer-events:auto; transform:scaleX(-1);">
-  <div style="font-size:clamp(42px,6vw,68px); filter:drop-shadow(0 4px 12px rgba(0,0,0,.55));">🦅</div>
-  <div style="font-size:.6rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; color:#ffe066; text-shadow:0 1px 5px rgba(0,0,0,.8); transform:scaleX(-1);">Eagle</div>
-</div>
-
-<!-- DRAGGABLE PAR CANS -->
-<div id="drag-light-red" style="position:fixed; bottom:420px; left:20%; z-index:20; pointer-events:auto; display:flex; flex-direction:column; align-items:center; gap:1px;">
-  <div style="font-size:18px; filter:drop-shadow(0 0 6px rgba(255,0,0,1)) drop-shadow(0 0 12px rgba(255,0,0,.8));">🔴</div>
-  <div style="width:4px; height:20px; background:linear-gradient(180deg, rgba(255,0,0,0.6), transparent); border-radius:0 0 50% 50%;"></div>
-  <div style="font-size:.4rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; color:#ff6666; text-shadow:0 1px 4px rgba(0,0,0,.8);">Red</div>
-</div>
-
-<div id="drag-light-blue" style="position:fixed; bottom:420px; left:32%; z-index:20; pointer-events:auto; display:flex; flex-direction:column; align-items:center; gap:1px;">
-  <div style="font-size:18px; filter:drop-shadow(0 0 6px rgba(0,100,255,1)) drop-shadow(0 0 12px rgba(0,100,255,.8));">🔵</div>
-  <div style="width:4px; height:20px; background:linear-gradient(180deg, rgba(0,100,255,0.6), transparent); border-radius:0 0 50% 50%;"></div>
-  <div style="font-size:.4rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; color:#66aaff; text-shadow:0 1px 4px rgba(0,0,0,.8);">Blue</div>
-</div>
-
-<div id="drag-light-green" style="position:fixed; bottom:420px; right:32%; z-index:20; pointer-events:auto; display:flex; flex-direction:column; align-items:center; gap:1px;">
-  <div style="font-size:18px; filter:drop-shadow(0 0 6px rgba(0,220,80,1)) drop-shadow(0 0 12px rgba(0,220,80,.8));">🟢</div>
-  <div style="width:4px; height:20px; background:linear-gradient(180deg, rgba(0,220,80,0.6), transparent); border-radius:0 0 50% 50%;"></div>
-  <div style="font-size:.4rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; color:#66ff99; text-shadow:0 1px 4px rgba(0,0,0,.8);">Green</div>
-</div>
-
-<div id="drag-light-yellow" style="position:fixed; bottom:420px; right:20%; z-index:20; pointer-events:auto; display:flex; flex-direction:column; align-items:center; gap:1px;">
-  <div style="font-size:18px; filter:drop-shadow(0 0 6px rgba(255,220,0,1)) drop-shadow(0 0 12px rgba(255,220,0,.8));">🟡</div>
-  <div style="width:4px; height:20px; background:linear-gradient(180deg, rgba(255,220,0,0.6), transparent); border-radius:0 0 50% 50%;"></div>
-  <div style="font-size:.4rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; color:#ffee66; text-shadow:0 1px 4px rgba(0,0,0,.8);">Yellow</div>
-</div>
+<!-- DRAGGABLE CONFETTI 2 -->
 
 <!-- DRAGGABLE DISCO BALL -->
 <div id="drag-disco" style="position:fixed; top:0; left:50%; transform:translateX(-50%); z-index:20; pointer-events:auto; display:flex; flex-direction:column; align-items:center;">
@@ -1570,31 +1478,6 @@ body {
 
 
 
-<!-- DRAGGABLE RACCOON -->
-<div id="drag-raccoon" style="position:fixed; bottom:310px; left:calc(50% + 180px); z-index:20; display:flex; flex-direction:column; align-items:center; gap:1px; pointer-events:auto;">
-  <div style="font-size:clamp(42px,6vw,68px); filter:drop-shadow(0 4px 12px rgba(0,0,0,.55));">🦝</div>
-  <div style="font-size:.6rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; color:#ffe066; text-shadow:0 1px 5px rgba(0,0,0,.8);">Raccoon</div>
-</div>
-<div id="drag-mic" style="position:fixed; bottom:340px; left:calc(50% - 80px); z-index:20; font-size:28px; filter:drop-shadow(0 4px 10px rgba(0,0,0,.6));">🎤</div>
-
-<!-- DRAGGABLE BIRD -->
-<div id="drag-bird" style="position:fixed; bottom:310px; left:calc(50% - 40px); z-index:20; display:flex; flex-direction:column; align-items:center; gap:1px; pointer-events:auto;">
-  <div style="font-size:clamp(42px,6vw,68px); filter:drop-shadow(0 4px 12px rgba(0,0,0,.55)); animation:playLead .25s ease-in-out infinite alternate;">🐦</div>
-  <div style="font-size:.6rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#ffe066;text-shadow:0 1px 5px rgba(0,0,0,.8);">Vocals</div>
-</div>
-
-<!-- DRAGGABLE RABBIT -->
-<div id="drag-rabbit" style="position:fixed; bottom:310px; left:calc(50% + 20px); z-index:20; display:flex; flex-direction:column; align-items:center; gap:1px; pointer-events:auto;">
-  <div style="font-size:clamp(42px,6vw,68px); filter:drop-shadow(0 4px 12px rgba(0,0,0,.55)); animation:playBass .4s ease-in-out infinite alternate;">🐰</div>
-  <div style="font-size:.6rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#ffe066;text-shadow:0 1px 5px rgba(0,0,0,.8);">Bass</div>
-</div>
-
-<!-- DRAGGABLE BEAR -->
-<div id="drag-bear" style="position:fixed; bottom:310px; left:calc(50% + 100px); z-index:20; display:flex; flex-direction:column; align-items:center; gap:1px; pointer-events:auto;">
-  <div style="font-size:clamp(42px,6vw,68px); filter:drop-shadow(0 4px 12px rgba(0,0,0,.55)); animation:playDrum .15s ease-in-out infinite alternate;">🐻</div>
-  <div style="font-size:.6rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#ffe066;text-shadow:0 1px 5px rgba(0,0,0,.8);">Drums</div>
-</div>
-
 <!-- DRAGGABLE KEYBOARD -->
 
 <!-- DRAGGABLE CONFETTI 1 -->
@@ -1642,13 +1525,162 @@ body {
   </button>
 </div>
 
-<!-- BIRDS -->
-<div class="bird" style="top:130px;--by:-25px;animation:none;">🐦</div>
-<div class="bird" style="top:155px;--by:18px; animation:none; font-size:16px;">🐦</div>
-<div class="bird" style="top:105px;--by:-15px;animation:none;font-size:26px;">🐦</div>
-<div class="bird" style="top:175px;--by:10px; animation:none; font-size:18px;">🐦</div>
-<div class="bird" style="top:90px; --by:-30px;animation:none;">🦜</div>
-<div class="bird" style="top:145px;--by:5px;  animation:none;font-size:14px;">🐦</div>
+<!-- UFO -->
+<div id="ufo" style="position:fixed; top:80px; left:50%; transform:translateX(-50%); z-index:25; pointer-events:none; animation:ufoFloat 4s ease-in-out infinite;">
+  <!-- UFO body -->
+  <div style="position:relative; width:120px; height:50px; margin:0 auto;">
+    <!-- Dome -->
+    <div style="position:absolute; top:-28px; left:50%; transform:translateX(-50%);
+      width:50px; height:32px; border-radius:50% 50% 0 0;
+      background:radial-gradient(ellipse at 35% 35%, rgba(180,230,255,0.95), rgba(80,160,220,0.7));
+      border:1px solid rgba(120,200,255,0.5);
+      box-shadow:0 0 12px rgba(120,200,255,0.6);"></div>
+    <!-- Main saucer -->
+    <div style="position:absolute; top:0; left:0; width:120px; height:28px; border-radius:50%;
+      background:radial-gradient(ellipse at 40% 30%, #d0d8e0, #8090a0);
+      box-shadow:0 4px 20px rgba(0,0,0,0.5), 0 0 30px rgba(120,200,255,0.3);"></div>
+    <!-- Underbelly -->
+    <div style="position:absolute; top:16px; left:15px; width:90px; height:16px; border-radius:50%;
+      background:radial-gradient(ellipse, #606878, #404858);"></div>
+    <!-- Flashing lights row -->
+    <div id="ufo-lights" style="position:absolute; top:20px; left:10px; width:100px; display:flex; justify-content:space-around; align-items:center;">
+      <div class="ufo-light" style="--c:255,80,80;"></div>
+      <div class="ufo-light" style="--c:80,255,120; animation-delay:.2s;"></div>
+      <div class="ufo-light" style="--c:80,160,255; animation-delay:.4s;"></div>
+      <div class="ufo-light" style="--c:255,220,80; animation-delay:.6s;"></div>
+      <div class="ufo-light" style="--c:255,80,255; animation-delay:.8s;"></div>
+      <div class="ufo-light" style="--c:80,255,240; animation-delay:1s;"></div>
+    </div>
+    <!-- Tractor beam -->
+    <div style="position:absolute; top:28px; left:50%; transform:translateX(-50%);
+      width:0; height:0;
+      border-left:30px solid transparent;
+      border-right:30px solid transparent;
+      border-top:60px solid rgba(120,220,255,0.08);
+      filter:blur(3px);"></div>
+  </div>
+</div>
+
+<style>
+.ufo-light {
+  width:8px; height:8px; border-radius:50%;
+  background:rgba(var(--c),1);
+  box-shadow:0 0 6px 3px rgba(var(--c),0.7);
+  animation:ufoFlash .9s ease-in-out infinite;
+}
+@keyframes ufoFlash {
+  0%,100%{opacity:1;transform:scale(1);}
+  50%{opacity:.2;transform:scale(0.6);}
+}
+@keyframes ufoFloat {
+  0%,100%{transform:translateX(-50%) translateY(0);}
+  50%{transform:translateX(-50%) translateY(-18px);}
+}
+</style>
+
+<!-- CAMPFIRE & ALIENS -->
+<!-- Campfire -->
+<div style="position:fixed; bottom:102px; left:50%; transform:translateX(-50%); z-index:22; pointer-events:none; display:flex; flex-direction:column; align-items:center;">
+  <!-- Flames -->
+  <div style="display:flex; gap:2px; align-items:flex-end; margin-bottom:-4px;">
+    <div style="width:10px; height:22px; border-radius:50% 50% 30% 30%; background:linear-gradient(180deg,#fff5a0,#ff8800,#cc4400); animation:flame 0.6s ease-in-out infinite alternate; transform-origin:bottom;"></div>
+    <div style="width:14px; height:32px; border-radius:50% 50% 30% 30%; background:linear-gradient(180deg,#ffffff,#ffe040,#ff6600,#cc3300); animation:flame 0.5s ease-in-out infinite alternate-reverse; transform-origin:bottom;"></div>
+    <div style="width:10px; height:24px; border-radius:50% 50% 30% 30%; background:linear-gradient(180deg,#fff5a0,#ff9900,#cc4400); animation:flame 0.7s ease-in-out infinite alternate; transform-origin:bottom;"></div>
+  </div>
+  <!-- Glow -->
+  <div style="width:60px;height:10px;background:radial-gradient(ellipse,rgba(255,160,40,0.45),transparent);border-radius:50%;margin-bottom:-4px;"></div>
+  <!-- Logs -->
+  <div style="display:flex; gap:4px;">
+    <div style="width:28px;height:8px;background:#5a3010;border-radius:4px;transform:rotate(-20deg);"></div>
+    <div style="width:28px;height:8px;background:#4a2808;border-radius:4px;transform:rotate(20deg);"></div>
+  </div>
+</div>
+<style>
+@keyframes flame {
+  0%{transform:scaleX(1) scaleY(1);}
+  100%{transform:scaleX(0.8) scaleY(1.15);}
+}
+</style>
+
+<!-- Alien Left -->
+<div style="position:fixed; bottom:108px; left:calc(50% - 90px); z-index:22; pointer-events:none; display:flex; flex-direction:column; align-items:center; animation:alienSway 3.2s ease-in-out infinite;">
+  <div style="font-size:38px; filter:drop-shadow(0 0 8px rgba(120,255,120,0.7));">👽</div>
+  <div style="font-size:.5rem;font-weight:900;letter-spacing:1px;color:#aaffaa;text-shadow:0 0 6px #0f0;text-transform:uppercase;">Zork</div>
+</div>
+
+<!-- Alien Center (slightly taller, leaning in) -->
+<div style="position:fixed; bottom:115px; left:calc(50% - 22px); z-index:22; pointer-events:none; display:flex; flex-direction:column; align-items:center; animation:alienSway 2.8s ease-in-out infinite alternate;">
+  <div style="font-size:44px; filter:drop-shadow(0 0 10px rgba(120,255,120,0.8));">👽</div>
+  <div style="font-size:.5rem;font-weight:900;letter-spacing:1px;color:#aaffaa;text-shadow:0 0 6px #0f0;text-transform:uppercase;">Blip</div>
+</div>
+
+<!-- Alien Right -->
+<div style="position:fixed; bottom:108px; left:calc(50% + 48px); z-index:22; pointer-events:none; display:flex; flex-direction:column; align-items:center; animation:alienSway 3.5s ease-in-out infinite alternate-reverse;">
+  <div style="font-size:38px; filter:drop-shadow(0 0 8px rgba(120,255,120,0.7)); transform:scaleX(-1);">👽</div>
+  <div style="font-size:.5rem;font-weight:900;letter-spacing:1px;color:#aaffaa;text-shadow:0 0 6px #0f0;text-transform:uppercase;">Xenu</div>
+</div>
+
+<style>
+@keyframes alienSway {
+  0%,100%{transform:rotate(-4deg);}
+  50%{transform:rotate(4deg);}
+}
+</style>
+
+<!-- ROBOT bottom left -->
+<div style="position:fixed; bottom:95px; left:30px; z-index:22; pointer-events:none; display:flex; flex-direction:column; align-items:center; animation:robotBob 2s ease-in-out infinite;">
+  <!-- Head -->
+  <div style="width:36px;height:28px;background:linear-gradient(180deg,#b0c0d0,#7090a8);border-radius:6px;border:2px solid #506070;position:relative;display:flex;justify-content:center;align-items:center;gap:6px;">
+    <!-- Eyes -->
+    <div style="width:7px;height:7px;background:#00ffcc;border-radius:50%;box-shadow:0 0 6px #00ffcc;animation:robotBlink 3s infinite;"></div>
+    <div style="width:7px;height:7px;background:#00ffcc;border-radius:50%;box-shadow:0 0 6px #00ffcc;animation:robotBlink 3s infinite .15s;"></div>
+    <!-- Antenna -->
+    <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);width:2px;height:12px;background:#7090a8;"></div>
+    <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:6px;height:6px;background:#ff4444;border-radius:50%;box-shadow:0 0 6px #ff4444;animation:ufoFlash 1s infinite;"></div>
+  </div>
+  <!-- Neck -->
+  <div style="width:10px;height:6px;background:#607080;"></div>
+  <!-- Body -->
+  <div style="width:44px;height:36px;background:linear-gradient(180deg,#80a0b8,#506880);border-radius:4px;border:2px solid #405060;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;">
+    <!-- Chest panel -->
+    <div style="display:flex;gap:3px;">
+      <div style="width:6px;height:6px;background:#ff8800;border-radius:2px;box-shadow:0 0 4px #ff8800;animation:ufoFlash .7s infinite .1s;"></div>
+      <div style="width:6px;height:6px;background:#00ccff;border-radius:2px;box-shadow:0 0 4px #00ccff;animation:ufoFlash .7s infinite .3s;"></div>
+      <div style="width:6px;height:6px;background:#88ff00;border-radius:2px;box-shadow:0 0 4px #88ff00;animation:ufoFlash .7s infinite .5s;"></div>
+    </div>
+    <div style="width:22px;height:3px;background:rgba(0,0,0,0.3);border-radius:2px;"></div>
+  </div>
+  <!-- Legs -->
+  <div style="display:flex;gap:6px;margin-top:2px;">
+    <div style="width:10px;height:18px;background:#607080;border-radius:3px;animation:robotLegL 2s ease-in-out infinite;transform-origin:top;"></div>
+    <div style="width:10px;height:18px;background:#607080;border-radius:3px;animation:robotLegR 2s ease-in-out infinite;transform-origin:top;"></div>
+  </div>
+  <!-- Feet -->
+  <div style="display:flex;gap:2px;margin-top:1px;">
+    <div style="width:14px;height:6px;background:#405060;border-radius:3px;"></div>
+    <div style="width:14px;height:6px;background:#405060;border-radius:3px;"></div>
+  </div>
+  <div style="font-size:.45rem;font-weight:900;letter-spacing:1px;color:#00ffcc;text-shadow:0 0 6px #00ffcc;text-transform:uppercase;margin-top:3px;">R-01</div>
+</div>
+
+<style>
+@keyframes robotBob {
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-6px);}
+}
+@keyframes robotBlink {
+  0%,90%,100%{opacity:1;}
+  95%{opacity:0;}
+}
+@keyframes robotLegL {
+  0%,100%{transform:rotate(-8deg);}
+  50%{transform:rotate(8deg);}
+}
+@keyframes robotLegR {
+  0%,100%{transform:rotate(8deg);}
+  50%{transform:rotate(-8deg);}
+}
+</style>
 
 <!-- VENMO PAYMENT MODAL -->
 <div class="venmo-overlay" id="venmoModal">
@@ -1693,10 +1725,6 @@ body {
       <div class="title-site" style="text-align:center;">The Forest Sessions</div>
       <div class="title-byline" style="text-align:center;">Penned · Recorded · Produced in Lebanon, TN</div>
       <div class="divider"></div>
-      <p class="intro-text" style="text-align:center; margin:0 auto;">
-        🎸 A squirrel on guitar, a rabbit on bass, and a turtle laying down the beat —
-        welcome to the woods, where every song tells a Tennessee story. 🌿
-      </p>
       <div style="margin-top:18px; text-align:center;">
         <div class="panel-title">🎵 Play Songs Below!</div>
         <div class="panel-sub">— Original Songs by Steven Bickham —</div>
