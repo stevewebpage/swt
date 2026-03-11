@@ -1,0 +1,22 @@
+#!/bin/bash
+cd "/Volumes/1GB SD CARD"
+
+mv "Crazy Boy Alt Version.mp3" "cbalt.mp3"
+mv "Happy for a While v1.mp3" "hfw.mp3"
+mv "He Wont Give In v1.mp3" "hwgi.mp3"
+mv "Holy.mp3" "holy.mp3"
+mv "Honky Tonk Hell.mp3" "hth.mp3"
+mv "I Will Follow Him.mp3" "iwfh.mp3"
+mv "Im Gonna Kiss You.mp3" "igky.mp3"
+mv "Im Just Like This Old Pick Up.mp3" "iltop.mp3"
+mv "Keep On Smilin.mp3" "kos.mp3"
+mv "King of Kings Lord of Lords.mp3" "kokl.mp3"
+mv "Michigans Home.mp3" "mh.mp3"
+mv "My Life Is Yours Jesus v2.mp3" "mliyj.mp3"
+mv "My Life Is Yours v1.mp3" "mliy.mp3"
+mv "Origin of Dance.mp3" "ood.mp3"
+mv "Real Stars.mp3" "rs.mp3"
+mv "Shes My Little Girl.mp3" "smlg.mp3"
+mv "Wasnt Meant to Be.mp3" "wmtb.mp3"
+
+echo "Done! All files renamed."
