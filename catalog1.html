@@ -1760,18 +1760,7 @@ body {
 // Build song list
 const BASE = "";
 const songs = [
-  { title:"If Life Ain't Crazy, I Ain't Country",   duration:"3:24", genre:"Country",        mp3:"ilac.mp3"  },
-  { title:"Sail Away",                               duration:"3:42", genre:"Country Rock",   mp3:"sa.mp3"    },
-  { title:"Same Songs on the Radio",                 duration:"3:48", genre:"Country",        mp3:"sstr.mp3"  },
-  { title:"I'm Just Like This Old Pick Up",          duration:"3:30", genre:"Country",        mp3:"iltop.mp3" },
-  { title:"Love Song",                               duration:"3:58", genre:"Country",        mp3:"ls.mp3"    },
-  { title:"Runnin Wild (Woods Song)",                duration:"4:08", genre:"Country Rock",   mp3:"rw.mp3"    },
-  { title:"Crazy Boy (Drink Yourself to Death)",     duration:"3:39", genre:"Country",        mp3:"cb.mp3"    },
-  { title:"Happy for a While",                       duration:"3:30", genre:"Country",        mp3:"hfw.mp3"   },
-  { title:"He Won't Give In",                        duration:"3:30", genre:"Country",        mp3:"hwgi.mp3"  },
-  { title:"She's Got a Crush on Me",                 duration:"2:41", genre:"Country Pop",    mp3:"sgcm.mp3"  },
-  { title:"Riding Like the Wind",                    duration:"3:20", genre:"Country Rock",   mp3:"rltw.mp3"  },
-  { title:"Trump Came Back",                         duration:"4:00", genre:"Country",        mp3:"tcb.mp3", video:"https://drive.google.com/uc?export=preview&id=1QOm3LQMxChQ56whM3ciNahspSEYkYM60" },
+  { title:"Trump Came Back",                         duration:"4:00", genre:"Country",        mp3:"tcb.mp3"   },
   { title:"She Is Sure a Beauty",                    duration:"5:47", genre:"Country",        mp3:"sab.mp3"   },
   { title:"Funk Overdrive (Birthday Suit)",          duration:"3:04", genre:"Funk",           mp3:"fo.mp3"    },
   { title:"Presents of the Lord (Christmas Song)",   duration:"3:49", genre:"Holiday",        mp3:"potl.mp3"  },
@@ -1789,7 +1778,6 @@ const songs = [
   { title:"King of Kings, Lord of Lords",            duration:"3:30", genre:"Gospel",         mp3:"kokl.mp3"  },
   { title:"Michigan's Home",                         duration:"3:30", genre:"Country",        mp3:"mh.mp3"    },
   { title:"My Life Is Yours (Jesus)",                duration:"3:30", genre:"Gospel",         mp3:"mliyj.mp3" },
-  { title:"My Life Is Yours",                        duration:"3:30", genre:"Gospel",         mp3:"mliy.mp3"  },
   { title:"Origin of Dance",                         duration:"3:30", genre:"Country",        mp3:"ood.mp3"   },
   { title:"Real Stars",                              duration:"3:30", genre:"Country",        mp3:"rs.mp3"    },
   { title:"She's My Little Girl",                    duration:"3:30", genre:"Country",        mp3:"smlg.mp3"  },
@@ -1831,6 +1819,8 @@ function playSong(i) {
     currentAudio.pause();
     currentAudio.currentTime = 0;
     if (currentBtn) currentBtn.textContent = '▶ Listen';
+    currentAudio = null;
+    currentBtn = null;
   }
   if (audio.paused) {
     audio.play();
@@ -1840,6 +1830,12 @@ function playSong(i) {
     audio.onended = () => { btn.textContent = '▶ Listen'; currentAudio = null; currentBtn = null; };
   } else {
     audio.pause();
+    audio.currentTime = 0;
+    btn.textContent = '▶ Listen';
+    currentAudio = null;
+    currentBtn = null;
+  }
+}
     btn.textContent = '▶ Listen';
     currentAudio = null;
     currentBtn = null;
