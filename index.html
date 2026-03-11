@@ -1687,7 +1687,7 @@ body {
   <div class="venmo-box">
     <button class="venmo-close" id="venmoClose" title="Close">✕</button>
     <div class="venmo-title">💛 Support the Music</div>
-    <div class="venmo-subtitle">Scan the QR code or search Venmo<br>to send a tip before downloading!</div>
+    <div class="venmo-subtitle">Scan the <span style="font-family:'Abril Fatface',cursive;color:#ffe066;font-style:normal;letter-spacing:2px;text-shadow:0 0 10px rgba(255,220,80,.5);">QR</span> code or search Venmo<br>to send a tip before downloading!</div>
     <img class="venmo-qr" src="venmo-qr.jpg" alt="Venmo QR Code"
          onerror="this.style.display='none';document.getElementById('venmoFallback').style.display='flex';">
     <div class="venmo-qr-fallback" id="venmoFallback" style="display:none;">
@@ -1695,7 +1695,7 @@ body {
       <span>venmo-qr.jpg</span>
       <span style="font-size:.7rem;opacity:.7;">Place your QR image in<br>the same folder as this page</span>
     </div>
-    <div class="venmo-handle">@StevenBickham</div>
+    <div class="venmo-handle"><span style="font-size:.7em;font-family:'Lato',sans-serif;font-weight:700;letter-spacing:2px;opacity:.8;">Steve's Venmo:</span> @steve bickham</div>
     <div class="venmo-price">Any amount is appreciated 🎸</div>
     <a id="venmoDownloadBtn" href="#" download class="btn-confirm-download">
       ⬇️ I've Paid — Download Now
@@ -1752,6 +1752,10 @@ body {
       " onmouseover="this.style.background='rgba(255,200,60,.15)'" onmouseout="this.style.background='rgba(5,15,6,0.7)'">
         🎵 Full Catalog →
       </a>
+    </div>
+    <div style="margin-top:12px; text-align:center; display:flex; justify-content:center; gap:16px;">
+      <a href="catalog1.html" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:1rem;color:#ffe066;text-decoration:none;letter-spacing:1px;border:1px solid rgba(255,220,80,.4);padding:8px 22px;border-radius:30px;background:rgba(5,15,6,0.7);box-shadow:0 0 20px rgba(255,200,60,.15);transition:all .2s;" onmouseover="this.style.background='rgba(255,200,60,.15)'" onmouseout="this.style.background='rgba(5,15,6,0.7)'">Page 2 →</a>
+      <a href="catalog2.html" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:1rem;color:#ffe066;text-decoration:none;letter-spacing:1px;border:1px solid rgba(255,220,80,.4);padding:8px 22px;border-radius:30px;background:rgba(5,15,6,0.7);box-shadow:0 0 20px rgba(255,200,60,.15);transition:all .2s;" onmouseover="this.style.background='rgba(255,200,60,.15)'" onmouseout="this.style.background='rgba(5,15,6,0.7)'">Page 3 →</a>
     </div>
   </div>
 </div>
