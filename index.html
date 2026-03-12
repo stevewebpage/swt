@@ -1941,6 +1941,22 @@ for(let i=0;i<14;i++){
   l.style.cssText=`left:${Math.random()*94}vw;animation-duration:${4+Math.random()*5}s;animation-delay:${Math.random()*7}s;font-size:${10+Math.random()*12}px;`;
   document.body.appendChild(l);
 }
+
+// Stop everything cleanly before navigating away
+document.addEventListener('visibilitychange', function() {
+  if (document.visibilityState === 'hidden') {
+    document.querySelectorAll('audio').forEach(a => { a.pause(); a.src = ''; });
+  }
+});
+window.addEventListener('pagehide', function() {
+  document.querySelectorAll('audio').forEach(a => { a.pause(); a.src = ''; });
+  document.querySelectorAll('.firefly, .leaf, .cloud').forEach(el => el.remove());
+});
+document.querySelectorAll('a[href]').forEach(link => {
+  link.addEventListener('click', function() {
+    document.querySelectorAll('audio').forEach(a => { a.pause(); a.src = ''; });
+  });
+});
 </script>
 </body>
 </html>
