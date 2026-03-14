@@ -297,47 +297,7 @@ body {
 }
 
 /* STAGE GLOW */
-.stage-glow{
-  position:fixed;z-index:9;pointer-events:none;
-  bottom:192px;left:50%;transform:translateX(-50%);
-  width:420px;height:80px;border-radius:50%;
-  background:radial-gradient(ellipse,rgba(255,240,80,.45) 0%,rgba(255,200,50,.15) 60%,transparent 80%);
-  animation:glowPulse 2s ease-in-out infinite;
-}
-@keyframes glowPulse{
-  0%,100%{width:380px;opacity:.8;}
-  50%    {width:460px;opacity:1;}
-}
-
 /* SPOTLIGHTS */
-.spotlight {
-  position:fixed; bottom:0; z-index:9; pointer-events:none;
-  width:180px; height:85vh;
-  border-radius:50% 50% 0 0 / 20px 20px 0 0;
-  transform-origin: bottom center;
-  mix-blend-mode: screen;
-  animation: spotSway 2s ease-in-out infinite;
-}
-.spotlight-1 {
-  left:calc(50% - 160px);
-  background: linear-gradient(180deg, transparent 0%, rgba(255,220,80,.13) 40%, rgba(255,200,60,.22) 100%);
-  animation-delay: 0s;
-}
-.spotlight-2 {
-  left:50%; transform:translateX(-50%);
-  background: linear-gradient(180deg, transparent 0%, rgba(255,255,180,.15) 40%, rgba(255,240,100,.25) 100%);
-  animation-delay: 1.3s;
-}
-.spotlight-3 {
-  left:calc(50% + 80px);
-  background: linear-gradient(180deg, transparent 0%, rgba(180,220,255,.13) 40%, rgba(160,200,255,.2) 100%);
-  animation-delay: 2.6s;
-}
-@keyframes spotSway {
-  0%,100% { transform: rotate(-6deg); opacity:.8; }
-  50%      { transform: rotate(6deg);  opacity:1; }
-}
-
 /* CROWD CHEER */
 .crowd {
   position:fixed; bottom:84px; left:0; width:100%; z-index:10;
@@ -941,12 +901,10 @@ body {
 <div class="floor"></div>
 
 <!-- SPOTLIGHTS -->
-<div class="spotlight spotlight-1"></div>
-<div class="spotlight spotlight-2"></div>
-<div class="spotlight spotlight-3"></div>
+
 
 <!-- STAGE GLOW -->
-<div class="stage-glow"></div>
+
 
 <!-- MUSICAL NOTES -->
 <div class="notes">
@@ -982,9 +940,7 @@ body {
   <!-- Tree canopy silhouette right -->
   <path d="M1020,400 L1020,80 Q1060,55 1100,85 Q1140,40 1180,75 Q1220,50 1260,90 Q1300,60 1340,110 Q1380,80 1420,130 L1440,160 L1440,400 Z"
         fill="rgba(10,30,10,0.7)"/>
-  <!-- Soft golden spotlight glow on stage -->
-  <ellipse cx="720" cy="310" rx="280" ry="55" fill="rgba(255,220,80,0.07)"/>
-</svg>
+  </svg>
 
 
 
@@ -993,7 +949,7 @@ body {
 <!-- DRAGGABLE CONFETTI 2 -->
 
 <!-- DRAGGABLE DISCO BALL -->
-<div id="drag-disco" style="position:fixed; top:0; left:50%; transform:translateX(-50%); z-index:20; pointer-events:auto; display:flex; flex-direction:column; align-items:center;">
+<div id="drag-disco" style="position:fixed; bottom:220px; left:50%; transform:translateX(-50%); z-index:20; pointer-events:auto; display:flex; flex-direction:column; align-items:center;">
   <!-- Canvas ball -->
   <canvas id="discoCanvas" width="110" height="110" style="display:block; margin-top:-1px; filter:drop-shadow(0 6px 22px rgba(160,200,255,.4));"></canvas>
   <!-- Resize handle -->
@@ -1008,7 +964,7 @@ body {
   // S, R, cx, cy are derived live from canvas size in drawFrame
 
   // Tile grid: ROWS latitude bands, COLS columns per equator
-  const ROWS = 14, BASE_COLS = 20;
+  const ROWS = 28, BASE_COLS = 40;
 
   // Fixed light direction (upper-left-front)
   const Lx = -0.5, Ly = -0.7, Lz = 0.8;
@@ -1082,14 +1038,14 @@ body {
       // Specular (viewer along +Z)
       const hx=(lx+0)/2, hy=(ly+0)/2, hz=(lz+1)/2;
       const hl=Math.hypot(hx,hy,hz);
-      const spec = Math.pow(Math.max(0,(f.nx*hx/hl + f.ny*hy/hl + f.nz*hz/hl)), 40);
+      const spec = Math.pow(Math.max(0,(f.nx*hx/hl + f.ny*hy/hl + f.nz*hz/hl)), 20);
 
-      // Base mirror tile color: cool silver-blue
-      const base = [200, 215, 235];
-      const br = 0.15 + diff*0.55 + spec*0.85;
-      const rr = Math.min(255, base[0]*br + spec*255*0.5)|0;
-      const gg = Math.min(255, base[1]*br + spec*255*0.55)|0;
-      const bb = Math.min(255, base[2]*br + spec*255*0.7)|0;
+      // Base mirror tile color: bright chrome silver
+      const base = [220, 235, 255];
+      const br = 0.25 + diff*0.65 + spec*1.2;
+      const rr = Math.min(255, base[0]*br + spec*255*0.8)|0;
+      const gg = Math.min(255, base[1]*br + spec*255*0.85)|0;
+      const bb = Math.min(255, base[2]*br + spec*255*1.0)|0;
 
       ctx.beginPath();
       ctx.moveTo(corners4[0][0], corners4[0][1]);
@@ -1102,8 +1058,8 @@ body {
       ctx.fill();
 
       // Grout gap
-      ctx.strokeStyle = 'rgba(0,0,0,0.6)';
-      ctx.lineWidth = 0.7;
+      ctx.strokeStyle = 'rgba(0,0,0,0.5)';
+      ctx.lineWidth = 0.4;
       ctx.stroke();
     }
 
@@ -1440,12 +1396,90 @@ body {
     }
   }
 
+  // ── Firefly sparkles — aggressive flashing ──
+  const fireflyCanvas = document.createElement('canvas');
+  fireflyCanvas.style.cssText = `position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:21;`;
+  document.body.appendChild(fireflyCanvas);
+  const fctx = fireflyCanvas.getContext('2d');
+  function resizeFirefly(){ fireflyCanvas.width = window.innerWidth; fireflyCanvas.height = window.innerHeight; }
+  resizeFirefly();
+  window.addEventListener('resize', resizeFirefly);
+
+  const NUM_FLIES = 40;
+  const flies = Array.from({length: NUM_FLIES}, () => ({
+    angle:     Math.random() * Math.PI * 2,
+    radius:    30 + Math.random() * 70,
+    speed:     (Math.random() > 0.5 ? 1 : -1) * (0.006 + Math.random() * 0.014),
+    phase:     Math.random() * Math.PI * 2,
+    flashRate: 0.12 + Math.random() * 0.32,
+    burstPhase:Math.random() * Math.PI * 2,
+    burstRate: 0.04 + Math.random() * 0.09,
+    size:      1.2 + Math.random() * 2.8,
+    drift:     (Math.random() - 0.5) * 0.003,
+    hue: [[255,255,255],[200,230,255],[255,245,180],[180,255,220],[255,210,255]][Math.floor(Math.random()*5)],
+  }));
+
+  function updateFireflies() {
+    fctx.clearRect(0, 0, fireflyCanvas.width, fireflyCanvas.height);
+    const bc = getBallCenter();
+    flies.forEach(f => {
+      f.angle     += f.speed;
+      f.radius    += f.drift;
+      if (f.radius < 28) f.drift = Math.abs(f.drift);
+      if (f.radius > 95) f.drift = -Math.abs(f.drift);
+      f.phase     += f.flashRate;
+      f.burstPhase+= f.burstRate;
+
+      const flicker = Math.max(0, Math.sin(f.phase));
+      const bloom   = 0.3 + 0.7 * Math.max(0, Math.sin(f.burstPhase));
+      const alpha   = flicker * bloom;
+      if (alpha < 0.02) return;
+
+      const x = bc.x + Math.cos(f.angle) * f.radius;
+      const y = bc.y + Math.sin(f.angle) * f.radius * 0.52;
+      const [r,g,b] = f.hue;
+      const core = f.size * (1 + bloom * 0.6);
+      const glow = core * 5;
+
+      fctx.save();
+      fctx.globalAlpha = alpha;
+      const grad = fctx.createRadialGradient(x, y, 0, x, y, glow);
+      grad.addColorStop(0,   `rgba(${r},${g},${b},1)`);
+      grad.addColorStop(0.15,`rgba(${r},${g},${b},0.8)`);
+      grad.addColorStop(0.4, `rgba(${r},${g},${b},0.25)`);
+      grad.addColorStop(1,   `rgba(${r},${g},${b},0)`);
+      fctx.fillStyle = grad;
+      fctx.beginPath();
+      fctx.arc(x, y, glow, 0, Math.PI * 2);
+      fctx.fill();
+
+      fctx.globalAlpha = Math.min(1, alpha * 1.8);
+      fctx.fillStyle = `rgba(${r},${g},${b},1)`;
+      fctx.beginPath();
+      fctx.arc(x, y, core, 0, Math.PI * 2);
+      fctx.fill();
+
+      if (flicker > 0.7 && bloom > 0.6) {
+        fctx.globalAlpha = (flicker - 0.7) * 2.5 * bloom;
+        fctx.strokeStyle = `rgba(${r},${g},${b},1)`;
+        fctx.lineWidth = 0.7;
+        const arm = core * 3.5;
+        fctx.beginPath();
+        fctx.moveTo(x - arm, y); fctx.lineTo(x + arm, y);
+        fctx.moveTo(x, y - arm); fctx.lineTo(x, y + arm);
+        fctx.stroke();
+      }
+      fctx.restore();
+    });
+  }
+
   const SPEED = 0.009;
   function loop(){
     spin += SPEED;
     drawFrame(spin);
     updateDots(spin);
     updateBeams(spin);
+    updateFireflies();
     updateFlashes(spin);
     // Keep flash handle affixed to disco ball center
     const flashEl = document.getElementById('drag-flash');
@@ -1526,24 +1560,24 @@ body {
 </div>
 
 <!-- UFO -->
-<div id="ufo" style="position:fixed; top:80px; left:50%; transform:translateX(-50%); z-index:25; pointer-events:none; animation:ufoFloat 4s ease-in-out infinite;">
+<div id="ufo" style="position:fixed; bottom:252px; right:60px; z-index:25; pointer-events:none; animation:ufoFloat2 4s ease-in-out infinite;">
   <!-- UFO body -->
-  <div style="position:relative; width:120px; height:50px; margin:0 auto;">
+  <div style="position:relative; width:60px; height:25px; margin:0 auto;">
     <!-- Dome -->
-    <div style="position:absolute; top:-28px; left:50%; transform:translateX(-50%);
-      width:50px; height:32px; border-radius:50% 50% 0 0;
+    <div style="position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+      width:25px; height:16px; border-radius:50% 50% 0 0;
       background:radial-gradient(ellipse at 35% 35%, rgba(180,230,255,0.95), rgba(80,160,220,0.7));
       border:1px solid rgba(120,200,255,0.5);
-      box-shadow:0 0 12px rgba(120,200,255,0.6);"></div>
+      box-shadow:0 0 6px rgba(120,200,255,0.6);"></div>
     <!-- Main saucer -->
-    <div style="position:absolute; top:0; left:0; width:120px; height:28px; border-radius:50%;
+    <div style="position:absolute; top:0; left:0; width:60px; height:14px; border-radius:50%;
       background:radial-gradient(ellipse at 40% 30%, #d0d8e0, #8090a0);
-      box-shadow:0 4px 20px rgba(0,0,0,0.5), 0 0 30px rgba(120,200,255,0.3);"></div>
+      box-shadow:0 2px 10px rgba(0,0,0,0.5), 0 0 15px rgba(120,200,255,0.3);"></div>
     <!-- Underbelly -->
-    <div style="position:absolute; top:16px; left:15px; width:90px; height:16px; border-radius:50%;
+    <div style="position:absolute; top:8px; left:8px; width:45px; height:8px; border-radius:50%;
       background:radial-gradient(ellipse, #606878, #404858);"></div>
     <!-- Flashing lights row -->
-    <div id="ufo-lights" style="position:absolute; top:20px; left:10px; width:100px; display:flex; justify-content:space-around; align-items:center;">
+    <div id="ufo-lights" style="position:absolute; top:10px; left:5px; width:50px; display:flex; justify-content:space-around; align-items:center;">
       <div class="ufo-light" style="--c:255,80,80;"></div>
       <div class="ufo-light" style="--c:80,255,120; animation-delay:.2s;"></div>
       <div class="ufo-light" style="--c:80,160,255; animation-delay:.4s;"></div>
@@ -1552,25 +1586,29 @@ body {
       <div class="ufo-light" style="--c:80,255,240; animation-delay:1s;"></div>
     </div>
     <!-- Tractor beam -->
-    <div style="position:absolute; top:28px; left:50%; transform:translateX(-50%);
+    <div style="position:absolute; top:14px; left:50%; transform:translateX(-50%);
       width:0; height:0;
-      border-left:30px solid transparent;
-      border-right:30px solid transparent;
-      border-top:60px solid rgba(120,220,255,0.08);
-      filter:blur(3px);"></div>
+      border-left:15px solid transparent;
+      border-right:15px solid transparent;
+      border-top:30px solid rgba(120,220,255,0.08);
+      filter:blur(2px);"></div>
   </div>
 </div>
 
 <style>
 .ufo-light {
-  width:8px; height:8px; border-radius:50%;
+  width:4px; height:4px; border-radius:50%;
   background:rgba(var(--c),1);
-  box-shadow:0 0 6px 3px rgba(var(--c),0.7);
+  box-shadow:0 0 3px 2px rgba(var(--c),0.7);
   animation:ufoFlash .9s ease-in-out infinite;
 }
 @keyframes ufoFlash {
   0%,100%{opacity:1;transform:scale(1);}
   50%{opacity:.2;transform:scale(0.6);}
+}
+@keyframes ufoFloat2 {
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-9px);}
 }
 @keyframes ufoFloat {
   0%,100%{transform:translateX(-50%) translateY(0);}
@@ -1578,46 +1616,51 @@ body {
 }
 </style>
 
-<!-- CAMPFIRE & ALIENS -->
-<!-- Campfire -->
-<div style="position:fixed; bottom:102px; left:50%; transform:translateX(-50%); z-index:22; pointer-events:none; display:flex; flex-direction:column; align-items:center;">
-  <!-- Flames -->
-  <div style="display:flex; gap:2px; align-items:flex-end; margin-bottom:-4px;">
-    <div style="width:10px; height:22px; border-radius:50% 50% 30% 30%; background:linear-gradient(180deg,#fff5a0,#ff8800,#cc4400); animation:flame 0.6s ease-in-out infinite alternate; transform-origin:bottom;"></div>
-    <div style="width:14px; height:32px; border-radius:50% 50% 30% 30%; background:linear-gradient(180deg,#ffffff,#ffe040,#ff6600,#cc3300); animation:flame 0.5s ease-in-out infinite alternate-reverse; transform-origin:bottom;"></div>
-    <div style="width:10px; height:24px; border-radius:50% 50% 30% 30%; background:linear-gradient(180deg,#fff5a0,#ff9900,#cc4400); animation:flame 0.7s ease-in-out infinite alternate; transform-origin:bottom;"></div>
-  </div>
-  <!-- Glow -->
-  <div style="width:60px;height:10px;background:radial-gradient(ellipse,rgba(255,160,40,0.45),transparent);border-radius:50%;margin-bottom:-4px;"></div>
-  <!-- Logs -->
-  <div style="display:flex; gap:4px;">
-    <div style="width:28px;height:8px;background:#5a3010;border-radius:4px;transform:rotate(-20deg);"></div>
-    <div style="width:28px;height:8px;background:#4a2808;border-radius:4px;transform:rotate(20deg);"></div>
-  </div>
-</div>
-<style>
-@keyframes flame {
-  0%{transform:scaleX(1) scaleY(1);}
-  100%{transform:scaleX(0.8) scaleY(1.15);}
-}
-</style>
+<!-- ALIENS -->
+<div style="position:fixed; bottom:100px; left:50%; transform:translateX(-50%); z-index:22; pointer-events:none; width:340px;">
+<svg viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;overflow:visible;">
+  <defs>
+    <radialGradient id="alien-body-g" cx="45%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#dce0e4"/>
+      <stop offset="45%" stop-color="#9aa0a8"/>
+      <stop offset="100%" stop-color="#4a5058"/>
+    </radialGradient>
+    <radialGradient id="alien-neck-g" cx="40%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#c8ccd0"/>
+      <stop offset="100%" stop-color="#7a8088"/>
+    </radialGradient>
+  </defs>
 
-<!-- Alien Left -->
-<div style="position:fixed; bottom:108px; left:calc(50% - 90px); z-index:22; pointer-events:none; display:flex; flex-direction:column; align-items:center; animation:alienSway 3.2s ease-in-out infinite;">
-  <div style="font-size:38px; filter:drop-shadow(0 0 8px rgba(120,255,120,0.7));">👽</div>
-  <div style="font-size:.5rem;font-weight:900;letter-spacing:1px;color:#aaffaa;text-shadow:0 0 6px #0f0;text-transform:uppercase;">Zork</div>
-</div>
+  <!-- ZORK -->
+  <g style="animation:alienSway 3.2s ease-in-out infinite;transform-origin:140px 160px;">
+    <ellipse cx="140" cy="158" rx="26" ry="30" fill="url(#alien-body-g)"/>
+    <rect x="131" y="118" width="18" height="20" rx="5" fill="url(#alien-neck-g)"/>
+    <path d="M116 148 Q94 158 86 168" stroke="#9aa0a8" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M164 148 Q186 158 194 168" stroke="#9aa0a8" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <text x="140" y="118" text-anchor="middle" font-size="62" style="filter:drop-shadow(0 0 8px rgba(120,255,120,0.7));">👽</text>
+    <text x="140" y="205" text-anchor="middle" font-size="9" font-weight="900" letter-spacing="1" fill="#aaffaa" style="text-shadow:0 0 6px #0f0;">ZORK</text>
+  </g>
 
-<!-- Alien Center (slightly taller, leaning in) -->
-<div style="position:fixed; bottom:115px; left:calc(50% - 22px); z-index:22; pointer-events:none; display:flex; flex-direction:column; align-items:center; animation:alienSway 2.8s ease-in-out infinite alternate;">
-  <div style="font-size:44px; filter:drop-shadow(0 0 10px rgba(120,255,120,0.8));">👽</div>
-  <div style="font-size:.5rem;font-weight:900;letter-spacing:1px;color:#aaffaa;text-shadow:0 0 6px #0f0;text-transform:uppercase;">Blip</div>
-</div>
+  <!-- BLIP (center, bigger) -->
+  <g style="animation:alienSway 2.8s ease-in-out infinite alternate;transform-origin:340px 168px;">
+    <ellipse cx="340" cy="168" rx="30" ry="34" fill="url(#alien-body-g)"/>
+    <rect x="330" y="124" width="20" height="24" rx="6" fill="url(#alien-neck-g)"/>
+    <path d="M312 158 Q286 170 276 182" stroke="#9aa0a8" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M368 158 Q394 170 404 182" stroke="#9aa0a8" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <text x="340" y="124" text-anchor="middle" font-size="72" style="filter:drop-shadow(0 0 10px rgba(120,255,120,0.8));">👽</text>
+    <text x="340" y="215" text-anchor="middle" font-size="9" font-weight="900" letter-spacing="1" fill="#aaffaa" style="text-shadow:0 0 6px #0f0;">BLIP</text>
+  </g>
 
-<!-- Alien Right -->
-<div style="position:fixed; bottom:108px; left:calc(50% + 48px); z-index:22; pointer-events:none; display:flex; flex-direction:column; align-items:center; animation:alienSway 3.5s ease-in-out infinite alternate-reverse;">
-  <div style="font-size:38px; filter:drop-shadow(0 0 8px rgba(120,255,120,0.7)); transform:scaleX(-1);">👽</div>
-  <div style="font-size:.5rem;font-weight:900;letter-spacing:1px;color:#aaffaa;text-shadow:0 0 6px #0f0;text-transform:uppercase;">Xenu</div>
+  <!-- XENU (mirrored) -->
+  <g style="animation:alienSway 3.5s ease-in-out infinite alternate-reverse;transform-origin:540px 160px;">
+    <ellipse cx="540" cy="158" rx="26" ry="30" fill="url(#alien-body-g)"/>
+    <rect x="531" y="118" width="18" height="20" rx="5" fill="url(#alien-neck-g)"/>
+    <path d="M516 148 Q494 158 486 168" stroke="#9aa0a8" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M564 148 Q586 158 594 168" stroke="#9aa0a8" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <text x="540" y="118" text-anchor="middle" font-size="62" style="transform:scaleX(-1);transform-origin:540px 90px;filter:drop-shadow(0 0 8px rgba(120,255,120,0.7));">👽</text>
+    <text x="540" y="205" text-anchor="middle" font-size="9" font-weight="900" letter-spacing="1" fill="#aaffaa" style="text-shadow:0 0 6px #0f0;">XENU</text>
+  </g>
+</svg>
 </div>
 
 <style>
@@ -1627,40 +1670,81 @@ body {
 }
 </style>
 
-<!-- ROBOT bottom left -->
-<div style="position:fixed; bottom:95px; left:30px; z-index:22; pointer-events:none; display:flex; flex-direction:column; align-items:center; animation:robotBob 2s ease-in-out infinite;">
-  <!-- Head -->
-  <div style="width:36px;height:28px;background:linear-gradient(180deg,#b0c0d0,#7090a8);border-radius:6px;border:2px solid #506070;position:relative;display:flex;justify-content:center;align-items:center;gap:6px;">
-    <!-- Eyes -->
-    <div style="width:7px;height:7px;background:#00ffcc;border-radius:50%;box-shadow:0 0 6px #00ffcc;animation:robotBlink 3s infinite;"></div>
-    <div style="width:7px;height:7px;background:#00ffcc;border-radius:50%;box-shadow:0 0 6px #00ffcc;animation:robotBlink 3s infinite .15s;"></div>
-    <!-- Antenna -->
-    <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);width:2px;height:12px;background:#7090a8;"></div>
-    <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:6px;height:6px;background:#ff4444;border-radius:50%;box-shadow:0 0 6px #ff4444;animation:ufoFlash 1s infinite;"></div>
-  </div>
-  <!-- Neck -->
-  <div style="width:10px;height:6px;background:#607080;"></div>
-  <!-- Body -->
-  <div style="width:44px;height:36px;background:linear-gradient(180deg,#80a0b8,#506880);border-radius:4px;border:2px solid #405060;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;">
-    <!-- Chest panel -->
-    <div style="display:flex;gap:3px;">
-      <div style="width:6px;height:6px;background:#ff8800;border-radius:2px;box-shadow:0 0 4px #ff8800;animation:ufoFlash .7s infinite .1s;"></div>
-      <div style="width:6px;height:6px;background:#00ccff;border-radius:2px;box-shadow:0 0 4px #00ccff;animation:ufoFlash .7s infinite .3s;"></div>
-      <div style="width:6px;height:6px;background:#88ff00;border-radius:2px;box-shadow:0 0 4px #88ff00;animation:ufoFlash .7s infinite .5s;"></div>
-    </div>
-    <div style="width:22px;height:3px;background:rgba(0,0,0,0.3);border-radius:2px;"></div>
-  </div>
-  <!-- Legs -->
-  <div style="display:flex;gap:6px;margin-top:2px;">
-    <div style="width:10px;height:18px;background:#607080;border-radius:3px;animation:robotLegL 2s ease-in-out infinite;transform-origin:top;"></div>
-    <div style="width:10px;height:18px;background:#607080;border-radius:3px;animation:robotLegR 2s ease-in-out infinite;transform-origin:top;"></div>
-  </div>
-  <!-- Feet -->
-  <div style="display:flex;gap:2px;margin-top:1px;">
-    <div style="width:14px;height:6px;background:#405060;border-radius:3px;"></div>
-    <div style="width:14px;height:6px;background:#405060;border-radius:3px;"></div>
-  </div>
-  <div style="font-size:.45rem;font-weight:900;letter-spacing:1px;color:#00ffcc;text-shadow:0 0 6px #00ffcc;text-transform:uppercase;margin-top:3px;">R-01</div>
+<!-- ROBOT LEFT -->
+<div style="position:fixed; bottom:95px; left:calc(50% - 200px); z-index:22; pointer-events:none; animation:robotBob 2s ease-in-out infinite;">
+<svg viewBox="0 0 56 120" width="25" height="54" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="rb-g" cx="40%" cy="30%" r="60%"><stop offset="0%" stop-color="#e0e8f0"/><stop offset="50%" stop-color="#90a0b0"/><stop offset="100%" stop-color="#405060"/></radialGradient>
+  </defs>
+  <!-- antenna -->
+  <rect x="26" y="0" width="3" height="12" fill="#708090" rx="1"/>
+  <circle cx="27" cy="0" r="4" fill="#ff4444" style="animation:ufoFlash 1s ease-in-out infinite;"/>
+  <!-- head -->
+  <rect x="6" y="12" width="44" height="30" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="1"/>
+  <!-- eyes -->
+  <rect x="11" y="19" width="10" height="8" rx="2" fill="#00eeff" opacity="0.9" style="animation:robotBlink 3s infinite;"/>
+  <rect x="35" y="19" width="10" height="8" rx="2" fill="#00eeff" opacity="0.9" style="animation:robotBlink 3s infinite .15s;"/>
+  <!-- mouth -->
+  <rect x="15" y="32" width="24" height="4" rx="1" fill="#304050"/>
+  <rect x="17" y="32" width="4" height="4" fill="#00eeff" opacity="0.5"/>
+  <rect x="24" y="32" width="4" height="4" fill="#00eeff" opacity="0.5"/>
+  <rect x="31" y="32" width="4" height="4" fill="#00eeff" opacity="0.5"/>
+  <!-- neck -->
+  <rect x="21" y="42" width="12" height="7" rx="2" fill="#607080"/>
+  <!-- body -->
+  <rect x="2" y="49" width="52" height="38" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="1"/>
+  <!-- chest lights -->
+  <circle cx="17" cy="63" r="4" fill="#ff8800" style="animation:ufoFlash .7s infinite .1s;"/>
+  <circle cx="28" cy="63" r="4" fill="#00ccff" style="animation:ufoFlash .7s infinite .3s;"/>
+  <circle cx="39" cy="63" r="4" fill="#88ff00" style="animation:ufoFlash .7s infinite .5s;"/>
+  <rect x="14" y="73" width="28" height="5" rx="2" fill="#304050"/>
+  <!-- arms -->
+  <rect x="-10" y="51" width="12" height="28" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8"/>
+  <rect x="54" y="51" width="12" height="28" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8"/>
+  <!-- legs -->
+  <rect x="10" y="87" width="13" height="24" rx="4" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8" style="animation:robotLegL 2s ease-in-out infinite;transform-origin:16px 87px;"/>
+  <rect x="33" y="87" width="13" height="24" rx="4" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8" style="animation:robotLegR 2s ease-in-out infinite;transform-origin:39px 87px;"/>
+  <!-- feet -->
+  <rect x="7" y="109" width="18" height="7" rx="3" fill="#405060"/>
+  <rect x="30" y="109" width="18" height="7" rx="3" fill="#405060"/>
+  <!-- label -->
+  <text x="28" y="122" text-anchor="middle" font-size="7" font-weight="900" letter-spacing="1" fill="#00ffcc">R-01</text>
+</svg>
+</div>
+
+<!-- ROBOT RIGHT -->
+<div style="position:fixed; bottom:95px; left:calc(50% + 145px); z-index:22; pointer-events:none; animation:robotBob 2.2s ease-in-out infinite .4s;">
+<svg viewBox="0 0 56 120" width="25" height="54" xmlns="http://www.w3.org/2000/svg">
+  <!-- antenna -->
+  <rect x="26" y="0" width="3" height="12" fill="#708090" rx="1"/>
+  <circle cx="27" cy="0" r="4" fill="#ff4444" style="animation:ufoFlash 1.2s ease-in-out infinite;"/>
+  <!-- head -->
+  <rect x="6" y="12" width="44" height="30" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="1"/>
+  <rect x="11" y="19" width="10" height="8" rx="2" fill="#00eeff" opacity="0.9" style="animation:robotBlink 3s infinite .3s;"/>
+  <rect x="35" y="19" width="10" height="8" rx="2" fill="#00eeff" opacity="0.9" style="animation:robotBlink 3s infinite .45s;"/>
+  <rect x="15" y="32" width="24" height="4" rx="1" fill="#304050"/>
+  <rect x="17" y="32" width="4" height="4" fill="#00eeff" opacity="0.5"/>
+  <rect x="24" y="32" width="4" height="4" fill="#00eeff" opacity="0.5"/>
+  <rect x="31" y="32" width="4" height="4" fill="#00eeff" opacity="0.5"/>
+  <!-- neck -->
+  <rect x="21" y="42" width="12" height="7" rx="2" fill="#607080"/>
+  <!-- body -->
+  <rect x="2" y="49" width="52" height="38" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="1"/>
+  <circle cx="17" cy="63" r="4" fill="#ff8800" style="animation:ufoFlash .8s infinite .2s;"/>
+  <circle cx="28" cy="63" r="4" fill="#00ccff" style="animation:ufoFlash .8s infinite .4s;"/>
+  <circle cx="39" cy="63" r="4" fill="#88ff00" style="animation:ufoFlash .8s infinite .6s;"/>
+  <rect x="14" y="73" width="28" height="5" rx="2" fill="#304050"/>
+  <!-- arms -->
+  <rect x="-10" y="51" width="12" height="28" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8"/>
+  <rect x="54" y="51" width="12" height="28" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8"/>
+  <!-- legs -->
+  <rect x="10" y="87" width="13" height="24" rx="4" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8" style="animation:robotLegR 2.2s ease-in-out infinite;transform-origin:16px 87px;"/>
+  <rect x="33" y="87" width="13" height="24" rx="4" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8" style="animation:robotLegL 2.2s ease-in-out infinite;transform-origin:39px 87px;"/>
+  <!-- feet -->
+  <rect x="7" y="109" width="18" height="7" rx="3" fill="#405060"/>
+  <rect x="30" y="109" width="18" height="7" rx="3" fill="#405060"/>
+  <text x="28" y="122" text-anchor="middle" font-size="7" font-weight="900" letter-spacing="1" fill="#00ffcc">R-02</text>
+</svg>
 </div>
 
 <style>
