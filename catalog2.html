@@ -1742,19 +1742,28 @@ body {
 
 <script>
 // Build song list
-const BASE = "";
+const BASE = "https://raw.githubusercontent.com/stevewebpage/swt/main/";
+// ================================================================================
+// ✏️  EDIT YOUR SONGS HERE
+//   title: → the song name visitors see on the page
+//   mp3:   → exact filename on GitHub (must match the file in stevewebpage/swt/main/)
+//   RULE: change title freely. Only change mp3: if you also renamed the file on GitHub.
+// ================================================================================
 const songs = [
-  { title:"Keep On Smilin'",                         duration:"3:30", genre:"Country",        mp3:"kos.mp3"   },
-  { title:"Michigan's Home",                         duration:"3:30", genre:"Country",        mp3:"mh.mp3"    },
-  { title:"Origin of Dance",                         duration:"3:30", genre:"Country",        mp3:"ood.mp3"   },
-  { title:"Real Stars",                              duration:"3:30", genre:"Country",        mp3:"rs.mp3"    },
-  { title:"She's My Little Girl",                    duration:"3:30", genre:"Country",        mp3:"smlg.mp3"  },
-  { title:"Wasn't Meant to Be",                      duration:"3:30", genre:"Country",        mp3:"wmtb.mp3"  },
-  { title:"Star Man",                                duration:"3:50", genre:"Rock",           mp3:"sm.mp3"    },
-  { title:"I'm Gonna Kiss You",                      duration:"3:30", genre:"Country",        mp3:"igky.mp3"  },
-  { title:"Holy",                                    duration:"3:30", genre:"Gospel",         mp3:"holy.mp3"  },
-  { title:"Crazy Boy Alt Version",                   duration:"3:39", genre:"Country",        mp3:"cbalt.mp3" },
+  { title:"Keep On Smilin'",        duration:"3:30", genre:"Country",  mp3:"kos.mp3"   },
+  { title:"Michigan's Home",         duration:"3:30", genre:"Country",  mp3:"mh.mp3"    },
+  { title:"Origin of Dance",         duration:"3:30", genre:"Country",  mp3:"ood.mp3"   },
+  { title:"Real Stars",              duration:"3:30", genre:"Country",  mp3:"rs.mp3"    },
+  { title:"She's My Little Girl",    duration:"3:30", genre:"Country",  mp3:"smlg.mp3"  },
+  { title:"Wasn't Meant to Be",      duration:"3:30", genre:"Country",  mp3:"wmtb.mp3"  },
+  { title:"Star Man",                duration:"3:50", genre:"Rock",     mp3:"sm.mp3"    },
+  { title:"I'm Gonna Kiss You",      duration:"3:30", genre:"Country",  mp3:"igky.mp3"  },
+  { title:"Holy",                    duration:"3:30", genre:"Gospel",   mp3:"holy.mp3"  },
+  { title:"Crazy Boy Alt Version",   duration:"3:39", genre:"Country",  mp3:"cbalt.mp3" },
 ];
+// ================================================================================
+// ✏️  END OF SONG LIST — don't edit below this line
+// ================================================================================
 
 const ul = document.getElementById('songList');
 songs.forEach((s,i) => {
