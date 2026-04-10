@@ -1,0 +1,2032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steven Bickham – MusicRow.us | Songlist 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep: #0d1f0e;
+  --forest1: #1a3d1c;
+  --forest2: #2d6128;
+  --forest3: #4a9640;
+  --forest4: #6bbf5a;
+  --sun: #ffe566;
+  --sun2: #ffb030;
+  --sky1: #74c0e8;
+  --sky2: #b8e0f7;
+  --sky3: #d8f0e0;
+  --cream: #fefce8;
+  --gold: #f5c030;
+  --bark: #7a4a22;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Lato', sans-serif;
+  background: var(--deep);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* FOREST BACKGROUND PHOTO */
+.sky-bg {
+  position: fixed; inset: 0; z-index: 0;
+  background: #1a3d1c;
+}
+.forest-photo-bg {
+  position: fixed; inset: 0; z-index: 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: brightness(1.08) saturate(1.15);
+}
+.forest-overlay {
+  position: fixed; inset: 0; z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(5,20,8,.12)  0%,
+    rgba(5,20,8,.05)  35%,
+    rgba(5,20,8,.28)  70%,
+    rgba(5,15,5,.82) 100%
+  );
+}
+
+/* SUN - softened to blend with photo */
+.sun {
+  position: fixed; top: 18px; left: 50%; transform: translateX(-50%);
+  width: 110px; height: 110px; border-radius: 50%; z-index: 2;
+  background: radial-gradient(circle at 38% 32%,
+    #ffffff 0%,
+    #fffde0 12%,
+    #fff5a0 28%,
+    #ffe040 55%,
+    #ffaa00 80%,
+    #ff8800 100%
+  );
+  box-shadow:
+    0 0 0 8px  rgba(255,248,180,.25),
+    0 0 0 18px rgba(255,230,80,.15),
+    0 0 0 35px rgba(255,210,60,.10),
+    0 0 0 60px rgba(255,180,40,.07),
+    0 0 40px  20px rgba(255,220,80,.55),
+    0 0 90px  50px rgba(255,180,50,.35),
+    0 0 180px 90px rgba(255,150,30,.20),
+    0 0 320px 140px rgba(255,120,20,.10);
+  animation: sunPulse 3s ease-in-out infinite;
+  opacity: 1;
+}
+/* Sun corona ring */
+.sun::before {
+  content:'';
+  position:absolute;
+  inset:-18px;
+  border-radius:50%;
+  background: radial-gradient(circle,
+    transparent 45%,
+    rgba(255,230,80,.18) 55%,
+    rgba(255,200,60,.10) 68%,
+    transparent 80%
+  );
+  animation: coronaSpin 18s linear infinite;
+}
+/* Lens flare streak */
+.sun::after {
+  content:'';
+  position:absolute;
+  top:50%; left:-60px;
+  width:230px; height:3px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,255,220,.0) 20%,
+    rgba(255,255,200,.55) 48%,
+    rgba(255,255,255,.85) 50%,
+    rgba(255,255,200,.55) 52%,
+    rgba(255,255,220,.0) 80%,
+    transparent 100%
+  );
+  transform: translateY(-50%);
+  animation: flareFlicker 4s ease-in-out infinite;
+}
+@keyframes sunPulse {
+  0%,100%{
+    box-shadow:
+      0 0 0 8px  rgba(255,248,180,.22),
+      0 0 0 18px rgba(255,230,80,.14),
+      0 0 0 35px rgba(255,210,60,.09),
+      0 0 0 60px rgba(255,180,40,.06),
+      0 0 40px  20px rgba(255,220,80,.50),
+      0 0 90px  50px rgba(255,180,50,.30),
+      0 0 180px 90px rgba(255,150,30,.18),
+      0 0 320px 140px rgba(255,120,20,.09);
+  }
+  50%{
+    box-shadow:
+      0 0 0 12px rgba(255,248,180,.30),
+      0 0 0 26px rgba(255,230,80,.20),
+      0 0 0 50px rgba(255,210,60,.14),
+      0 0 0 85px rgba(255,180,40,.09),
+      0 0 60px  30px rgba(255,220,80,.65),
+      0 0 130px 70px rgba(255,180,50,.42),
+      0 0 240px 110px rgba(255,150,30,.26),
+      0 0 400px 180px rgba(255,120,20,.14);
+  }
+}
+@keyframes coronaSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes flareFlicker {
+  0%,100% { opacity:.4; transform:translateY(-50%) scaleX(1); }
+  50%     { opacity:.9; transform:translateY(-50%) scaleX(1.15); }
+}
+
+/* RAYS */
+.sun-rays {
+  position: fixed; top: -60px; left: 50%; transform: translateX(-50%);
+  width: 1800px; height: 900px; z-index: 1; pointer-events: none;
+}
+.ray {
+  position: absolute; top: 140px; left: 50%;
+  width: 60px; height: 800px;
+  background: linear-gradient(180deg, rgba(255,240,100,.18) 0%, rgba(255,220,80,.04) 50%, transparent 100%);
+  transform-origin: top center;
+  border-radius: 0 0 40px 40px;
+  animation: raySway 3.5s ease-in-out infinite;
+}
+.ray:nth-child(1)  { transform: rotate(-52deg); animation-delay:0s;   width:50px; opacity:.9; }
+.ray:nth-child(2)  { transform: rotate(-42deg); animation-delay:.8s;  width:80px; }
+.ray:nth-child(3)  { transform: rotate(-30deg); animation-delay:1.6s; width:65px; }
+.ray:nth-child(4)  { transform: rotate(-18deg); animation-delay:.4s;  width:90px; opacity:.8; }
+.ray:nth-child(5)  { transform: rotate(-8deg);  animation-delay:2.1s; width:75px; }
+.ray:nth-child(6)  { transform: rotate(0deg);   animation-delay:1.0s; width:100px;opacity:.85;}
+.ray:nth-child(7)  { transform: rotate(10deg);  animation-delay:.2s;  width:70px; }
+.ray:nth-child(8)  { transform: rotate(20deg);  animation-delay:1.8s; width:88px; }
+.ray:nth-child(9)  { transform: rotate(32deg);  animation-delay:.6s;  width:65px; opacity:.9;}
+.ray:nth-child(10) { transform: rotate(43deg);  animation-delay:2.4s; width:78px; }
+.ray:nth-child(11) { transform: rotate(54deg);  animation-delay:1.2s; width:55px; }
+@keyframes raySway {
+  0%,100% { opacity:.6; }
+  50%     { opacity:1; }
+}
+
+/* CLOUDS */
+.cloud {
+  position: fixed; z-index: 3; pointer-events: none;
+  border-radius: 50px;
+  background: rgba(255,255,255,.75);
+  filter: blur(1px);
+  animation: cloudDrift linear infinite;
+}
+.cloud::before, .cloud::after {
+  content:''; position:absolute; background:inherit; border-radius:50%;
+}
+.cloud:nth-child(1){ width:160px;height:45px;top:80px; left:-200px;animation-duration:35s; animation-delay:0s;  opacity:.8;}
+.cloud:nth-child(2){ width:120px;height:35px;top:120px;left:-200px;animation-duration:45s; animation-delay:20s; opacity:.6;}
+.cloud:nth-child(3){ width:200px;height:55px;top:60px; left:-200px;animation-duration:55s;animation-delay:40s; opacity:.7;}
+.cloud:nth-child(1)::before{width:80px; height:70px;top:-35px;left:20px;}
+.cloud:nth-child(1)::after {width:60px; height:55px;top:-25px;left:70px;}
+.cloud:nth-child(2)::before{width:60px; height:55px;top:-28px;left:15px;}
+.cloud:nth-child(2)::after {width:50px; height:45px;top:-20px;left:55px;}
+.cloud:nth-child(3)::before{width:100px;height:85px;top:-42px;left:25px;}
+.cloud:nth-child(3)::after {width:80px; height:68px;top:-32px;left:90px;}
+@keyframes cloudDrift{from{transform:translateX(0)}to{transform:translateX(calc(100vw + 400px))}}
+
+/* TREE LAYERS */
+.tree-layer {
+  position: fixed; bottom:0; left:0; width:100%; pointer-events:none;
+}
+.tree-back  { display:none; }
+.tree-mid   { display:none; }
+.tree-front { display:none; }
+
+/* MOON & STARS */
+.moon {
+  position:fixed; top:30px; right:80px; z-index:3;
+  font-size:52px;
+  filter:drop-shadow(0 0 18px rgba(255,240,180,.9)) drop-shadow(0 0 40px rgba(255,220,120,.5));
+  animation: moonGlow 4s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes moonGlow {
+  0%,100% { filter:drop-shadow(0 0 14px rgba(255,240,180,.8)) drop-shadow(0 0 35px rgba(255,220,120,.4)); }
+  50%      { filter:drop-shadow(0 0 26px rgba(255,240,180,1))  drop-shadow(0 0 60px rgba(255,220,120,.7)); }
+}
+.star {
+  position:fixed; z-index:3; pointer-events:none;
+  animation: starTwinkle ease-in-out infinite;
+  font-size:16px;
+}
+@keyframes starTwinkle {
+  0%,100% { opacity:.4; transform:scale(.8); }
+  50%      { opacity:1;  transform:scale(1.2); }
+}
+
+
+.floor {
+  display: none;
+}
+
+/* CAMPFIRE */
+.campfire {
+  position:relative; display:flex; flex-direction:column;
+  align-items:center; pointer-events:none;
+}
+.campfire-flames {
+  font-size:clamp(28px,4vw,48px);
+  filter:drop-shadow(0 0 6px rgba(255,140,0,.9)) drop-shadow(0 0 12px rgba(255,80,0,.6));
+  line-height:1;
+}
+.campfire-base {
+  font-size:clamp(20px,2.5vw,32px);
+  margin-top:-4px;
+  filter:drop-shadow(0 2px 6px rgba(0,0,0,.6));
+}
+.campfire-glow {
+  position:absolute; bottom:-10px; left:50%; transform:translateX(-50%);
+  width:40px; height:10px; border-radius:50%;
+  background:radial-gradient(ellipse, rgba(255,140,0,.5) 0%, rgba(255,80,0,.2) 60%, transparent 80%);
+  animation: glowFlicker 0.4s ease-in-out infinite alternate;
+}
+@keyframes fireFlicker {
+  0%   { transform: scaleX(1)    scaleY(1)    rotate(-2deg) translateY(0); opacity:1;  }
+  100% { transform: scaleX(1.15) scaleY(0.92) rotate(2deg)  translateY(0); opacity:.85;}
+}
+@keyframes glowFlicker {
+  0%   { width:70px;  opacity:.6; }
+  100% { width:100px; opacity:1;  }
+}
+
+/* GRASS */
+.grass-row{
+  position:fixed;bottom:197px;left:0;width:100%;z-index:9;pointer-events:none;
+  display:flex;justify-content:space-around;align-items:flex-start;
+  padding-left:48px;
+}
+.grass-tuft{font-size:clamp(22px,3.5vw,36px);animation:grassParty 0.3s ease-in-out infinite alternate;}
+.grass-tuft:nth-child(1) {animation-delay:0s;   animation-duration:0.25s; transform: translateY(220px);}
+.grass-tuft:nth-child(2) {animation-delay:0.1s; animation-duration:0.35s; transform: translateY(140px);}
+.grass-tuft:nth-child(3) {animation-delay:0.2s; animation-duration:0.28s; transform: translateY(70px);}
+.grass-tuft:nth-child(4) {animation-delay:0.3s; animation-duration:0.33s; transform: translateY(20px);}
+.grass-tuft:nth-child(5) {animation-delay:0.4s; animation-duration:0.25s; transform: translateY(0px);}
+.grass-tuft:nth-child(6) {animation-delay:0.15s;animation-duration:0.38s; transform: translateY(0px);}
+.grass-tuft:nth-child(7) {animation-delay:0.25s;animation-duration:0.3s;  transform: translateY(20px);}
+.grass-tuft:nth-child(8) {animation-delay:0.35s;animation-duration:0.25s; transform: translateY(70px);}
+.grass-tuft:nth-child(9) {animation-delay:0.05s;animation-duration:0.35s; transform: translateY(140px);}
+.grass-tuft:nth-child(10){animation-delay:0.45s;animation-duration:0.28s; transform: translateY(220px);}
+.grass-tuft:nth-child(11){animation-delay:0.2s; animation-duration:0.33s; transform: translateY(280px);}
+.grass-tuft:nth-child(12){animation-delay:0.3s; animation-duration:0.3s;  transform: translateY(280px);}
+@keyframes grassParty {
+  0%  { transform: rotate(-18deg) scaleY(0.8) translateY(4px); }
+  100%{ transform: rotate(18deg)  scaleY(1.2) translateY(-6px); }
+}
+
+/* BIRDS */
+.bird{
+  position:fixed;font-size:22px;z-index:11;pointer-events:none;
+  animation:birdFly linear infinite;
+}
+@keyframes birdFly{
+  0%  {transform:translateX(-150px) translateY(0)             scaleX(1); opacity:0;}
+  5%  {opacity:1;}
+  49% {transform:translateX(calc(50vw+10px)) translateY(var(--by)) scaleX(1);}
+  50% {transform:translateX(calc(50vw+20px)) translateY(var(--by)) scaleX(-1);}
+  95% {opacity:1;}
+  100%{transform:translateX(-150px) translateY(0)             scaleX(-1);opacity:0;}
+}
+
+/* STAGE GLOW */
+/* SPOTLIGHTS */
+/* CROWD CHEER */
+.crowd {
+  position:fixed; bottom:84px; left:0; width:100%; z-index:10;
+  display:flex; justify-content:space-around; padding:0 5%;
+  align-items:flex-start;
+  pointer-events:none;
+}
+.crowd-member {
+  font-size:clamp(24px,3.5vw,40px);
+  animation: none;
+  filter:drop-shadow(0 2px 6px rgba(0,0,0,.5));
+}
+.crowd-member:nth-child(1){animation-delay:0s;    transform: translateY(240px);}
+.crowd-member:nth-child(2){animation-delay:.15s;  transform: translateY(150px);}
+.crowd-member:nth-child(3){animation-delay:.3s;   transform: translateY(65px);}
+.crowd-member:nth-child(4){animation-delay:.45s;  transform: translateY(0px);}
+.crowd-member:nth-child(5){animation-delay:.6s;   transform: translateY(0px);}
+.crowd-member:nth-child(6){animation-delay:.75s;  transform: translateY(65px);}
+.crowd-member:nth-child(7){animation-delay:.9s;   transform: translateY(150px);}
+.crowd-member:nth-child(8){animation-delay:1.05s; transform: translateY(240px);}
+@keyframes cheer {
+  0%   { transform: translateY(0)   rotate(-8deg) scale(1);   }
+  100% { transform: translateY(-18px) rotate(8deg) scale(1.15); }
+}
+
+/* BAND */
+.stage{
+  position:fixed;bottom:274px;left:50%;transform:translateX(-50%);
+  z-index:10;display:flex;align-items:flex-end;gap:clamp(40px,8vw,110px);
+  pointer-events:none;
+}
+.band-member{display:flex;flex-direction:column;align-items:center;gap:1px;}
+.instr {font-size:clamp(20px,3vw,32px);animation:instrRock .35s ease-in-out infinite alternate;filter:drop-shadow(0 2px 4px rgba(0,0,0,.5));}
+.animal{font-size:clamp(42px,6vw,68px);filter:drop-shadow(0 4px 12px rgba(0,0,0,.55));}
+.lbl   {font-size:.6rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#ffe066;text-shadow:0 1px 5px rgba(0,0,0,.8);}
+.squirrel .animal{animation:playLead .19s ease-in-out infinite alternate;}
+.squirrel .lbl{display:inline-block; transform:scaleX(-1) !important;}
+.rabbit   .animal{animation:playBass .30s ease-in-out infinite alternate;animation-delay:.15s;}
+.turtle   .animal{animation:playDrum .11s ease-in-out infinite alternate;animation-delay:.05s;}
+@keyframes instrRock{0%{transform:rotate(-13deg) translateY(0)} 100%{transform:rotate(13deg) translateY(-7px)}}
+@keyframes playLead {0%{transform:rotate(-8deg)  translateY(0)} 100%{transform:rotate(8deg)  translateY(-11px)}}
+@keyframes playBass {0%{transform:rotate(-5deg)  translateY(0)} 100%{transform:rotate(5deg)  translateY(-8px)}}
+@keyframes playDrum {0%{transform:rotate(-4deg)  translateY(0)} 100%{transform:rotate(4deg)  translateY(-5px)}}
+
+/* NOTES */
+.notes{
+  position:fixed;bottom:240px;left:50%;transform:translateX(-50%);
+  width:460px;z-index:10;pointer-events:none;
+}
+.note{position:absolute;font-size:18px;opacity:0;animation:noteDrift 1.4s ease-out infinite;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4));}
+.note:nth-child(1){left:18%;animation-delay:0s;   font-size:22px;}
+.note:nth-child(2){left:36%;animation-delay:.7s;  font-size:16px;}
+.note:nth-child(3){left:52%;animation-delay:1.4s; font-size:24px;}
+.note:nth-child(4){left:70%;animation-delay:.4s;  font-size:14px;}
+.note:nth-child(5){left:8%; animation-delay:1.9s; font-size:18px;}
+.note:nth-child(6){left:82%;animation-delay:1.1s; font-size:20px;}
+@keyframes noteDrift{
+  0%  {opacity:0;  transform:translateY(0)     rotate(0deg);}
+  15% {opacity:1;}
+  85% {opacity:.5;}
+  100%{opacity:0;  transform:translateY(-80px) rotate(25deg);}
+}
+
+/* AUDIENCE */
+.audience{
+  position:fixed;bottom:148px;left:0;right:0;z-index:9;
+  display:flex;justify-content:center;align-items:flex-end;
+  gap:clamp(6px,2.2vw,32px);
+  padding:0 clamp(10px,4vw,80px);pointer-events:none;
+}
+.aud-animal{
+  display:flex;flex-direction:column;align-items:center;
+  font-size:clamp(24px,3.2vw,44px);
+  filter:drop-shadow(0 3px 8px rgba(0,0,0,.45));
+  animation:none;
+}
+/* Amphitheatre bowl arc — edges sit lower, center sits higher */
+.aud-animal:nth-child(1)  { transform: translateY(200px) scale(0.72); }
+.aud-animal:nth-child(2)  { transform: translateY(130px) scale(0.80); }
+.aud-animal:nth-child(3)  { transform: translateY(72px)  scale(0.88); }
+.aud-animal:nth-child(4)  { transform: translateY(28px)  scale(0.94); }
+.aud-animal:nth-child(5)  { transform: translateY(6px)   scale(0.98); }
+.aud-animal:nth-child(6)  { transform: translateY(0px)   scale(1.00); }
+.aud-animal:nth-child(7)  { transform: translateY(6px)   scale(0.98); }
+.aud-animal:nth-child(8)  { transform: translateY(28px)  scale(0.94); }
+.aud-animal:nth-child(9)  { transform: translateY(72px)  scale(0.88); }
+.aud-animal:nth-child(10) { transform: translateY(130px) scale(0.80); }
+.aud-animal:nth-child(11) { transform: translateY(200px) scale(0.72); }
+.aud-lbl{font-size:.55rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#a0f080;text-shadow:0 1px 4px rgba(0,0,0,.7);margin-top:1px;}
+.aud-animal:nth-child(2){animation-delay:.2s;}
+.aud-animal:nth-child(3){animation-delay:.4s;}
+.aud-animal:nth-child(4){animation-delay:.6s;}
+.aud-animal:nth-child(5){animation-delay:.8s;}
+.aud-animal:nth-child(6){animation-delay:1.0s;}
+.aud-animal:nth-child(7){animation-delay:.8s;}
+.aud-animal:nth-child(8){animation-delay:.6s;}
+.aud-animal:nth-child(9){animation-delay:.4s;}
+.aud-animal:nth-child(10){animation-delay:.2s;}
+@keyframes audienceBob{
+  0%,100%{margin-bottom:0px;    rotate:-3deg;}
+  50%    {margin-bottom:8px; rotate:3deg;}
+}
+
+/* AMPHITHEATRE ARCH SVG */
+.amph-arch {
+  position:fixed; bottom:0; left:0; width:100%; z-index:8;
+  pointer-events:none;
+}
+
+/* TIERED GROUND ARCS */
+.amph-tiers {
+  position:fixed; bottom:0; left:0; width:100%; z-index:7;
+  pointer-events:none;
+}
+
+/* ===== DISCO BALL ===== */
+.disco-mount {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* The conduit — a cylindrical rod from ceiling */
+.disco-conduit {
+  width: 6px;
+  height: 52px;
+  background: linear-gradient(90deg, #888 0%, #eee 40%, #aaa 60%, #666 100%);
+  border-radius: 3px;
+  box-shadow: 0 0 4px rgba(0,0,0,.5);
+}
+/* The canvas sits here; JS draws the sphere */
+#discoCanvas {
+  display: block;
+  filter: drop-shadow(0 4px 18px rgba(120,180,255,.35));
+}
+
+/* Disco reflected spots that sweep the scene */
+.disco-spot {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 5;
+  mix-blend-mode: normal;
+  opacity: 0.18;
+}
+/* ===== END DISCO BALL ===== */
+
+/* FIREFLIES */
+.firefly{
+  position:fixed;border-radius:50%;
+  background:radial-gradient(circle, #fffff0 0%, #ffe566 40%, #ffcc00 100%);
+  pointer-events:none;z-index:11;
+  animation:ffFloat ease-in-out infinite;
+}
+@keyframes ffFloat{
+  0%   { opacity:0;   transform:translate(0,0)                    scale(0.6); }
+  15%  { opacity:1;   transform:translate(calc(var(--dx)*.2), calc(var(--dy)*.1)) scale(1.1); }
+  35%  { opacity:0.2; transform:translate(calc(var(--dx)*.5), calc(var(--dy)*.4)) scale(0.8); }
+  55%  { opacity:1;   transform:translate(calc(var(--dx)*.7), calc(var(--dy)*.6)) scale(1.2); }
+  75%  { opacity:0.3; transform:translate(calc(var(--dx)*.9), calc(var(--dy)*.8)) scale(0.7); }
+  90%  { opacity:0.9; transform:translate(var(--dx), var(--dy))   scale(1.0); }
+  100% { opacity:0;   transform:translate(var(--dx), var(--dy))   scale(0.5); }
+}
+
+/* LEAVES */
+.leaf{
+  position:fixed;pointer-events:none;z-index:11;
+  font-size:14px;opacity:0;
+  animation:leafFall linear infinite;
+}
+@keyframes leafFall{
+  0%  {opacity:0;transform:translateY(-30px) rotate(0deg) translateX(0);}
+  10% {opacity:.8;}
+  90% {opacity:.4;}
+  100%{opacity:0;transform:translateY(105vh) rotate(720deg) translateX(40px);}
+}
+
+/* MAIN CONTENT */
+.content{
+  position:relative;z-index:150;
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;
+  padding:0 16px 420px;
+  padding-top: 52vh;
+}
+
+/* HEADER */
+.header{text-align:center;padding:0;}
+.tn-badge{display:inline-block;margin-bottom:10px;animation:floatBadge 4s ease-in-out infinite;}
+@keyframes floatBadge{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.tn-svg{width:clamp(180px,35vw,280px);filter:drop-shadow(0 0 18px rgba(255,220,70,.75));}
+.title-main{
+  font-family:'Abril Fatface',cursive;
+  font-size:clamp(2.6rem,8vw,5.8rem);
+  color:#fefce0;
+  text-shadow:0 0 40px rgba(255,220,70,.9),4px 4px 0 rgba(0,0,0,.35);
+  line-height:1;letter-spacing:3px;
+}
+.title-site{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(1rem,3vw,1.7rem);
+  color:#88e870;text-shadow:0 2px 10px rgba(0,0,0,.6);
+  letter-spacing:5px;margin-top:4px;
+}
+.title-byline{
+  font-family:'Lato',sans-serif;font-size:clamp(.8rem,2vw,1rem);font-weight:300;
+  color:rgba(200,255,180,.7);letter-spacing:4px;text-transform:uppercase;margin-top:8px;
+}
+.divider{
+  width:260px;height:2px;margin:16px auto;
+  background:linear-gradient(90deg,transparent,#ffe066 30%,#88e870 70%,transparent);
+  border-radius:2px;
+}
+.intro-text{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(.9rem,2vw,1.1rem);color:rgba(200,255,175,.8);
+  text-align:center;max-width:520px;line-height:1.7;
+  text-shadow:0 2px 8px rgba(0,0,0,.5);padding:0 10px;
+}
+
+/* PANEL */
+.panel{
+  width:min(820px,96vw);margin-top:24px;
+  background:rgba(5,15,6,0.50);
+  border:1px solid rgba(100,210,80,.5);
+  border-radius:28px;
+  padding:clamp(20px,5vw,44px);
+  box-shadow:
+    0 24px 80px rgba(0,0,0,.95),
+    0 0 60px rgba(80,180,55,.15),
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 0 0 1px rgba(100,200,70,.12);
+  position:relative;
+  z-index:200;
+  isolation:isolate;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.panel-header{text-align:center;margin-bottom:22px;}
+.panel-title{
+  font-family:'Abril Fatface',cursive;
+  font-size:clamp(1.4rem,4vw,2.2rem);
+  color:#ffe066;text-shadow:0 0 24px rgba(255,220,80,.5);letter-spacing:2px;
+}
+.panel-sub{font-size:.78rem;letter-spacing:4px;text-transform:uppercase;color:#6dc860;margin-top:5px;}
+
+.song-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.song-item{
+  display:flex;align-items:center;gap:12px;
+  padding:13px 18px;border-radius:16px;
+  background:#0a1a0b;
+  border:1px solid rgba(100,195,75,.2);
+  transition:all .28s ease;position:relative;overflow:hidden;
+}
+.song-item::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(80,180,55,.07) 0%,transparent 60%);
+  opacity:0;transition:opacity .28s;
+  pointer-events:none;
+}
+.song-item:hover{border-color:rgba(100,200,75,.5);background:#0e220f;transform:translateX(5px);}
+.song-item:hover::before{opacity:1;}
+
+.track-num{
+  font-family:'Abril Fatface',cursive;font-size:1.5rem;
+  color:rgba(255,215,60,.35);min-width:34px;text-align:center;flex-shrink:0;
+}
+.song-info{flex:1;min-width:0;}
+.song-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(.9rem,2.2vw,1.1rem);
+  color:#ffffff;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 0 2px 8px rgba(0,0,0,.9);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-weight:700;
+}
+.song-duration{font-size:.7rem;color:rgba(100,190,80,.65);letter-spacing:1.5px;margin-top:2px;text-transform:uppercase;}
+.song-btns{display:flex;gap:8px;flex-shrink:0;}
+
+.btn{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:8px 15px;border-radius:30px;border:none;
+  font-family:'Lato',sans-serif;font-size:.72rem;font-weight:900;
+  letter-spacing:1.5px;text-transform:uppercase;
+  text-decoration:none;cursor:pointer;transition:all .22s ease;white-space:nowrap;
+  pointer-events:auto;position:relative;z-index:200;
+}
+.btn-listen{
+  background:linear-gradient(135deg,#3a8830,#5aba48);color:#fff;
+  box-shadow:0 4px 14px rgba(60,150,50,.4);
+}
+.btn-listen:hover{background:linear-gradient(135deg,#4aaa38,#6ed058);transform:translateY(-2px);box-shadow:0 6px 20px rgba(60,150,50,.6);}
+.btn-buy{
+  background:linear-gradient(135deg,#b87010,#f5c030);color:#1a0f00;
+  box-shadow:0 4px 14px rgba(200,160,30,.35);
+}
+.btn-buy:hover{background:linear-gradient(135deg,#d08820,#ffd848);transform:translateY(-2px);box-shadow:0 6px 20px rgba(200,160,30,.55);}
+
+/* VENMO PAYMENT MODAL */
+.venmo-overlay{
+  display:none;position:fixed;inset:0;z-index:1000;
+  background:rgba(0,10,0,.88);backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;
+  animation:fadeIn .3s ease;
+}
+.venmo-overlay.open{ display:flex; }
+.venmo-box{
+  position:relative;width:min(420px,92vw);
+  background:rgba(6,22,8,.97);
+  border:1px solid rgba(245,192,48,.45);
+  border-radius:22px;
+  padding:32px 28px 28px;
+  box-shadow:0 30px 100px rgba(0,0,0,.8), 0 0 60px rgba(245,192,48,.12);
+  animation:popUp .35s cubic-bezier(.34,1.56,.64,1);
+  text-align:center;
+}
+.venmo-close{
+  position:absolute;top:14px;right:18px;
+  background:none;border:none;color:rgba(255,255,255,.4);
+  font-size:1.3rem;cursor:pointer;transition:color .2s;
+}
+.venmo-close:hover{color:#ffe066;}
+.venmo-title{
+  font-family:'Abril Fatface',cursive;
+  font-size:clamp(1.2rem,4vw,1.6rem);
+  color:#ffe066;text-shadow:0 0 20px rgba(255,220,80,.5);
+  letter-spacing:1px;margin-bottom:6px;
+}
+.venmo-subtitle{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:.92rem;color:rgba(160,240,140,.75);
+  margin-bottom:18px;line-height:1.5;
+}
+.venmo-qr{
+  width:200px;height:200px;
+  border-radius:14px;
+  border:2px solid rgba(245,192,48,.4);
+  box-shadow:0 4px 24px rgba(0,0,0,.6);
+  object-fit:cover;
+  background:#111;
+  display:block;margin:0 auto 14px;
+}
+.venmo-qr-fallback{
+  width:200px;height:200px;
+  border-radius:14px;
+  border:2px dashed rgba(245,192,48,.4);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:8px;
+  margin:0 auto 14px;
+  color:rgba(255,220,80,.6);font-size:.8rem;
+  background:rgba(255,200,50,.05);
+}
+.venmo-handle{
+  font-family:'Abril Fatface',cursive;
+  font-size:1.3rem;color:#ffe066;
+  letter-spacing:2px;margin-bottom:4px;
+}
+.venmo-price{
+  font-size:.82rem;color:rgba(160,240,140,.8);
+  letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;
+}
+.btn-confirm-download{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:12px 28px;border-radius:30px;border:none;
+  background:linear-gradient(135deg,#b87010,#f5c030);
+  color:#1a0f00;font-family:'Lato',sans-serif;
+  font-size:.8rem;font-weight:900;letter-spacing:2px;
+  text-transform:uppercase;cursor:pointer;
+  box-shadow:0 4px 18px rgba(200,160,30,.45);
+  transition:all .22s ease;text-decoration:none;
+}
+.btn-confirm-download:hover{
+  background:linear-gradient(135deg,#d08820,#ffd848);
+  transform:translateY(-2px);box-shadow:0 6px 24px rgba(200,160,30,.65);
+}
+
+/* FOOTER */
+.footer{
+  position:fixed; bottom:8px; left:50%; transform:translateX(-50%);
+  text-align:center; z-index:20; pointer-events:none;
+  padding:0;width:auto;
+}
+.footer-logo{
+  font-family:'Abril Fatface',cursive;
+  font-size:clamp(.7rem,2vw,1rem);
+  color:#ffe066;text-shadow:0 0 20px rgba(255,210,60,.5);letter-spacing:2px;
+}
+.footer-logo{
+  font-family:'Abril Fatface',cursive;
+  font-size:clamp(1.1rem,4vw,2rem);
+  color:#ffe066;text-shadow:0 0 20px rgba(255,210,60,.5);letter-spacing:2px;
+}
+.footer-logo span{color:#88e870;}
+.footer-desc{
+  font-family:'Playfair Display',serif;font-style:italic;
+  color:rgba(160,240,140,.65);font-size:.88rem;margin-top:6px;line-height:1.6;
+}
+.footer-contact{margin-top:14px;}
+.btn-contact{
+  display:inline-block;padding:10px 28px;border-radius:30px;
+  background:linear-gradient(135deg,#2a6020,#4a9838);
+  color:#d8ffc8;font-weight:900;font-size:.8rem;
+  letter-spacing:2px;text-transform:uppercase;
+  text-decoration:none;border:1px solid rgba(100,200,70,.3);
+  box-shadow:0 4px 16px rgba(50,120,40,.35);transition:all .25s;
+}
+.btn-contact:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(50,120,40,.5);}
+
+@media(max-width:560px){
+  /* Song list */
+  .song-item{flex-wrap:wrap;}
+  .song-btns{width:100%;justify-content:flex-end;margin-top:6px;}
+  .stage{gap:16px;}
+  .audience{padding:0 6px;}
+
+  /* Hide all stage/animal/concert elements on mobile */
+  #drag-squirrel, #drag-squirrel2, #bongo, #drag-keyboard,
+  #drag-eagle1, #drag-eagle2,
+  #drag-light-red, #drag-light-blue, #drag-light-green, #drag-light-yellow,
+  #drag-disco, #drag-raccoon, #drag-mic, #drag-bird, #drag-rabbit, #drag-bear,
+  #drag-flash, .moon, .bird, .cloud {
+    display: none !important;
+  }
+
+  /* Keep campfire but smaller */
+  .campfire { transform: scale(0.7); }
+
+  /* Make content start higher on mobile */
+  .content { padding-top: 30vh; }
+
+  /* Bigger tap targets for buttons */
+  .btn { padding: 12px 18px; font-size: .8rem; }
+
+  /* Tighten up title on mobile */
+  .title-main { font-size: clamp(2rem, 10vw, 3.5rem); }
+  .title-site { font-size: clamp(.9rem, 4vw, 1.3rem); }
+
+  /* Panel full width on mobile */
+  .panel { border-radius: 18px; padding: 20px 14px; }
+}
+
+/* Tablet - show some elements but scaled down */
+@media(min-width:561px) and (max-width:900px){
+  #drag-eagle1, #drag-eagle2,
+  #drag-light-red, #drag-light-blue, #drag-light-green, #drag-light-yellow {
+    display: none !important;
+  }
+  .content { padding-top: 40vh; }
+}
+
+/* VIDEO MODAL */
+.modal-overlay{
+  display:none;position:fixed;inset:0;z-index:1000;
+  background:rgba(0,10,0,.88);backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;
+  animation:fadeIn .3s ease;
+}
+.modal-overlay.open{ display:flex; }
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.modal-box{
+  position:relative;width:min(760px,94vw);
+  background:rgba(6,22,8,.95);
+  border:1px solid rgba(100,210,80,.3);
+  border-radius:22px;
+  padding:28px 24px 24px;
+  box-shadow:0 30px 100px rgba(0,0,0,.7), 0 0 60px rgba(80,200,60,.1);
+  animation:popUp .35s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes popUp{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+
+.modal-title{
+  font-family:'Abril Fatface',cursive;
+  font-size:clamp(1.2rem,3.5vw,1.8rem);
+  color:#ffe066;text-shadow:0 0 20px rgba(255,220,80,.5);
+  text-align:center;margin-bottom:16px;letter-spacing:1px;
+}
+.modal-title span{ color:#88e870; font-style:italic; }
+
+.video-wrap{
+  position:relative;width:100%;padding-bottom:56.25%;
+  border-radius:14px;overflow:hidden;
+  box-shadow:0 8px 40px rgba(0,0,0,.6);
+  background:#000;
+}
+.video-wrap iframe{
+  position:absolute;inset:0;width:100%;height:100%;border:none;
+}
+
+.modal-close{
+  position:absolute;top:14px;right:16px;
+  background:rgba(100,200,70,.15);border:1px solid rgba(100,200,70,.3);
+  color:#88e870;font-size:1.2rem;width:36px;height:36px;
+  border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .2s;font-family:'Lato',sans-serif;line-height:1;
+}
+.modal-close:hover{background:rgba(100,200,70,.3);transform:scale(1.1);}
+
+.btn-video{
+  background:linear-gradient(135deg,#1a7a1a,#2db82d);color:#fff;
+  box-shadow:0 4px 14px rgba(40,160,40,.4);
+}
+.btn-video:hover{background:linear-gradient(135deg,#22aa22,#3add3a);transform:translateY(-2px);box-shadow:0 6px 20px rgba(40,160,40,.6);}
+</style>
+</head>
+<body>
+
+<!-- SKY -->
+<div class="sky-bg"></div>
+<div class="forest-photo-bg" style="background-image:url('forest-bg.png')"></div>
+<div class="forest-overlay"></div>
+<div class="sun"></div>
+<div class="sun-rays">
+  <div class="ray"></div><div class="ray"></div><div class="ray"></div>
+  <div class="ray"></div><div class="ray"></div><div class="ray"></div>
+  <div class="ray"></div><div class="ray"></div><div class="ray"></div>
+  <div class="ray"></div><div class="ray"></div>
+</div>
+
+<!-- CLOUDS -->
+<div class="cloud"></div>
+<div class="cloud"></div>
+<div class="cloud"></div>
+
+<!-- BACK TREES -->
+<svg class="tree-layer tree-back" viewBox="0 0 1400 500" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+  <g opacity=".45" fill="#3a7030">
+    <ellipse cx="60"   cy="220" rx="55"  ry="130"/><rect x="53"   y="320" width="14" height="200" fill="#5a3a18" rx="4"/>
+    <ellipse cx="200"  cy="200" rx="70"  ry="155"/><rect x="193"  y="320" width="14" height="200" fill="#5a3a18" rx="4"/>
+    <ellipse cx="360"  cy="185" rx="78"  ry="170"/><rect x="353"  y="320" width="14" height="200" fill="#5a3a18" rx="4"/>
+    <ellipse cx="540"  cy="175" rx="82"  ry="180"/><rect x="533"  y="320" width="16" height="200" fill="#5a3a18" rx="4"/>
+    <ellipse cx="720"  cy="170" rx="85"  ry="185"/><rect x="713"  y="320" width="16" height="200" fill="#5a3a18" rx="4"/>
+    <ellipse cx="900"  cy="178" rx="80"  ry="178"/><rect x="893"  y="320" width="16" height="200" fill="#5a3a18" rx="4"/>
+    <ellipse cx="1080" cy="185" rx="76"  ry="172"/><rect x="1073" y="320" width="16" height="200" fill="#5a3a18" rx="4"/>
+    <ellipse cx="1250" cy="195" rx="70"  ry="160"/><rect x="1243" y="320" width="14" height="200" fill="#5a3a18" rx="4"/>
+    <ellipse cx="1380" cy="210" rx="60"  ry="140"/><rect x="1373" y="320" width="14" height="200" fill="#5a3a18" rx="4"/>
+  </g>
+  <g opacity=".12" fill="#b8f070">
+    <ellipse cx="360"  cy="160" rx="40" ry="60"/>
+    <ellipse cx="720"  cy="148" rx="45" ry="65"/>
+    <ellipse cx="1080" cy="158" rx="38" ry="58"/>
+  </g>
+</svg>
+
+<!-- MID TREES -->
+<svg class="tree-layer tree-mid" viewBox="0 0 1400 450" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+  <g opacity=".72">
+    <ellipse cx="30"   cy="220" rx="60"  ry="160" fill="#2a6022"/>
+    <ellipse cx="30"   cy="160" rx="45"  ry="100" fill="#348030"/>
+    <rect x="22"  y="355" width="16" height="105" fill="#6a3c18" rx="5"/>
+    <ellipse cx="170"  cy="195" rx="75"  ry="185" fill="#256020"/>
+    <ellipse cx="170"  cy="125" rx="55"  ry="110" fill="#308030"/>
+    <rect x="162" y="355" width="16" height="105" fill="#5a3215" rx="5"/>
+    <ellipse cx="340"  cy="178" rx="88"  ry="205" fill="#2a7025"/>
+    <ellipse cx="340"  cy="100" rx="62"  ry="130" fill="#358835"/>
+    <rect x="332" y="355" width="16" height="105" fill="#6a3c18" rx="5"/>
+    <ellipse cx="530"  cy="165" rx="92"  ry="215" fill="#228020"/>
+    <ellipse cx="530"  cy="88"  rx="65"  ry="135" fill="#30903a"/>
+    <rect x="522" y="355" width="16" height="105" fill="#5a3215" rx="5"/>
+    <ellipse cx="870"  cy="165" rx="92"  ry="215" fill="#228020"/>
+    <ellipse cx="870"  cy="88"  rx="65"  ry="135" fill="#30903a"/>
+    <rect x="862" y="355" width="16" height="105" fill="#5a3215" rx="5"/>
+    <ellipse cx="1060" cy="178" rx="88"  ry="205" fill="#2a7025"/>
+    <ellipse cx="1060" cy="100" rx="62"  ry="130" fill="#358835"/>
+    <rect x="1052" y="355" width="16" height="105" fill="#6a3c18" rx="5"/>
+    <ellipse cx="1230" cy="195" rx="75"  ry="185" fill="#256020"/>
+    <ellipse cx="1230" cy="125" rx="55"  ry="110" fill="#308030"/>
+    <rect x="1222" y="355" width="16" height="105" fill="#5a3215" rx="5"/>
+    <ellipse cx="1370" cy="220" rx="60"  ry="160" fill="#2a6022"/>
+    <ellipse cx="1370" cy="160" rx="45"  ry="100" fill="#348030"/>
+    <rect x="1362" y="355" width="16" height="105" fill="#6a3c18" rx="5"/>
+    <!-- light patches -->
+    <ellipse cx="340"  cy="138" rx="30" ry="45" fill="rgba(200,255,100,.15)"/>
+    <ellipse cx="700"  cy="100" rx="40" ry="60" fill="rgba(220,255,120,.12)"/>
+    <ellipse cx="1060" cy="138" rx="30" ry="45" fill="rgba(200,255,100,.15)"/>
+  </g>
+</svg>
+
+<!-- FRONT TREES -->
+<svg class="tree-layer tree-front" viewBox="0 0 1400 380" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="0"    cy="240" rx="65"  ry="200" fill="#1a5018"/>
+  <ellipse cx="0"    cy="130" rx="50"  ry="130" fill="#226020"/>
+  <rect x="-8" y="355" width="18" height="30" fill="#4a2810" rx="5"/>
+  <ellipse cx="130"  cy="230" rx="72"  ry="195" fill="#185518"/>
+  <ellipse cx="130"  cy="120" rx="52"  ry="140" fill="#206020"/>
+  <rect x="122" y="355" width="18" height="30" fill="#4a2810" rx="5"/>
+  <ellipse cx="1270" cy="230" rx="72"  ry="195" fill="#185518"/>
+  <ellipse cx="1270" cy="120" rx="52"  ry="140" fill="#206020"/>
+  <rect x="1262" y="355" width="18" height="30" fill="#4a2810" rx="5"/>
+  <ellipse cx="1400" cy="240" rx="65"  ry="200" fill="#1a5018"/>
+  <ellipse cx="1400" cy="130" rx="50"  ry="130" fill="#226020"/>
+  <rect x="1392" y="355" width="18" height="30" fill="#4a2810" rx="5"/>
+</svg>
+
+<!-- FLOOR & GRASS -->
+<div class="floor"></div>
+
+<!-- SPOTLIGHTS -->
+
+
+<!-- STAGE GLOW -->
+
+
+<!-- MUSICAL NOTES -->
+<div class="notes">
+  <div class="note">🎵</div><div class="note">🎶</div>
+  <div class="note">🎵</div><div class="note">🎶</div>
+  <div class="note">🎵</div><div class="note">🎶</div>
+</div>
+
+<!-- AUDIENCE -->
+<!-- AMPHITHEATRE TIERS -->
+<svg class="amph-tiers" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer ground tier -->
+  <ellipse cx="720" cy="340" rx="820" ry="180" fill="rgba(15,40,12,0.85)"/>
+  <!-- Mid tier -->
+  <ellipse cx="720" cy="330" rx="620" ry="140" fill="rgba(20,55,16,0.80)"/>
+  <!-- Inner tier / stage floor -->
+  <ellipse cx="720" cy="318" rx="400" ry="100" fill="rgba(28,70,22,0.75)"/>
+  <!-- Stage highlight -->
+  <ellipse cx="720" cy="308" rx="220" ry="60" fill="rgba(40,90,30,0.65)"/>
+</svg>
+
+<!-- AMPHITHEATRE ARCH -->
+<svg class="amph-arch" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Stone arch frame -->
+  <path d="M0,400 L0,220 Q100,60 360,40 Q580,20 720,30 Q860,20 1080,40 Q1340,60 1440,220 L1440,400 Z"
+        fill="none" stroke="rgba(80,160,60,0.18)" stroke-width="3"/>
+  <!-- Inner arch glow -->
+  <path d="M60,400 L60,230 Q160,90 380,68 Q570,48 720,56 Q870,48 1060,68 Q1280,90 1380,230 L1380,400 Z"
+        fill="none" stroke="rgba(120,220,80,0.12)" stroke-width="2"/>
+  <!-- Tree canopy silhouette left -->
+  <path d="M0,400 L0,180 Q40,100 80,120 Q110,80 150,110 Q180,60 220,90 Q260,50 300,85 Q340,40 380,75 Q400,55 420,80 L420,400 Z"
+        fill="rgba(10,30,10,0.7)"/>
+  <!-- Tree canopy silhouette right -->
+  <path d="M1020,400 L1020,80 Q1060,55 1100,85 Q1140,40 1180,75 Q1220,50 1260,90 Q1300,60 1340,110 Q1380,80 1420,130 L1440,160 L1440,400 Z"
+        fill="rgba(10,30,10,0.7)"/>
+  </svg>
+
+
+
+<!-- DRAGGABLE CONFETTI 1 -->
+
+<!-- DRAGGABLE CONFETTI 2 -->
+
+<!-- DRAGGABLE DISCO BALL -->
+<div id="drag-disco" style="position:fixed; bottom:220px; left:50%; transform:translateX(-50%); z-index:20; pointer-events:auto; display:flex; flex-direction:column; align-items:center;">
+  <!-- Canvas ball -->
+  <canvas id="discoCanvas" width="110" height="110" style="display:block; margin-top:-1px; filter:drop-shadow(0 6px 22px rgba(160,200,255,.4));"></canvas>
+  <!-- Resize handle -->
+  <div id="disco-resize" style="width:16px;height:16px;cursor:nwse-resize;position:absolute;bottom:0;right:0;background:rgba(255,255,255,0.15);border-radius:0 0 50% 0;pointer-events:auto;"></div>
+</div>
+
+<script>
+(function(){
+  const C = document.getElementById('discoCanvas');
+  if(!C) return;
+  const ctx = C.getContext('2d');
+  // S, R, cx, cy are derived live from canvas size in drawFrame
+
+  // Tile grid: ROWS latitude bands, COLS columns per equator
+  const ROWS = 28, BASE_COLS = 40;
+
+  // Fixed light direction (upper-left-front)
+  const Lx = -0.5, Ly = -0.7, Lz = 0.8;
+  const Ll = Math.hypot(Lx,Ly,Lz);
+  const lx=Lx/Ll, ly=Ly/Ll, lz=Lz/Ll;
+
+  let spin = 0; // rotation angle around Y axis
+
+  function project(px,py,pz,R,cx,cy) {
+    const fov = 260;
+    const z = pz + fov;
+    return [ cx + px * fov / z * R, cy + py * fov / z * R ];
+  }
+
+  function drawFrame(a) {
+    const S = C.width, R = S*0.436, cx = S/2, cy = S/2+S*0.036;
+    ctx.clearRect(0,0,S,S);
+
+    // ── Dark base sphere (shows through gaps) ──
+    ctx.save();
+    ctx.beginPath(); ctx.arc(cx,cy,R,0,Math.PI*2); ctx.clip();
+    const bg = ctx.createRadialGradient(cx-R*.3,cy-R*.38,2, cx,cy,R);
+    bg.addColorStop(0,'#c0d0e8');
+    bg.addColorStop(.3,'#506070');
+    bg.addColorStop(.7,'#1e2c3a');
+    bg.addColorStop(1,'#070d14');
+    ctx.fillStyle=bg; ctx.fillRect(0,0,S,S);
+    ctx.restore();
+
+    // ── Collect and depth-sort tile faces ──
+    const faces = [];
+    for(let row=0; row<ROWS; row++){
+      const phi0 = Math.PI * row/ROWS;
+      const phi1 = Math.PI * (row+1)/ROWS;
+      const phiM = (phi0+phi1)/2;
+      const cols  = Math.max(4, Math.round(BASE_COLS * Math.sin(phiM)));
+      for(let col=0; col<cols; col++){
+        const t0 = 2*Math.PI*col/cols + a;
+        const t1 = 2*Math.PI*(col+1)/cols + a;
+        const tM = (t0+t1)/2;
+
+        // Surface normal at tile centre (unit sphere)
+        const nx = Math.sin(phiM)*Math.cos(tM);
+        const ny = -Math.cos(phiM);
+        const nz = Math.sin(phiM)*Math.sin(tM);
+
+        if(nz < 0) continue; // back-face cull
+
+        // Depth = Z of tile centre (for painter's sort)
+        faces.push({ row, col, phi0, phi1, t0, t1, tM, nx, ny, nz, depth: nz });
+      }
+    }
+
+    // Paint back-to-front
+    faces.sort((a,b)=>a.depth-b.depth);
+
+    for(const f of faces){
+      // 4 corners of this tile on the unit sphere, scaled to radius R
+      const corners4 = [
+        [f.phi0, f.t0],[f.phi0, f.t1],
+        [f.phi1, f.t1],[f.phi1, f.t0]
+      ].map(([p,t])=>{
+        const X = Math.sin(p)*Math.cos(t);
+        const Y = -Math.cos(p);
+        const Z = Math.sin(p)*Math.sin(t);
+        return project(X, Y, Z, R, cx, cy);
+      });
+
+      // Lighting
+      const diff  = Math.max(0, f.nx*lx + f.ny*ly + f.nz*lz);
+      // Specular (viewer along +Z)
+      const hx=(lx+0)/2, hy=(ly+0)/2, hz=(lz+1)/2;
+      const hl=Math.hypot(hx,hy,hz);
+      const spec = Math.pow(Math.max(0,(f.nx*hx/hl + f.ny*hy/hl + f.nz*hz/hl)), 20);
+
+      // Base mirror tile color: bright chrome silver
+      const base = [220, 235, 255];
+      const br = 0.25 + diff*0.65 + spec*1.2;
+      const rr = Math.min(255, base[0]*br + spec*255*0.8)|0;
+      const gg = Math.min(255, base[1]*br + spec*255*0.85)|0;
+      const bb = Math.min(255, base[2]*br + spec*255*1.0)|0;
+
+      ctx.beginPath();
+      ctx.moveTo(corners4[0][0], corners4[0][1]);
+      ctx.lineTo(corners4[1][0], corners4[1][1]);
+      ctx.lineTo(corners4[2][0], corners4[2][1]);
+      ctx.lineTo(corners4[3][0], corners4[3][1]);
+      ctx.closePath();
+
+      ctx.fillStyle = `rgb(${rr},${gg},${bb})`;
+      ctx.fill();
+
+      // Grout gap
+      ctx.strokeStyle = 'rgba(0,0,0,0.5)';
+      ctx.lineWidth = 0.4;
+      ctx.stroke();
+    }
+
+    // ── Limb darkening ring for roundness ──
+    ctx.save();
+    ctx.beginPath(); ctx.arc(cx,cy,R,0,Math.PI*2); ctx.clip();
+    const rim = ctx.createRadialGradient(cx,cy,R*0.6, cx,cy,R);
+    rim.addColorStop(0,'rgba(0,0,0,0)');
+    rim.addColorStop(1,'rgba(0,0,0,0.7)');
+    ctx.fillStyle=rim; ctx.fillRect(0,0,S,S);
+    ctx.restore();
+
+    // ── Specular glare spot (fixed position, gives sense of solid sphere) ──
+    ctx.save();
+    ctx.beginPath(); ctx.arc(cx,cy,R,0,Math.PI*2); ctx.clip();
+    const glare = ctx.createRadialGradient(cx-R*.28,cy-R*.32,1, cx-R*.22,cy-R*.25,R*.32);
+    glare.addColorStop(0,'rgba(255,255,255,.72)');
+    glare.addColorStop(.4,'rgba(255,255,255,.18)');
+    glare.addColorStop(1,'rgba(255,255,255,0)');
+    ctx.fillStyle=glare; ctx.fillRect(0,0,S,S);
+    ctx.restore();
+  }
+
+  // ── Disco dot reflections — rings of dots spinning around center-stage ──
+  // Dots are placed in concentric rings on the floor, centered below the ball,
+  // and rotate in sync with the ball's spin angle.
+
+  const DOT_RINGS = [
+    { r: 40,  count: 8,  sz: 3.5  },
+    { r: 90,  count: 14, sz: 3    },
+    { r: 150, count: 20, sz: 3    },
+    { r: 210, count: 26, sz: 2.5  },
+    { r: 270, count: 32, sz: 2.5  },
+    { r: 330, count: 36, sz: 2    },
+  ];
+
+  const DOT_TINTS = [
+    [255,255,255],[255,255,255],[255,255,255],[255,255,255],[255,255,255],
+    [255,255,255],[255,255,255],[255,255,255],[255,255,255],[255,255,255],
+    [255,200,180],[180,220,255],[180,255,210],[255,255,160],[220,170,255],
+    [255,210,140],[160,245,255],[255,170,220],[200,255,170],[255,225,140],
+  ];
+
+  const dots = [];
+  let tintIdx = 0;
+  DOT_RINGS.forEach((ring) => {
+    for(let i = 0; i < ring.count; i++){
+      const el = document.createElement('div');
+      const sz = ring.sz + Math.random()*1;
+      const tint = DOT_TINTS[tintIdx++ % DOT_TINTS.length];
+      el.style.cssText = `
+        position:fixed; border-radius:50%; pointer-events:none; z-index:5;
+        width:${sz}px; height:${sz}px;
+        background: radial-gradient(circle,
+          rgba(${tint[0]},${tint[1]},${tint[2]},0.95) 0%,
+          rgba(${tint[0]},${tint[1]},${tint[2]},0.3) 55%,
+          transparent 100%);
+        box-shadow: 0 0 ${sz*1.5}px ${sz*0.7}px rgba(${tint[0]},${tint[1]},${tint[2]},0.45);
+        will-change: left, top, opacity;
+      `;
+      document.body.appendChild(el);
+      dots.push({
+        el, sz,
+        r: ring.r,
+        baseAngle: (2 * Math.PI * i) / ring.count,
+      });
+    }
+  });
+
+  function updateDots(a) {
+    const vw = window.innerWidth, vh = window.innerHeight;
+    const STAGE_X = vw / 2;
+    const STAGE_Y = vh - 110;
+
+    for(const d of dots){
+      // All dots rotate clockwise at the same rate as the ball
+      const angle = d.baseAngle + a;
+      const cosA = Math.cos(angle);
+      const sinA = Math.sin(angle);
+
+      // Ellipse on floor: full width horizontally, squished vertically for perspective
+      const px = STAGE_X + cosA * d.r;
+      const py = STAGE_Y + sinA * (d.r / 3);
+
+      // Smooth opacity — dots behind centre-line (sinA < 0) are slightly dimmer
+      // but NO hard cutoff — continuous sine wave so no line glitch
+      const opacity = 0.3 + (sinA * 0.5 + 0.5) * 0.65;
+
+      d.el.style.opacity = opacity.toFixed(3);
+      d.el.style.left = (px - d.sz / 2).toFixed(1) + 'px';
+      d.el.style.top  = (py - d.sz / 2).toFixed(1) + 'px';
+    }
+  }
+
+  // ── Mirror glints — each tile on the ball reflects the light source as a sharp
+  //    dot that RACES across the scene. When that ray sweeps through the viewer's
+  //    eye position it creates a direct retinal flash. ──
+
+  // Single fixed light source (upper-left, like a stage par can)
+  const LX = -0.55, LY = -0.65, LZ = 0.52;
+  const LL = Math.hypot(LX,LY,LZ);
+  const lx2=LX/LL, ly2=LY/LL, lz2=LZ/LL;
+
+  // Build one canvas that covers the whole viewport for the sweeping dots
+  const glintCanvas = document.createElement('canvas');
+  glintCanvas.style.cssText = `
+    position:fixed; inset:0; width:100%; height:100%;
+    pointer-events:none; z-index:5;
+  `;
+  document.body.appendChild(glintCanvas);
+  const gctx = glintCanvas.getContext('2d');
+
+  // Viewer eye position (normalised — straight ahead = 0,0,1)
+  // We treat the viewer as looking along +Z from screen center
+  const EYE_X = 0, EYE_Y = 0, EYE_Z = 1;
+
+  // Tile grid — use same rows/cols as the drawn ball
+  const G_ROWS = 14, G_BASE = 20;
+  const tiles2 = [];
+  for(let row=0; row<G_ROWS; row++){
+    const phi = Math.PI*(row+0.5)/G_ROWS;
+    const cols = Math.max(4, Math.round(G_BASE*Math.sin(phi)));
+    for(let col=0; col<cols; col++){
+      tiles2.push({ phi, tOff: (2*Math.PI*col/cols) });
+    }
+  }
+
+  function resizeGlint(){
+    glintCanvas.width  = window.innerWidth;
+    glintCanvas.height = window.innerHeight;
+  }
+  resizeGlint();
+  window.addEventListener('resize', resizeGlint);
+
+  // ── Disco ball — FINALIZED, position locked ──
+  (function(){
+    const wrap = document.getElementById("drag-disco");
+    wrap.style.position = "fixed";
+    wrap.style.cursor = "default";
+    wrap.style.pointerEvents = "none";
+    try {
+      const saved = JSON.parse(localStorage.getItem('pos_drag-disco'));
+      if(saved) { wrap.style.left=saved.x+'px'; wrap.style.top=saved.y+'px'; wrap.style.transform='none'; }
+    } catch(e){}
+  })();
+
+  function getBallCenter(){
+    const canvas = document.getElementById("discoCanvas");
+    const r = canvas.getBoundingClientRect();
+    return { x: r.left+r.width/2, y: r.top+r.height/2 };
+  }
+
+  function updateFlashes(a) {
+    const vw = glintCanvas.width, vh = glintCanvas.height;
+    const bc = getBallCenter();
+    const BX = bc.x, BY = bc.y;
+
+    gctx.clearRect(0,0,vw,vh);
+
+    for(const t of tiles2){
+      const theta = t.tOff + a;
+
+      // Tile surface normal (Y-axis spin)
+      const nx = Math.sin(t.phi)*Math.cos(theta);
+      const ny = -Math.cos(t.phi);
+      const nz = Math.sin(t.phi)*Math.sin(theta);
+
+      // ── 1. Reflected light-source ray off this tile ──
+      // Incident = direction FROM light TO tile = (lx2,ly2,lz2)
+      // R = I - 2(I·N)N
+      const iDotN = lx2*nx + ly2*ny + lz2*nz;
+      const rx = lx2 - 2*iDotN*nx;
+      const ry = ly2 - 2*iDotN*ny;
+      const rz = lz2 - 2*iDotN*nz;
+
+      // ── 2. How close does this reflected ray pass to the viewer's eye? ──
+      // Viewer eye = along +Z axis from screen center.
+      // "Facing the viewer" = rz < 0 (ray coming toward screen) AND
+      // the ray direction is close to (0,0,-1).
+      // Dot of reflected ray with (0,0,-1) = -rz
+      const toViewer = -rz;   // 1 = ray aimed straight at viewer
+      if(toViewer < 0.01) continue;  // ray going away from viewer
+
+      // Angular proximity to viewer's eye — sharp Gaussian spike
+      // eyeProx peaks at 1 when ray points exactly at (0,0,-1)
+      const eyeProx = Math.pow(Math.max(0, toViewer), 12);
+
+      // Tile must face somewhat toward light to be "lit"
+      const litFace = Math.max(0, lx2*nx + ly2*ny + lz2*nz);
+      if(litFace < 0.05) continue;
+
+      // ── Eye flash — when reflected ray aims at viewer, blast from draggable position ──
+      if(eyeProx > 0.001){
+        const _fp = window._flashPos || {x: vw/2, y: vh*0.45};
+        const fx = _fp.x + nx * vw * 0.18;
+        const fy = _fp.y;
+        const fSize = 30 + eyeProx * 340;
+        const fAlpha = eyeProx * 0.88;
+
+        const fg = gctx.createRadialGradient(fx,fy,0, fx,fy,fSize);
+        fg.addColorStop(0,    `rgba(255,255,255,${fAlpha})`);
+        fg.addColorStop(0.08, `rgba(255,255,255,${fAlpha*0.9})`);
+        fg.addColorStop(0.25, `rgba(255,255,230,${fAlpha*0.5})`);
+        fg.addColorStop(0.55, `rgba(255,255,200,${fAlpha*0.15})`);
+        fg.addColorStop(1,    'rgba(255,255,255,0)');
+        gctx.beginPath();
+        gctx.arc(fx, fy, fSize, 0, Math.PI*2);
+        gctx.fillStyle = fg;
+        gctx.fill();
+
+        // Extra hard white core
+        if(eyeProx > 0.3){
+          const cg = gctx.createRadialGradient(fx,fy,0, fx,fy,eyeProx*18);
+          cg.addColorStop(0, `rgba(255,255,255,${eyeProx})`);
+          cg.addColorStop(1, 'rgba(255,255,255,0)');
+          gctx.beginPath();
+          gctx.arc(fx,fy,eyeProx*18,0,Math.PI*2);
+          gctx.fillStyle = cg;
+          gctx.fill();
+        }
+      }
+    }
+  }
+
+  // ── Light beams canvas — multi-layer rays from ball surface in all directions ──
+  const beamCanvas = document.createElement('canvas');
+  beamCanvas.style.cssText = `
+    position:fixed; inset:0; width:100%; height:100%;
+    pointer-events:none; z-index:5;
+  `;
+  document.body.appendChild(beamCanvas);
+  const bctx = beamCanvas.getContext('2d');
+
+  function resizeBeam(){
+    beamCanvas.width  = window.innerWidth;
+    beamCanvas.height = window.innerHeight;
+  }
+  resizeBeam();
+  window.addEventListener('resize', resizeBeam);
+
+  const BEAM_COLORS = [
+    [255,255,255],[255,255,255],[255,255,255],[255,255,255],
+    [255,200,200],[200,210,255],[200,255,220],[255,255,180],[230,190,255],
+    [255,220,160],[180,250,255],[255,190,230],[210,255,190],[255,235,160],
+  ];
+
+  // Build rays across multiple latitude bands — like real mirror tiles on a sphere
+  // Each layer has a different elevation angle, rays spread around full 360°
+  const LAYERS = [
+    { elevation: -0.9,  count: 6,  len: 1800, width: 0.8  }, // near straight down
+    { elevation: -0.65, count: 10, len: 1800, width: 0.7  },
+    { elevation: -0.4,  count: 14, len: 1800, width: 0.6  },
+    { elevation: -0.15, count: 18, len: 1800, width: 0.5  }, // horizontal-ish
+    { elevation:  0.15, count: 18, len: 1800, width: 0.5  },
+    { elevation:  0.4,  count: 14, len: 1800, width: 0.6  },
+    { elevation:  0.65, count: 10, len: 1800, width: 0.7  },
+    { elevation:  0.9,  count: 6,  len: 1800, width: 0.8  }, // near straight up
+  ];
+
+  const rays = [];
+  let colorIdx = 0;
+  LAYERS.forEach((layer, li) => {
+    for(let i = 0; i < layer.count; i++){
+      rays.push({
+        azimuth: (2 * Math.PI * i / layer.count) + (li * 0.3), // offset each layer
+        elevation: layer.elevation,
+        len: layer.len,
+        width: layer.width,
+        color: BEAM_COLORS[colorIdx++ % BEAM_COLORS.length],
+      });
+    }
+  });
+
+  function updateBeams(a) {
+    const vw = beamCanvas.width, vh = beamCanvas.height;
+    const bc = getBallCenter();
+    const ballX = bc.x, ballY = bc.y;
+    const ballR = document.getElementById('discoCanvas').getBoundingClientRect().width / 2;
+
+    bctx.clearRect(0, 0, vw, vh);
+
+    for(const ray of rays){
+      // Spin azimuth with ball rotation
+      const az = ray.azimuth + a;
+      const el = ray.elevation;
+
+      // 3D direction of this ray
+      const cosEl = Math.cos(Math.asin(el));
+      const dx3 = cosEl * Math.cos(az);
+      const dy3 = cosEl * Math.sin(az);
+      const dz3 = el; // vertical component
+
+      // Project onto 2D screen: x = dx3, y = dz3 (vertical on screen), z = dy3 (depth)
+      const screenDX = dx3;
+      const screenDY = dz3; // elevation maps to vertical on screen
+
+      const len2D = Math.hypot(screenDX, screenDY);
+      const ux = len2D > 0.001 ? screenDX / len2D : 1;
+      const uy = len2D > 0.001 ? screenDY / len2D : 0;
+
+      // Origin: ball surface
+      const originX = ballX + ux * ballR;
+      const originY = ballY + uy * ballR;
+
+      // End point: extend far in screen direction
+      const endX = originX + ux * ray.len;
+      const endY = originY + uy * ray.len;
+
+      // Perpendicular for beam width
+      const px = -uy, py = ux;
+
+      // Depth cue — beams going "into" screen (dy3 > 0) are slightly dimmer
+      const depthOpacity = 0.06 + (1 - Math.abs(dy3) * 0.5) * 0.12;
+      const spreadEnd = ray.width * 12;
+
+      const p = new Path2D();
+      p.moveTo(originX + px * ray.width, originY + py * ray.width);
+      p.lineTo(originX - px * ray.width, originY - py * ray.width);
+      p.lineTo(endX - px * spreadEnd,    endY - py * spreadEnd);
+      p.lineTo(endX + px * spreadEnd,    endY + py * spreadEnd);
+      p.closePath();
+
+      const [r,g,bl] = ray.color;
+      const grad = bctx.createLinearGradient(originX, originY, endX, endY);
+      grad.addColorStop(0,    `rgba(${r},${g},${bl},0)`);
+      grad.addColorStop(0.05, `rgba(${r},${g},${bl},${(depthOpacity).toFixed(3)})`);
+      grad.addColorStop(0.4,  `rgba(${r},${g},${bl},${(depthOpacity*0.6).toFixed(3)})`);
+      grad.addColorStop(1,    `rgba(${r},${g},${bl},0)`);
+
+      bctx.save();
+      bctx.fillStyle = grad;
+      bctx.fill(p);
+      bctx.restore();
+    }
+  }
+
+  // ── Firefly sparkles — aggressive flashing ──
+  const fireflyCanvas = document.createElement('canvas');
+  fireflyCanvas.style.cssText = `position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:49;`;
+  document.body.appendChild(fireflyCanvas);
+  const fctx = fireflyCanvas.getContext('2d');
+  function resizeFirefly(){ fireflyCanvas.width = window.innerWidth; fireflyCanvas.height = window.innerHeight; }
+  resizeFirefly();
+  window.addEventListener('resize', resizeFirefly);
+
+  const NUM_FLIES = 40;
+  const flies = Array.from({length: NUM_FLIES}, () => ({
+    angle:     Math.random() * Math.PI * 2,
+    radius:    30 + Math.random() * 70,
+    speed:     (Math.random() > 0.5 ? 1 : -1) * (0.006 + Math.random() * 0.014),
+    phase:     Math.random() * Math.PI * 2,
+    flashRate: 0.12 + Math.random() * 0.32,
+    burstPhase:Math.random() * Math.PI * 2,
+    burstRate: 0.04 + Math.random() * 0.09,
+    size:      1.2 + Math.random() * 2.8,
+    drift:     (Math.random() - 0.5) * 0.003,
+    hue: [[255,255,255],[200,230,255],[255,245,180],[180,255,220],[255,210,255]][Math.floor(Math.random()*5)],
+  }));
+
+  function updateFireflies() {
+    fctx.clearRect(0, 0, fireflyCanvas.width, fireflyCanvas.height);
+    const bc = getBallCenter();
+    flies.forEach(f => {
+      f.angle     += f.speed;
+      f.radius    += f.drift;
+      if (f.radius < 28) f.drift = Math.abs(f.drift);
+      if (f.radius > 95) f.drift = -Math.abs(f.drift);
+      f.phase     += f.flashRate;
+      f.burstPhase+= f.burstRate;
+
+      const flicker = Math.max(0, Math.sin(f.phase));
+      const bloom   = 0.3 + 0.7 * Math.max(0, Math.sin(f.burstPhase));
+      const alpha   = flicker * bloom;
+      if (alpha < 0.02) return;
+
+      const x = bc.x + Math.cos(f.angle) * f.radius;
+      const y = bc.y + Math.sin(f.angle) * f.radius * 0.52;
+      const [r,g,b] = f.hue;
+      const core = f.size * (1 + bloom * 0.6);
+      const glow = core * 5;
+
+      fctx.save();
+      fctx.globalAlpha = alpha;
+      const grad = fctx.createRadialGradient(x, y, 0, x, y, glow);
+      grad.addColorStop(0,   `rgba(${r},${g},${b},1)`);
+      grad.addColorStop(0.15,`rgba(${r},${g},${b},0.8)`);
+      grad.addColorStop(0.4, `rgba(${r},${g},${b},0.25)`);
+      grad.addColorStop(1,   `rgba(${r},${g},${b},0)`);
+      fctx.fillStyle = grad;
+      fctx.beginPath();
+      fctx.arc(x, y, glow, 0, Math.PI * 2);
+      fctx.fill();
+
+      fctx.globalAlpha = Math.min(1, alpha * 1.8);
+      fctx.fillStyle = `rgba(${r},${g},${b},1)`;
+      fctx.beginPath();
+      fctx.arc(x, y, core, 0, Math.PI * 2);
+      fctx.fill();
+
+      if (flicker > 0.7 && bloom > 0.6) {
+        fctx.globalAlpha = (flicker - 0.7) * 2.5 * bloom;
+        fctx.strokeStyle = `rgba(${r},${g},${b},1)`;
+        fctx.lineWidth = 0.7;
+        const arm = core * 3.5;
+        fctx.beginPath();
+        fctx.moveTo(x - arm, y); fctx.lineTo(x + arm, y);
+        fctx.moveTo(x, y - arm); fctx.lineTo(x, y + arm);
+        fctx.stroke();
+      }
+      fctx.restore();
+    });
+  }
+
+  const SPEED = 0.009;
+  function loop(){
+    spin += SPEED;
+    drawFrame(spin);
+    updateDots(spin);
+    updateBeams(spin);
+    updateFireflies();
+    updateFlashes(spin);
+    // Keep flash handle affixed to disco ball center
+    const flashEl = document.getElementById('drag-flash');
+    if(flashEl){
+      const bc = getBallCenter();
+      flashEl.style.left = (bc.x - 3.5) + 'px';
+      flashEl.style.top  = (bc.y - 3.5) + 'px';
+      flashEl.style.transform = 'none';
+      window._flashPos = { x: bc.x, y: bc.y };
+    }
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+</script>
+
+<!-- DRAGGABLE FLASH HANDLE -->
+<div id="drag-flash" style="position:fixed; top:45vh; left:50%; transform:translateX(-50%); z-index:50; pointer-events:none; width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.4); box-shadow:0 0 3px 1px rgba(255,255,255,0.5);"></div>
+<script>
+/* FINALIZED — flash position locked */
+(function(){
+  const el = document.getElementById('drag-flash');
+  if (!el) return;
+  el.style.cursor = 'default';
+  el.style.pointerEvents = 'none';
+  const r = el.getBoundingClientRect();
+  window._flashPos = { x: r.left+3.5, y: r.top+3.5 };
+})();
+</script>
+
+
+
+<!-- DRAGGABLE KEYBOARD -->
+
+<!-- DRAGGABLE CONFETTI 1 -->
+
+<!-- DRAGGABLE CONFETTI 2 -->
+
+<script>
+/* FINALIZED — all positions locked */
+(function(){
+  const IDS = ['bongo','drag-squirrel','drag-squirrel2','drag-raccoon','drag-eagle1','drag-eagle2','drag-keyboard','drag-mic','drag-bird','drag-rabbit','drag-bear','drag-light-red','drag-light-blue','drag-light-green','drag-light-yellow','drag-disco'];
+  IDS.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    try {
+      const saved = JSON.parse(localStorage.getItem('pos_'+id));
+      if (saved) { el.style.left = saved.x+'px'; el.style.top = saved.y+'px'; el.style.bottom='auto'; }
+    } catch(e){}
+    el.style.cursor = 'default';
+    el.style.pointerEvents = 'none';
+  });
+})();
+</script>
+<div style="position:fixed; bottom:28px; left:50%; transform:translateX(-50%); z-index:10; pointer-events:none; display:flex; justify-content:center;">
+  <div class="campfire" style="margin-top:0;">
+    <div class="campfire-flames"><span style="display:inline-block; animation: fireFlicker 0.2s ease-in-out infinite alternate;">🔥</span></div>
+    <div class="campfire-base">🪵</div>
+    <div class="campfire-glow"></div>
+  </div>
+</div>
+
+<!-- HIDDEN ADMIN TOGGLE - only Steve knows this is here -->
+<div id="adminToggle" style="position:fixed;bottom:12px;right:12px;z-index:9999;opacity:0;width:32px;height:32px;cursor:pointer;border-radius:50%;" title=""></div>
+
+<!-- ADMIN PANEL -->
+<div id="adminPanel" style="display:none;position:fixed;bottom:52px;right:12px;z-index:9999;
+  background:rgba(6,22,8,.97);border:1px solid rgba(245,192,48,.5);border-radius:16px;
+  padding:16px 20px;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,.8);">
+  <div style="font-family:'Abril Fatface',cursive;color:#ffe066;font-size:.9rem;letter-spacing:1px;margin-bottom:10px;">🎸 DOWNLOADS</div>
+  <button id="toggleDownloads" onclick="toggleDownloadAccess()"
+    style="padding:10px 20px;border-radius:20px;border:none;cursor:pointer;
+    font-family:'Lato',sans-serif;font-weight:900;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;
+    background:linear-gradient(135deg,#b87010,#f5c030);color:#1a0f00;
+    box-shadow:0 4px 14px rgba(200,160,30,.4);">
+    🔒 LOCKED
+  </button>
+</div>
+
+<!-- UFO -->
+<div id="ufo" style="position:fixed; bottom:252px; right:60px; z-index:25; pointer-events:none; animation:ufoFloat2 4s ease-in-out infinite;">
+  <!-- UFO body -->
+  <div style="position:relative; width:60px; height:25px; margin:0 auto;">
+    <!-- Dome -->
+    <div style="position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+      width:25px; height:16px; border-radius:50% 50% 0 0;
+      background:radial-gradient(ellipse at 35% 35%, rgba(180,230,255,0.95), rgba(80,160,220,0.7));
+      border:1px solid rgba(120,200,255,0.5);
+      box-shadow:0 0 6px rgba(120,200,255,0.6);"></div>
+    <!-- Main saucer -->
+    <div style="position:absolute; top:0; left:0; width:60px; height:14px; border-radius:50%;
+      background:radial-gradient(ellipse at 40% 30%, #d0d8e0, #8090a0);
+      box-shadow:0 2px 10px rgba(0,0,0,0.5), 0 0 15px rgba(120,200,255,0.3);"></div>
+    <!-- Underbelly -->
+    <div style="position:absolute; top:8px; left:8px; width:45px; height:8px; border-radius:50%;
+      background:radial-gradient(ellipse, #606878, #404858);"></div>
+    <!-- Flashing lights row -->
+    <div id="ufo-lights" style="position:absolute; top:10px; left:5px; width:50px; display:flex; justify-content:space-around; align-items:center;">
+      <div class="ufo-light" style="--c:255,80,80;"></div>
+      <div class="ufo-light" style="--c:80,255,120; animation-delay:.2s;"></div>
+      <div class="ufo-light" style="--c:80,160,255; animation-delay:.4s;"></div>
+      <div class="ufo-light" style="--c:255,220,80; animation-delay:.6s;"></div>
+      <div class="ufo-light" style="--c:255,80,255; animation-delay:.8s;"></div>
+      <div class="ufo-light" style="--c:80,255,240; animation-delay:1s;"></div>
+    </div>
+    <!-- Tractor beam -->
+    <div style="position:absolute; top:14px; left:50%; transform:translateX(-50%);
+      width:0; height:0;
+      border-left:15px solid transparent;
+      border-right:15px solid transparent;
+      border-top:30px solid rgba(120,220,255,0.08);
+      filter:blur(2px);"></div>
+  </div>
+</div>
+
+<style>
+.ufo-light {
+  width:4px; height:4px; border-radius:50%;
+  background:rgba(var(--c),1);
+  box-shadow:0 0 3px 2px rgba(var(--c),0.7);
+  animation:ufoFlash .9s ease-in-out infinite;
+}
+@keyframes ufoFlash {
+  0%,100%{opacity:1;transform:scale(1);}
+  50%{opacity:.2;transform:scale(0.6);}
+}
+@keyframes ufoFloat2 {
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-9px);}
+}
+@keyframes ufoFloat {
+  0%,100%{transform:translateX(-50%) translateY(0);}
+  50%{transform:translateX(-50%) translateY(-18px);}
+}
+</style>
+
+<!-- ALIENS -->
+<div style="position:fixed; bottom:100px; left:50%; transform:translateX(-50%); z-index:22; pointer-events:none; width:340px;">
+<svg viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;overflow:visible;">
+  <defs>
+    <radialGradient id="alien-body-g" cx="45%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#dce0e4"/>
+      <stop offset="45%" stop-color="#9aa0a8"/>
+      <stop offset="100%" stop-color="#4a5058"/>
+    </radialGradient>
+    <radialGradient id="alien-neck-g" cx="40%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#c8ccd0"/>
+      <stop offset="100%" stop-color="#7a8088"/>
+    </radialGradient>
+  </defs>
+
+  <!-- ZORK -->
+  <g style="animation:alienSway 3.2s ease-in-out infinite;transform-origin:140px 160px;">
+    <ellipse cx="140" cy="158" rx="26" ry="30" fill="url(#alien-body-g)"/>
+    <rect x="131" y="118" width="18" height="20" rx="5" fill="url(#alien-neck-g)"/>
+    <path d="M116 148 Q94 158 86 168" stroke="#9aa0a8" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M164 148 Q186 158 194 168" stroke="#9aa0a8" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <text x="140" y="118" text-anchor="middle" font-size="62" style="filter:drop-shadow(0 0 8px rgba(120,255,120,0.7));">👽</text>
+    <text x="140" y="205" text-anchor="middle" font-size="9" font-weight="900" letter-spacing="1" fill="#aaffaa" style="text-shadow:0 0 6px #0f0;">ZORK</text>
+  </g>
+
+  <!-- BLIP (center, bigger) -->
+  <g style="animation:alienSway 2.8s ease-in-out infinite alternate;transform-origin:340px 168px;">
+    <ellipse cx="340" cy="168" rx="30" ry="34" fill="url(#alien-body-g)"/>
+    <rect x="330" y="124" width="20" height="24" rx="6" fill="url(#alien-neck-g)"/>
+    <path d="M312 158 Q286 170 276 182" stroke="#9aa0a8" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M368 158 Q394 170 404 182" stroke="#9aa0a8" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <text x="340" y="124" text-anchor="middle" font-size="72" style="filter:drop-shadow(0 0 10px rgba(120,255,120,0.8));">👽</text>
+    <text x="340" y="215" text-anchor="middle" font-size="9" font-weight="900" letter-spacing="1" fill="#aaffaa" style="text-shadow:0 0 6px #0f0;">BLIP</text>
+  </g>
+
+  <!-- XENU (mirrored) -->
+  <g style="animation:alienSway 3.5s ease-in-out infinite alternate-reverse;transform-origin:540px 160px;">
+    <ellipse cx="540" cy="158" rx="26" ry="30" fill="url(#alien-body-g)"/>
+    <rect x="531" y="118" width="18" height="20" rx="5" fill="url(#alien-neck-g)"/>
+    <path d="M516 148 Q494 158 486 168" stroke="#9aa0a8" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M564 148 Q586 158 594 168" stroke="#9aa0a8" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <text x="540" y="118" text-anchor="middle" font-size="62" style="transform:scaleX(-1);transform-origin:540px 90px;filter:drop-shadow(0 0 8px rgba(120,255,120,0.7));">👽</text>
+    <text x="540" y="205" text-anchor="middle" font-size="9" font-weight="900" letter-spacing="1" fill="#aaffaa" style="text-shadow:0 0 6px #0f0;">XENU</text>
+  </g>
+</svg>
+</div>
+
+<style>
+@keyframes alienSway {
+  0%,100%{transform:rotate(-4deg);}
+  50%{transform:rotate(4deg);}
+}
+</style>
+
+<!-- ROBOT LEFT -->
+<div style="position:fixed; bottom:95px; left:calc(50% - 200px); z-index:22; pointer-events:none; animation:robotBob 2s ease-in-out infinite;">
+<svg viewBox="0 0 56 120" width="25" height="54" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="rb-g" cx="40%" cy="30%" r="60%"><stop offset="0%" stop-color="#e0e8f0"/><stop offset="50%" stop-color="#90a0b0"/><stop offset="100%" stop-color="#405060"/></radialGradient>
+  </defs>
+  <!-- antenna -->
+  <rect x="26" y="0" width="3" height="12" fill="#708090" rx="1"/>
+  <circle cx="27" cy="0" r="4" fill="#ff4444" style="animation:ufoFlash 1s ease-in-out infinite;"/>
+  <!-- head -->
+  <rect x="6" y="12" width="44" height="30" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="1"/>
+  <!-- eyes -->
+  <rect x="11" y="19" width="10" height="8" rx="2" fill="#00eeff" opacity="0.9" style="animation:robotBlink 3s infinite;"/>
+  <rect x="35" y="19" width="10" height="8" rx="2" fill="#00eeff" opacity="0.9" style="animation:robotBlink 3s infinite .15s;"/>
+  <!-- mouth -->
+  <rect x="15" y="32" width="24" height="4" rx="1" fill="#304050"/>
+  <rect x="17" y="32" width="4" height="4" fill="#00eeff" opacity="0.5"/>
+  <rect x="24" y="32" width="4" height="4" fill="#00eeff" opacity="0.5"/>
+  <rect x="31" y="32" width="4" height="4" fill="#00eeff" opacity="0.5"/>
+  <!-- neck -->
+  <rect x="21" y="42" width="12" height="7" rx="2" fill="#607080"/>
+  <!-- body -->
+  <rect x="2" y="49" width="52" height="38" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="1"/>
+  <!-- chest lights -->
+  <circle cx="17" cy="63" r="4" fill="#ff8800" style="animation:ufoFlash .7s infinite .1s;"/>
+  <circle cx="28" cy="63" r="4" fill="#00ccff" style="animation:ufoFlash .7s infinite .3s;"/>
+  <circle cx="39" cy="63" r="4" fill="#88ff00" style="animation:ufoFlash .7s infinite .5s;"/>
+  <rect x="14" y="73" width="28" height="5" rx="2" fill="#304050"/>
+  <!-- arms -->
+  <rect x="-10" y="51" width="12" height="28" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8"/>
+  <rect x="54" y="51" width="12" height="28" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8"/>
+  <!-- legs -->
+  <rect x="10" y="87" width="13" height="24" rx="4" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8" style="animation:robotLegL 2s ease-in-out infinite;transform-origin:16px 87px;"/>
+  <rect x="33" y="87" width="13" height="24" rx="4" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8" style="animation:robotLegR 2s ease-in-out infinite;transform-origin:39px 87px;"/>
+  <!-- feet -->
+  <rect x="7" y="109" width="18" height="7" rx="3" fill="#405060"/>
+  <rect x="30" y="109" width="18" height="7" rx="3" fill="#405060"/>
+  <!-- label -->
+  <text x="28" y="122" text-anchor="middle" font-size="7" font-weight="900" letter-spacing="1" fill="#00ffcc">R-01</text>
+</svg>
+</div>
+
+<!-- ROBOT RIGHT -->
+<div style="position:fixed; bottom:95px; left:calc(50% + 145px); z-index:22; pointer-events:none; animation:robotBob 2.2s ease-in-out infinite .4s;">
+<svg viewBox="0 0 56 120" width="25" height="54" xmlns="http://www.w3.org/2000/svg">
+  <!-- antenna -->
+  <rect x="26" y="0" width="3" height="12" fill="#708090" rx="1"/>
+  <circle cx="27" cy="0" r="4" fill="#ff4444" style="animation:ufoFlash 1.2s ease-in-out infinite;"/>
+  <!-- head -->
+  <rect x="6" y="12" width="44" height="30" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="1"/>
+  <rect x="11" y="19" width="10" height="8" rx="2" fill="#00eeff" opacity="0.9" style="animation:robotBlink 3s infinite .3s;"/>
+  <rect x="35" y="19" width="10" height="8" rx="2" fill="#00eeff" opacity="0.9" style="animation:robotBlink 3s infinite .45s;"/>
+  <rect x="15" y="32" width="24" height="4" rx="1" fill="#304050"/>
+  <rect x="17" y="32" width="4" height="4" fill="#00eeff" opacity="0.5"/>
+  <rect x="24" y="32" width="4" height="4" fill="#00eeff" opacity="0.5"/>
+  <rect x="31" y="32" width="4" height="4" fill="#00eeff" opacity="0.5"/>
+  <!-- neck -->
+  <rect x="21" y="42" width="12" height="7" rx="2" fill="#607080"/>
+  <!-- body -->
+  <rect x="2" y="49" width="52" height="38" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="1"/>
+  <circle cx="17" cy="63" r="4" fill="#ff8800" style="animation:ufoFlash .8s infinite .2s;"/>
+  <circle cx="28" cy="63" r="4" fill="#00ccff" style="animation:ufoFlash .8s infinite .4s;"/>
+  <circle cx="39" cy="63" r="4" fill="#88ff00" style="animation:ufoFlash .8s infinite .6s;"/>
+  <rect x="14" y="73" width="28" height="5" rx="2" fill="#304050"/>
+  <!-- arms -->
+  <rect x="-10" y="51" width="12" height="28" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8"/>
+  <rect x="54" y="51" width="12" height="28" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8"/>
+  <!-- legs -->
+  <rect x="10" y="87" width="13" height="24" rx="4" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8" style="animation:robotLegR 2.2s ease-in-out infinite;transform-origin:16px 87px;"/>
+  <rect x="33" y="87" width="13" height="24" rx="4" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8" style="animation:robotLegL 2.2s ease-in-out infinite;transform-origin:39px 87px;"/>
+  <!-- feet -->
+  <rect x="7" y="109" width="18" height="7" rx="3" fill="#405060"/>
+  <rect x="30" y="109" width="18" height="7" rx="3" fill="#405060"/>
+  <text x="28" y="122" text-anchor="middle" font-size="7" font-weight="900" letter-spacing="1" fill="#00ffcc">R-02</text>
+</svg>
+</div>
+
+<style>
+@keyframes robotBob {
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-6px);}
+}
+@keyframes robotBlink {
+  0%,90%,100%{opacity:1;}
+  95%{opacity:0;}
+}
+@keyframes robotLegL {
+  0%,100%{transform:rotate(-8deg);}
+  50%{transform:rotate(8deg);}
+}
+@keyframes robotLegR {
+  0%,100%{transform:rotate(8deg);}
+  50%{transform:rotate(-8deg);}
+}
+</style>
+
+<!-- VENMO PAYMENT MODAL -->
+<div class="venmo-overlay" id="venmoModal">
+  <div class="venmo-box">
+    <button class="venmo-close" id="venmoClose" title="Close">✕</button>
+    <div class="venmo-title">💛 Support the Music</div>
+    <div class="venmo-subtitle">Scan the QR code or search Venmo<br>to send a tip before downloading!</div>
+    <img class="venmo-qr" src="venmo-qr.jpg" alt="Venmo QR Code"
+         onerror="this.style.display='none';document.getElementById('venmoFallback').style.display='flex';">
+    <div class="venmo-qr-fallback" id="venmoFallback" style="display:none;">
+      <span style="font-size:2rem;">📱</span>
+      <span>venmo-qr.jpg</span>
+      <span style="font-size:.7rem;opacity:.7;">Place your QR image in<br>the same folder as this page</span>
+    </div>
+    <div class="venmo-handle">@StevenBickham</div>
+    <div class="venmo-price">Any amount is appreciated 🎸</div>
+    <a id="venmoDownloadBtn" href="#" download class="btn-confirm-download">
+      ⬇️ I've Paid — Download Now
+    </a>
+  </div>
+</div>
+
+<!-- VIDEO MODAL -->
+<div class="modal-overlay" id="videoModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" title="Close">✕</button>
+    <div class="modal-title">🎬 <span>Trump Came Back</span> — Steven Bickham</div>
+    <div class="video-wrap">
+      <iframe id="videoFrame" allowfullscreen allow="autoplay"></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content">
+  <header class="header">
+  </header>
+
+  <div class="panel">
+    <div class="panel-header">
+      <div class="title-main" style="text-align:center;">Steven Bickham</div>
+      <div class="title-site" style="text-align:center;">Catalog 1</div>
+      <div class="title-byline" style="text-align:center;">Full Song Catalog · Lebanon, TN</div>
+      <div class="divider"></div>
+      <div style="margin-top:18px; text-align:center;">
+        <div class="panel-title">🎵 All Songs</div>
+        <div class="panel-sub">— Original Songs by Steven Bickham —</div>
+      </div>
+    </div>
+    <ul class="song-list" id="songList"></ul>
+  </div>
+
+</div>
+</div>
+
+<!-- SITE NAV - outside all other divs to prevent z-index conflicts -->
+<div style="position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;justify-content:center;gap:16px;flex-wrap:wrap;pointer-events:auto;">
+  <a href="wp1.html" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:1rem;color:#ffe066;text-decoration:none;letter-spacing:1px;border:1px solid rgba(255,220,80,.4);padding:8px 22px;border-radius:30px;background:rgba(5,15,6,0.85);box-shadow:0 0 20px rgba(255,200,60,.15);transition:all .2s;" onmouseover="this.style.background='rgba(255,200,60,.15)'" onmouseout="this.style.background='rgba(5,15,6,0.85)'">🏠 Home</a>
+  <a href="wp3.html" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:1rem;color:#ffe066;text-decoration:none;letter-spacing:1px;border:1px solid rgba(255,220,80,.4);padding:8px 22px;border-radius:30px;background:rgba(5,15,6,0.85);box-shadow:0 0 20px rgba(255,200,60,.15);transition:all .2s;" onmouseover="this.style.background='rgba(255,200,60,.15)'" onmouseout="this.style.background='rgba(5,15,6,0.85)'">Songlist 3 →</a>
+</div>
+
+<script>
+// Build song list
+const BASE = "";
+const songs = [
+  { title:"Trump Came Back",                         duration:"4:00", genre:"Country",        mp3:"tcb.mp3"   },
+  { title:"Funk Overdrive (Birthday Suit)",          duration:"3:04", genre:"Funk",           mp3:"fo.mp3"    },
+  { title:"Presents of the Lord (Christmas Song)",   duration:"3:49", genre:"Holiday",        mp3:"potl.mp3"  },
+  { title:"There's Nothin' Like Me with You",        duration:"3:08", genre:"Country",        mp3:"tnlmy.mp3" },
+  { title:"Candy Girl",                              duration:"3:06", genre:"Pop Country",    mp3:"cg.mp3"    },
+  { title:"Runaway",                                 duration:"3:18", genre:"Country",        mp3:"run.mp3"   },
+  { title:"War Pigs",                                duration:"3:16", genre:"Rock",           mp3:"wp.mp3"    },
+  { title:"Honky Tonk Hell",                         duration:"3:30", genre:"Country",        mp3:"hth.mp3"   },
+  { title:"Love Song",                               duration:"3:58", genre:"Country",        mp3:"ls.mp3"    },
+  { title:"King of Kings, Lord of Lords",            duration:"3:30", genre:"Gospel",         mp3:"kokl.mp3"  },
+  { title:"My Life Is Yours (Jesus)",                duration:"3:30", genre:"Gospel",         mp3:"mliyj.mp3" },
+  { title:"I Will Follow Him",                       duration:"3:30", genre:"Gospel",         mp3:"iwfh.mp3"  },
+];
+
+const ul = document.getElementById('songList');
+songs.forEach((s,i) => {
+  const li = document.createElement('li');
+  li.className='song-item';
+  const listenBtn = s.video
+    ? `<button onclick="openVideo()" class="btn btn-video">🎬 VIDEO</button>`
+    : `<button onclick="playSong(${i})" class="btn btn-listen" id="btn-${i}">▶ Listen</button>`;
+  li.innerHTML=`
+    <div class="track-num">${i+1}</div>
+    <div class="song-info">
+      <div class="song-title">${s.title}</div>
+      <div class="song-duration">⏱ ${s.duration} &nbsp;·&nbsp; ${s.genre}${s.video?' &nbsp;🎬':''}</div>
+      <audio id="audio-${i}" src="${BASE}${s.mp3}" preload="none"></audio>
+    </div>
+    <div class="song-btns">
+      ${listenBtn}
+      <button class="btn btn-buy btn-download" data-mp3="${BASE}${s.mp3}">⬇️ Download</button>
+    </div>`;
+  ul.appendChild(li);
+});
+
+// Audio player
+let currentAudio = null;
+let currentBtn = null;
+function playSong(i) {
+  const audio = document.getElementById('audio-'+i);
+  const btn   = document.getElementById('btn-'+i);
+  if (currentAudio && currentAudio !== audio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+    if (currentBtn) currentBtn.textContent = '▶ Listen';
+    currentAudio = null;
+    currentBtn = null;
+  }
+  if (audio.paused) {
+    audio.play();
+    btn.textContent = '⏸ Pause';
+    currentAudio = audio;
+    currentBtn = btn;
+    audio.onended = () => { btn.textContent = '▶ Listen'; currentAudio = null; currentBtn = null; };
+  } else {
+    audio.pause();
+    audio.currentTime = 0;
+    btn.textContent = '▶ Listen';
+    currentAudio = null;
+    currentBtn = null;
+  }
+}
+
+// Video modal
+const modal   = document.getElementById('videoModal');
+const frame   = document.getElementById('videoFrame');
+const closeBtn= document.getElementById('modalClose');
+const videoSrc= 'https://drive.google.com/uc?export=preview&id=1QOm3LQMxChQ56whM3ciNahspSEYkYM60';
+
+function openVideo(){
+  frame.src = videoSrc;
+  modal.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeVideo(){
+  modal.classList.remove('open');
+  frame.src='';
+  document.body.style.overflow='';
+}
+closeBtn.addEventListener('click', closeVideo);
+modal.addEventListener('click', e => { if(e.target===modal) closeVideo(); });
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeVideo(); });
+
+// Venmo payment modal
+const venmoModal   = document.getElementById('venmoModal');
+const venmoClose   = document.getElementById('venmoClose');
+const venmoDownBtn = document.getElementById('venmoDownloadBtn');
+
+function openVenmo(mp3path) {
+  venmoDownBtn.href = mp3path;
+  venmoDownBtn.setAttribute('download', '');
+  venmoModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeVenmo() {
+  venmoModal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+venmoClose.addEventListener('click', closeVenmo);
+venmoModal.addEventListener('click', e => { if(e.target === venmoModal) closeVenmo(); });
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeVenmo(); });
+
+// ============================================
+// STEVE'S ADMIN DOWNLOAD TOGGLE
+// Triple-tap the invisible corner spot bottom-right
+// ============================================
+let downloadsUnlocked = false;
+let adminVisible = false;
+let tapCount = 0;
+let tapTimer = null;
+
+document.getElementById('adminToggle').addEventListener('click', function() {
+  tapCount++;
+  clearTimeout(tapTimer);
+  tapTimer = setTimeout(() => { tapCount = 0; }, 800);
+  if (tapCount >= 3) {
+    tapCount = 0;
+    adminVisible = !adminVisible;
+    document.getElementById('adminPanel').style.display = adminVisible ? 'block' : 'none';
+  }
+});
+
+function toggleDownloadAccess() {
+  downloadsUnlocked = !downloadsUnlocked;
+  const btn = document.getElementById('toggleDownloads');
+  if (downloadsUnlocked) {
+    btn.textContent = '🔓 UNLOCKED';
+    btn.style.background = 'linear-gradient(135deg,#206820,#48ba48)';
+    btn.style.color = '#fff';
+  } else {
+    btn.textContent = '🔒 LOCKED';
+    btn.style.background = 'linear-gradient(135deg,#b87010,#f5c030)';
+    btn.style.color = '#1a0f00';
+  }
+}
+
+// Event delegation for download buttons
+document.addEventListener('click', function(e) {
+  const btn = e.target.closest('.btn-download');
+  if (btn) {
+    e.preventDefault();
+    if (downloadsUnlocked) {
+      const link = document.createElement('a');
+      link.href = btn.getAttribute('data-mp3');
+      link.setAttribute('download', '');
+      link.click();
+    } else {
+      openVenmo(btn.getAttribute('data-mp3'));
+    }
+  }
+});
+
+// Fireflies - lots of them!
+for(let i=0;i<45;i++){
+  const f=document.createElement('div');
+  f.className='firefly';
+  const size = 3+Math.random()*6;
+  const warm = Math.random() > 0.5;
+  const glowColor = warm ? 'rgba(255,240,80,.8)' : 'rgba(180,255,120,.7)';
+  f.style.cssText=`
+    left:${Math.random()*98}vw;
+    top:${5+Math.random()*80}vh;
+    --dx:${(Math.random()-.5)*160}px;
+    --dy:${(Math.random()-.5)*120}px;
+    animation-duration:${2+Math.random()*4}s;
+    animation-delay:${Math.random()*6}s;
+    width:${size}px;
+    height:${size}px;
+    box-shadow:0 0 ${size*2}px ${size}px ${glowColor}, 0 0 ${size*4}px ${size*1.5}px ${glowColor.replace('.8','.3').replace('.7','.25')};
+  `;
+  document.body.appendChild(f);
+}
+
+// Leaves
+const leafEmojis=['🍃','🍂','🍁'];
+for(let i=0;i<14;i++){
+  const l=document.createElement('div');
+  l.className='leaf'; l.textContent=leafEmojis[i%3];
+  l.style.cssText=`left:${Math.random()*94}vw;animation-duration:${4+Math.random()*5}s;animation-delay:${Math.random()*7}s;font-size:${10+Math.random()*12}px;`;
+  document.body.appendChild(l);
+}
+
+// Stop everything cleanly before navigating away
+document.addEventListener('visibilitychange', function() {
+  if (document.visibilityState === 'hidden') {
+    document.querySelectorAll('audio').forEach(a => { a.pause(); a.src = ''; });
+  }
+});
+window.addEventListener('pagehide', function() {
+  document.querySelectorAll('audio').forEach(a => { a.pause(); a.src = ''; });
+  document.querySelectorAll('.firefly, .leaf, .cloud').forEach(el => el.remove());
+});
+document.querySelectorAll('a[href]').forEach(link => {
+  link.addEventListener('click', function() {
+    document.querySelectorAll('audio').forEach(a => { a.pause(); a.src = ''; });
+  });
+});
+</script>
+</body>
+</html>
