@@ -538,14 +538,14 @@ body {
   position:relative;
   z-index:200;
   isolation:isolate;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 /* 3D BEATING HEART */
 .heart-bg {
   position: fixed;
-  top: 50%;
+  top: 38%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 149;
@@ -832,6 +832,7 @@ body {
 <body>
 
 <!-- 3D BEATING HEART -->
+<div style="position:fixed;top:29%;left:50%;transform:translateX(-50%);z-index:150;pointer-events:none;font-family:'Abril Fatface',cursive;font-size:1.3rem;letter-spacing:4px;color:rgba(255,100,130,.7);text-shadow:0 0 8px rgba(220,40,80,.5);text-align:center;">BEAT METER</div>
 <div class="heart-bg">
   <svg viewBox="0 0 200 180" width="210" height="190" xmlns="http://www.w3.org/2000/svg">
     <defs>
@@ -848,8 +849,7 @@ body {
         <feGaussianBlur stdDeviation="2.5"/>
       </filter>
     </defs>
-    <ellipse cx="100" cy="175" rx="70" ry="8" fill="rgba(0,0,0,0.35)" filter="url(#hblur)"/>
-    <path d="M100 155 C60 125, 10 100, 10 60 C10 30, 35 10, 60 10 C75 10, 90 18, 100 30 C110 18, 125 10, 140 10 C165 10, 190 30, 190 60 C190 100, 140 125, 100 155Z" fill="url(#hg1)"/>
+        <path d="M100 155 C60 125, 10 100, 10 60 C10 30, 35 10, 60 10 C75 10, 90 18, 100 30 C110 18, 125 10, 140 10 C165 10, 190 30, 190 60 C190 100, 140 125, 100 155Z" fill="url(#hg1)"/>
     <path d="M100 155 C60 125, 10 100, 10 60 C10 30, 35 10, 60 10 C75 10, 90 18, 100 30 C110 18, 125 10, 140 10 C165 10, 190 30, 190 60 C190 100, 140 125, 100 155Z" fill="url(#hg2)"/>
   </svg>
 </div>
