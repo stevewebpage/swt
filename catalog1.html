@@ -436,7 +436,7 @@ body {
 /* The canvas sits here; JS draws the sphere */
 #discoCanvas {
   display: block;
-  filter: drop-shadow(0 0 50px rgba(255,255,255,1)) drop-shadow(0 0 90px rgba(200,230,255,1)) drop-shadow(0 0 140px rgba(160,210,255,.9)) drop-shadow(0 0 200px rgba(120,180,255,.6));
+  filter: drop-shadow(0 0 30px rgba(200,230,255,.9)) drop-shadow(0 0 60px rgba(160,200,255,.6)) drop-shadow(0 0 100px rgba(120,170,255,.4));
 }
 
 /* Disco reflected spots that sweep the scene */
@@ -446,7 +446,7 @@ body {
   pointer-events: none;
   z-index: 5;
   mix-blend-mode: normal;
-  opacity: 0.25;
+  opacity: 0.35;
 }
 /* ===== END DISCO BALL ===== */
 
@@ -552,15 +552,15 @@ body {
   pointer-events: none;
   animation: heartbeat3d 0.43s ease-in-out infinite;
   filter: drop-shadow(0 0 30px rgba(220,40,80,.4)) drop-shadow(0 0 60px rgba(180,20,60,.2));
-  opacity: 0.25;
+  opacity: 0.35;
 }
 @keyframes heartbeat3d {
-  0%   { transform: translate(-50%,-50%) scale(1)    rotateY(0deg); filter: drop-shadow(0 0 20px rgba(220,40,80,.3)); }
-  15%  { transform: translate(-50%,-50%) scale(1.18) rotateY(8deg); filter: drop-shadow(0 0 50px rgba(220,40,80,.7)); }
-  30%  { transform: translate(-50%,-50%) scale(1.08) rotateY(4deg); filter: drop-shadow(0 0 30px rgba(220,40,80,.4)); }
-  45%  { transform: translate(-50%,-50%) scale(1.22) rotateY(-6deg); filter: drop-shadow(0 0 60px rgba(220,40,80,.8)); }
-  65%  { transform: translate(-50%,-50%) scale(1)    rotateY(0deg); filter: drop-shadow(0 0 20px rgba(220,40,80,.3)); }
-  100% { transform: translate(-50%,-50%) scale(1)    rotateY(0deg); filter: drop-shadow(0 0 20px rgba(220,40,80,.3)); }
+  0%   { transform: translate(-50%,-50%) scale(1);    filter: drop-shadow(0 0 20px rgba(220,40,80,.5)); }
+  15%  { transform: translate(-50%,-50%) scale(1.18); filter: drop-shadow(0 0 50px rgba(220,40,80,.9)); }
+  30%  { transform: translate(-50%,-50%) scale(1.08); filter: drop-shadow(0 0 30px rgba(220,40,80,.6)); }
+  45%  { transform: translate(-50%,-50%) scale(1.22); filter: drop-shadow(0 0 60px rgba(220,40,80,1)); }
+  65%  { transform: translate(-50%,-50%) scale(1);    filter: drop-shadow(0 0 20px rgba(220,40,80,.5)); }
+  100% { transform: translate(-50%,-50%) scale(1);    filter: drop-shadow(0 0 20px rgba(220,40,80,.5)); }
 }
 .panel-header{text-align:center;margin-bottom:22px;}
 .panel-title{
@@ -1058,7 +1058,7 @@ body {
 <!-- DRAGGABLE DISCO BALL -->
 <div id="drag-disco" style="position:fixed; bottom:220px; left:50%; transform:translateX(-50%); z-index:20; pointer-events:auto; display:flex; flex-direction:column; align-items:center;">
   <!-- Canvas ball -->
-  <canvas id="discoCanvas" width="110" height="110" style="display:block; margin-top:-1px; filter:drop-shadow(0 0 50px rgba(255,255,255,1)) drop-shadow(0 0 90px rgba(200,230,255,1)) drop-shadow(0 0 140px rgba(160,210,255,.9)) drop-shadow(0 0 200px rgba(120,180,255,.6));"></canvas>
+  <canvas id="discoCanvas" width="110" height="110" style="display:block; margin-top:-1px; filter:drop-shadow(0 0 30px rgba(200,230,255,.9)) drop-shadow(0 0 60px rgba(160,200,255,.6)) drop-shadow(0 0 100px rgba(120,170,255,.4));"></canvas>
   <!-- Resize handle -->
   <div id="disco-resize" style="width:16px;height:16px;cursor:nwse-resize;position:absolute;bottom:0;right:0;background:rgba(255,255,255,0.15);border-radius:0 0 50% 0;pointer-events:auto;"></div>
 </div>
@@ -1145,7 +1145,7 @@ body {
       // Specular (viewer along +Z)
       const hx=(lx+0)/2, hy=(ly+0)/2, hz=(lz+1)/2;
       const hl=Math.hypot(hx,hy,hz);
-      const spec = Math.pow(Math.max(0,(f.nx*hx/hl + f.ny*hy/hl + f.nz*hz/hl)), 3);
+      const spec = Math.pow(Math.max(0,(f.nx*hx/hl + f.ny*hy/hl + f.nz*hz/hl)), 10);
 
       // Base mirror tile color: bright chrome silver
       const base = [220, 235, 255];
@@ -1175,7 +1175,7 @@ body {
     ctx.beginPath(); ctx.arc(cx,cy,R,0,Math.PI*2); ctx.clip();
     const rim = ctx.createRadialGradient(cx,cy,R*0.6, cx,cy,R);
     rim.addColorStop(0,'rgba(0,0,0,0)');
-    rim.addColorStop(1,'rgba(0,0,0,0)');
+    rim.addColorStop(1,'rgba(0,0,0,0.25)');
     ctx.fillStyle=rim; ctx.fillRect(0,0,S,S);
     ctx.restore();
 
@@ -1931,6 +1931,7 @@ body {
 <div style="position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;justify-content:center;gap:16px;flex-wrap:wrap;pointer-events:auto;">
   <a href="index.html" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:1rem;color:#ffe066;text-decoration:none;letter-spacing:1px;border:1px solid rgba(255,220,80,.4);padding:8px 22px;border-radius:30px;background:rgba(5,15,6,0.85);box-shadow:0 0 20px rgba(255,200,60,.15);transition:all .2s;" onmouseover="this.style.background='rgba(255,200,60,.15)'" onmouseout="this.style.background='rgba(5,15,6,0.85)'">🏠 Home</a>
   <a href="catalog2.html" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:1rem;color:#ffe066;text-decoration:none;letter-spacing:1px;border:1px solid rgba(255,220,80,.4);padding:8px 22px;border-radius:30px;background:rgba(5,15,6,0.85);box-shadow:0 0 20px rgba(255,200,60,.15);transition:all .2s;" onmouseover="this.style.background='rgba(255,200,60,.15)'" onmouseout="this.style.background='rgba(5,15,6,0.85)'">Catalog 2 →</a>
+  <a href="catalog3.html" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:1rem;color:#ffe066;text-decoration:none;letter-spacing:1px;border:1px solid rgba(255,220,80,.4);padding:8px 22px;border-radius:30px;background:rgba(5,15,6,0.85);box-shadow:0 0 20px rgba(255,200,60,.15);transition:all .2s;" onmouseover="this.style.background='rgba(255,200,60,.15)'" onmouseout="this.style.background='rgba(5,15,6,0.85)'">Catalog 3 →</a>
 </div>
 
 <script>

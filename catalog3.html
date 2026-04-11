@@ -148,8 +148,8 @@ body {
 .amph-tiers { position:fixed; bottom:0; left:0; width:100%; z-index:7; pointer-events:none; }
 .disco-mount { position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 6; pointer-events: none; display: flex; flex-direction: column; align-items: center; }
 .disco-conduit { width: 6px; height: 52px; background: linear-gradient(90deg, #888 0%, #eee 40%, #aaa 60%, #666 100%); border-radius: 3px; box-shadow: 0 0 4px rgba(0,0,0,.5); }
-#discoCanvas { display: block; filter: drop-shadow(0 0 50px rgba(255,255,255,1)) drop-shadow(0 0 90px rgba(200,230,255,1)) drop-shadow(0 0 140px rgba(160,210,255,.9)) drop-shadow(0 0 200px rgba(120,180,255,.6)); }
-.disco-spot { position: fixed; border-radius: 50%; pointer-events: none; z-index: 5; mix-blend-mode: normal; opacity: 0.25; }
+#discoCanvas { display: block; filter: drop-shadow(0 0 30px rgba(200,230,255,.9)) drop-shadow(0 0 60px rgba(160,200,255,.6)) drop-shadow(0 0 100px rgba(120,170,255,.4)); }
+.disco-spot { position: fixed; border-radius: 50%; pointer-events: none; z-index: 5; mix-blend-mode: normal; opacity: 0.35; }
 .firefly{ position:fixed;border-radius:50%; background:radial-gradient(circle, #fffff0 0%, #ffe566 40%, #ffcc00 100%); pointer-events:none;z-index:11; animation:ffFloat ease-in-out infinite; }
 @keyframes ffFloat{ 0%{opacity:0; transform:translate(0,0) scale(0.6);} 15%{opacity:1; transform:translate(calc(var(--dx)*.2), calc(var(--dy)*.1)) scale(1.1);} 35%{opacity:0.2; transform:translate(calc(var(--dx)*.5), calc(var(--dy)*.4)) scale(0.8);} 55%{opacity:1; transform:translate(calc(var(--dx)*.7), calc(var(--dy)*.6)) scale(1.2);} 75%{opacity:0.3; transform:translate(calc(var(--dx)*.9), calc(var(--dy)*.8)) scale(0.7);} 90%{opacity:0.9; transform:translate(var(--dx), var(--dy)) scale(1.0);} 100%{opacity:0; transform:translate(var(--dx), var(--dy)) scale(0.5);} }
 .leaf{ position:fixed;pointer-events:none;z-index:11; font-size:14px;opacity:0; animation:leafFall linear infinite; }
@@ -166,7 +166,7 @@ body {
 .intro-text{ font-family:'Playfair Display',serif;font-style:italic; font-size:clamp(.9rem,2vw,1.1rem);color:rgba(200,255,175,.8); text-align:center;max-width:520px;line-height:1.7; text-shadow:0 2px 8px rgba(0,0,0,.5);padding:0 10px; }
 .panel{ width:min(820px,96vw);margin-top:24px; background:rgba(0,0,0,0); border:1px solid rgba(100,210,80,.5); border-radius:28px; padding:clamp(20px,5vw,44px); box-shadow: 0 24px 80px rgba(0,0,0,.95), 0 0 60px rgba(80,180,55,.15), inset 0 1px 0 rgba(255,255,255,.06), 0 0 0 1px rgba(100,200,70,.12); position:relative; z-index:200; isolation:isolate; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 /* 3D BEATING HEART */
-.heart-bg { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); z-index:149; pointer-events:none; animation:heartbeat3d 0.43s ease-in-out infinite; filter:drop-shadow(0 0 30px rgba(220,40,80,.4)) drop-shadow(0 0 60px rgba(180,20,60,.2)); opacity:0.25; }
+.heart-bg { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); z-index:149; pointer-events:none; animation:heartbeat3d 0.43s ease-in-out infinite; filter:drop-shadow(0 0 30px rgba(220,40,80,.4)) drop-shadow(0 0 60px rgba(180,20,60,.2)); opacity:0.35; }
 @keyframes heartbeat3d {
   0%   { transform:translate(-50%,-50%) scale(1)    rotateY(0deg);  filter:drop-shadow(0 0 20px rgba(220,40,80,.3)); }
   15%  { transform:translate(-50%,-50%) scale(1.18) rotateY(8deg);  filter:drop-shadow(0 0 50px rgba(220,40,80,.7)); }
@@ -437,7 +437,7 @@ body {
 
 <!-- DRAGGABLE DISCO BALL -->
 <div id="drag-disco" style="position:fixed; bottom:220px; left:50%; transform:translateX(-50%); z-index:20; pointer-events:auto; display:flex; flex-direction:column; align-items:center;">
-  <canvas id="discoCanvas" width="110" height="110" style="display:block; margin-top:-1px; filter:drop-shadow(0 0 50px rgba(255,255,255,1)) drop-shadow(0 0 90px rgba(200,230,255,1)) drop-shadow(0 0 140px rgba(160,210,255,.9)) drop-shadow(0 0 200px rgba(120,180,255,.6));"></canvas>
+  <canvas id="discoCanvas" width="110" height="110" style="display:block; margin-top:-1px; filter:drop-shadow(0 0 30px rgba(200,230,255,.9)) drop-shadow(0 0 60px rgba(160,200,255,.6)) drop-shadow(0 0 100px rgba(120,170,255,.4));"></canvas>
   <div id="disco-resize" style="width:16px;height:16px;cursor:nwse-resize;position:absolute;bottom:0;right:0;background:rgba(255,255,255,0.15);border-radius:0 0 50% 0;pointer-events:auto;"></div>
 </div>
 
@@ -485,7 +485,7 @@ body {
       ctx.strokeStyle='rgba(0,0,0,0.6)'; ctx.lineWidth=0.7; ctx.stroke();
     }
     ctx.save(); ctx.beginPath(); ctx.arc(cx,cy,R,0,Math.PI*2); ctx.clip();
-    const rim=ctx.createRadialGradient(cx,cy,R*0.6,cx,cy,R); rim.addColorStop(0,'rgba(0,0,0,0)'); rim.addColorStop(1,'rgba(0,0,0,0)');
+    const rim=ctx.createRadialGradient(cx,cy,R*0.6,cx,cy,R); rim.addColorStop(0,'rgba(0,0,0,0)'); rim.addColorStop(1,'rgba(0,0,0,0.25)');
     ctx.fillStyle=rim; ctx.fillRect(0,0,S,S); ctx.restore();
     ctx.save(); ctx.beginPath(); ctx.arc(cx,cy,R,0,Math.PI*2); ctx.clip();
     const glare=ctx.createRadialGradient(cx-R*.28,cy-R*.32,1,cx-R*.22,cy-R*.25,R*.32);
@@ -882,6 +882,7 @@ body {
 <div style="position:fixed;bottom:18px;left:0;width:100%;display:flex;justify-content:center;gap:16px;flex-wrap:wrap;z-index:9999;">
   <a href="index.html" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:1rem;color:#ffe066;text-decoration:none;letter-spacing:1px;border:1px solid rgba(255,220,80,.4);padding:8px 22px;border-radius:30px;background:rgba(5,15,6,0.85);box-shadow:0 0 20px rgba(255,200,60,.15);transition:all .2s;" onmouseover="this.style.background='rgba(255,200,60,.15)'" onmouseout="this.style.background='rgba(5,15,6,0.85)'">🏠 Home</a>
   <a href="catalog1.html" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:1rem;color:#ffe066;text-decoration:none;letter-spacing:1px;border:1px solid rgba(255,220,80,.4);padding:8px 22px;border-radius:30px;background:rgba(5,15,6,0.85);box-shadow:0 0 20px rgba(255,200,60,.15);transition:all .2s;" onmouseover="this.style.background='rgba(255,200,60,.15)'" onmouseout="this.style.background='rgba(5,15,6,0.85)'">← Catalog 1</a>
+  <a href="catalog2.html" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:1rem;color:#ffe066;text-decoration:none;letter-spacing:1px;border:1px solid rgba(255,220,80,.4);padding:8px 22px;border-radius:30px;background:rgba(5,15,6,0.85);box-shadow:0 0 20px rgba(255,200,60,.15);transition:all .2s;" onmouseover="this.style.background='rgba(255,200,60,.15)'" onmouseout="this.style.background='rgba(5,15,6,0.85)'">← Catalog 2</a>
 </div>
 
 <script>
