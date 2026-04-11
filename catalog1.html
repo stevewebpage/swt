@@ -1145,7 +1145,7 @@ body {
       // Specular (viewer along +Z)
       const hx=(lx+0)/2, hy=(ly+0)/2, hz=(lz+1)/2;
       const hl=Math.hypot(hx,hy,hz);
-      const spec = Math.pow(Math.max(0,(f.nx*hx/hl + f.ny*hy/hl + f.nz*hz/hl)), 10);
+      const spec = Math.pow(Math.max(0,(f.nx*hx/hl + f.ny*hy/hl + f.nz*hz/hl)), 8);
 
       // Base mirror tile color: bright chrome silver
       const base = [220, 235, 255];

@@ -997,9 +997,9 @@ body {
       const diff  = Math.max(0, f.nx*lx + f.ny*ly + f.nz*lz);
       const hx=(lx+0)/2, hy=(ly+0)/2, hz=(lz+1)/2;
       const hl=Math.hypot(hx,hy,hz);
-      const spec = Math.pow(Math.max(0,(f.nx*hx/hl + f.ny*hy/hl + f.nz*hz/hl)), 10);
-      const base = [200, 220, 245];
-      const br = 0.45 + diff*0.9 + spec*2.2;
+      const spec = Math.pow(Math.max(0,(f.nx*hx/hl + f.ny*hy/hl + f.nz*hz/hl)), 8);
+      const base = [210, 225, 245];
+      const br = 0.3 + diff*1.1 + spec*3.0;
       const rr = Math.min(255, base[0]*br + spec*255*0.5)|0;
       const gg = Math.min(255, base[1]*br + spec*255*0.55)|0;
       const bb = Math.min(255, base[2]*br + spec*255*0.7)|0;
