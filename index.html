@@ -742,9 +742,9 @@ body {
 <body>
 
 <!-- 3D BEATING HEART -->
-<div style="position:fixed;top:29%;left:50%;transform:translateX(-50%);z-index:150;pointer-events:none;font-family:'Abril Fatface',cursive;font-size:1.3rem;letter-spacing:4px;color:rgba(255,100,130,.7);text-shadow:0 0 8px rgba(220,40,80,.5);text-align:center;">BEAT METER</div>
+<div style="position:fixed;top:37%;left:50%;transform:translateX(-50%);z-index:150;pointer-events:none;font-family:'Abril Fatface',cursive;font-size:1.3rem;letter-spacing:4px;color:rgba(255,100,130,.7);text-shadow:0 0 8px rgba(220,40,80,.5);text-align:center;">BEAT METER</div>
 <div class="heart-bg">
-  <svg viewBox="0 0 200 180" width="210" height="190" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 200 180" width="105" height="95" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <radialGradient id="hg1" cx="35%" cy="30%" r="65%">
         <stop offset="0%" stop-color="#ff8099"/>
@@ -1392,13 +1392,7 @@ body {
 })();
 </script>
 
-<div style="position:fixed; bottom:28px; left:50%; transform:translateX(-50%); z-index:10; pointer-events:none; display:flex; justify-content:center;">
-  <div class="campfire" style="margin-top:0;">
-    <div class="campfire-flames"><span style="display:inline-block; animation: fireFlicker 0.2s ease-in-out infinite alternate;">🔥</span></div>
-    <div class="campfire-base">🪵</div>
-    <div class="campfire-glow"></div>
-  </div>
-</div>
+
 
 <!-- HIDDEN ADMIN TOGGLE -->
 <div id="adminToggle" style="position:fixed;bottom:12px;right:12px;z-index:9999;opacity:0;width:32px;height:32px;cursor:pointer;border-radius:50%;" title=""></div>
@@ -1501,29 +1495,107 @@ body {
       <stop offset="100%" stop-color="#7a8088"/>
     </radialGradient>
   </defs>
+  <!-- ZORK -->
   <g style="animation:alienSway 3.2s ease-in-out infinite;transform-origin:140px 160px;">
-    <ellipse cx="140" cy="158" rx="26" ry="30" fill="url(#alien-body-g)"/>
-    <rect x="131" y="118" width="18" height="20" rx="5" fill="url(#alien-neck-g)"/>
-    <path d="M116 148 Q94 158 86 168" stroke="#9aa0a8" stroke-width="9" fill="none" stroke-linecap="round"/>
-    <path d="M164 148 Q186 158 194 168" stroke="#9aa0a8" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <!-- head -->
     <text x="140" y="118" text-anchor="middle" font-size="62" style="filter:drop-shadow(0 0 8px rgba(120,255,120,0.7));">👽</text>
-    <text x="140" y="205" text-anchor="middle" font-size="9" font-weight="900" letter-spacing="1" fill="#aaffaa" style="text-shadow:0 0 6px #0f0;">ZORK</text>
+    <!-- neck -->
+    <rect x="133" y="118" width="14" height="14" rx="4" fill="url(#alien-neck-g)"/>
+    <!-- torso -->
+    <rect x="118" y="132" width="44" height="36" rx="8" fill="url(#alien-body-g)"/>
+    <!-- left upper arm -->
+    <path d="M118 138 L98 148" stroke="#9aa0a8" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <!-- left forearm -->
+    <path d="M98 148 L84 162" stroke="#7a8088" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <!-- left hand -->
+    <circle cx="84" cy="163" r="5" fill="#9aa0a8"/>
+    <!-- right upper arm -->
+    <path d="M162 138 L182 148" stroke="#9aa0a8" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <!-- right forearm -->
+    <path d="M182 148 L196 162" stroke="#7a8088" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <!-- right hand -->
+    <circle cx="196" cy="163" r="5" fill="#9aa0a8"/>
+    <!-- left upper leg -->
+    <path d="M128 168 L122 190" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <!-- left lower leg -->
+    <path d="M122 190 L116 208" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <!-- left foot -->
+    <ellipse cx="112" cy="210" rx="9" ry="5" fill="#7a8088"/>
+    <!-- right upper leg -->
+    <path d="M152 168 L158 190" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <!-- right lower leg -->
+    <path d="M158 190 L164 208" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <!-- right foot -->
+    <ellipse cx="168" cy="210" rx="9" ry="5" fill="#7a8088"/>
+    <text x="140" y="222" text-anchor="middle" font-size="9" font-weight="900" letter-spacing="1" fill="#aaffaa" style="text-shadow:0 0 6px #0f0;">ZORK</text>
   </g>
+  <!-- BLIP -->
   <g style="animation:alienSway 2.8s ease-in-out infinite alternate;transform-origin:340px 168px;">
-    <ellipse cx="340" cy="168" rx="30" ry="34" fill="url(#alien-body-g)"/>
-    <rect x="330" y="124" width="20" height="24" rx="6" fill="url(#alien-neck-g)"/>
-    <path d="M312 158 Q286 170 276 182" stroke="#9aa0a8" stroke-width="10" fill="none" stroke-linecap="round"/>
-    <path d="M368 158 Q394 170 404 182" stroke="#9aa0a8" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <!-- head -->
     <text x="340" y="124" text-anchor="middle" font-size="72" style="filter:drop-shadow(0 0 10px rgba(120,255,120,0.8));">👽</text>
-    <text x="340" y="215" text-anchor="middle" font-size="9" font-weight="900" letter-spacing="1" fill="#aaffaa" style="text-shadow:0 0 6px #0f0;">BLIP</text>
+    <!-- neck -->
+    <rect x="333" y="124" width="16" height="16" rx="5" fill="url(#alien-neck-g)"/>
+    <!-- torso -->
+    <rect x="314" y="140" width="52" height="42" rx="9" fill="url(#alien-body-g)"/>
+    <!-- left upper arm -->
+    <path d="M314 146 L292 158" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <!-- left forearm -->
+    <path d="M292 158 L276 174" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <!-- left hand -->
+    <circle cx="276" cy="175" r="6" fill="#9aa0a8"/>
+    <!-- right upper arm -->
+    <path d="M366 146 L388 158" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <!-- right forearm -->
+    <path d="M388 158 L404 174" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <!-- right hand -->
+    <circle cx="404" cy="175" r="6" fill="#9aa0a8"/>
+    <!-- left upper leg -->
+    <path d="M328 182 L320 206" stroke="#9aa0a8" stroke-width="10" stroke-linecap="round" fill="none"/>
+    <!-- left lower leg -->
+    <path d="M320 206 L313 226" stroke="#7a8088" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <!-- left foot -->
+    <ellipse cx="309" cy="228" rx="10" ry="5" fill="#7a8088"/>
+    <!-- right upper leg -->
+    <path d="M352 182 L360 206" stroke="#9aa0a8" stroke-width="10" stroke-linecap="round" fill="none"/>
+    <!-- right lower leg -->
+    <path d="M360 206 L367 226" stroke="#7a8088" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <!-- right foot -->
+    <ellipse cx="371" cy="228" rx="10" ry="5" fill="#7a8088"/>
+    <text x="340" y="240" text-anchor="middle" font-size="9" font-weight="900" letter-spacing="1" fill="#aaffaa" style="text-shadow:0 0 6px #0f0;">BLIP</text>
   </g>
+  <!-- XENU -->
   <g style="animation:alienSway 3.5s ease-in-out infinite alternate-reverse;transform-origin:540px 160px;">
-    <ellipse cx="540" cy="158" rx="26" ry="30" fill="url(#alien-body-g)"/>
-    <rect x="531" y="118" width="18" height="20" rx="5" fill="url(#alien-neck-g)"/>
-    <path d="M516 148 Q494 158 486 168" stroke="#9aa0a8" stroke-width="9" fill="none" stroke-linecap="round"/>
-    <path d="M564 148 Q586 158 594 168" stroke="#9aa0a8" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <!-- head -->
     <text x="540" y="118" text-anchor="middle" font-size="62" style="transform:scaleX(-1);transform-origin:540px 90px;filter:drop-shadow(0 0 8px rgba(120,255,120,0.7));">👽</text>
-    <text x="540" y="205" text-anchor="middle" font-size="9" font-weight="900" letter-spacing="1" fill="#aaffaa" style="text-shadow:0 0 6px #0f0;">XENU</text>
+    <!-- neck -->
+    <rect x="533" y="118" width="14" height="14" rx="4" fill="url(#alien-neck-g)"/>
+    <!-- torso -->
+    <rect x="518" y="132" width="44" height="36" rx="8" fill="url(#alien-body-g)"/>
+    <!-- left upper arm -->
+    <path d="M518 138 L498 148" stroke="#9aa0a8" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <!-- left forearm -->
+    <path d="M498 148 L484 162" stroke="#7a8088" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <!-- left hand -->
+    <circle cx="484" cy="163" r="5" fill="#9aa0a8"/>
+    <!-- right upper arm -->
+    <path d="M562 138 L582 148" stroke="#9aa0a8" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <!-- right forearm -->
+    <path d="M582 148 L596 162" stroke="#7a8088" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <!-- right hand -->
+    <circle cx="596" cy="163" r="5" fill="#9aa0a8"/>
+    <!-- left upper leg -->
+    <path d="M528 168 L522 190" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <!-- left lower leg -->
+    <path d="M522 190 L516 208" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <!-- left foot -->
+    <ellipse cx="512" cy="210" rx="9" ry="5" fill="#7a8088"/>
+    <!-- right upper leg -->
+    <path d="M552 168 L558 190" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <!-- right lower leg -->
+    <path d="M558 190 L564 208" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <!-- right foot -->
+    <ellipse cx="568" cy="210" rx="9" ry="5" fill="#7a8088"/>
+    <text x="540" y="222" text-anchor="middle" font-size="9" font-weight="900" letter-spacing="1" fill="#aaffaa" style="text-shadow:0 0 6px #0f0;">XENU</text>
   </g>
 </svg>
 </div>
@@ -1663,9 +1735,9 @@ body {
 </div>
 
 <div style="position:fixed;bottom:18px;left:0;width:100%;display:flex;justify-content:center;gap:16px;flex-wrap:wrap;z-index:9999;">
-  <a href="catalog1.html" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:1rem;color:#ffe066;text-decoration:none;letter-spacing:1px;border:1px solid rgba(255,220,80,.4);padding:8px 22px;border-radius:30px;background:rgba(5,15,6,0.85);box-shadow:0 0 20px rgba(255,200,60,.15);transition:all .2s;" onmouseover="this.style.background='rgba(255,200,60,.15)'" onmouseout="this.style.background='rgba(5,15,6,0.85)'">Catalog 1 →</a>
-  <a href="catalog2.html" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:1rem;color:#ffe066;text-decoration:none;letter-spacing:1px;border:1px solid rgba(255,220,80,.4);padding:8px 22px;border-radius:30px;background:rgba(5,15,6,0.85);box-shadow:0 0 20px rgba(255,200,60,.15);transition:all .2s;" onmouseover="this.style.background='rgba(255,200,60,.15)'" onmouseout="this.style.background='rgba(5,15,6,0.85)'">Catalog 2 →</a>
-  <a href="catalog3.html" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:1rem;color:#ffe066;text-decoration:none;letter-spacing:1px;border:1px solid rgba(255,220,80,.4);padding:8px 22px;border-radius:30px;background:rgba(5,15,6,0.85);box-shadow:0 0 20px rgba(255,200,60,.15);transition:all .2s;" onmouseover="this.style.background='rgba(255,200,60,.15)'" onmouseout="this.style.background='rgba(5,15,6,0.85)'">Catalog 3 →</a>
+  <a href="catalog1.html" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:0.6rem;color:#ffe066;text-decoration:none;letter-spacing:1px;border:1px solid rgba(255,220,80,.4);padding:4.8px 13px;border-radius:30px;background:rgba(5,15,6,0.85);box-shadow:0 0 20px rgba(255,200,60,.15);transition:all .2s;" onmouseover="this.style.background='rgba(255,200,60,.15)'" onmouseout="this.style.background='rgba(5,15,6,0.85)'">Catalog 1 →</a>
+  <a href="catalog2.html" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:0.6rem;color:#ffe066;text-decoration:none;letter-spacing:1px;border:1px solid rgba(255,220,80,.4);padding:4.8px 13px;border-radius:30px;background:rgba(5,15,6,0.85);box-shadow:0 0 20px rgba(255,200,60,.15);transition:all .2s;" onmouseover="this.style.background='rgba(255,200,60,.15)'" onmouseout="this.style.background='rgba(5,15,6,0.85)'">Catalog 2 →</a>
+  <a href="catalog3.html" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:0.6rem;color:#ffe066;text-decoration:none;letter-spacing:1px;border:1px solid rgba(255,220,80,.4);padding:4.8px 13px;border-radius:30px;background:rgba(5,15,6,0.85);box-shadow:0 0 20px rgba(255,200,60,.15);transition:all .2s;" onmouseover="this.style.background='rgba(255,200,60,.15)'" onmouseout="this.style.background='rgba(5,15,6,0.85)'">Catalog 3 →</a>
 </div>
 
 <script>
@@ -1844,5 +1916,39 @@ document.querySelectorAll('a[href]').forEach(link => {
   });
 });
 </script>
+<!-- MOTHERSHIP LEFT -->
+<style>
+@keyframes mothershipDrift{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+@keyframes alienBop{0%,100%{transform:translateY(0);}50%{transform:translateY(-2px);}}
+</style>
+<div style="position:fixed;bottom:180px;left:20px;z-index:22;pointer-events:none;opacity:0.85;animation:mothershipDrift 8s ease-in-out infinite;">
+  <svg viewBox="0 0 400 120" width="440" height="132" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="ms-hull" cx="50%" cy="35%" r="60%">
+        <stop offset="0%" stop-color="#8090a0"/><stop offset="50%" stop-color="#405060"/><stop offset="100%" stop-color="#1a2530"/>
+      </radialGradient>
+      <filter id="ms-glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    </defs>
+    <ellipse cx="200" cy="55" rx="195" ry="38" fill="url(#ms-hull)" stroke="rgba(100,160,200,0.3)" stroke-width="1"/>
+    <ellipse cx="200" cy="38" rx="90" ry="28" fill="#506070"/>
+    <ellipse cx="200" cy="32" rx="70" ry="18" fill="#607888" opacity="0.7"/>
+    <ellipse cx="200" cy="58" rx="195" ry="12" fill="#1a2530" opacity="0.8"/>
+    <text x="60"  y="62" text-anchor="middle" font-size="11" style="animation:alienBop 1.8s ease-in-out infinite 0s;">👽</text>
+    <text x="128" y="62" text-anchor="middle" font-size="11" style="animation:alienBop 2.2s ease-in-out infinite 0.4s;">👽</text>
+    <text x="200" y="62" text-anchor="middle" font-size="12" style="animation:alienBop 1.7s ease-in-out infinite 0.8s;">👽</text>
+    <text x="272" y="62" text-anchor="middle" font-size="11" style="animation:alienBop 2.0s ease-in-out infinite 1.2s;">👽</text>
+    <text x="338" y="62" text-anchor="middle" font-size="11" style="animation:alienBop 2.3s ease-in-out infinite 1.6s;">👽</text>
+    <circle cx="110" cy="68" r="4" fill="#ff4466" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0s" repeatCount="indefinite"/></circle>
+    <circle cx="145" cy="72" r="4" fill="#00ccff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.15s" repeatCount="indefinite"/></circle>
+    <circle cx="180" cy="74" r="5" fill="#ffee00" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="200" cy="75" r="5" fill="#ffffff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.1s" repeatCount="indefinite"/></circle>
+    <circle cx="220" cy="74" r="5" fill="#88ff00" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.45s" repeatCount="indefinite"/></circle>
+    <circle cx="255" cy="72" r="4" fill="#ff80ff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="290" cy="68" r="4" fill="#00ffcc" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.75s" repeatCount="indefinite"/></circle>
+    <ellipse cx="200" cy="80" rx="80" ry="12" fill="rgba(120,200,255,0.12)" filter="url(#ms-glow)"/>
+    <ellipse cx="200" cy="42" rx="120" ry="10" fill="rgba(200,230,255,0.12)"/>
+  </svg>
+</div>
+
 </body>
 </html>
