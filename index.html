@@ -1122,12 +1122,85 @@ body {
       bctx.restore();
     }
   }
+  // ── Firefly sparkles — aggressive flashing ──
+  const fireflyCanvas = document.createElement('canvas');
+  fireflyCanvas.style.cssText = `position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:49;`;
+  document.body.appendChild(fireflyCanvas);
+  const fctx = fireflyCanvas.getContext('2d');
+  function resizeFirefly(){ fireflyCanvas.width = window.innerWidth; fireflyCanvas.height = window.innerHeight; }
+  resizeFirefly();
+  window.addEventListener('resize', resizeFirefly);
+
+  const NUM_FLIES = 40;
+  const flies = Array.from({length: NUM_FLIES}, () => ({
+    angle:     Math.random() * Math.PI * 2,
+    radius:    30 + Math.random() * 70,
+    speed:     (Math.random() > 0.5 ? 1 : -1) * (0.006 + Math.random() * 0.014),
+    phase:     Math.random() * Math.PI * 2,
+    flashRate: 0.12 + Math.random() * 0.32,
+    burstPhase:Math.random() * Math.PI * 2,
+    burstRate: 0.04 + Math.random() * 0.09,
+    size:      1.2 + Math.random() * 2.8,
+    drift:     (Math.random() - 0.5) * 0.003,
+    hue: [[255,255,255],[200,230,255],[255,245,180],[180,255,220],[255,210,255]][Math.floor(Math.random()*5)],
+  }));
+
+  function updateFireflies() {
+    fctx.clearRect(0, 0, fireflyCanvas.width, fireflyCanvas.height);
+    const bc = getBallCenter();
+    flies.forEach(f => {
+      f.angle     += f.speed;
+      f.radius    += f.drift;
+      if (f.radius < 28) f.drift = Math.abs(f.drift);
+      if (f.radius > 95) f.drift = -Math.abs(f.drift);
+      f.phase     += f.flashRate;
+      f.burstPhase+= f.burstRate;
+      const flicker = Math.max(0, Math.sin(f.phase));
+      const bloom   = 0.3 + 0.7 * Math.max(0, Math.sin(f.burstPhase));
+      const alpha   = flicker * bloom;
+      if (alpha < 0.02) return;
+      const x = bc.x + Math.cos(f.angle) * f.radius;
+      const y = bc.y + Math.sin(f.angle) * f.radius * 0.52;
+      const [r,g,b] = f.hue;
+      const core = f.size * (1 + bloom * 0.6);
+      const glow = core * 5;
+      fctx.save();
+      fctx.globalAlpha = alpha;
+      const grad = fctx.createRadialGradient(x, y, 0, x, y, glow);
+      grad.addColorStop(0,   `rgba(${r},${g},${b},1)`);
+      grad.addColorStop(0.15,`rgba(${r},${g},${b},0.8)`);
+      grad.addColorStop(0.4, `rgba(${r},${g},${b},0.25)`);
+      grad.addColorStop(1,   `rgba(${r},${g},${b},0)`);
+      fctx.fillStyle = grad;
+      fctx.beginPath();
+      fctx.arc(x, y, glow, 0, Math.PI * 2);
+      fctx.fill();
+      fctx.globalAlpha = Math.min(1, alpha * 1.8);
+      fctx.fillStyle = `rgba(${r},${g},${b},1)`;
+      fctx.beginPath();
+      fctx.arc(x, y, core, 0, Math.PI * 2);
+      fctx.fill();
+      if (flicker > 0.7 && bloom > 0.6) {
+        fctx.globalAlpha = (flicker - 0.7) * 2.5 * bloom;
+        fctx.strokeStyle = `rgba(${r},${g},${b},1)`;
+        fctx.lineWidth = 0.7;
+        const arm = core * 3.5;
+        fctx.beginPath();
+        fctx.moveTo(x - arm, y); fctx.lineTo(x + arm, y);
+        fctx.moveTo(x, y - arm); fctx.lineTo(x, y + arm);
+        fctx.stroke();
+      }
+      fctx.restore();
+    });
+  }
+
   const SPEED = 0.009;
   function loop(){
     spin += SPEED;
     drawFrame(spin);
     updateDots(spin);
     updateBeams(spin);
+    updateFireflies();
     updateFlashes(spin);
     const flashEl = document.getElementById('drag-flash');
     if(flashEl){
