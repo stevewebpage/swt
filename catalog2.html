@@ -164,7 +164,17 @@ body {
 .title-byline{ font-family:'Lato',sans-serif;font-size:clamp(.8rem,2vw,1rem);font-weight:300; color:rgba(200,255,180,.7);letter-spacing:4px;text-transform:uppercase;margin-top:8px; }
 .divider{ width:260px;height:2px;margin:16px auto; background:linear-gradient(90deg,transparent,#ffe066 30%,#88e870 70%,transparent); border-radius:2px; }
 .intro-text{ font-family:'Playfair Display',serif;font-style:italic; font-size:clamp(.9rem,2vw,1.1rem);color:rgba(200,255,175,.8); text-align:center;max-width:520px;line-height:1.7; text-shadow:0 2px 8px rgba(0,0,0,.5);padding:0 10px; }
-.panel{ width:min(820px,96vw);margin-top:24px; background:rgba(5,15,6,0.50); border:1px solid rgba(100,210,80,.5); border-radius:28px; padding:clamp(20px,5vw,44px); box-shadow: 0 24px 80px rgba(0,0,0,.95), 0 0 60px rgba(80,180,55,.15), inset 0 1px 0 rgba(255,255,255,.06), 0 0 0 1px rgba(100,200,70,.12); position:relative; z-index:200; isolation:isolate; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.panel{ width:min(820px,96vw);margin-top:24px; background:rgba(5,15,6,0.15); border:1px solid rgba(100,210,80,.5); border-radius:28px; padding:clamp(20px,5vw,44px); box-shadow: 0 24px 80px rgba(0,0,0,.95), 0 0 60px rgba(80,180,55,.15), inset 0 1px 0 rgba(255,255,255,.06), 0 0 0 1px rgba(100,200,70,.12); position:relative; z-index:200; isolation:isolate; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+/* 3D BEATING HEART */
+.heart-bg { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); z-index:149; pointer-events:none; animation:heartbeat3d 0.43s ease-in-out infinite; filter:drop-shadow(0 0 30px rgba(220,40,80,.4)) drop-shadow(0 0 60px rgba(180,20,60,.2)); opacity:0.18; }
+@keyframes heartbeat3d {
+  0%   { transform:translate(-50%,-50%) scale(1)    rotateY(0deg);  filter:drop-shadow(0 0 20px rgba(220,40,80,.3)); }
+  15%  { transform:translate(-50%,-50%) scale(1.18) rotateY(8deg);  filter:drop-shadow(0 0 50px rgba(220,40,80,.7)); }
+  30%  { transform:translate(-50%,-50%) scale(1.08) rotateY(4deg);  filter:drop-shadow(0 0 30px rgba(220,40,80,.4)); }
+  45%  { transform:translate(-50%,-50%) scale(1.22) rotateY(-6deg); filter:drop-shadow(0 0 60px rgba(220,40,80,.8)); }
+  65%  { transform:translate(-50%,-50%) scale(1)    rotateY(0deg);  filter:drop-shadow(0 0 20px rgba(220,40,80,.3)); }
+  100% { transform:translate(-50%,-50%) scale(1)    rotateY(0deg);  filter:drop-shadow(0 0 20px rgba(220,40,80,.3)); }
+}
 .panel-header{text-align:center;margin-bottom:22px;}
 .panel-title{ font-family:'Abril Fatface',cursive; font-size:clamp(1.4rem,4vw,2.2rem); color:#ffe066;text-shadow:0 0 24px rgba(255,220,80,.5);letter-spacing:2px; }
 .panel-sub{font-size:.78rem;letter-spacing:4px;text-transform:uppercase;color:#6dc860;margin-top:5px;}
@@ -234,6 +244,30 @@ body {
 </style>
 </head>
 <body>
+
+<!-- 3D BEATING HEART -->
+<div class="heart-bg">
+  <svg viewBox="0 0 200 180" width="420" height="380" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="hg1" cx="35%" cy="30%" r="65%">
+        <stop offset="0%" stop-color="#ff8099"/>
+        <stop offset="40%" stop-color="#e0103a"/>
+        <stop offset="100%" stop-color="#7a0020"/>
+      </radialGradient>
+      <radialGradient id="hg2" cx="70%" cy="70%" r="50%">
+        <stop offset="0%" stop-color="#ff4466" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="#7a0020" stop-opacity="0"/>
+      </radialGradient>
+      <filter id="hblur">
+        <feGaussianBlur stdDeviation="2.5"/>
+      </filter>
+    </defs>
+    <ellipse cx="100" cy="175" rx="70" ry="8" fill="rgba(0,0,0,0.35)" filter="url(#hblur)"/>
+    <path d="M100 155 C60 125, 10 100, 10 60 C10 30, 35 10, 60 10 C75 10, 90 18, 100 30 C110 18, 125 10, 140 10 C165 10, 190 30, 190 60 C190 100, 140 125, 100 155Z" fill="url(#hg1)"/>
+    <path d="M60 25 C50 35, 42 48, 45 62" stroke="rgba(255,180,200,0.6)" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M100 155 C60 125, 10 100, 10 60 C10 30, 35 10, 60 10 C75 10, 90 18, 100 30 C110 18, 125 10, 140 10 C165 10, 190 30, 190 60 C190 100, 140 125, 100 155Z" fill="url(#hg2)"/>
+  </svg>
+</div>
 
 <!-- SKY -->
 <div class="sky-bg"></div>
