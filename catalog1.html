@@ -552,7 +552,7 @@ body {
   pointer-events: none;
   animation: heartbeat3d 0.43s ease-in-out infinite;
   filter: drop-shadow(0 0 30px rgba(220,40,80,.4)) drop-shadow(0 0 60px rgba(180,20,60,.2));
-  opacity: 0.35;
+  opacity: 1;
 }
 @keyframes heartbeat3d {
   0%   { transform: translate(-50%,-50%) scale(1);    filter: drop-shadow(0 0 20px rgba(220,40,80,.5)); }
@@ -834,7 +834,7 @@ body {
 <body>
 
 <!-- 3D BEATING HEART -->
-<div style="position:fixed;top:37%;left:50%;transform:translateX(-50%);z-index:150;pointer-events:none;font-family:'Abril Fatface',cursive;font-size:1.3rem;letter-spacing:4px;color:rgba(255,100,130,.7);text-shadow:0 0 8px rgba(220,40,80,.5);text-align:center;">BEAT METER</div>
+<div style="position:fixed;top:37%;left:50%;transform:translateX(-50%);z-index:150;pointer-events:none;font-family:'Abril Fatface',cursive;font-size:1.3rem;letter-spacing:4px;color:#e0103a;text-shadow:0 0 10px rgba(220,16,58,.8);text-align:center;">BEAT METER</div>
 <div class="heart-bg">
   <svg viewBox="0 0 200 180" width="105" height="95" xmlns="http://www.w3.org/2000/svg">
     <defs>
@@ -844,8 +844,8 @@ body {
         <stop offset="100%" stop-color="#7a0020"/>
       </radialGradient>
       <radialGradient id="hg2" cx="70%" cy="70%" r="50%">
-        <stop offset="0%" stop-color="#ff4466" stop-opacity="0.4"/>
-        <stop offset="100%" stop-color="#7a0020" stop-opacity="0"/>
+        <stop offset="0%" stop-color="#ff4466" stop-opacity="1"/>
+        <stop offset="100%" stop-color="#7a0020" stop-opacity="0.6"/>
       </radialGradient>
       <filter id="hblur">
         <feGaussianBlur stdDeviation="2.5"/>
