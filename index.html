@@ -1428,7 +1428,7 @@ to   { transform: rotate(360deg); }
 </div>
 
 <!-- MOTHERSHIP -->
-<div style="position:fixed; bottom:280px; left:50%; transform:translateX(-50%); z-index:4; pointer-events:none; opacity:0.45; animation:mothershipDrift 8s ease-in-out infinite;">
+<div style="position:fixed; bottom:280px; left:50%; transform:translateX(-50%); z-index:4; pointer-events:none; opacity:1; animation:mothershipDrift 8s ease-in-out infinite;">
   <svg viewBox="0 0 400 120" width="420" height="126" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <radialGradient id="ms-hull" cx="50%" cy="35%" r="60%">
@@ -1447,9 +1447,9 @@ to   { transform: rotate(360deg); }
     <!-- Top dome -->
     <ellipse cx="200" cy="38" rx="90" ry="28" fill="radial-gradient(ellipse, #607080, #304050)"/>
     <ellipse cx="200" cy="38" rx="90" ry="28" fill="#506070"/>
-    <ellipse cx="200" cy="32" rx="70" ry="18" fill="#607888" opacity="0.7"/>
+    <ellipse cx="200" cy="32" rx="70" ry="18" fill="#607888"/>
     <!-- Hull ridge -->
-    <ellipse cx="200" cy="58" rx="195" ry="12" fill="url(#ms-belly)" opacity="0.8"/>
+    <ellipse cx="200" cy="58" rx="195" ry="12" fill="url(#ms-belly)"/>
     <!-- Belly lights -->
     <circle cx="110" cy="68" r="4" fill="#ff4466" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0s" repeatCount="indefinite"/></circle>
     <circle cx="145" cy="72" r="4" fill="#00ccff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.15s" repeatCount="indefinite"/></circle>
@@ -1960,7 +1960,7 @@ document.querySelectorAll('a[href]').forEach(link => {
 @keyframes mothershipDrift{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
 @keyframes alienBop{0%,100%{transform:translateY(0);}50%{transform:translateY(-2px);}}
 </style>
-<div style="position:fixed;bottom:180px;left:20px;z-index:22;pointer-events:none;opacity:0.85;animation:mothershipDrift 8s ease-in-out infinite;">
+<div style="position:fixed;bottom:180px;left:20px;z-index:22;pointer-events:none;opacity:1;animation:mothershipDrift 8s ease-in-out infinite;">
   <svg viewBox="0 0 400 120" width="440" height="132" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <radialGradient id="ms-hull" cx="50%" cy="35%" r="60%">
@@ -1970,8 +1970,8 @@ document.querySelectorAll('a[href]').forEach(link => {
     </defs>
     <ellipse cx="200" cy="55" rx="195" ry="38" fill="url(#ms-hull)" stroke="rgba(100,160,200,0.3)" stroke-width="1"/>
     <ellipse cx="200" cy="38" rx="90" ry="28" fill="#506070"/>
-    <ellipse cx="200" cy="32" rx="70" ry="18" fill="#607888" opacity="0.7"/>
-    <ellipse cx="200" cy="58" rx="195" ry="12" fill="#1a2530" opacity="0.8"/>
+    <ellipse cx="200" cy="32" rx="70" ry="18" fill="#607888"/>
+    <ellipse cx="200" cy="58" rx="195" ry="12" fill="#1a2530"/>
     <text x="60"  y="62" text-anchor="middle" font-size="11" style="animation:alienBop 1.8s ease-in-out infinite 0s;">👽</text>
     <text x="128" y="62" text-anchor="middle" font-size="11" style="animation:alienBop 2.2s ease-in-out infinite 0.4s;">👽</text>
     <text x="200" y="62" text-anchor="middle" font-size="12" style="animation:alienBop 1.7s ease-in-out infinite 0.8s;">👽</text>
@@ -2037,7 +2037,7 @@ document.querySelectorAll('a[href]').forEach(link => {
 })();
 </script>
 <!-- MOTHERSHIP FLYING -->
-<div id="ms-flyer" style="position:fixed;z-index:2;pointer-events:none;opacity:0.82;">
+<div id="ms-flyer" style="position:fixed;z-index:2;pointer-events:none;opacity:1;">
   <svg viewBox="0 0 400 120" width="252" height="76" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <radialGradient id="msf-hull" cx="50%" cy="35%" r="60%">
@@ -2047,8 +2047,8 @@ document.querySelectorAll('a[href]').forEach(link => {
     </defs>
     <ellipse cx="200" cy="55" rx="195" ry="38" fill="url(#msf-hull)" stroke="rgba(100,160,200,0.3)" stroke-width="1"/>
     <ellipse cx="200" cy="38" rx="90" ry="28" fill="#506070"/>
-    <ellipse cx="200" cy="32" rx="70" ry="18" fill="#607888" opacity="0.7"/>
-    <ellipse cx="200" cy="58" rx="195" ry="12" fill="#1a2530" opacity="0.8"/>
+    <ellipse cx="200" cy="32" rx="70" ry="18" fill="#607888"/>
+    <ellipse cx="200" cy="58" rx="195" ry="12" fill="#1a2530"/>
     <text x="128" y="62" text-anchor="middle" font-size="11">👽</text>
     <text x="200" y="62" text-anchor="middle" font-size="12">👽</text>
     <text x="272" y="62" text-anchor="middle" font-size="11">👽</text>
