@@ -129,18 +129,28 @@ const SONGS = [
 ];
 let songIdx = 0;
 const audio = new Audio();
-audio.volume = 0.5;
+audio.volume = 0.6;
 let audioStarted = false;
 
 function playSong(idx){
   const s = SONGS[idx % SONGS.length];
+  const np = document.getElementById('trackName');
+  np.textContent = 'Loading...';
   audio.src = BASE + s.mp3;
-  audio.play().catch(()=>{});
-  document.getElementById('trackName').textContent = s.title + ' — Steven Bickham';
+  audio.load();
+  audio.play().then(()=>{
+    np.textContent = s.title + ' — Steven Bickham';
+  }).catch(err=>{
+    console.warn('Audio blocked:', err);
+    np.textContent = s.title + ' — Steven Bickham (visit musicrow.us)';
+  });
 }
 audio.addEventListener('ended', ()=>{
   songIdx = (songIdx + 1) % SONGS.length;
   playSong(songIdx);
+});
+audio.addEventListener('error', ()=>{
+  document.getElementById('trackName').textContent = 'Audio unavailable — visit musicrow.us';
 });
 
 // ─── CANVAS SETUP ────────────────────────────────────────────────────────────
@@ -327,53 +337,132 @@ let enemyBullets = [];
 let enemyShootTimer = 0;
 
 const ENEMY_TYPES = [
-  {name:'ZORK', emoji:'👽', color:'#88ff88', pts:10, bombs:false},
-  {name:'BLIP', emoji:'👽', color:'#88ffcc', pts:20, bombs:false, guitar:true},
-  {name:'XENU', emoji:'👽', color:'#ff8888', pts:15, bombs:true},
-  {name:'RED',  emoji:'👾', color:'#ff4466', pts:25, bombs:true},
-  {name:'UFO',  emoji:'🛸', color:'#aaddff', pts:50, bombs:false, ufo:true},
+  {name:'SCOUT',      color:'#88ffcc', pts:10,  bombs:false, w:44, h:20, crew:1, shipColor:'#506070', glowColor:'rgba(136,255,200,0.6)'},
+  {name:'ZORK',       color:'#88ff88', pts:15,  bombs:false, w:50, h:22, crew:1, shipColor:'#405060', glowColor:'rgba(136,255,136,0.6)'},
+  {name:'BLIP SHIP',  color:'#88ffcc', pts:20,  bombs:false, w:54, h:24, crew:2, shipColor:'#506080', glowColor:'rgba(136,200,255,0.6)', guitar:true},
+  {name:'XENU',       color:'#ff8888', pts:25,  bombs:true,  w:56, h:24, crew:2, shipColor:'#603040', glowColor:'rgba(255,136,136,0.7)'},
+  {name:'MOTHERSHIP', color:'#ffcc44', pts:50,  bombs:true,  w:80, h:32, crew:5, shipColor:'#404050', glowColor:'rgba(255,200,80,0.8)', big:true},
 ];
 
 function spawnEnemies(){
   enemies = [];
   enemyDir = 1;
-  enemySpeed = 0.8 + level * 0.3;
-  const cols = Math.min(8 + level, 14);
-  const rows = Math.min(2 + Math.floor(level/2), 5);
-  const types = level <= 2 ? [0,1,2] : [0,1,2,3];
+  enemySpeed = 0.7 + level * 0.25;
+  const cols = Math.min(6 + level, 10);
+  const rows = Math.min(2 + Math.floor(level/2), 4);
+  // Row types: scouts on top, bigger ships below
+  const rowTypes = [0, 1, 2, 3];
 
   for(let r=0;r<rows;r++){
-    for(let c=0;c<cols;c++){
-      const typeIdx = types[r % types.length];
-      const t = ENEMY_TYPES[typeIdx];
+    const typeIdx = rowTypes[Math.min(r, rowTypes.length-1)];
+    const t = ENEMY_TYPES[typeIdx];
+    for(let col=0;col<cols;col++){
+      const baseHp = typeIdx >= 3 ? 2 : 1;
       enemies.push({
-        x: 80 + c*(W-160)/cols,
-        y: 80 + r*55,
-        w:36, h:36,
+        x: 80 + col*(W-160)/cols,
+        y: 70 + r*58,
+        w: t.w, h: t.h,
         type: typeIdx,
         name: t.name,
-        emoji: t.emoji,
         color: t.color,
         pts: t.pts,
         bombs: t.bombs,
         guitar: t.guitar||false,
-        ufo: t.ufo||false,
         alive: true,
         sway: Math.random()*Math.PI*2,
-        hp: level >= 4 ? 2 : 1,
+        hp: level >= 4 ? baseHp+1 : baseHp,
+        maxHp: level >= 4 ? baseHp+1 : baseHp,
         hit: 0,
       });
     }
   }
-  // Bonus UFO occasionally
+  // Mothership streaker across top
   if(level >= 2){
+    const t = ENEMY_TYPES[4];
     enemies.push({
-      x:-60, y:40, w:50,h:24,
-      type:4, name:'UFO', emoji:'🛸', color:'#aaddff',
-      pts:100, bombs:false, ufo:true, alive:true,
-      sway:0, hp:1, hit:0,
-      ufoDir:1
+      x:-100, y:35, w:t.w, h:t.h,
+      type:4, name:t.name, color:t.color,
+      pts:200, bombs:true, guitar:false,
+      alive:true, sway:0, hp:3, maxHp:3, hit:0,
+      streaker:true, ufoDir:1
     });
+  }
+}
+
+function drawShip(e, bob){
+  const t = ENEMY_TYPES[e.type];
+  const rx = e.w/2, ry = e.h/2;
+
+  // Outer glow
+  ctx.shadowColor = t.glowColor;
+  ctx.shadowBlur = 14 + Math.sin(e.sway)*4;
+
+  // Hull gradient
+  const hg = ctx.createRadialGradient(-rx*.2,-ry*.3,2,0,0,rx);
+  hg.addColorStop(0,'#8090a8');
+  hg.addColorStop(0.4, t.shipColor);
+  hg.addColorStop(1,'#1a2030');
+  ctx.fillStyle = hg;
+  ctx.beginPath(); ctx.ellipse(0, bob, rx, ry, 0, 0, Math.PI*2); ctx.fill();
+
+  // Dome on top
+  ctx.fillStyle = '#607888';
+  ctx.beginPath(); ctx.ellipse(0, bob - ry*.4, rx*.45, ry*.7, 0, 0, Math.PI*2); ctx.fill();
+  ctx.fillStyle = 'rgba(160,220,255,0.18)';
+  ctx.beginPath(); ctx.ellipse(0, bob - ry*.4, rx*.45, ry*.7, 0, 0, Math.PI*2); ctx.fill();
+
+  // Bottom shadow
+  ctx.fillStyle = 'rgba(0,0,0,0.4)';
+  ctx.beginPath(); ctx.ellipse(0, bob + ry*.6, rx*.7, ry*.3, 0, 0, Math.PI*2); ctx.fill();
+
+  ctx.shadowBlur = 0;
+
+  // Lights along bottom
+  const numLights = t.crew + 2;
+  for(let i=0;i<numLights;i++){
+    const lx = -rx*.7 + (rx*1.4/(numLights-1))*i;
+    const colors = ['#ff4466','#00ccff','#ffee00','#88ff00','#ff80ff','#00ffcc'];
+    const col = colors[(i + Math.floor(frame*.05)) % colors.length];
+    ctx.fillStyle = col;
+    ctx.globalAlpha = 0.6 + 0.4*Math.sin(frame*.12 + i*0.8);
+    ctx.beginPath(); ctx.arc(lx, bob + ry*.55, 2.5, 0, Math.PI*2); ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+
+  // Alien crew in windows
+  const crewEmojis = ['👽','👽','👽','👽','👽'];
+  const crewCount = Math.min(t.crew, 3);
+  for(let i=0;i<crewCount;i++){
+    const wx = crewCount===1 ? 0 : -rx*.35 + (rx*.7/(crewCount-1||1))*i;
+    ctx.font = `${t.big?11:9}px serif`;
+    ctx.textAlign='center';
+    ctx.globalAlpha = 0.85;
+    ctx.fillText(crewEmojis[i], wx, bob - ry*.35 + 4);
+  }
+  ctx.globalAlpha = 1;
+
+  // Guitar on BLIP ship
+  if(t.guitar){
+    ctx.fillStyle='#c47a2a';
+    ctx.beginPath(); ctx.ellipse(rx*.6, bob+2, 5, 4, 0, 0, Math.PI*2); ctx.fill();
+    ctx.strokeStyle='#8B5E3C'; ctx.lineWidth=1;
+    ctx.beginPath(); ctx.moveTo(rx*.55,bob+2); ctx.lineTo(rx*.2,bob); ctx.stroke();
+    if(frame%18===0) particles.push({x:e.x+rx*.6,y:e.y-10,type:'note',life:40,dy:-1.5,dx:0.5});
+  }
+
+  // Name label
+  ctx.fillStyle = t.color;
+  ctx.font = `bold ${t.big?8:6}px Lato`;
+  ctx.textAlign='center';
+  ctx.letterSpacing='1px';
+  ctx.fillText(t.name, 0, bob + ry + 10);
+
+  // HP bar for big ships
+  if(e.hp > 1){
+    ctx.fillStyle='rgba(0,0,0,0.5)';
+    ctx.fillRect(-rx*.6, bob+ry+13, rx*1.2, 4);
+    ctx.fillStyle = e.hp>=3?'#88ff44':e.hp>=2?'#ffcc00':'#ff4444';
+    ctx.fillRect(-rx*.6, bob+ry+13, rx*1.2*(e.hp/3), 4);
   }
 }
 
@@ -389,50 +478,7 @@ function drawEnemy(e){
     e.hit--;
   }
 
-  if(e.ufo){
-    // UFO shape
-    ctx.fillStyle = '#405060';
-    ctx.beginPath(); ctx.ellipse(0,4,22,8,0,0,Math.PI*2); ctx.fill();
-    ctx.fillStyle = '#7090a8';
-    ctx.beginPath(); ctx.ellipse(0,-2,12,10,0,0,Math.PI*2); ctx.fill();
-    // lights
-    [-12,-6,0,6,12].forEach((lx,i)=>{
-      const hue = [255,80,80,80,255,80][i%3];
-      ctx.fillStyle=`rgba(${hue},255,${hue},${0.5+0.5*Math.sin(frame*.1+i)})`;
-      ctx.beginPath(); ctx.arc(lx,6,2.5,0,Math.PI*2); ctx.fill();
-    });
-    ctx.font='16px serif';ctx.textAlign='center';
-    ctx.fillText(e.emoji, 0, -8+bob);
-    // UFO name
-    ctx.fillStyle='#aaddff';ctx.font='bold 7px Lato';ctx.letterSpacing='2px';
-    ctx.fillText('UFO', 0, 20);
-  } else if(e.guitar){
-    // BLIP with guitar
-    ctx.font='28px serif'; ctx.textAlign='center';
-    ctx.fillText('👽', 0, bob);
-    // mini guitar
-    ctx.fillStyle='#c47a2a';
-    ctx.beginPath(); ctx.ellipse(18,8+bob,7,5,0,0,Math.PI*2); ctx.fill();
-    ctx.strokeStyle='#8B5E3C'; ctx.lineWidth=1;
-    ctx.beginPath(); ctx.moveTo(11,8+bob); ctx.lineTo(-8,6+bob); ctx.stroke();
-    // name
-    ctx.fillStyle=e.color; ctx.font='bold 7px Lato';
-    ctx.fillText('BLIP', 0, 22);
-    // music notes float up
-    if(frame%20===0){
-      particles.push({x:e.x+15,y:e.y-10,type:'note',life:40,dy:-1.5,dx:0.5});
-    }
-  } else {
-    // Regular alien
-    ctx.font=`${e.w*0.8}px serif`; ctx.textAlign='center';
-    ctx.fillText(e.emoji, 0, bob + e.h*0.3);
-    // glow
-    ctx.shadowColor = e.color;
-    ctx.shadowBlur = 10 + Math.sin(e.sway)*4;
-    ctx.font='bold 7px Lato'; ctx.fillStyle=e.color;
-    ctx.fillText(e.name, 0, e.h*0.8);
-    ctx.shadowBlur=0;
-  }
+  drawShip(e, bob);
   ctx.restore();
 }
 
@@ -581,16 +627,16 @@ function updateEnemies(){
   const alive = enemies.filter(e=>e.alive);
   if(alive.length===0){ nextLevel(); return; }
 
-  // Move UFO separately
+  // Move streaker mothership separately
   enemies.forEach(e=>{
-    if(e.ufo && e.alive){
-      e.x += 1.5*(e.ufoDir||1)*(1+level*.1);
-      if(e.x>W+80){ e.x=-80; e.y=30+Math.random()*60; }
+    if(e.streaker && e.alive){
+      e.x += 2*(e.ufoDir||1)*(1+level*.1);
+      if(e.x>W+120){ e.x=-120; e.y=25+Math.random()*40; }
     }
   });
 
   // Move formation
-  const nonUfo = alive.filter(e=>!e.ufo);
+  const nonUfo = alive.filter(e=>!e.streaker);
   if(nonUfo.length===0) return;
 
   const minX = Math.min(...nonUfo.map(e=>e.x));
