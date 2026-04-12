@@ -831,90 +831,65 @@ to { transform: rotate(360deg); } }
     <ellipse cx="168" cy="210" rx="9" ry="5" fill="#7a8088"/>
     <text x="140" y="222" text-anchor="middle" font-size="9" font-weight="900" letter-spacing="1" fill="#aaffaa" style="text-shadow:0 0 6px #0f0;">ZORK</text>
   </g>
-  <!-- BLIP -->
-  <g style="animation:alienSway 2.8s ease-in-out infinite alternate;transform-origin:340px 168px;">
+    <!-- BLIP + GUITAR as one unit -->
+  <g style="animation:blipSway 2.8s ease-in-out infinite alternate;transform-origin:340px 168px;">
+    <!-- head -->
     <text x="340" y="124" text-anchor="middle" font-size="72" style="filter:drop-shadow(0 0 10px rgba(120,255,120,0.8));">👽</text>
+    <!-- neck -->
     <rect x="333" y="124" width="16" height="16" rx="5" fill="url(#alien-neck-g)"/>
+    <!-- torso -->
     <rect x="314" y="140" width="52" height="42" rx="9" fill="url(#alien-body-g)"/>
-    <path d="M314 146 L292 158" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/>
-    <path d="M292 158 L276 174" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/>
-    <circle cx="276" cy="175" r="6" fill="#9aa0a8"/>
-    <path d="M366 146 L388 158" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/>
-    <path d="M388 158 L404 174" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/>
-    <circle cx="404" cy="175" r="6" fill="#9aa0a8"/>
+    <!-- left upper arm - raised to hold neck -->
+    <path d="M314 146 L292 150" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <path d="M292 150 L272 158" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <circle cx="272" cy="158" r="6" fill="#9aa0a8"/>
+    <!-- right upper arm - raised to strum -->
+    <path d="M366 146 L388 155" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <path d="M388 155 L404 163" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <circle cx="404" cy="163" r="6" fill="#9aa0a8"/>
+    <!-- legs -->
     <path d="M328 182 L320 206" stroke="#9aa0a8" stroke-width="10" stroke-linecap="round" fill="none"/>
     <path d="M320 206 L313 226" stroke="#7a8088" stroke-width="9" stroke-linecap="round" fill="none"/>
     <ellipse cx="309" cy="228" rx="10" ry="5" fill="#7a8088"/>
     <path d="M352 182 L360 206" stroke="#9aa0a8" stroke-width="10" stroke-linecap="round" fill="none"/>
     <path d="M360 206 L367 226" stroke="#7a8088" stroke-width="9" stroke-linecap="round" fill="none"/>
     <ellipse cx="371" cy="228" rx="10" ry="5" fill="#7a8088"/>
+    <!-- GUITAR horizontal, body over chest, neck pointing left -->
+    <ellipse cx="345" cy="162" rx="20" ry="16" fill="#c47a2a"/>
+    <ellipse cx="345" cy="162" rx="20" ry="16" fill="none" stroke="#8B5E3C" stroke-width="1.5"/>
+    <ellipse cx="320" cy="160" rx="15" ry="12" fill="#c47a2a"/>
+    <ellipse cx="320" cy="160" rx="15" ry="12" fill="none" stroke="#8B5E3C" stroke-width="1.2"/>
+    <rect x="318" y="152" width="28" height="16" fill="#c47a2a"/>
+    <circle cx="338" cy="162" r="5" fill="#7a3d10"/>
+    <circle cx="338" cy="162" r="5" fill="none" stroke="#5a2d08" stroke-width="0.8"/>
+    <ellipse cx="348" cy="156" rx="5" ry="7" fill="rgba(255,220,150,0.18)"/>
+    <rect x="352" y="159" width="3" height="12" rx="1" fill="#5a3010"/>
+    <rect x="248" y="157" width="72" height="7" rx="3" fill="#8B5E3C"/>
+    <rect x="248" y="158" width="72" height="5" rx="2" fill="#a0723d"/>
+    <line x1="258" y1="157" x2="258" y2="164" stroke="#ccc" stroke-width="0.8"/>
+    <line x1="268" y1="157" x2="268" y2="164" stroke="#ccc" stroke-width="0.8"/>
+    <line x1="278" y1="157" x2="278" y2="164" stroke="#ccc" stroke-width="0.8"/>
+    <line x1="288" y1="157" x2="288" y2="164" stroke="#ccc" stroke-width="0.8"/>
+    <rect x="239" y="155" width="10" height="11" rx="3" fill="#6B3F1C"/>
+    <circle cx="241" cy="157" r="1.5" fill="#ccc"/>
+    <circle cx="241" cy="161" r="1.5" fill="#ccc"/>
+    <circle cx="245" cy="159" r="1.5" fill="#ccc"/>
+    <line x1="248" y1="159" x2="355" y2="159" stroke="rgba(200,200,200,0.6)" stroke-width="0.5"/>
+    <line x1="248" y1="160.5" x2="355" y2="160.5" stroke="rgba(200,200,200,0.55)" stroke-width="0.5"/>
+    <line x1="248" y1="162" x2="355" y2="162" stroke="rgba(200,200,200,0.5)" stroke-width="0.6"/>
+    <line x1="248" y1="163.5" x2="355" y2="163.5" stroke="rgba(200,200,200,0.5)" stroke-width="0.5"/>
+    <line x1="248" y1="165" x2="355" y2="165" stroke="rgba(200,200,200,0.45)" stroke-width="0.5"/>
+    <ellipse cx="404" cy="163" rx="5" ry="4" fill="#c0a878" style="animation:strumHand 0.4s ease-in-out infinite alternate;transform-origin:404px 163px;"/>
     <text x="340" y="240" text-anchor="middle" font-size="9" font-weight="900" letter-spacing="1" fill="#aaffaa" style="text-shadow:0 0 6px #0f0;">BLIP</text>
   </g>
-  <!-- XENU -->
-  <g style="animation:alienSway 3.5s ease-in-out infinite alternate-reverse;transform-origin:540px 160px;">
-    <text x="540" y="118" text-anchor="middle" font-size="62" style="transform:scaleX(-1);transform-origin:540px 90px;filter:drop-shadow(0 0 8px rgba(120,255,120,0.7));">👽</text>
-    <rect x="533" y="118" width="14" height="14" rx="4" fill="url(#alien-neck-g)"/>
-    <rect x="518" y="132" width="44" height="36" rx="8" fill="url(#alien-body-g)"/>
-    <path d="M518 138 L498 148" stroke="#9aa0a8" stroke-width="8" stroke-linecap="round" fill="none"/>
-    <path d="M498 148 L484 162" stroke="#7a8088" stroke-width="7" stroke-linecap="round" fill="none"/>
-    <circle cx="484" cy="163" r="5" fill="#9aa0a8"/>
-    <path d="M562 138 L582 148" stroke="#9aa0a8" stroke-width="8" stroke-linecap="round" fill="none"/>
-    <path d="M582 148 L596 162" stroke="#7a8088" stroke-width="7" stroke-linecap="round" fill="none"/>
-    <circle cx="596" cy="163" r="5" fill="#9aa0a8"/>
-    <path d="M528 168 L522 190" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/>
-    <path d="M522 190 L516 208" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/>
-    <ellipse cx="512" cy="210" rx="9" ry="5" fill="#7a8088"/>
-    <path d="M552 168 L558 190" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/>
-    <path d="M558 190 L564 208" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/>
-    <ellipse cx="568" cy="210" rx="9" ry="5" fill="#7a8088"/>
-    <text x="540" y="222" text-anchor="middle" font-size="9" font-weight="900" letter-spacing="1" fill="#aaffaa" style="text-shadow:0 0 6px #0f0;">XENU</text>
-  </g>
 
-  <!-- GUITAR in front of BLIP -->
-  <g style="animation:guitarSway 2.8s ease-in-out infinite alternate;transform-origin:340px 200px;">
-    <!-- neck -->
-    <rect x="334" y="118" width="7" height="72" rx="3" fill="#8B5E3C"/>
-    <rect x="335" y="118" width="5" height="72" rx="2" fill="#a0723d"/>
-    <!-- frets -->
-    <line x1="334" y1="128" x2="341" y2="128" stroke="#ccc" stroke-width="0.8"/>
-    <line x1="334" y1="138" x2="341" y2="138" stroke="#ccc" stroke-width="0.8"/>
-    <line x1="334" y1="148" x2="341" y2="148" stroke="#ccc" stroke-width="0.8"/>
-    <line x1="334" y1="158" x2="341" y2="158" stroke="#ccc" stroke-width="0.8"/>
-    <!-- headstock -->
-    <rect x="332" y="112" width="11" height="10" rx="3" fill="#6B3F1C"/>
-    <circle cx="334" cy="113" r="1.5" fill="#ccc"/>
-    <circle cx="337" cy="113" r="1.5" fill="#ccc"/>
-    <circle cx="340" cy="113" r="1.5" fill="#ccc"/>
-    <!-- body lower bout -->
-    <ellipse cx="340" cy="205" rx="22" ry="18" fill="#c47a2a"/>
-    <ellipse cx="340" cy="205" rx="22" ry="18" fill="none" stroke="#8B5E3C" stroke-width="1.5"/>
-    <!-- body upper bout -->
-    <ellipse cx="340" cy="186" rx="17" ry="14" fill="#c47a2a"/>
-    <ellipse cx="340" cy="186" rx="17" ry="14" fill="none" stroke="#8B5E3C" stroke-width="1.2"/>
-    <!-- waist join -->
-    <rect x="322" y="192" width="36" height="12" fill="#c47a2a"/>
-    <!-- sound hole -->
-    <circle cx="340" cy="196" r="6" fill="#7a3d10"/>
-    <circle cx="340" cy="196" r="6" fill="none" stroke="#5a2d08" stroke-width="0.8"/>
-    <!-- body highlight -->
-    <ellipse cx="335" cy="200" rx="6" ry="9" fill="rgba(255,220,150,0.18)"/>
-    <!-- bridge -->
-    <rect x="332" y="215" width="16" height="3" rx="1" fill="#5a3010"/>
-    <!-- strings -->
-    <line x1="337" y1="118" x2="337" y2="215" stroke="rgba(200,200,200,0.6)" stroke-width="0.5"/>
-    <line x1="338.5" y1="118" x2="338.5" y2="215" stroke="rgba(200,200,200,0.55)" stroke-width="0.5"/>
-    <line x1="340" y1="118" x2="340" y2="215" stroke="rgba(200,200,200,0.5)" stroke-width="0.6"/>
-    <line x1="341.5" y1="118" x2="341.5" y2="215" stroke="rgba(200,200,200,0.5)" stroke-width="0.5"/>
-    <line x1="343" y1="118" x2="343" y2="215" stroke="rgba(200,200,200,0.45)" stroke-width="0.5"/>
-    <!-- strumming hand -->
-    <ellipse cx="352" cy="200" rx="5" ry="4" fill="#c0a878" style="animation:strumHand 0.4s ease-in-out infinite alternate;transform-origin:352px 200px;"/>
-  </g>
 </svg>
 </div>
 
 <style>
 @keyframes alienSway { 0%,100%{transform:rotate(-4deg);} 50%{transform:rotate(4deg);} }
-@keyframes guitarSway { 0%,100%{transform:rotate(-3deg);} 50%{transform:rotate(3deg);} }
+@keyframes blipSway { 0%,100%{transform:scaleX(-1) rotate(-4deg);} 50%{transform:scaleX(-1) rotate(4deg);} }
+
 @keyframes strumHand { 0%{transform:translateY(-4px) rotate(-10deg);} 100%{transform:translateY(4px) rotate(10deg);} }
 </style>
 
@@ -1206,7 +1181,7 @@ document.querySelectorAll('a[href]').forEach(link => {
 
 
 <!-- CAMPFIRE -->
-<div id="campfire-night" style="position:fixed;bottom:98px;left:50%;transform:translateX(-50%);z-index:23;pointer-events:none;opacity:0;transition:opacity 2s ease;text-align:center;">
+<div id="campfire-night" style="position:fixed;bottom:4px;left:50%;transform:translateX(-50%);z-index:23;pointer-events:none;opacity:0;transition:opacity 2s ease;text-align:center;">
   <div class="campfire">
     <div class="campfire-flames" style="animation:fireFlicker 0.18s ease-in-out infinite alternate;">🔥</div>
     <div class="campfire-base">🪵</div>
