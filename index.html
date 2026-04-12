@@ -57,57 +57,11 @@ body {
 .sun {
   position: fixed; top: 18px; left: 50%; transform: translateX(-50%);
   width: 110px; height: 110px; border-radius: 50%; z-index: 2;
-  background: radial-gradient(circle at 38% 32%,
-    #ffffff 0%,
-    #fffde0 12%,
-    #fff5a0 28%,
-    #ffe040 55%,
-    #ffaa00 80%,
-    #ff8800 100%
-  );
-  box-shadow:
-    0 0 0 8px  rgba(255,248,180,.25),
-    0 0 0 18px rgba(255,230,80,.15),
-    0 0 0 35px rgba(255,210,60,.10),
-    0 0 0 60px rgba(255,180,40,.07),
-    0 0 40px  20px rgba(255,220,80,.55),
-    0 0 90px  50px rgba(255,180,50,.35),
-    0 0 180px 90px rgba(255,150,30,.20),
-    0 0 320px 140px rgba(255,120,20,.10);
+  pointer-events:none; opacity:1;
   animation: sunPulse 3s ease-in-out infinite;
-  opacity: 1;
-}
-/* Sun corona ring */
-.sun::before {
-  content:'';
-  position:absolute;
-  inset:-18px;
-  border-radius:50%;
-  background: radial-gradient(circle,
-    transparent 45%,
-    rgba(255,230,80,.18) 55%,
-    rgba(255,200,60,.10) 68%,
-    transparent 80%
-  );
-  animation: coronaSpin 18s linear infinite;
-}
-/* Lens flare streak */
-.sun::after {
-  content:'';
-  position:absolute;
-  top:50%; left:-60px;
-  width:230px; height:3px;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    rgba(255,255,220,.0) 20%,
-    rgba(255,255,200,.55) 48%,
-    rgba(255,255,255,.85) 50%,
-    rgba(255,255,200,.55) 52%,
-    rgba(255,255,220,.0) 80%,
-    transparent 100%
-  );
-  transform: translateY(-50%);
-  animation: flareFlicker 4s ease-in-out infinite;
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
 }
 @keyframes sunPulse {
   0%,100%{
@@ -133,13 +87,9 @@ body {
       0 0 400px 180px rgba(255,120,20,.14);
   }
 }
-@keyframes coronaSpin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+to   { transform: rotate(360deg); }
 }
-@keyframes flareFlicker {
-  0%,100% { opacity:.4; transform:translateY(-50%) scaleX(1); }
-  50%     { opacity:.9; transform:translateY(-50%) scaleX(1.15); }
+50%     { opacity:.9; transform:translateY(-50%) scaleX(1.15); }
 }
 
 /* RAYS */
@@ -738,6 +688,15 @@ body {
   gtag('js', new Date());
   gtag('config', 'G-L5C9Q0Q16C');
 </script>
+<style>
+.panel-title, .panel-sub, .song-title, .song-duration,
+.footer-logo, .footer-desc, .title-byline,
+.lbl, .aud-lbl, .top-ufo-name,
+.venmo-title, .venmo-subtitle, .venmo-handle, .venmo-price,
+.modal-title, .promo-title, .promo-sub, .promo-byline, .promo-url, .promo-location {
+  color: #ffe066 !important;
+}
+</style>
 </head>
 <body>
 
@@ -774,7 +733,64 @@ body {
 <div class="sky-bg"></div>
 <div class="forest-photo-bg" style="background-image:url('forest-bg.png')"></div>
 <div class="forest-overlay"></div>
-<div class="sun"></div>
+<div class="sun">
+<svg id="real-sun" viewBox="0 0 110 110" width="110" height="110" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;">
+  <defs>
+    <radialGradient id="sun-core" cx="45%" cy="38%" r="55%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="15%" stop-color="#fff8c0"/>
+      <stop offset="40%" stop-color="#ffe050"/>
+      <stop offset="70%" stop-color="#ffaa00"/>
+      <stop offset="88%" stop-color="#ff8800"/>
+      <stop offset="100%" stop-color="#e05000"/>
+    </radialGradient>
+    <radialGradient id="sun-corona" cx="50%" cy="50%" r="50%">
+      <stop offset="60%" stop-color="rgba(255,200,60,0)"/>
+      <stop offset="80%" stop-color="rgba(255,160,30,0.18)"/>
+      <stop offset="100%" stop-color="rgba(255,100,0,0)"/>
+    </radialGradient>
+    <filter id="sun-blur"><feGaussianBlur stdDeviation="3"/></filter>
+    <filter id="sun-glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <clipPath id="sun-clip"><circle cx="55" cy="55" r="52"/></clipPath>
+  </defs>
+  <!-- Outer glow halo -->
+  <circle cx="55" cy="55" r="72" fill="rgba(255,200,60,0.08)" filter="url(#sun-blur)"/>
+  <circle cx="55" cy="55" r="62" fill="rgba(255,180,40,0.12)" filter="url(#sun-blur)"/>
+  <!-- Corona -->
+  <circle cx="55" cy="55" r="58" fill="url(#sun-corona)"/>
+  <!-- Solar prominences -->
+  <g opacity="0.7" filter="url(#sun-blur)">
+    <path d="M55,4 Q62,0 58,8 Q65,3 60,12" stroke="#ff6600" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M98,38 Q105,32 100,42 Q108,36 102,48" stroke="#ff7700" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M20,78 Q12,82 18,72 Q10,78 16,66" stroke="#ff6600" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+  <!-- Main disc -->
+  <circle cx="55" cy="55" r="52" fill="url(#sun-core)" filter="url(#sun-glow)"/>
+  <!-- Surface granulation texture -->
+  <g clip-path="url(#sun-clip)" opacity="0.18">
+    <circle cx="30" cy="35" r="8" fill="#ffdd00"/>
+    <circle cx="50" cy="28" r="6" fill="#ffcc00"/>
+    <circle cx="72" cy="38" r="7" fill="#ffdd00"/>
+    <circle cx="38" cy="55" r="9" fill="#ffcc00"/>
+    <circle cx="65" cy="50" r="8" fill="#ffdd00"/>
+    <circle cx="80" cy="65" r="6" fill="#ffcc00"/>
+    <circle cx="45" cy="72" r="7" fill="#ffdd00"/>
+    <circle cx="68" cy="75" r="5" fill="#ffcc00"/>
+    <circle cx="28" cy="68" r="6" fill="#ffdd00"/>
+  </g>
+  <!-- Sunspot group -->
+  <g clip-path="url(#sun-clip)">
+    <ellipse cx="42" cy="48" rx="5" ry="4" fill="rgba(120,50,0,0.55)"/>
+    <ellipse cx="42" cy="48" rx="2.5" ry="2" fill="rgba(60,20,0,0.7)"/>
+    <ellipse cx="52" cy="52" rx="3" ry="2.5" fill="rgba(110,45,0,0.5)"/>
+    <ellipse cx="52" cy="52" rx="1.5" ry="1.2" fill="rgba(60,20,0,0.65)"/>
+  </g>
+  <!-- Limb darkening edge -->
+  <circle cx="55" cy="55" r="52" fill="none" stroke="rgba(150,60,0,0.35)" stroke-width="8"/>
+  <!-- Bright hot spot -->
+  <ellipse cx="44" cy="40" rx="12" ry="9" fill="rgba(255,255,255,0.22)"/>
+</svg>
+</div>
 
 <!-- TOP UFOS WITH ALIENS -->
 <style>
@@ -1411,56 +1427,46 @@ body {
   </button>
 </div>
 
-<!-- MOTHERSHIP FLYING -->
-<div id="ms-flyer" style="position:fixed;z-index:2;pointer-events:none;opacity:0.82;">
-  <svg viewBox="0 0 400 120" width="252" height="76" xmlns="http://www.w3.org/2000/svg">
+<!-- MOTHERSHIP -->
+<div style="position:fixed; bottom:280px; left:50%; transform:translateX(-50%); z-index:4; pointer-events:none; opacity:0.45; animation:mothershipDrift 8s ease-in-out infinite;">
+  <svg viewBox="0 0 400 120" width="420" height="126" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <radialGradient id="msf-hull" cx="50%" cy="35%" r="60%">
-        <stop offset="0%" stop-color="#8090a0"/><stop offset="50%" stop-color="#405060"/><stop offset="100%" stop-color="#1a2530"/>
+      <radialGradient id="ms-hull" cx="50%" cy="35%" r="60%">
+        <stop offset="0%" stop-color="#8090a0"/>
+        <stop offset="50%" stop-color="#405060"/>
+        <stop offset="100%" stop-color="#1a2530"/>
       </radialGradient>
-      <filter id="msf-glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <radialGradient id="ms-belly" cx="50%" cy="80%" r="50%">
+        <stop offset="0%" stop-color="#304050"/>
+        <stop offset="100%" stop-color="#0a1520"/>
+      </radialGradient>
+      <filter id="ms-glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
     </defs>
-    <ellipse cx="200" cy="55" rx="195" ry="38" fill="url(#msf-hull)" stroke="rgba(100,160,200,0.3)" stroke-width="1"/>
+    <!-- Main hull -->
+    <ellipse cx="200" cy="55" rx="195" ry="38" fill="url(#ms-hull)" stroke="rgba(100,160,200,0.3)" stroke-width="1"/>
+    <!-- Top dome -->
+    <ellipse cx="200" cy="38" rx="90" ry="28" fill="radial-gradient(ellipse, #607080, #304050)"/>
     <ellipse cx="200" cy="38" rx="90" ry="28" fill="#506070"/>
     <ellipse cx="200" cy="32" rx="70" ry="18" fill="#607888" opacity="0.7"/>
-    <ellipse cx="200" cy="58" rx="195" ry="12" fill="#1a2530" opacity="0.8"/>
-    <text x="128" y="62" text-anchor="middle" font-size="11">👽</text>
-    <text x="200" y="62" text-anchor="middle" font-size="12">👽</text>
-    <text x="272" y="62" text-anchor="middle" font-size="11">👽</text>
+    <!-- Hull ridge -->
+    <ellipse cx="200" cy="58" rx="195" ry="12" fill="url(#ms-belly)" opacity="0.8"/>
+    <!-- Belly lights -->
+    <circle cx="110" cy="68" r="4" fill="#ff4466" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0s" repeatCount="indefinite"/></circle>
     <circle cx="145" cy="72" r="4" fill="#00ccff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.15s" repeatCount="indefinite"/></circle>
     <circle cx="180" cy="74" r="5" fill="#ffee00" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.3s" repeatCount="indefinite"/></circle>
     <circle cx="200" cy="75" r="5" fill="#ffffff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.1s" repeatCount="indefinite"/></circle>
     <circle cx="220" cy="74" r="5" fill="#88ff00" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.45s" repeatCount="indefinite"/></circle>
     <circle cx="255" cy="72" r="4" fill="#ff80ff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.6s" repeatCount="indefinite"/></circle>
-    <ellipse cx="200" cy="80" rx="80" ry="12" fill="rgba(120,200,255,0.12)" filter="url(#msf-glow)"/>
+    <circle cx="290" cy="68" r="4" fill="#00ffcc" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.75s" repeatCount="indefinite"/></circle>
+    <!-- Glow beam -->
+    <ellipse cx="200" cy="80" rx="80" ry="12" fill="rgba(120,200,255,0.12)" filter="url(#ms-glow)"/>
+    <!-- Hull highlight -->
     <ellipse cx="200" cy="42" rx="120" ry="10" fill="rgba(200,230,255,0.12)"/>
   </svg>
 </div>
-<script>
-(function(){
-  var el = document.getElementById('ms-flyer');
-  var w = 252, h = 76;
-  var speed = 0.00018;
-  var t = Math.random() * Math.PI * 2;
-  var lastTime = null;
-  function step(ts) {
-    if (!lastTime) lastTime = ts;
-    t += speed * (ts - lastTime);
-    lastTime = ts;
-    var vw = window.innerWidth, vh = window.innerHeight;
-    var rx = vw * 0.42, ry = vh * 0.38;
-    var cx = vw / 2, cy = vh / 2;
-    var x = cx + rx * Math.cos(t) - w / 2;
-    var y = cy + ry * Math.sin(t) - h / 2;
-    var goingLeft = Math.cos(t - 0.01) > Math.cos(t);
-    el.style.transform = goingLeft ? 'scaleX(-1)' : 'scaleX(1)';
-    el.style.left = x + 'px';
-    el.style.top  = y + 'px';
-    requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-})();
-</script>
+<style>
+@keyframes mothershipDrift { 0%,100%{transform:translateX(-50%) translateY(0);} 50%{transform:translateX(-50%) translateY(-12px);} }
+</style>
 
 <!-- UFO -->
 <div id="ufo" style="position:fixed; bottom:252px; right:calc(25% - 30px); z-index:25; pointer-events:none; animation:ufoFloat2 4s ease-in-out infinite;">
@@ -1607,11 +1613,53 @@ body {
     <ellipse cx="568" cy="210" rx="9" ry="5" fill="#7a8088"/>
     <text x="540" y="222" text-anchor="middle" font-size="9" font-weight="900" letter-spacing="1" fill="#aaffaa" style="text-shadow:0 0 6px #0f0;">XENU</text>
   </g>
+
+  <!-- GUITAR in front of BLIP -->
+  <g style="animation:guitarSway 2.8s ease-in-out infinite alternate;transform-origin:340px 200px;">
+    <!-- neck -->
+    <rect x="334" y="118" width="7" height="72" rx="3" fill="#8B5E3C"/>
+    <rect x="335" y="118" width="5" height="72" rx="2" fill="#a0723d"/>
+    <!-- frets -->
+    <line x1="334" y1="128" x2="341" y2="128" stroke="#ccc" stroke-width="0.8"/>
+    <line x1="334" y1="138" x2="341" y2="138" stroke="#ccc" stroke-width="0.8"/>
+    <line x1="334" y1="148" x2="341" y2="148" stroke="#ccc" stroke-width="0.8"/>
+    <line x1="334" y1="158" x2="341" y2="158" stroke="#ccc" stroke-width="0.8"/>
+    <!-- headstock -->
+    <rect x="332" y="112" width="11" height="10" rx="3" fill="#6B3F1C"/>
+    <circle cx="334" cy="113" r="1.5" fill="#ccc"/>
+    <circle cx="337" cy="113" r="1.5" fill="#ccc"/>
+    <circle cx="340" cy="113" r="1.5" fill="#ccc"/>
+    <!-- body lower bout -->
+    <ellipse cx="340" cy="205" rx="22" ry="18" fill="#c47a2a"/>
+    <ellipse cx="340" cy="205" rx="22" ry="18" fill="none" stroke="#8B5E3C" stroke-width="1.5"/>
+    <!-- body upper bout -->
+    <ellipse cx="340" cy="186" rx="17" ry="14" fill="#c47a2a"/>
+    <ellipse cx="340" cy="186" rx="17" ry="14" fill="none" stroke="#8B5E3C" stroke-width="1.2"/>
+    <!-- waist join -->
+    <rect x="322" y="192" width="36" height="12" fill="#c47a2a"/>
+    <!-- sound hole -->
+    <circle cx="340" cy="196" r="6" fill="#7a3d10"/>
+    <circle cx="340" cy="196" r="6" fill="none" stroke="#5a2d08" stroke-width="0.8"/>
+    <!-- body highlight -->
+    <ellipse cx="335" cy="200" rx="6" ry="9" fill="rgba(255,220,150,0.18)"/>
+    <!-- bridge -->
+    <rect x="332" y="215" width="16" height="3" rx="1" fill="#5a3010"/>
+    <!-- strings -->
+    <line x1="337" y1="118" x2="337" y2="215" stroke="rgba(200,200,200,0.6)" stroke-width="0.5"/>
+    <line x1="338.5" y1="118" x2="338.5" y2="215" stroke="rgba(200,200,200,0.55)" stroke-width="0.5"/>
+    <line x1="340" y1="118" x2="340" y2="215" stroke="rgba(200,200,200,0.5)" stroke-width="0.6"/>
+    <line x1="341.5" y1="118" x2="341.5" y2="215" stroke="rgba(200,200,200,0.5)" stroke-width="0.5"/>
+    <line x1="343" y1="118" x2="343" y2="215" stroke="rgba(200,200,200,0.45)" stroke-width="0.5"/>
+    <!-- strumming hand -->
+    <ellipse cx="352" cy="200" rx="5" ry="4" fill="#c0a878" style="animation:strumHand 0.4s ease-in-out infinite alternate;transform-origin:352px 200px;"/>
+  </g>
 </svg>
 </div>
 
 <style>
 @keyframes alienSway { 0%,100%{transform:rotate(-4deg);} 50%{transform:rotate(4deg);} }
+@keyframes guitarSway { 0%,100%{transform:rotate(-3deg);} 50%{transform:rotate(3deg);} }
+@keyframes strumHand { 0%{transform:translateY(-4px) rotate(-10deg);} 100%{transform:translateY(4px) rotate(10deg);} }
 </style>
 
 <!-- ROBOT LEFT -->
@@ -1719,7 +1767,7 @@ body {
     <div class="panel-header">
       <div class="title-main" style="text-align:center;">Steven Bickham</div>
       <div class="title-site" style="text-align:center;">The Forest Sessions</div>
-      <div class="title-byline" style="text-align:center;">Penned · Recorded · Produced in Lebanon, TN</div>
+      <div class="title-byline" style="text-align:center;">ALL SONGS PENNED BY STEVEN DOUGLAS BICKHAM</div>
       <div class="divider"></div>
       <!-- LYRIC VIDEO SECTION -->
       <div style="margin-top:18px;text-align:center;">
@@ -1792,28 +1840,19 @@ songs.forEach((s,i) => {
 });
 
 // Audio player
-let currentAudio = null;
-let currentBtn = null;
+let currentIndex = null;
 function playSong(i) {
   const audio = document.getElementById('audio-'+i);
   const btn   = document.getElementById('btn-'+i);
-  if (currentAudio && currentAudio !== audio) {
-    currentAudio.pause();
-    currentAudio.currentTime = 0;
-    if (currentBtn) currentBtn.textContent = '▶ Listen';
-  }
-  if (audio.paused) {
-    audio.play();
-    btn.textContent = '⏸ Pause';
-    currentAudio = audio;
-    currentBtn = btn;
-    audio.onended = () => { btn.textContent = '▶ Listen'; currentAudio = null; currentBtn = null; };
-  } else {
-    audio.pause();
-    btn.textContent = '▶ Listen';
-    currentAudio = null;
-    currentBtn = null;
-  }
+  const isPlaying = (currentIndex === i);
+  document.querySelectorAll('audio').forEach(a => { a.pause(); a.currentTime = 0; });
+  document.querySelectorAll('.btn-listen').forEach(b => { b.textContent = '▶ Listen'; });
+  currentIndex = null;
+  if (isPlaying) return;
+  audio.play();
+  btn.textContent = '⏸ Pause';
+  currentIndex = i;
+  audio.onended = () => { btn.textContent = '▶ Listen'; currentIndex = null; };
 }
 
 // Video modal
@@ -1960,5 +1999,167 @@ document.querySelectorAll('a[href]').forEach(link => {
   </svg>
 </div>
 
+
+<!-- CAMPFIRE -->
+<div id="campfire-night" style="position:fixed;bottom:98px;left:50%;transform:translateX(-50%);z-index:23;pointer-events:none;opacity:0;transition:opacity 2s ease;text-align:center;">
+  <div class="campfire">
+    <div class="campfire-flames" style="animation:fireFlicker 0.18s ease-in-out infinite alternate;">🔥</div>
+    <div class="campfire-base">🪵</div>
+    <div class="campfire-glow"></div>
+  </div>
+</div>
+<!-- TRACTOR BEAM -->
+<svg id="tractor-beam" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:15;" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="beam-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(140,255,180,0)" />
+      <stop offset="40%" stop-color="rgba(140,255,180,0.10)" />
+      <stop offset="100%" stop-color="rgba(140,255,180,0.22)" />
+    </linearGradient>
+  </defs>
+  <polygon id="beam-shape" points="0,0 0,0 0,0" fill="url(#beam-grad)"/>
+</svg>
+<script>
+(function(){
+  function positionBeam(){
+    var ms = document.querySelector('[style*="bottom:180px"][style*="left:20px"]');
+    if(!ms) return;
+    var msR = ms.getBoundingClientRect();
+    var tipX = msR.left + msR.width / 2;
+    var tipY = msR.bottom - 10;
+
+    // Bottom of page where characters stand
+    var groundY = window.innerHeight - 95;
+
+    // Span from leftmost (R-01 area) to rightmost (R-02 area) character
+    var vw = window.innerWidth;
+    var leftX  = vw/2 - 220;
+    var rightX = vw/2 + 200;
+
+    var poly = document.getElementById('beam-shape');
+    poly.setAttribute('points', tipX+','+tipY+' '+leftX+','+groundY+' '+rightX+','+groundY);
+  }
+  window.addEventListener('resize', positionBeam);
+  // Wait for layout then run
+  if(document.readyState === 'complete') { positionBeam(); }
+  else { window.addEventListener('load', positionBeam); }
+  setTimeout(positionBeam, 300);
+})();
+</script>
+<!-- MOTHERSHIP FLYING -->
+<div id="ms-flyer" style="position:fixed;z-index:2;pointer-events:none;opacity:0.82;">
+  <svg viewBox="0 0 400 120" width="252" height="76" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="msf-hull" cx="50%" cy="35%" r="60%">
+        <stop offset="0%" stop-color="#8090a0"/><stop offset="50%" stop-color="#405060"/><stop offset="100%" stop-color="#1a2530"/>
+      </radialGradient>
+      <filter id="msf-glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    </defs>
+    <ellipse cx="200" cy="55" rx="195" ry="38" fill="url(#msf-hull)" stroke="rgba(100,160,200,0.3)" stroke-width="1"/>
+    <ellipse cx="200" cy="38" rx="90" ry="28" fill="#506070"/>
+    <ellipse cx="200" cy="32" rx="70" ry="18" fill="#607888" opacity="0.7"/>
+    <ellipse cx="200" cy="58" rx="195" ry="12" fill="#1a2530" opacity="0.8"/>
+    <text x="128" y="62" text-anchor="middle" font-size="11">👽</text>
+    <text x="200" y="62" text-anchor="middle" font-size="12">👽</text>
+    <text x="272" y="62" text-anchor="middle" font-size="11">👽</text>
+    <circle cx="145" cy="72" r="4" fill="#00ccff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.15s" repeatCount="indefinite"/></circle>
+    <circle cx="180" cy="74" r="5" fill="#ffee00" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="200" cy="75" r="5" fill="#ffffff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.1s" repeatCount="indefinite"/></circle>
+    <circle cx="220" cy="74" r="5" fill="#88ff00" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.45s" repeatCount="indefinite"/></circle>
+    <circle cx="255" cy="72" r="4" fill="#ff80ff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <ellipse cx="200" cy="80" rx="80" ry="12" fill="rgba(120,200,255,0.12)" filter="url(#msf-glow)"/>
+    <ellipse cx="200" cy="42" rx="120" ry="10" fill="rgba(200,230,255,0.12)"/>
+  </svg>
+</div>
+<script>
+(function(){
+  var el = document.getElementById("ms-flyer");
+  var w = 252, h = 76;
+  var speed = 0.00018;
+  var t = Math.random() * Math.PI * 2;
+  var lastTime = null;
+  function step(ts) {
+    if (!lastTime) lastTime = ts;
+    t += speed * (ts - lastTime);
+    lastTime = ts;
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var rx = vw * 0.42, ry = vh * 0.38;
+    var cx = vw / 2, cy = vh / 2;
+    var x = cx + rx * Math.cos(t) - w / 2;
+    var y = cy + ry * Math.sin(t) - h / 2;
+    var goingLeft = Math.cos(t - 0.01) > Math.cos(t);
+    el.style.transform = goingLeft ? "scaleX(-1)" : "scaleX(1)";
+    el.style.left = x + "px";
+    el.style.top  = y + "px";
+    requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+})();
+</script>
+
+<!-- SUN / MOON TRANSITION -->
+<div id="night-overlay" style="position:fixed;inset:0;z-index:2;pointer-events:none;background:rgba(0,5,20,0);transition:background 1.5s ease;"></div>
+<div id="moon-orb" style="position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:4;pointer-events:none;opacity:0;transition:opacity 1.5s ease;font-size:110px;line-height:110px;width:110px;height:110px;text-align:center;filter:grayscale(100%) brightness(1.1) drop-shadow(0 0 40px rgba(220,220,220,1)) drop-shadow(0 0 100px rgba(180,180,200,0.8)) drop-shadow(0 0 200px rgba(140,150,180,0.5));margin-top:-8px;">🌕</div>
+<script>
+(function(){
+  var sun = document.querySelector('.sun');
+  var rays = document.querySelector('.sun-rays');
+  var moon = document.getElementById('moon-orb');
+  var overlay = document.getElementById('night-overlay');
+  var isSun = true;
+
+  // Build star field
+  var starContainer = document.createElement('div');
+  starContainer.id = 'star-field';
+  starContainer.style.cssText = 'position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity 1.5s ease;';
+  var starHTML = '';
+  // Regular stars
+  for(var s=0;s<80;s++){
+    var x = Math.random()*100, y = Math.random()*55;
+    var size = 1.8 + Math.random()*2.8;
+    var op = 0.5 + Math.random()*0.5;
+    var delay = (Math.random()*4).toFixed(1);
+    var dur = (2+Math.random()*3).toFixed(1);
+    starHTML += '<div style="position:absolute;left:'+x+'%;top:'+y+'%;width:'+size+'px;height:'+size+'px;border-radius:50%;background:#fff;opacity:'+op+';box-shadow:0 0 '+(size*2)+'px '+(size)+'px rgba(255,255,255,0.4);animation:starTwinkle '+dur+'s ease-in-out '+delay+'s infinite;"></div>';
+  }
+  // Extra bright standout stars
+  var brightStars = [
+    [12,8],[28,14],[48,5],[67,11],[83,7],[92,18],[35,22],[58,19],[76,25],[18,30],[44,28]
+  ];
+  brightStars.forEach(function(p){
+    var size = 4 + Math.random()*3;
+    var delay = (Math.random()*3).toFixed(1);
+    var dur = (1.5+Math.random()*2).toFixed(1);
+    starHTML += '<div style="position:absolute;left:'+p[0]+'%;top:'+p[1]+'%;width:'+size+'px;height:'+size+'px;border-radius:50%;background:#fff;opacity:0.95;box-shadow:0 0 '+(size*3)+'px '+(size*1.5)+'px rgba(255,255,255,0.7),0 0 '+(size*6)+'px '+(size*2)+'px rgba(200,220,255,0.35);animation:starTwinkle '+dur+'s ease-in-out '+delay+'s infinite;"></div>';
+  });
+  starContainer.innerHTML = starHTML;
+  document.body.appendChild(starContainer);
+
+  var campfire = document.getElementById('campfire-night');
+  function toMoon(){
+    isSun = false;
+    sun.style.transition = 'opacity 1.5s ease';
+    sun.style.opacity = '0';
+    if(rays){ rays.style.transition='opacity 1.5s ease'; rays.style.opacity='0'; }
+    moon.style.opacity = '1';
+    overlay.style.background = 'rgba(0,5,20,0.55)';
+    starContainer.style.opacity = '1';
+    if(campfire) campfire.style.opacity = '1';
+  }
+  function toSun(){
+    isSun = true;
+    sun.style.transition = 'opacity 1.5s ease';
+    sun.style.opacity = '1';
+    if(rays){ rays.style.transition='opacity 1.5s ease'; rays.style.opacity='1'; }
+    moon.style.opacity = '0';
+    overlay.style.background = 'rgba(0,5,20,0)';
+    starContainer.style.opacity = '0';
+    if(campfire) campfire.style.opacity = '0';
+  }
+  setInterval(function(){
+    if(isSun) toMoon(); else toSun();
+  }, 15000);
+})();
+</script>
 </body>
 </html>
