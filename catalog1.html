@@ -2004,9 +2004,9 @@ to   { transform: rotate(360deg); }
 
 <!-- SITE NAV - outside all other divs to prevent z-index conflicts -->
 <div style="position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;justify-content:center;gap:16px;flex-wrap:wrap;pointer-events:auto;">
-  <a href="index.html" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:0.6rem;color:#ffe066;text-decoration:none;letter-spacing:1px;border:1px solid rgba(255,220,80,.4);padding:4.8px 13px;border-radius:30px;background:rgba(5,15,6,0.85);box-shadow:0 0 20px rgba(255,200,60,.15);transition:all .2s;" onmouseover="this.style.background='rgba(255,200,60,.15)'" onmouseout="this.style.background='rgba(5,15,6,0.85)'">🏠 Page 1</a>
-  <a href="catalog2.html" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:0.6rem;color:#ffe066;text-decoration:none;letter-spacing:1px;border:1px solid rgba(255,220,80,.4);padding:4.8px 13px;border-radius:30px;background:rgba(5,15,6,0.85);box-shadow:0 0 20px rgba(255,200,60,.15);transition:all .2s;" onmouseover="this.style.background='rgba(255,200,60,.15)'" onmouseout="this.style.background='rgba(5,15,6,0.85)'">Page 3 →</a>
-  <a href="catalog3.html" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:0.6rem;color:#ffe066;text-decoration:none;letter-spacing:1px;border:1px solid rgba(255,220,80,.4);padding:4.8px 13px;border-radius:30px;background:rgba(5,15,6,0.85);box-shadow:0 0 20px rgba(255,200,60,.15);transition:all .2s;" onmouseover="this.style.background='rgba(255,200,60,.15)'" onmouseout="this.style.background='rgba(5,15,6,0.85)'">Page 4 →</a>
+  <a href="index.html" class="nav-btn" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:0.85rem;color:#ffe066;text-decoration:none;letter-spacing:1.5px;border:2px solid rgba(255,220,80,.5);padding:7px 18px;border-radius:30px;background:rgba(5,15,6,0.92);box-shadow:none;transition:all .2s;" >🏠 Page 1</a>
+  <a href="catalog2.html" class="nav-btn" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:0.85rem;color:#ffe066;text-decoration:none;letter-spacing:1.5px;border:2px solid rgba(255,220,80,.5);padding:7px 18px;border-radius:30px;background:rgba(5,15,6,0.92);box-shadow:none;transition:all .2s;" >Page 3 →</a>
+  <a href="catalog3.html" class="nav-btn" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:0.85rem;color:#ffe066;text-decoration:none;letter-spacing:1.5px;border:2px solid rgba(255,220,80,.5);padding:7px 18px;border-radius:30px;background:rgba(5,15,6,0.92);box-shadow:none;transition:all .2s;" >Page 4 →</a>
 </div>
 
 <script>
@@ -2203,6 +2203,14 @@ document.querySelectorAll('a[href]').forEach(link => {
 <style>
 @keyframes mothershipDrift{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
 @keyframes alienBop{0%,100%{transform:translateY(0);}50%{transform:translateY(-2px);}}
+
+@keyframes navPulse {
+  0%,100% { box-shadow:0 0 8px rgba(255,200,60,.4), 0 0 18px rgba(255,200,60,.15); border-color:rgba(255,220,80,.5); color:#ffe066; }
+  50%      { box-shadow:0 0 18px rgba(255,200,60,.9), 0 0 36px rgba(255,200,60,.5); border-color:rgba(255,240,120,1);  color:#fff8c0; }
+}
+.nav-btn { animation: navPulse 2.2s ease-in-out infinite; }
+.nav-btn:nth-child(2) { animation-delay: 0.4s; }
+.nav-btn:nth-child(3) { animation-delay: 0.8s; }
 </style>
 <div style="position:fixed;bottom:180px;left:20px;z-index:22;pointer-events:none;opacity:0.85;animation:mothershipDrift 8s ease-in-out infinite;">
   <svg viewBox="0 0 400 120" width="440" height="132" xmlns="http://www.w3.org/2000/svg">
