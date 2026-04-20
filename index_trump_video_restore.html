@@ -1748,6 +1748,16 @@ to   { transform: rotate(360deg); }
   </div>
 </div>
 
+<!-- VIDEO MODAL -->
+<div class="modal-overlay" id="videoModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" title="Close">✕</button>
+    <div class="modal-title">🎬 <span>Trump Came Back</span> — Steven Bickham</div>
+    <div class="video-wrap">
+      <iframe id="videoFrame" allowfullscreen allow="autoplay"></iframe>
+    </div>
+  </div>
+</div>
 
 <!-- MAIN CONTENT -->
 <div class="content">
@@ -1760,7 +1770,19 @@ to   { transform: rotate(360deg); }
       <div class="title-site" style="text-align:center;">The Forest Sessions</div>
       <div class="title-byline" style="text-align:center;">ALL SONGS PENNED BY STEVEN DOUGLAS BICKHAM</div>
       <div class="divider"></div>
-
+      <!-- LYRIC VIDEO SECTION -->
+      <div style="margin-top:18px;text-align:center;">
+        <div style="font-family:'Abril Fatface',cursive;font-size:1.1rem;color:#ffe066;letter-spacing:2px;margin-bottom:4px;text-shadow:0 0 14px rgba(255,200,60,.5);">🎬 Lyric Video</div>
+        <div style="font-family:'Playfair Display',serif;font-size:.9rem;color:#b8e0f7;margin-bottom:10px;font-style:italic;">Trump Came Back — Steven Bickham</div>
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;max-width:380px;margin:0 auto;box-shadow:0 0 30px rgba(255,200,60,.2),0 4px 24px rgba(0,0,0,.7);">
+          <iframe
+            src="https://www.youtube.com/embed/CAiJ-B0fdcw"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:10px;"
+            allow="autoplay"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
       <div style="margin-top:18px; text-align:center;">
         <div class="panel-title">🎵 Page 1 🎵</div>
         <div class="panel-sub">— Original Songs by Steven Bickham —</div>
@@ -1801,7 +1823,9 @@ const ul = document.getElementById('songList');
 songs.forEach((s,i) => {
   const li = document.createElement('li');
   li.className='song-item';
-  const listenBtn = `<button onclick="playSong(${i})" class="btn btn-listen" id="btn-${i}">▶ Listen</button>`;
+  const listenBtn = s.video
+    ? `<button onclick="openVideo()" class="btn btn-video">🎬 VIDEO</button>`
+    : `<button onclick="playSong(${i})" class="btn btn-listen" id="btn-${i}">▶ Listen</button>`;
   li.innerHTML=`
     <div class="track-num">${i+1}</div>
     <div class="song-info">
@@ -1832,8 +1856,16 @@ function playSong(i) {
   audio.onended = () => { btn.textContent = '▶ Listen'; currentIndex = null; };
 }
 
-
-
+// Video modal
+const modal   = document.getElementById('videoModal');
+const frame   = document.getElementById('videoFrame');
+const closeBtn= document.getElementById('modalClose');
+const videoSrc= 'https://www.youtube.com/embed/CAiJ-B0fdcw';
+function openVideo(){ frame.src = videoSrc; modal.classList.add('open'); document.body.style.overflow='hidden'; }
+function closeVideo(){ modal.classList.remove('open'); frame.src=''; document.body.style.overflow=''; }
+closeBtn.addEventListener('click', closeVideo);
+modal.addEventListener('click', e => { if(e.target===modal) closeVideo(); });
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeVideo(); });
 
 // Venmo payment modal
 const venmoModal   = document.getElementById('venmoModal');
