@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steve Bickham — Complete TikTok Video Concept & Script</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900&family=Oswald:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Lato', sans-serif;
+  background: #fefce8;
+  color: #1a1208;
+  padding: 40px 24px 80px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.masthead {
+  text-align: center;
+  border-top: 6px solid #1a1208;
+  border-bottom: 3px double #1a1208;
+  padding: 28px 0 24px;
+  margin-bottom: 40px;
+}
+.masthead h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 6vw, 48px);
+  font-weight: 900;
+  color: #1a1208;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.masthead h1 span { color: #c8952a; }
+.masthead p {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #6b5c44;
+  margin-top: 8px;
+}
+
+/* SECTION */
+.section {
+  margin-bottom: 36px;
+  page-break-inside: avoid;
+}
+.section-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #c8952a;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #c8b89a;
+}
+.section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1208;
+  margin-bottom: 14px;
+}
+
+/* BODY TEXT */
+p, li {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #2c1f0e;
+}
+ul { padding-left: 0; list-style: none; }
+ul li {
+  padding: 6px 0 6px 20px;
+  border-bottom: 1px solid #e8e0d0;
+  position: relative;
+}
+ul li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: #c8952a;
+  font-size: 10px;
+  top: 9px;
+}
+ul li:last-child { border-bottom: none; }
+
+/* SHOT CARDS */
+.shots {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.shot {
+  border: 1px solid #c8b89a;
+  border-left: 4px solid #c8952a;
+  padding: 16px 18px;
+  background: white;
+}
+.shot-num {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c8952a;
+  margin-bottom: 6px;
+}
+.shot-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a1208;
+  margin-bottom: 6px;
+}
+.shot-desc {
+  font-size: 13px;
+  color: #6b5c44;
+  line-height: 1.7;
+}
+.shot-action {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #9b1c1c;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+/* SCRIPT BOX */
+.script {
+  border: 3px solid #1a1208;
+  background: #1a1208;
+  padding: 32px 28px;
+  margin-bottom: 8px;
+}
+.script-line {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(16px, 3.5vw, 22px);
+  font-weight: 700;
+  color: #fefce8;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.script-line.big {
+  font-size: clamp(22px, 5vw, 32px);
+  color: #f5c030;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+.script-direction {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(245,192,48,.6);
+  margin-bottom: 12px;
+  padding-left: 14px;
+  border-left: 2px solid rgba(245,192,48,.3);
+  font-style: italic;
+}
+.script-onscreen {
+  margin-top: 24px;
+  border-top: 1px solid rgba(245,192,48,.3);
+  padding-top: 16px;
+}
+.script-onscreen p {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(245,192,48,.7);
+  margin-bottom: 8px;
+}
+.script-onscreen .url {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #f5c030;
+  margin-bottom: 4px;
+}
+.script-onscreen .legal {
+  font-size: 11px;
+  color: rgba(254,252,232,.35);
+  line-height: 1.6;
+}
+
+/* CHECKLIST */
+.checklist {
+  background: white;
+  border: 1px solid #c8b89a;
+  padding: 20px 24px;
+}
+.checklist-item {
+  display: flex;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e8e0d0;
+  align-items: flex-start;
+}
+.checklist-item:last-child { border-bottom: none; }
+.check-box {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #c8952a;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.check-text {
+  font-size: 14px;
+  color: #2c1f0e;
+  line-height: 1.6;
+}
+.check-text strong { color: #1a1208; }
+
+/* COST TABLE */
+.cost-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 8px;
+}
+.cost-table tr { border-bottom: 1px solid #e8e0d0; }
+.cost-table tr:last-child { border-bottom: 2px solid #1a1208; }
+.cost-table td {
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #2c1f0e;
+}
+.cost-table td:last-child {
+  text-align: right;
+  font-weight: 700;
+  color: #1a1208;
+}
+.cost-table tr.total td {
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #c8952a;
+  font-weight: 700;
+}
+
+/* FUNNEL */
+.funnel {
+  display: grid;
+  gap: 2px;
+}
+.funnel-step {
+  background: #1a1208;
+  color: #fefce8;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.funnel-step:nth-child(2) { background: #2d4a1e; margin: 0 16px; }
+.funnel-step:nth-child(3) { background: #1a3d1c; margin: 0 32px; }
+.funnel-step:nth-child(4) { background: #c8952a; margin: 0 48px; }
+.funnel-step:nth-child(5) { background: #8b3a1a; margin: 0 64px; }
+.funnel-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: rgba(254,252,232,.3);
+  flex-shrink: 0;
+  width: 32px;
+}
+.funnel-content {}
+.funnel-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.funnel-desc {
+  font-size: 12px;
+  opacity: .75;
+  line-height: 1.5;
+}
+
+/* CALLOUT */
+.callout {
+  background: #f7f2e8;
+  border-left: 4px solid #c8952a;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+.callout p {
+  font-size: 14px;
+  font-style: italic;
+  color: #2c1f0e;
+  line-height: 1.7;
+}
+
+/* RULE */
+.rule {
+  border: none;
+  border-top: 2px solid #1a1208;
+  margin: 36px 0;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 3px double #1a1208;
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #6b5c44;
+  line-height: 2;
+}
+
+@media print {
+  body { background: white; padding: 20px; }
+  .section { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <h1>The <span>Complete</span> TikTok<br>Giveaway Concept & Script</h1>
+  <p>Steve Bickham &nbsp;·&nbsp; MusicRow.US &nbsp;·&nbsp; The Forest Sessions &nbsp;·&nbsp; Lebanon, Tennessee</p>
+  <p style="margin-top:4px;">A Whole Life In Song</p>
+</div>
+
+<!-- THE CONCEPT -->
+<div class="section">
+  <div class="section-label">The Big Idea</div>
+  <h2>Why This Works</h2>
+  <p>Nobody scrolls past a man in a suit stepping out of a red Challenger RT at a gas pump holding a giant Walmart gift card. That image alone is worth a million advertising dollars — and it costs under $10 to create.</p>
+  <div class="callout">
+    <p>"Don't tell me nothing is free — because we're changing that one grocery and gas card at a time."</p>
+  </div>
+  <p>The prize gets them to the page. The music keeps them there. The mailing list owns them forever. TikTok brings them — then gets out of the way.</p>
+</div>
+
+<hr class="rule">
+
+<!-- THE FUNNEL -->
+<div class="section">
+  <div class="section-label">The Funnel</div>
+  <h2>How It Flows — Step By Step</h2>
+  <div class="funnel">
+    <div class="funnel-step">
+      <div class="funnel-num">1</div>
+      <div class="funnel-content">
+        <div class="funnel-title">TikTok Video</div>
+        <div class="funnel-desc">Suit · Red Challenger RT · Giant card · Gas pump · 25 seconds</div>
+      </div>
+    </div>
+    <div class="funnel-step">
+      <div class="funnel-num">2</div>
+      <div class="funnel-content">
+        <div class="funnel-title">Link In Bio → stevewebpage.github.io/swt/giveaway.html</div>
+        <div class="funnel-desc">Landing page · Prize revealed · Song carousel cycling · Form waiting</div>
+      </div>
+    </div>
+    <div class="funnel-step">
+      <div class="funnel-num">3</div>
+      <div class="funnel-content">
+        <div class="funnel-title">Entry Form</div>
+        <div class="funnel-desc">Name · Email · City/State · Phone · Favorite Artist · How they found you</div>
+      </div>
+    </div>
+    <div class="funnel-step">
+      <div class="funnel-num">4</div>
+      <div class="funnel-content">
+        <div class="funnel-title">🎯 Bonus Entry Mechanic</div>
+        <div class="funnel-desc">Visit MusicRow.US = extra submission to win · Drives traffic to the music · Honor system · checkbox on form · "I visited MusicRow.US — give me my bonus entry!"</div>
+      </div>
+    </div>
+    <div class="funnel-step">
+      <div class="funnel-num">5</div>
+      <div class="funnel-content">
+        <div class="funnel-title">Thank You Page → MusicRow.US</div>
+        <div class="funnel-desc">They discover the music · 26 songs · A whole life in song · "Push our buttons — join the population!"</div>
+      </div>
+    </div>
+    <div class="funnel-step">
+      <div class="funnel-num">6</div>
+      <div class="funnel-content">
+        <div class="funnel-title">You Own Them Forever</div>
+        <div class="funnel-desc">Verified mailing list · No algorithm controls it · Not Spotify · Not TikTok · Yours</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="rule">
+
+<!-- SHOT SEQUENCE -->
+<div class="section">
+  <div class="section-label">Shot By Shot</div>
+  <h2>The Visual Sequence</h2>
+  <div class="shots">
+
+    <div class="shot">
+      <div class="shot-num">Shot 1 — 0:00–0:02</div>
+      <div class="shot-title">🔴 The RT Emblem Close-Up</div>
+      <div class="shot-desc">Extreme close up on the RT emblem. Gleaming. Clean. No context. Pure tease. Half a second of mystery before anything is said.</div>
+      <div class="shot-action">Camera: tight on emblem · No sound yet · Pure visual hook</div>
+    </div>
+
+    <div class="shot">
+      <div class="shot-num">Shot 2 — 0:02–0:04</div>
+      <div class="shot-title">🚗 The Challenger Reveal</div>
+      <div class="shot-desc">Pull back to reveal the full red Challenger RT with racing stripes. Immaculate. Man in a suit standing beside it or stepping away from it toward camera.</div>
+      <div class="shot-action">Camera: pulls back to reveal full car · Suit visible · Gas pump in background</div>
+    </div>
+
+    <div class="shot">
+      <div class="shot-num">Shot 3 — 0:04–0:06</div>
+      <div class="shot-title">🏆 WIN THIS PRIZE — The Hook</div>
+      <div class="shot-desc">Face to camera. Close up. Full energy. Giant Walmart card SLAMS into frame from below on the word PRIZE.</div>
+      <div class="shot-action">ENERGY HIGH · Card hidden below frame · Reveal is the money moment</div>
+    </div>
+
+    <div class="shot">
+      <div class="shot-num">Shot 4 — 0:06–0:25</div>
+      <div class="shot-title">⛽ Walk to the Pump — Deliver the Script</div>
+      <div class="shot-desc">Casually walk to the gas pump in the suit. Friend follows with camera. Challenger visible in background. Cards in hand. Finish the script naturally while pumping gas.</div>
+      <div class="shot-action">Natural · Conversational · Challenger in background throughout · One take preferred</div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="rule">
+
+<!-- THE SCRIPT -->
+<div class="section">
+  <div class="section-label">The Script</div>
+  <h2>Say It Exactly Like This</h2>
+  <div class="script">
+
+    <div class="script-direction">[RT emblem close up — pull back to reveal full Challenger — man in suit — gas pump in background]</div>
+
+    <div class="script-line big">"WIN THIS PRIZE!"</div>
+
+    <div class="script-direction">[Giant Walmart card SLAMS up into frame]</div>
+
+    <div class="script-line">"I'm Steve Bickham and I want YOU to win this prize today."</div>
+
+    <div class="script-line">"Somebody's gonna win — and why can't it be YOU!"</div>
+
+    <div class="script-direction">[Walk toward pump · Challenger visible behind you · Pull out gas card]</div>
+
+    <div class="script-line">"Two hundred dollars in groceries — AND a gas card on top of that."</div>
+
+    <div class="script-line big">"Don't tell me nothing is free — because we're changing that one grocery and gas card at a time!"</div>
+
+    <div class="script-line">"Go sign up — fill out the form completely — we will NEVER use or sell your information."</div>
+
+    <div class="script-line">"You have my word on that."</div>
+
+    <div class="script-line">"Click the link in bio or copy paste it. It's FREE. See you there."</div>
+
+    <div class="script-onscreen">
+      <p>📱 Text On Screen Throughout:</p>
+      <div class="url">stevewebpage.github.io/swt/giveaway.html</div>
+      <div class="legal">No purchase necessary · Free entry · US residents 18+ · Not affiliated with TikTok or Walmart</div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="rule">
+
+<!-- PRE-SHOOT CHECKLIST -->
+<div class="section">
+  <div class="section-label">Before You Shoot</div>
+  <h2>Pre-Shoot Checklist</h2>
+  <div class="checklist">
+    <div class="checklist-item">
+      <div class="check-box"></div>
+      <div class="check-text"><strong>Get the Challenger detailed and cleaned.</strong> Every inch gleaming. Racing stripes sharp. This car is a co-star.</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-box"></div>
+      <div class="check-text"><strong>Print the giant Walmart gift card.</strong> Google "Walmart gift card image" · Print 11x17 or larger · FedEx Office / Staples / Walmart Photo Center · ~$5–10 on cardstock or foam board.</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-box"></div>
+      <div class="check-text"><strong>Buy the real Walmart gift card ($200) and gas card.</strong> Have the real cards on you during filming. Giant print card for the reveal — real cards for credibility.</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-box"></div>
+      <div class="check-text"><strong>Suit pressed and ready.</strong> Sharp. Clean. Unexpected. The contrast between the suit and the gas pump is everything.</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-box"></div>
+      <div class="check-text"><strong>Friend confirmed to film.</strong> Handheld is fine. Slightly loose and natural is better than stiff and produced. They follow you from car to pump.</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-box"></div>
+      <div class="check-text"><strong>Giveaway page live on GitHub Pages.</strong> Test stevewebpage.github.io/swt/giveaway.html before shooting. Also test musicrow.us/giveaway to see if path forwarding works. Make sure form works on mobile.</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-box"></div>
+      <div class="check-text"><strong>TikTok bio link updated.</strong> Use musicrow.us/giveaway if path forwarding works — otherwise use stevewebpage.github.io/swt/giveaway.html. Test before posting the video.</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-box"></div>
+      <div class="check-text"><strong>Read the script out loud three times.</strong> Then forget it. Speak naturally. Your natural delivery IS the hook.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="rule">
+
+<!-- COST BREAKDOWN -->
+<div class="section">
+  <div class="section-label">Budget</div>
+  <h2>What This Costs</h2>
+  <table class="cost-table">
+    <tr><td>Oversized card print (FedEx/Staples)</td><td>~$10</td></tr>
+    <tr><td>Your suit</td><td>Already own it</td></tr>
+    <tr><td>Red Challenger RT</td><td>Already own it</td></tr>
+    <tr><td>Car detail/wash</td><td>~$20–40</td></tr>
+    <tr><td>Friend to film</td><td>Free</td></tr>
+    <tr><td>Your phone camera</td><td>Already in pocket</td></tr>
+    <tr><td>Walmart gift card (monthly prize)</td><td>$200</td></tr>
+    <tr><td>Gas card (monthly prize)</td><td>$50–100</td></tr>
+    <tr class="total"><td>Total Monthly Investment</td><td>~$280–350</td></tr>
+  </table>
+  <div class="callout">
+    <p>Compare this to a single SubmitHub campaign that gave you nothing. This builds a permanent mailing list of verified music fans that nobody can ever take from you.</p>
+  </div>
+</div>
+
+<hr class="rule">
+
+<!-- DELIVERY NOTES -->
+<div class="section">
+  <div class="section-label">Delivery</div>
+  <h2>How To Perform It</h2>
+  <ul>
+    <li><strong>Energy high from the very first word.</strong> No warmup. No intro. WIN THIS PRIZE is the first sound they hear.</li>
+    <li><strong>The card reveal is the money moment.</strong> Keep it hidden below frame. Lift it dramatically. Make it feel like a game show.</li>
+    <li><strong>One take if possible.</strong> Raw and real wins on TikTok every time. Imperfect IS perfect.</li>
+    <li><strong>Neighbor over the fence energy.</strong> Not a commercial. Not a pitch. A real person talking to a real person.</li>
+    <li><strong>"You have my word on that"</strong> — say this slowly. Mean it. That line builds more trust than any legal disclaimer ever could.</li>
+    <li><strong>Total run time: 25–30 seconds.</strong> No longer. TikTok rewards completion rate.</li>
+    <li><strong>The Challenger does half the work without a word.</strong> Let it sit in the background. Don't explain it. Let them wonder.</li>
+  </ul>
+</div>
+
+<hr class="rule">
+
+<!-- THE MONTHLY CYCLE -->
+<div class="section">
+  <div class="section-label">90-Day Plan</div>
+  <h2>The Monthly Posting Cycle</h2>
+  <ul>
+    <li><strong>Day 1 — Launch.</strong> The main video. Suit. Challenger. Gas pump. WIN THIS PRIZE.</li>
+    <li><strong>Day 7 — Show the prize.</strong> Close up of the real cards. "This is real. This is waiting for somebody."</li>
+    <li><strong>Day 14 — Tell your story.</strong> Who is Steve Bickham? War Pigs. Crazy Boy. The tears on the recording. 30 seconds.</li>
+    <li><strong>Day 21 — Reminder.</strong> "Halfway through the month. Still free. Still waiting for a winner."</li>
+    <li><strong>Day 28 — Last chance.</strong> Final push. Urgency. "Few days left."</li>
+    <li><strong>Day 30 — Winner announcement.</strong> Real person. Real prize. Public proof it happened. Drives next month's entries.</li>
+  </ul>
+  <div class="callout">
+    <p>The winner announcement is as powerful as the launch video. Real proof drives real trust. Real trust drives the next wave of entries. Run this for 90 days and watch what happens.</p>
+  </div>
+</div>
+
+<hr class="rule">
+
+<!-- THE LEGAL -->
+<div class="section">
+  <div class="section-label">Legal — Read Before Launch</div>
+  <h2>Keep It Clean & Legal</h2>
+  <ul>
+    <li><strong>"No purchase necessary"</strong> must appear on every video and on the entry form. Already done.</li>
+    <li><strong>Award the prize every single month.</strong> On time. Publicly. No exceptions. This is both legal and essential for trust.</li>
+    <li><strong>"Not affiliated with TikTok or Walmart"</strong> in the on-screen text.</li>
+    <li><strong>One entry per person.</strong> State this clearly on the form.</li>
+    <li><strong>Keep winner records.</strong> Name, email, date awarded. Simple spreadsheet is fine.</li>
+    <li><strong>Under $5,000 prize value</strong> means no state registration required anywhere in the US.</li>
+    <li><strong>The entry form privacy promise is binding.</strong> Never sell or share the list. You gave your word on camera.</li>
+  </ul>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  MusicRow.US &nbsp;·&nbsp; The Forest Sessions &nbsp;·&nbsp; Lebanon, Tennessee<br>
+  Steve Bickham &nbsp;·&nbsp; A Whole Life In Song<br>
+  <span style="color:#c8b89a; font-size:10px; letter-spacing:2px;">Everything I have I earned. And the music — that I give away free.</span>
+</div>
+
+</body>
+</html>
