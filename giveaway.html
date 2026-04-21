@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Win $200 in Groceries — MusicRow.US</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Oswald:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:    #0d1a08;
+  --forest: #1a3d1c;
+  --gold:   #f5c030;
+  --gold2:  #ffdb6a;
+  --cream:  #fefce8;
+  --rust:   #8b3a1a;
+  --muted:  #4a6741;
+  --red:    #9b1c1c;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: var(--ink);
+  color: var(--cream);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ── FOREST BG ── */
+.bg {
+  position: fixed; inset: 0; z-index: 0;
+  background: radial-gradient(ellipse at 50% 0%, #2d6128 0%, #1a3d1c 40%, #0d1a08 100%);
+}
+.bg-overlay {
+  position: fixed; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, rgba(13,26,8,.3) 0%, rgba(13,26,8,.7) 60%, rgba(13,26,8,.95) 100%);
+}
+
+/* ── CONTENT ── */
+.page {
+  position: relative; z-index: 2;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+/* ── HEADER ── */
+.site-link {
+  display: block;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  margin-bottom: 32px;
+  transition: color .2s;
+}
+.site-link:hover { color: var(--gold); }
+
+/* ── HERO TEXT ── */
+.hero-eyebrow {
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.hero-headline {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 8vw, 64px);
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--cream);
+  margin-bottom: 16px;
+}
+.hero-headline em {
+  font-style: italic;
+  color: var(--gold);
+  display: block;
+}
+
+.hero-sub {
+  text-align: center;
+  font-size: clamp(16px, 3vw, 20px);
+  line-height: 1.6;
+  color: rgba(254,252,232,.75);
+  margin-bottom: 12px;
+  font-weight: 300;
+}
+
+.hero-prize {
+  text-align: center;
+  margin: 24px 0;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.prize-pill {
+  background: rgba(245,192,48,.15);
+  border: 1px solid rgba(245,192,48,.4);
+  color: var(--gold);
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 2px;
+}
+
+/* ── SONG CAROUSEL ── */
+.carousel-wrap {
+  margin: 32px 0;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(245,192,48,.2);
+  background: rgba(0,0,0,.4);
+  border-radius: 4px;
+}
+.carousel-label {
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: .7;
+  z-index: 10;
+}
+.carousel-track {
+  display: flex;
+  transition: transform .6s cubic-bezier(.4,0,.2,1);
+}
+.carousel-slide {
+  min-width: 100%;
+  padding: 28px 20px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.slide-icon {
+  font-size: 36px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 8px rgba(245,192,48,.4));
+}
+.slide-content {}
+.slide-genre {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+  opacity: .8;
+}
+.slide-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(18px, 4vw, 26px);
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.slide-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(254,252,232,.6);
+}
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 0 16px;
+}
+.dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(245,192,48,.3);
+  transition: background .3s;
+}
+.dot.active { background: var(--gold); }
+.carousel-footer {
+  text-align: center;
+  padding: 0 20px 16px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(254,252,232,.4);
+}
+
+/* ── DIVIDER ── */
+.divider {
+  text-align: center;
+  color: rgba(245,192,48,.3);
+  font-size: 20px;
+  letter-spacing: 8px;
+  margin: 8px 0 28px;
+}
+
+/* ── FORM ── */
+.form-wrap {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(245,192,48,.15);
+  padding: 32px 28px;
+  border-radius: 4px;
+}
+.form-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 6px;
+  text-align: center;
+}
+.form-sub {
+  text-align: center;
+  font-size: 14px;
+  color: rgba(254,252,232,.55);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+.field {
+  margin-bottom: 16px;
+}
+.field label {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: .8;
+  margin-bottom: 6px;
+}
+.field input,
+.field select {
+  width: 100%;
+  padding: 13px 14px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(245,192,48,.2);
+  color: var(--cream);
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  outline: none;
+  border-radius: 2px;
+  transition: border-color .2s, background .2s;
+  -webkit-appearance: none;
+}
+.field input::placeholder { color: rgba(254,252,232,.3); }
+.field input:focus,
+.field select:focus {
+  border-color: var(--gold);
+  background: rgba(255,255,255,.09);
+}
+.field select option { background: #1a3d1c; color: var(--cream); }
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.submit-btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 18px;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background .2s, transform .15s;
+}
+.submit-btn:hover { background: var(--gold2); transform: translateY(-2px); }
+.submit-btn:active { transform: translateY(0); }
+
+.legal {
+  text-align: center;
+  font-size: 11px;
+  color: rgba(254,252,232,.3);
+  margin-top: 16px;
+  line-height: 1.7;
+}
+
+/* ── SUCCESS ── */
+.success {
+  display: none;
+  text-align: center;
+  padding: 48px 20px;
+}
+.success-icon { font-size: 64px; margin-bottom: 16px; }
+.success h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.success p {
+  font-size: 16px;
+  color: rgba(254,252,232,.7);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.success-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 16px 36px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background .2s;
+}
+.success-btn:hover { background: var(--gold2); }
+
+/* ── FOOTER ── */
+.page-footer {
+  text-align: center;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(245,192,48,.1);
+}
+.page-footer a {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(254,252,232,.3);
+  text-decoration: none;
+  transition: color .2s;
+}
+.page-footer a:hover { color: var(--gold); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 480px) {
+  .field-row { grid-template-columns: 1fr; }
+  .form-wrap { padding: 24px 16px; }
+  .hero-prize { gap: 10px; }
+}
+
+/* ── FADE IN ── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(24px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.fade { opacity:0; animation: fadeUp .7s ease forwards; }
+.fade:nth-child(1) { animation-delay: .1s; }
+.fade:nth-child(2) { animation-delay: .25s; }
+.fade:nth-child(3) { animation-delay: .4s; }
+.fade:nth-child(4) { animation-delay: .55s; }
+.fade:nth-child(5) { animation-delay: .7s; }
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="bg-overlay"></div>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <a href="https://musicrow.us" class="site-link fade">MusicRow.US — The Forest Sessions</a>
+
+  <!-- HERO -->
+  <div class="fade">
+    <p class="hero-eyebrow">🎸 Monthly Giveaway — Free To Enter</p>
+    <h1 class="hero-headline">
+      You COULD Win This Prize.
+      <em>Why couldn't it be YOU?</em>
+    </h1>
+    <p class="hero-sub">I'm Steve Bickham. Every month one lucky person walks away with $200 in groceries and a gas card. Fill out the form below for YOUR chance to be next. Filling out this form enters you in the drawing — it does NOT mean you have won. We will never use or sell your information. You have my word on that.</p>
+    <div class="hero-prize">
+      <span class="prize-pill">🛒 $200 Walmart Gift Card</span>
+      <span class="prize-pill">⛽ Gas Card</span>
+      <span class="prize-pill">🎵 Free Entry</span>
+    </div>
+  </div>
+
+  <!-- SONG CAROUSEL -->
+  <div class="fade">
+    <div class="carousel-wrap">
+      <span class="carousel-label">🎵 The Music</span>
+      <div class="carousel-track" id="track">
+
+        <div class="carousel-slide">
+          <div class="slide-icon">⚡</div>
+          <div class="slide-content">
+            <div class="slide-genre">Hard Rock</div>
+            <div class="slide-title">War Pigs</div>
+            <div class="slide-desc">The men who send others to war from safe rooms — and the reckoning they never saw coming.</div>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <div class="slide-icon">🚗</div>
+          <div class="slide-content">
+            <div class="slide-genre">Country Rock</div>
+            <div class="slide-title">Crazy Boy</div>
+            <div class="slide-desc">A real friend. A red Rolls Royce Silver Spur. A tree. Told without flinching.</div>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <div class="slide-icon">🙏</div>
+          <div class="slide-content">
+            <div class="slide-genre">Worship</div>
+            <div class="slide-title">There's Nothin' Like Me with You</div>
+            <div class="slide-desc">A narration of strings and violins. The tears stayed on the recording. If God is in you, this will move you.</div>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <div class="slide-icon">🏙️</div>
+          <div class="slide-content">
+            <div class="slide-genre">Country</div>
+            <div class="slide-title">Honky Tonk Hell</div>
+            <div class="slide-desc">Nashville's dirty secret — the moguls, the myths, the machine. One man calls it out by name.</div>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <div class="slide-icon">🌲</div>
+          <div class="slide-content">
+            <div class="slide-genre">Country Rock</div>
+            <div class="slide-title">Runnin Wild</div>
+            <div class="slide-desc">The woods — where God knew we'd find peace and life in abundance.</div>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <div class="slide-icon">🚀</div>
+          <div class="slide-content">
+            <div class="slide-genre">Country Rock</div>
+            <div class="slide-title">Starman</div>
+            <div class="slide-desc">The astronaut — risking everything for science. The most underrated hero of our time.</div>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <div class="slide-icon">🎉</div>
+          <div class="slide-content">
+            <div class="slide-genre">Rock</div>
+            <div class="slide-title">Party Town</div>
+            <div class="slide-desc">A town with one mission — to be the most fun place on earth. Full volume. No apologies.</div>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <div class="slide-icon">🌅</div>
+          <div class="slide-content">
+            <div class="slide-genre">Country</div>
+            <div class="slide-title">Sail Away</div>
+            <div class="slide-desc">A guitar and a porch and a daydream. The only cure for a week spent at a job you hate.</div>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <div class="slide-icon">🚜</div>
+          <div class="slide-content">
+            <div class="slide-genre">Country</div>
+            <div class="slide-title">Farm Memories</div>
+            <div class="slide-desc">Miserable then. Priceless now. The simple life you didn't know you'd miss until it was gone.</div>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <div class="slide-icon">🚓</div>
+          <div class="slide-content">
+            <div class="slide-genre">Country Rock</div>
+            <div class="slide-title">The Bank Job</div>
+            <div class="slide-desc">You decided to be a fool. You entered the fools hall of fame. Now you're running forever.</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="carousel-dots" id="dots"></div>
+      <div class="carousel-footer">26 original songs · A Whole Life In Song · MusicRow.US</div>
+    </div>
+  </div>
+
+  <div class="divider fade">✦ ✦ ✦</div>
+
+  <!-- FORM -->
+  <div class="fade">
+    <div class="form-wrap" id="formWrap">
+      <h2 class="form-title">Enter The Drawing 🎸</h2>
+      <p class="form-sub">Fill out completely for your chance to win. One winner drawn randomly each month. Completing this form enters you in the drawing — it does not mean you have won.</p>
+
+      <form id="entryForm">
+        <div class="field-row">
+          <div class="field">
+            <label>First Name *</label>
+            <input type="text" required placeholder="First name">
+          </div>
+          <div class="field">
+            <label>Last Name *</label>
+            <input type="text" required placeholder="Last name">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Email Address *</label>
+          <input type="email" required placeholder="your@email.com">
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>City</label>
+            <input type="text" placeholder="City">
+          </div>
+          <div class="field">
+            <label>State</label>
+            <input type="text" placeholder="State" maxlength="2">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="(555) 000-0000">
+        </div>
+
+        <div class="field">
+          <label>Favorite Country or Rock Artist *</label>
+          <input type="text" required placeholder="e.g. Bob Seger, Eric Clapton, Christopher Cross, Metallica...">
+        </div>
+
+        <div class="field">
+          <label>How Did You Find Our FREE Giveaway?</label>
+          <select>
+            <option value="">Select one...</option>
+            <option>TikTok</option>
+            <option>Facebook</option>
+            <option>Instagram</option>
+            <option>Friend / Word of Mouth</option>
+            <option>Google</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <button type="submit" class="submit-btn">🎸 Submit My Entry — I'd Love To Win!</button>
+
+        <p class="legal">No purchase necessary. One entry per person. Open to US residents 18+. Winner selected randomly each month and notified by email. Prize: $200 Walmart Gift Card + Gas Card (approx. value $250). Void where prohibited. Sponsor: MusicRow.US / Steve Bickham, Lebanon, Tennessee. Not affiliated with TikTok, Walmart, or any other platform.</p>
+      </form>
+
+      <!-- SUCCESS -->
+      <div class="success" id="success">
+        <div class="success-icon">🎸</div>
+        <h2>You're Entered!</h2>
+        <p>Your entry has been received! One winner is drawn randomly at the end of each month and notified by email. Good luck — and while you're here, come hear what a whole life in song sounds like.</p>
+        <a href="https://musicrow.us" class="success-btn">Hear The Music →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="page-footer fade">
+    <a href="https://musicrow.us">← Back to MusicRow.US — The Forest Sessions</a>
+  </div>
+
+</div>
+
+<script>
+// ── CAROUSEL ──
+const slides = document.querySelectorAll('.carousel-slide');
+const track = document.getElementById('track');
+const dotsWrap = document.getElementById('dots');
+let current = 0;
+const total = slides.length;
+
+// Build dots
+slides.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.addEventListener('click', () => goTo(i));
+  dotsWrap.appendChild(d);
+});
+
+function goTo(n) {
+  current = (n + total) % total;
+  track.style.transform = `translateX(-${current * 100}%)`;
+  document.querySelectorAll('.dot').forEach((d, i) => {
+    d.classList.toggle('active', i === current);
+  });
+}
+
+// Auto advance every 2.8 seconds
+setInterval(() => goTo(current + 1), 2800);
+
+// ── FORM ──
+document.getElementById('entryForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  this.style.display = 'none';
+  document.getElementById('success').style.display = 'block';
+  document.getElementById('success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+});
+
+// Input focus
+document.querySelectorAll('input, select').forEach(el => {
+  el.addEventListener('focus', () => el.style.borderColor = 'rgba(245,192,48,.7)');
+  el.addEventListener('blur',  () => el.style.borderColor = 'rgba(245,192,48,.2)');
+});
+</script>
+
+</body>
+</html>
