@@ -714,21 +714,6 @@ document.getElementById('entryForm').addEventListener('submit', function(e) {
     document.getElementById('success').scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, 1000);
 });
-    if (resp.ok) {
-      form.style.display = 'none';
-      document.getElementById('success').style.display = 'block';
-      document.getElementById('success').scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } else {
-      btn.disabled = false;
-      btn.textContent = '🔥 YES! Enter Me In The Drawing! 🔥';
-      alert('Something went wrong. Please try again.');
-    }
-  } catch(err) {
-    btn.disabled = false;
-    btn.textContent = '🔥 YES! Enter Me In The Drawing! 🔥';
-    alert('Network error. Please check your connection and try again.');
-  }
-});
 
 // Input focus
 document.querySelectorAll('input, select').forEach(el => {
