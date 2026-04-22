@@ -577,47 +577,47 @@ body {
       <h2 class="form-title">🔥 One Hundred Dollars! 🔥</h2>
       <p class="form-sub">That's right — $80 in Walmart groceries PLUS a $20 gas card — a hundred dollar bill waiting for ONE lucky winner! Fill out the form completely for YOUR chance to win. Multiple chances to win! Completing this form enters you in the drawing — it does not mean you have won.</p>
 
-      <form id="entryForm" action="https://formspree.io/f/xkokpwon" method="POST">
+      <form id="entryForm" action="https://docs.google.com/forms/u/0/d/1KKEq2L-0ADMb-aQ0lgUpG4aLjZ0fmJaCKxcdIKNHFoc/formResponse" method="POST" target="hidden_iframe">
         <div class="field-row">
           <div class="field">
             <label>First Name *</label>
-            <input type="text" name="first_name" required placeholder="First name">
+            <input type="text" name="entry.970000635" required placeholder="First name">
           </div>
           <div class="field">
             <label>Last Name *</label>
-            <input type="text" name="last_name" required placeholder="Last name">
+            <input type="text" name="entry.1753326234" required placeholder="Last name">
           </div>
         </div>
 
         <div class="field">
           <label>Email Address *</label>
-          <input type="email" name="email" required placeholder="your@email.com">
+          <input type="email" name="entry.2012678305" required placeholder="your@email.com">
         </div>
 
         <div class="field-row">
           <div class="field">
             <label>City</label>
-            <input type="text" name="city" placeholder="City">
+            <input type="text" name="entry.1402905521" placeholder="City">
           </div>
           <div class="field">
             <label>State</label>
-            <input type="text" name="state" placeholder="State" maxlength="2">
+            <input type="text" name="entry.173841809" placeholder="State" maxlength="2">
           </div>
         </div>
 
         <div class="field">
           <label>Phone Number</label>
-          <input type="tel" name="phone" placeholder="(555) 000-0000">
+          <input type="tel" name="entry.646916141" placeholder="(555) 000-0000">
         </div>
 
         <div class="field">
           <label>Favorite Country or Rock Artist *</label>
-          <input type="text" name="favorite_artist" required placeholder="e.g. Bob Seger, Eric Clapton, Christopher Cross, Metallica...">
+          <input type="text" name="entry.158982898" required placeholder="e.g. Bob Seger, Eric Clapton, Christopher Cross, Metallica...">
         </div>
 
         <div class="field">
           <label>How Did You Find Our FREE Giveaway?</label>
-          <select name="referral_source">
+          <select name="entry.1789900258">
             <option value="">Select one...</option>
             <option>TikTok</option>
             <option>Facebook</option>
@@ -631,7 +631,7 @@ body {
         <!-- BONUS ENTRY -->
         <div class="field" style="margin-top:4px;">
           <label style="display:flex; align-items:flex-start; gap:12px; cursor:pointer; text-transform:none; letter-spacing:0; font-size:13px; color:rgba(254,252,232,.7); line-height:1.6;">
-            <input type="checkbox" name="bonus_entry" value="Yes - visited MusicRow.US" style="width:18px; height:18px; flex-shrink:0; margin-top:2px; accent-color:#f5c030; cursor:pointer;">
+            <input type="checkbox" name="entry.2056642952" value="Yes - visited MusicRow.US" style="width:18px; height:18px; flex-shrink:0; margin-top:2px; accent-color:#f5c030; cursor:pointer;">
             <span>🎸 <strong style="color:var(--gold);">BONUS ENTRY!</strong> I visited MusicRow.US — give me my extra submission to win!</span>
           </label>
         </div>
@@ -639,7 +639,7 @@ body {
         <!-- CONSENT CHECKBOX -->
         <div class="field" style="margin-top:8px;">
           <label style="display:flex; align-items:flex-start; gap:12px; cursor:pointer; text-transform:none; letter-spacing:0; font-size:13px; color:rgba(254,252,232,.7); line-height:1.6;">
-            <input type="checkbox" id="consentCheck" name="consent" value="Agreed" required style="width:18px; height:18px; flex-shrink:0; margin-top:2px; accent-color:#f5c030; cursor:pointer;">
+            <input type="checkbox" id="consentCheck" name="entry.1542903064" value="Agreed" required style="width:18px; height:18px; flex-shrink:0; margin-top:2px; accent-color:#f5c030; cursor:pointer;">
             <span>I agree that if selected as a winner, MusicRow.US / Steve Bickham may use my name, likeness, photo, and testimonial for promotional purposes including social media, TikTok, and the MusicRow.US website. * <span style="color:rgba(254,252,232,.4); font-size:11px;">(Required to enter)</span></span>
           </label>
         </div>
@@ -700,18 +700,17 @@ function goTo(n) {
 setInterval(() => goTo(current + 1), 2800);
 
 // ── FORM ──
-document.getElementById('entryForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
+document.getElementById('entryForm').addEventListener('submit', function(e) {
   const form = this;
   const btn = form.querySelector('.submit-btn');
   btn.disabled = true;
   btn.textContent = 'Submitting...';
-  try {
-    const resp = await fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    });
+  setTimeout(function() {
+    form.style.display = 'none';
+    document.getElementById('success').style.display = 'block';
+    document.getElementById('success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 1000);
+});
     if (resp.ok) {
       form.style.display = 'none';
       document.getElementById('success').style.display = 'block';
@@ -735,5 +734,7 @@ document.querySelectorAll('input, select').forEach(el => {
 });
 </script>
 
+
+<iframe name="hidden_iframe" style="display:none;"></iframe>
 </body>
 </html>
