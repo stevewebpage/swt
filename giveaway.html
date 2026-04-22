@@ -368,9 +368,29 @@ body {
 .success {
   display: none;
   text-align: center;
-  padding: 48px 20px;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
 }
-.success-icon { font-size: 64px; margin-bottom: 16px; }
+#successCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.success-inner {
+  position: relative;
+  z-index: 1;
+  padding: 48px 24px 40px;
+}
+.success-icon { font-size: 64px; margin-bottom: 16px; animation: floatIcon 3s ease-in-out infinite; }
+@keyframes floatIcon {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
 .success h2 {
   font-family: 'Playfair Display', serif;
   font-size: 32px;
@@ -381,7 +401,7 @@ body {
   font-size: 16px;
   color: rgba(254,252,232,.7);
   line-height: 1.7;
-  margin-bottom: 28px;
+  margin-bottom: 16px;
 }
 .success-btn {
   display: inline-block;
@@ -398,6 +418,62 @@ body {
   transition: background .2s;
 }
 .success-btn:hover { background: var(--gold2); }
+
+/* ── BONUS FORM ── */
+.bonus-wrap {
+  background: rgba(245,192,48,.07);
+  border: 1px solid rgba(245,192,48,.3);
+  border-radius: 4px;
+  padding: 24px 20px;
+  margin: 24px 0;
+}
+.bonus-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--gold);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.bonus-sub {
+  font-size: 14px;
+  color: rgba(254,252,232,.65);
+  margin-bottom: 16px !important;
+  line-height: 1.6;
+}
+.bonus-field { margin-bottom: 10px; }
+.bonus-field input {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(245,192,48,.2);
+  color: var(--cream);
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  outline: none;
+  border-radius: 2px;
+  transition: border-color .2s;
+}
+.bonus-field input::placeholder { color: rgba(254,252,232,.3); }
+.bonus-field input:focus { border-color: var(--gold); }
+.bonus-btn {
+  width: 100%;
+  margin-top: 6px;
+  padding: 14px;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background .2s;
+}
+.bonus-btn:hover { background: var(--gold2); }
 
 /* ── FOOTER ── */
 .page-footer {
@@ -632,16 +708,46 @@ body {
       </form>
 
       <!-- SUCCESS -->
+      <!-- SUCCESS SCREEN -->
       <div class="success" id="success">
-        <div class="success-icon">🎸</div>
-        <h2>You're Entered!</h2>
-        <p>Your entry has been received! A winner is drawn randomly and notified by email. Good luck!</p>
-        <p style="font-size:15px; color:rgba(254,252,232,.8); margin-top:12px; line-height:1.7;">Did you visit the webpage and play songs? Come see us again and enter to win!</p>
-        <a href="https://musicrow.us" class="success-btn" style="margin-top:20px;">Visit MusicRow.US → Play The Music 🎸</a>
-        <div style="margin-top:24px; padding-top:24px; border-top:1px solid rgba(245,192,48,.2);">
-          <p style="font-size:14px; color:rgba(254,252,232,.5); margin-bottom:12px;">Are you an up and coming music artist?</p>
-          <a href="mailto:steve@musicrow.us" class="success-btn" style="background:transparent; border:1px solid rgba(245,192,48,.4); color:var(--gold); font-size:12px; padding:12px 24px;">Click Here → Get Featured on MusicRow.US</a>
+
+        <!-- CANVAS FOR MOTHERSHIPS + FIREFLIES -->
+        <canvas id="successCanvas"></canvas>
+
+        <div class="success-inner">
+          <div class="success-icon">🛸</div>
+          <h2>You've Been Beamed Up!</h2>
+          <p>You're officially in the drawing! A winner is selected randomly and notified by email. Good luck! 🌟</p>
+
+          <!-- BONUS ENTRY SONG FORM -->
+          <div class="bonus-wrap" id="bonusWrap">
+            <div class="bonus-title">🎸 BONUS ENTRY! 🎸</div>
+            <p class="bonus-sub">Tell us 3 songs you played on MusicRow.US for an additional submission!</p>
+            <form id="bonusForm" action="https://formspree.io/f/mbdqpkzw" method="POST">
+              <input type="hidden" name="_subject" value="Bonus Song Entry — MusicRow.US">
+              <div class="bonus-field"><input type="text" name="song_1" placeholder="Song #1" required></div>
+              <div class="bonus-field"><input type="text" name="song_2" placeholder="Song #2" required></div>
+              <div class="bonus-field"><input type="text" name="song_3" placeholder="Song #3" required></div>
+              <button type="submit" class="bonus-btn">🚀 Submit My Bonus Entry!</button>
+            </form>
+            <div id="bonusSuccess" style="display:none; padding:20px 0;">
+              <div style="font-size:40px; margin-bottom:8px;">🎉</div>
+              <p style="color:var(--gold); font-family:'Playfair Display',serif; font-size:20px; font-weight:700;">Bonus Entry Received!</p>
+              <p style="font-size:14px; color:rgba(254,252,232,.6); margin-top:8px;">You're in twice now. Good luck! 🛸</p>
+            </div>
+          </div>
+
+          <div style="margin-top:28px;">
+            <p style="font-size:15px; color:rgba(254,252,232,.8); margin-bottom:16px; line-height:1.7;">Did you visit the webpage and play songs? Come see us again and enter to win!</p>
+            <a href="https://musicrow.us" class="success-btn">🎸 Enter The Forest Sessions →</a>
+          </div>
+
+          <div style="margin-top:24px; padding-top:24px; border-top:1px solid rgba(245,192,48,.2);">
+            <p style="font-size:14px; color:rgba(254,252,232,.5); margin-bottom:12px;">Are you an up and coming music artist?</p>
+            <a href="mailto:steve@musicrow.us" class="success-btn" style="background:transparent; border:1px solid rgba(245,192,48,.4); color:var(--gold); font-size:12px; padding:12px 24px;">Click Here → Get Featured on MusicRow.US</a>
+          </div>
         </div>
+
       </div>
 
     </div>
@@ -717,6 +823,137 @@ document.querySelectorAll('input, select').forEach(el => {
   el.addEventListener('focus', () => el.style.borderColor = 'rgba(245,192,48,.7)');
   el.addEventListener('blur',  () => el.style.borderColor = 'rgba(245,192,48,.2)');
 });
+
+// ── BONUS FORM ──
+document.getElementById('bonusForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('.bonus-btn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  try {
+    const res = await fetch(this.action, {
+      method: 'POST',
+      body: new FormData(this),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      this.style.display = 'none';
+      document.getElementById('bonusSuccess').style.display = 'block';
+    } else {
+      btn.textContent = '🚀 Submit My Bonus Entry!';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again.');
+    }
+  } catch(err) {
+    btn.textContent = '🚀 Submit My Bonus Entry!';
+    btn.disabled = false;
+  }
+});
+
+// ── COSMIC CANVAS ──
+function initCosmicCanvas() {
+  const canvas = document.getElementById('successCanvas');
+  const ctx = canvas.getContext('2d');
+
+  function resize() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Fireflies
+  const fireflies = Array.from({length: 40}, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 2 + 1,
+    dx: (Math.random() - 0.5) * 0.4,
+    dy: (Math.random() - 0.5) * 0.4,
+    alpha: Math.random(),
+    dalpha: (Math.random() * 0.02 + 0.005) * (Math.random() < 0.5 ? 1 : -1)
+  }));
+
+  // Motherships
+  const ships = [
+    { x: -120, y: canvas.height * 0.15, speed: 0.4, scale: 0.7 },
+    { x: canvas.width + 120, y: canvas.height * 0.5, speed: -0.3, scale: 0.5 },
+    { x: -80, y: canvas.height * 0.75, speed: 0.25, scale: 0.4 }
+  ];
+
+  function drawMothership(x, y, scale) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.scale(scale, scale);
+    // Body
+    ctx.beginPath();
+    ctx.ellipse(0, 0, 60, 18, 0, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(180,160,80,0.55)';
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(245,192,48,0.6)';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+    // Dome
+    ctx.beginPath();
+    ctx.ellipse(0, -10, 28, 16, 0, Math.PI, 0);
+    ctx.fillStyle = 'rgba(100,200,255,0.25)';
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(245,192,48,0.4)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    // Glow ring
+    const grd = ctx.createRadialGradient(0, 5, 10, 0, 5, 70);
+    grd.addColorStop(0, 'rgba(245,192,48,0.12)');
+    grd.addColorStop(1, 'rgba(245,192,48,0)');
+    ctx.beginPath();
+    ctx.ellipse(0, 5, 70, 22, 0, 0, Math.PI * 2);
+    ctx.fillStyle = grd;
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw fireflies
+    fireflies.forEach(f => {
+      f.x += f.dx; f.y += f.dy;
+      f.alpha += f.dalpha;
+      if (f.alpha > 1 || f.alpha < 0) f.dalpha *= -1;
+      if (f.x < 0) f.x = canvas.width;
+      if (f.x > canvas.width) f.x = 0;
+      if (f.y < 0) f.y = canvas.height;
+      if (f.y > canvas.height) f.y = 0;
+      ctx.beginPath();
+      ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(245,220,80,${Math.max(0, Math.min(1, f.alpha))})`;
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = 'rgba(245,192,48,0.8)';
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    });
+
+    // Draw motherships
+    ships.forEach(s => {
+      s.x += s.speed;
+      if (s.speed > 0 && s.x > canvas.width + 150) s.x = -150;
+      if (s.speed < 0 && s.x < -150) s.x = canvas.width + 150;
+      drawMothership(s.x, s.y, s.scale);
+    });
+
+    requestAnimationFrame(animate);
+  }
+  animate();
+}
+
+// Start canvas when success screen shows
+const origShow = document.getElementById('success');
+const observer = new MutationObserver(() => {
+  if (origShow.style.display !== 'none' && origShow.style.display !== '') {
+    setTimeout(initCosmicCanvas, 100);
+    observer.disconnect();
+  }
+});
+observer.observe(origShow, { attributes: true, attributeFilter: ['style'] });
 </script>
 
 </body>
