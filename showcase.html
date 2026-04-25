@@ -13,11 +13,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MusicRow.us – The Forest Sessions | Steven Bickham</title>
 <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-<style>:root{--deep:#0d1f0e;--forest1:#1a3d1c;--forest2:#2d6128;--forest3:#4a9640;--forest4:#6bbf5a;--sun:#ffe566;--sun2:#ffb030;--gold:#f5c030;--bark:#7a4a22;}*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{font-family:'Lato',sans-serif;background:var(--deep);overflow:hidden;height:100vh;width:100vw;}.sky-bg{position:fixed;inset:0;z-index:0;background:#1a3d1c;}.forest-photo-bg{position:fixed;inset:0;z-index:0;background:linear-gradient(180deg,#1a4a2a 0%,#2d6e3a 15%,#1e5230 35%,#163d22 60%,#0d2a14 80%,#071a0c 100% );filter:brightness(1.08) saturate(1.15);}.forest-overlay{position:fixed;inset:0;z-index:1;background:linear-gradient(180deg,rgba(5,20,8,.12) 0%,rgba(5,20,8,.05) 35%,rgba(5,20,8,.28) 70%,rgba(5,15,5,.82) 100%);}.sun{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:110px;height:110px;border-radius:50%;z-index:2;background:radial-gradient(circle at 38% 32%,#ffffff 0%,#fffde0 12%,#fff5a0 28%,#ffe040 55%,#ffaa00 80%,#ff8800 100%);box-shadow:0 0 0 8px rgba(255,248,180,.25),0 0 0 18px rgba(255,230,80,.15),0 0 0 35px rgba(255,210,60,.10),0 0 0 60px rgba(255,180,40,.07),0 0 40px 20px rgba(255,220,80,.55),0 0 90px 50px rgba(255,180,50,.35),0 0 180px 90px rgba(255,150,30,.20),0 0 320px 140px rgba(255,120,20,.10);animation:sunPulse 3s ease-in-out infinite;}.sun::before{content:'';position:absolute;inset:-18px;border-radius:50%;background:radial-gradient(circle,transparent 45%,rgba(255,230,80,.18) 55%,rgba(255,200,60,.10) 68%,transparent 80%);animation:coronaSpin 18s linear infinite;}.sun::after{content:'';position:absolute;top:50%;left:-60px;width:230px;height:3px;background:linear-gradient(90deg,transparent 0%,rgba(255,255,220,.0) 20%,rgba(255,255,200,.55) 48%,rgba(255,255,255,.85) 50%,rgba(255,255,200,.55) 52%,rgba(255,255,220,.0) 80%,transparent 100%);transform:translateY(-50%);animation:flareFlicker 4s ease-in-out infinite;}@keyframes sunPulse{0%,100%{box-shadow:0 0 0 8px rgba(255,248,180,.22),0 0 0 18px rgba(255,230,80,.14),0 0 0 35px rgba(255,210,60,.09),0 0 0 60px rgba(255,180,40,.06),0 0 40px 20px rgba(255,220,80,.50),0 0 90px 50px rgba(255,180,50,.30),0 0 180px 90px rgba(255,150,30,.18),0 0 320px 140px rgba(255,120,20,.09);}50%{box-shadow:0 0 0 12px rgba(255,248,180,.30),0 0 0 26px rgba(255,230,80,.20),0 0 0 50px rgba(255,210,60,.14),0 0 0 85px rgba(255,180,40,.09),0 0 60px 30px rgba(255,220,80,.65),0 0 130px 70px rgba(255,180,50,.42),0 0 240px 110px rgba(255,150,30,.26),0 0 400px 180px rgba(255,120,20,.14);}}@keyframes coronaSpin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}@keyframes flareFlicker{0%,100%{opacity:.4;transform:translateY(-50%) scaleX(1);}50%{opacity:.9;transform:translateY(-50%) scaleX(1.15);}}.sun-rays{position:fixed;top:-60px;left:50%;transform:translateX(-50%);width:1800px;height:900px;z-index:1;pointer-events:none;}.ray{position:absolute;top:140px;left:50%;width:60px;height:800px;background:linear-gradient(180deg,rgba(255,240,100,.18) 0%,rgba(255,220,80,.04) 50%,transparent 100%);transform-origin:top center;border-radius:0 0 40px 40px;animation:raySway 3.5s ease-in-out infinite;}.ray:nth-child(1){transform:rotate(-52deg);animation-delay:0s;width:50px;opacity:.9;}.ray:nth-child(2){transform:rotate(-42deg);animation-delay:.8s;width:80px;}.ray:nth-child(3){transform:rotate(-30deg);animation-delay:1.6s;width:65px;}.ray:nth-child(4){transform:rotate(-18deg);animation-delay:.4s;width:90px;opacity:.8;}.ray:nth-child(5){transform:rotate(-8deg);animation-delay:2.1s;width:75px;}.ray:nth-child(6){transform:rotate(0deg);animation-delay:1.0s;width:100px;opacity:.85;}.ray:nth-child(7){transform:rotate(10deg);animation-delay:.2s;width:70px;}.ray:nth-child(8){transform:rotate(20deg);animation-delay:1.8s;width:88px;}.ray:nth-child(9){transform:rotate(32deg);animation-delay:.6s;width:65px;opacity:.9;}.ray:nth-child(10){transform:rotate(43deg);animation-delay:2.4s;width:78px;}.ray:nth-child(11){transform:rotate(54deg);animation-delay:1.2s;width:55px;}@keyframes raySway{0%,100%{opacity:.6;}50%{opacity:1;}}.cloud{position:fixed;z-index:3;pointer-events:none;border-radius:50px;background:rgba(255,255,255,.75);filter:blur(1px);animation:cloudDrift linear infinite;}.cloud::before,.cloud::after{content:'';position:absolute;background:inherit;border-radius:50%;}.cloud:nth-child(1){width:160px;height:45px;top:80px;left:-200px;animation-duration:35s;animation-delay:0s;opacity:.8;}.cloud:nth-child(2){width:120px;height:35px;top:120px;left:-200px;animation-duration:45s;animation-delay:20s;opacity:.6;}.cloud:nth-child(3){width:200px;height:55px;top:60px;left:-200px;animation-duration:55s;animation-delay:40s;opacity:.7;}.cloud:nth-child(1)::before{width:80px;height:70px;top:-35px;left:20px;}.cloud:nth-child(1)::after{width:60px;height:55px;top:-25px;left:70px;}.cloud:nth-child(2)::before{width:60px;height:55px;top:-28px;left:15px;}.cloud:nth-child(2)::after{width:50px;height:45px;top:-20px;left:55px;}.cloud:nth-child(3)::before{width:100px;height:85px;top:-42px;left:25px;}.cloud:nth-child(3)::after{width:80px;height:68px;top:-32px;left:90px;}@keyframes cloudDrift{from{transform:translateX(0)}to{transform:translateX(calc(100vw + 400px))}}.top-ufo{position:fixed;z-index:6;pointer-events:none;}.top-ufo-saucer{position:relative;display:flex;flex-direction:column;align-items:center;}.top-ufo-dish{position:relative;width:80px;height:20px;border-radius:50%;background:radial-gradient(ellipse at 40% 25%,#f0f4f8 0%,#c0d0e0 25%,#7090a8 55%,#405060 85%,#202c38 100%);box-shadow:0 3px 14px rgba(0,0,0,0.8),0 0 22px rgba(120,200,255,0.5),0 0 40px rgba(80,160,255,0.2),inset 0 2px 4px rgba(255,255,255,0.55),inset 0 -2px 4px rgba(0,0,0,0.4);border-top:1px solid rgba(220,240,255,0.5);border-bottom:1px solid rgba(0,0,0,0.6);display:flex;justify-content:space-around;align-items:center;padding:0 6px;}.top-ufo-dish::before{content:"";position:absolute;top:3px;left:8px;right:8px;height:3px;border-radius:50%;background:rgba(255,255,255,0.25);filter:blur(1px);}.top-ufo-dish::after{content:"";position:absolute;bottom:-5px;left:10px;right:10px;height:6px;border-radius:50%;background:radial-gradient(ellipse,rgba(60,80,100,0.9) 0%,rgba(30,40,55,0.6) 60%,transparent 100%);}.top-ufo-alien{font-size:22px;margin-bottom:-4px;filter:drop-shadow(0 0 8px rgba(120,255,120,0.8));animation:alienPilot 2s ease-in-out infinite;}.top-ufo-light{width:6px;height:6px;border-radius:50%;background:rgba(var(--c),1);box-shadow:0 0 4px 3px rgba(var(--c),0.7);animation:ufoFlash .9s ease-in-out infinite;}@keyframes alienPilot{0%,100%{transform:translateY(0) rotate(-5deg);}50%{transform:translateY(-4px) rotate(5deg);}}#top-ufo-zork{top:55px;left:18%;animation:topUfoFloat 4.2s ease-in-out infinite;}#top-ufo-xenu{top:70px;right:16%;animation:topUfoFloat 4.8s ease-in-out infinite 1.4s;}@keyframes topUfoFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}@keyframes topUfoBlip{0%,100%{transform:scale(1.35) translateY(0);}50%{transform:scale(1.35) translateY(-10px);}}@keyframes ufoFlash{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.2;transform:scale(0.6);}}.notes{position:fixed;bottom:240px;left:50%;transform:translateX(-50%);width:460px;z-index:10;pointer-events:none;}.note{position:absolute;font-size:18px;opacity:0;animation:noteDrift 1.4s ease-out infinite;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4));}.note:nth-child(1){left:18%;animation-delay:0s;font-size:22px;}.note:nth-child(2){left:36%;animation-delay:.7s;font-size:16px;}.note:nth-child(3){left:52%;animation-delay:1.4s;font-size:24px;}.note:nth-child(4){left:70%;animation-delay:.4s;font-size:14px;}.note:nth-child(5){left:8%;animation-delay:1.9s;font-size:18px;}.note:nth-child(6){left:82%;animation-delay:1.1s;font-size:20px;}@keyframes noteDrift{0%{opacity:0;transform:translateY(0) rotate(0deg);}15%{opacity:1;}85%{opacity:.5;}100%{opacity:0;transform:translateY(-80px) rotate(25deg);}}.disco-mount{position:fixed;top:0;left:50%;transform:translateX(-50%);z-index:6;pointer-events:none;display:flex;flex-direction:column;align-items:center;}#discoCanvas{display:block;filter:drop-shadow(0 0 50px rgba(255,255,255,1)) drop-shadow(0 0 90px rgba(200,230,255,1)) drop-shadow(0 0 140px rgba(160,210,255,.9)) drop-shadow(0 0 200px rgba(120,180,255,.6));}.disco-spot{position:fixed;border-radius:50%;pointer-events:none;z-index:1;mix-blend-mode:normal;opacity:0.18;}.firefly{position:fixed;border-radius:50%;background:radial-gradient(circle,#fffff0 0%,#ffe566 40%,#ffcc00 100%);pointer-events:none;z-index:11;animation:ffFloat ease-in-out infinite;}@keyframes ffFloat{0%{opacity:0;transform:translate(0,0) scale(0.6);}15%{opacity:1;transform:translate(calc(var(--dx)*.2),calc(var(--dy)*.1)) scale(1.1);}35%{opacity:0.2;transform:translate(calc(var(--dx)*.5),calc(var(--dy)*.4)) scale(0.8);}55%{opacity:1;transform:translate(calc(var(--dx)*.7),calc(var(--dy)*.6)) scale(1.2);}75%{opacity:0.3;transform:translate(calc(var(--dx)*.9),calc(var(--dy)*.8)) scale(0.7);}90%{opacity:0.9;transform:translate(var(--dx),var(--dy)) scale(1.0);}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(0.5);}}.leaf{position:fixed;pointer-events:none;z-index:11;font-size:14px;opacity:0;animation:leafFall linear infinite;}@keyframes leafFall{0%{opacity:0;transform:translateY(-30px) rotate(0deg) translateX(0);}10%{opacity:.8;}90%{opacity:.4;}100%{opacity:0;transform:translateY(105vh) rotate(720deg) translateX(40px);}}.heart-bg{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:149;pointer-events:none;animation:heartbeat3d 0.43s ease-in-out infinite;filter:drop-shadow(0 0 30px rgba(220,40,80,.4)) drop-shadow(0 0 60px rgba(180,20,60,.2));opacity:0.25;}@keyframes heartbeat3d{0%{transform:translate(-50%,-50%) scale(1) rotateY(0deg);filter:drop-shadow(0 0 20px rgba(220,40,80,.3));}15%{transform:translate(-50%,-50%) scale(1.18) rotateY(8deg);filter:drop-shadow(0 0 50px rgba(220,40,80,.7));}30%{transform:translate(-50%,-50%) scale(1.08) rotateY(4deg);filter:drop-shadow(0 0 30px rgba(220,40,80,.4));}45%{transform:translate(-50%,-50%) scale(1.22) rotateY(-6deg);filter:drop-shadow(0 0 60px rgba(220,40,80,.8));}65%{transform:translate(-50%,-50%) scale(1) rotateY(0deg);filter:drop-shadow(0 0 20px rgba(220,40,80,.3));}100%{transform:translate(-50%,-50%) scale(1) rotateY(0deg);filter:drop-shadow(0 0 20px rgba(220,40,80,.3));}}@keyframes robotBob{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}@keyframes robotBlink{0%,90%,100%{opacity:1;}95%{opacity:0;}}@keyframes robotLegL{0%,100%{transform:rotate(-8deg);}50%{transform:rotate(8deg);}}@keyframes robotLegR{0%,100%{transform:rotate(8deg);}50%{transform:rotate(-8deg);}}@keyframes alienSway{0%,100%{transform:rotate(-4deg);}50%{transform:rotate(4deg);}}
-@keyframes blipSway{0%,100%{transform:scaleX(-1) rotate(-4deg);}50%{transform:scaleX(-1) rotate(4deg);}}@keyframes guitarSway{0%,100%{transform:rotate(-3deg);}50%{transform:rotate(3deg);}}@keyframes strumHand{0%{transform:translateY(-4px) rotate(-10deg);}100%{transform:translateY(4px) rotate(10deg);}}@keyframes ufoFloat2{0%,100%{transform:translateY(0);}50%{transform:translateY(-9px);}}@keyframes alienBop{0%,100%{transform:translateY(0);}50%{transform:translateY(-2px);}}@keyframes mothershipDrift{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(-12px);}}.promo-wrap{position:fixed;top:0;left:0;width:100%;height:100%;z-index:300;pointer-events:none;display:flex;flex-direction:column;align-items:center;justify-content:center;}.promo-title{font-family:'Abril Fatface',cursive;font-size:clamp(1.5rem,5vw,3.5rem);color:#fefce0;text-shadow:0 0 60px rgba(255,220,70,1),4px 4px 0 rgba(0,0,0,.4),0 0 120px rgba(255,180,50,.6);letter-spacing:4px;line-height:1;animation:promoFade 12s ease-in-out infinite;text-align:center;}.promo-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1rem,3vw,2rem);color:#88e870;text-shadow:0 2px 10px rgba(0,0,0,.8),0 0 30px rgba(100,220,80,.5);letter-spacing:6px;margin-top:10px;animation:promoFade 12s ease-in-out infinite 0.5s;text-align:center;}.promo-byline{font-family:'Lato',sans-serif;font-weight:300;font-size:clamp(.8rem,2vw,1.2rem);color:rgba(200,255,180,.75);letter-spacing:5px;text-transform:uppercase;margin-top:12px;animation:promoFade 12s ease-in-out infinite 1s;text-align:center;}.promo-divider{width:320px;height:2px;margin:20px auto;background:linear-gradient(90deg,transparent,#ffe066 30%,#88e870 70%,transparent);border-radius:2px;animation:promoFade 12s ease-in-out infinite 1.2s;}.promo-url{font-family:'Abril Fatface',cursive;font-size:clamp(3rem,10vw,6rem);color:#ffe066;text-shadow:0 0 40px rgba(255,220,80,1),0 0 80px rgba(255,180,50,.6),0 0 120px rgba(255,150,30,.4);letter-spacing:4px;animation:urlPulse 3s ease-in-out infinite;text-align:center;margin-top:8px;}.promo-location{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(.75rem,1.8vw,1rem);color:rgba(160,240,140,.6);letter-spacing:4px;margin-top:8px;animation:promoFade 12s ease-in-out infinite 1.5s;text-align:center;}@keyframes promoFade{0%{opacity:0;transform:translateY(20px);}10%{opacity:1;transform:translateY(0);}80%{opacity:1;transform:translateY(0);}100%{opacity:0;transform:translateY(-10px);}}@keyframes urlPulse{0%,100%{opacity:.7;text-shadow:0 0 20px rgba(255,220,80,.6);}50%{opacity:1;text-shadow:0 0 40px rgba(255,220,80,1),0 0 80px rgba(255,180,50,.6);}}</style>
+<style>:root{--deep:#0d1f0e;--forest1:#1a3d1c;--forest2:#2d6128;--forest3:#4a9640;--forest4:#6bbf5a;--sun:#ffe566;--sun2:#ffb030;--gold:#f5c030;--bark:#7a4a22;}*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{font-family:'Lato',sans-serif;background:var(--deep);overflow:hidden;height:100vh;width:100vw;}.sky-bg{position:fixed;inset:0;z-index:0;background:#1a3d1c;}.forest-photo-bg{position:fixed;inset:0;z-index:0;background:linear-gradient(180deg,#1a4a2a 0%,#2d6e3a 15%,#1e5230 35%,#163d22 60%,#0d2a14 80%,#071a0c 100% );filter:brightness(1.08) saturate(1.15);}.forest-overlay{position:fixed;inset:0;z-index:1;background:linear-gradient(180deg,rgba(5,20,8,.12) 0%,rgba(5,20,8,.05) 35%,rgba(5,20,8,.28) 70%,rgba(5,15,5,.82) 100%);}.sun{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:110px;height:110px;border-radius:50%;z-index:2;background:radial-gradient(circle at 38% 32%,#ffffff 0%,#fffde0 12%,#fff5a0 28%,#ffe040 55%,#ffaa00 80%,#ff8800 100%);box-shadow:0 0 0 8px rgba(255,248,180,.25),0 0 0 18px rgba(255,230,80,.15),0 0 0 35px rgba(255,210,60,.10),0 0 0 60px rgba(255,180,40,.07),0 0 40px 20px rgba(255,220,80,.55),0 0 90px 50px rgba(255,180,50,.35),0 0 180px 90px rgba(255,150,30,.20),0 0 320px 140px rgba(255,120,20,.10);animation:sunPulse 3s ease-in-out infinite;}.sun::before{content:'';position:absolute;inset:-18px;border-radius:50%;background:radial-gradient(circle,transparent 45%,rgba(255,230,80,.18) 55%,rgba(255,200,60,.10) 68%,transparent 80%);animation:coronaSpin 18s linear infinite;}.sun::after{content:'';position:absolute;top:50%;left:-60px;width:230px;height:3px;background:linear-gradient(90deg,transparent 0%,rgba(255,255,220,.0) 20%,rgba(255,255,200,.55) 48%,rgba(255,255,255,.85) 50%,rgba(255,255,200,.55) 52%,rgba(255,255,220,.0) 80%,transparent 100%);transform:translateY(-50%);animation:flareFlicker 4s ease-in-out infinite;}@keyframes sunPulse{0%,100%{box-shadow:0 0 0 8px rgba(255,248,180,.22),0 0 0 18px rgba(255,230,80,.14),0 0 0 35px rgba(255,210,60,.09),0 0 0 60px rgba(255,180,40,.06),0 0 40px 20px rgba(255,220,80,.50),0 0 90px 50px rgba(255,180,50,.30),0 0 180px 90px rgba(255,150,30,.18),0 0 320px 140px rgba(255,120,20,.09);}50%{box-shadow:0 0 0 12px rgba(255,248,180,.30),0 0 0 26px rgba(255,230,80,.20),0 0 0 50px rgba(255,210,60,.14),0 0 0 85px rgba(255,180,40,.09),0 0 60px 30px rgba(255,220,80,.65),0 0 130px 70px rgba(255,180,50,.42),0 0 240px 110px rgba(255,150,30,.26),0 0 400px 180px rgba(255,120,20,.14);}}@keyframes coronaSpin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}@keyframes flareFlicker{0%,100%{opacity:.4;transform:translateY(-50%) scaleX(1);}50%{opacity:.9;transform:translateY(-50%) scaleX(1.15);}}.sun-rays{position:fixed;top:-60px;left:50%;transform:translateX(-50%);width:1800px;height:900px;z-index:1;pointer-events:none;}.ray{position:absolute;top:140px;left:50%;width:60px;height:800px;background:linear-gradient(180deg,rgba(255,240,100,.18) 0%,rgba(255,220,80,.04) 50%,transparent 100%);transform-origin:top center;border-radius:0 0 40px 40px;animation:raySway 3.5s ease-in-out infinite;}.ray:nth-child(1){transform:rotate(-52deg);animation-delay:0s;width:50px;opacity:.9;}.ray:nth-child(2){transform:rotate(-42deg);animation-delay:.8s;width:80px;}.ray:nth-child(3){transform:rotate(-30deg);animation-delay:1.6s;width:65px;}.ray:nth-child(4){transform:rotate(-18deg);animation-delay:.4s;width:90px;opacity:.8;}.ray:nth-child(5){transform:rotate(-8deg);animation-delay:2.1s;width:75px;}.ray:nth-child(6){transform:rotate(0deg);animation-delay:1.0s;width:100px;opacity:.85;}.ray:nth-child(7){transform:rotate(10deg);animation-delay:.2s;width:70px;}.ray:nth-child(8){transform:rotate(20deg);animation-delay:1.8s;width:88px;}.ray:nth-child(9){transform:rotate(32deg);animation-delay:.6s;width:65px;opacity:.9;}.ray:nth-child(10){transform:rotate(43deg);animation-delay:2.4s;width:78px;}.ray:nth-child(11){transform:rotate(54deg);animation-delay:1.2s;width:55px;}@keyframes raySway{0%,100%{opacity:.6;}50%{opacity:1;}}.cloud{position:fixed;z-index:3;pointer-events:none;border-radius:50px;background:rgba(255,255,255,.75);filter:blur(1px);animation:cloudDrift linear infinite;}.cloud::before,.cloud::after{content:'';position:absolute;background:inherit;border-radius:50%;}.cloud:nth-child(1){width:160px;height:45px;top:80px;left:-200px;animation-duration:35s;animation-delay:0s;opacity:.8;}.cloud:nth-child(2){width:120px;height:35px;top:120px;left:-200px;animation-duration:45s;animation-delay:20s;opacity:.6;}.cloud:nth-child(3){width:200px;height:55px;top:60px;left:-200px;animation-duration:55s;animation-delay:40s;opacity:.7;}.cloud:nth-child(1)::before{width:80px;height:70px;top:-35px;left:20px;}.cloud:nth-child(1)::after{width:60px;height:55px;top:-25px;left:70px;}.cloud:nth-child(2)::before{width:60px;height:55px;top:-28px;left:15px;}.cloud:nth-child(2)::after{width:50px;height:45px;top:-20px;left:55px;}.cloud:nth-child(3)::before{width:100px;height:85px;top:-42px;left:25px;}.cloud:nth-child(3)::after{width:80px;height:68px;top:-32px;left:90px;}@keyframes cloudDrift{from{transform:translateX(0)}to{transform:translateX(calc(100vw + 400px))}}.top-ufo{position:fixed;z-index:6;pointer-events:none;}.top-ufo-saucer{position:relative;display:flex;flex-direction:column;align-items:center;}.top-ufo-dish{position:relative;width:80px;height:20px;border-radius:50%;background:radial-gradient(ellipse at 40% 25%,#f0f4f8 0%,#c0d0e0 25%,#7090a8 55%,#405060 85%,#202c38 100%);box-shadow:0 3px 14px rgba(0,0,0,0.8),0 0 22px rgba(120,200,255,0.5),0 0 40px rgba(80,160,255,0.2),inset 0 2px 4px rgba(255,255,255,0.55),inset 0 -2px 4px rgba(0,0,0,0.4);border-top:1px solid rgba(220,240,255,0.5);border-bottom:1px solid rgba(0,0,0,0.6);display:flex;justify-content:space-around;align-items:center;padding:0 6px;}.top-ufo-dish::before{content:"";position:absolute;top:3px;left:8px;right:8px;height:3px;border-radius:50%;background:rgba(255,255,255,0.25);filter:blur(1px);}.top-ufo-dish::after{content:"";position:absolute;bottom:-5px;left:10px;right:10px;height:6px;border-radius:50%;background:radial-gradient(ellipse,rgba(60,80,100,0.9) 0%,rgba(30,40,55,0.6) 60%,transparent 100%);}.top-ufo-alien{font-size:22px;margin-bottom:-4px;filter:drop-shadow(0 0 8px rgba(120,255,120,0.8));animation:alienPilot 2s ease-in-out infinite;}.top-ufo-light{width:6px;height:6px;border-radius:50%;background:rgba(var(--c),1);box-shadow:0 0 4px 3px rgba(var(--c),0.7);animation:ufoFlash .9s ease-in-out infinite;}@keyframes alienPilot{0%,100%{transform:translateY(0) rotate(-5deg);}50%{transform:translateY(-4px) rotate(5deg);}}#top-ufo-zork{top:55px;left:18%;animation:topUfoFloat 4.2s ease-in-out infinite;}#top-ufo-xenu{top:70px;right:16%;animation:topUfoFloat 4.8s ease-in-out infinite 1.4s;}@keyframes topUfoFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}@keyframes topUfoBlip{0%,100%{transform:scale(1.35) translateY(0);}50%{transform:scale(1.35) translateY(-10px);}}@keyframes ufoFlash{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.2;transform:scale(0.6);}}.notes{position:fixed;bottom:240px;left:50%;transform:translateX(-50%);width:460px;z-index:10;pointer-events:none;}.note{position:absolute;font-size:18px;opacity:0;animation:noteDrift 1.4s ease-out infinite;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4));}.note:nth-child(1){left:18%;animation-delay:0s;font-size:22px;}.note:nth-child(2){left:36%;animation-delay:.7s;font-size:16px;}.note:nth-child(3){left:52%;animation-delay:1.4s;font-size:24px;}.note:nth-child(4){left:70%;animation-delay:.4s;font-size:14px;}.note:nth-child(5){left:8%;animation-delay:1.9s;font-size:18px;}.note:nth-child(6){left:82%;animation-delay:1.1s;font-size:20px;}@keyframes noteDrift{0%{opacity:0;transform:translateY(0) rotate(0deg);}15%{opacity:1;}85%{opacity:.5;}100%{opacity:0;transform:translateY(-80px) rotate(25deg);}}.disco-mount{position:fixed;top:0;left:50%;transform:translateX(-50%);z-index:6;pointer-events:none;display:flex;flex-direction:column;align-items:center;}#discoCanvas{display:block;filter:drop-shadow(0 0 50px rgba(255,255,255,1)) drop-shadow(0 0 90px rgba(200,230,255,1)) drop-shadow(0 0 140px rgba(160,210,255,.9)) drop-shadow(0 0 200px rgba(120,180,255,.6));}.disco-spot{position:fixed;border-radius:50%;pointer-events:none;z-index:1;mix-blend-mode:normal;opacity:0.18;}.firefly{position:fixed;border-radius:50%;background:radial-gradient(circle,#fffff0 0%,#ffe566 40%,#ffcc00 100%);pointer-events:none;z-index:11;animation:ffFloat ease-in-out infinite;}@keyframes ffFloat{0%{opacity:0;transform:translate(0,0) scale(0.6);}15%{opacity:1;transform:translate(calc(var(--dx)*.2),calc(var(--dy)*.1)) scale(1.1);}35%{opacity:0.2;transform:translate(calc(var(--dx)*.5),calc(var(--dy)*.4)) scale(0.8);}55%{opacity:1;transform:translate(calc(var(--dx)*.7),calc(var(--dy)*.6)) scale(1.2);}75%{opacity:0.3;transform:translate(calc(var(--dx)*.9),calc(var(--dy)*.8)) scale(0.7);}90%{opacity:0.9;transform:translate(var(--dx),var(--dy)) scale(1.0);}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(0.5);}}.leaf{position:fixed;pointer-events:none;z-index:11;font-size:14px;opacity:0;animation:leafFall linear infinite;}@keyframes leafFall{0%{opacity:0;transform:translateY(-30px) rotate(0deg) translateX(0);}10%{opacity:.8;}90%{opacity:.4;}100%{opacity:0;transform:translateY(105vh) rotate(720deg) translateX(40px);}}.heart-bg{position:fixed;bottom:calc(45vh + 96px);left:50%;transform:translateX(-50%);z-index:20;pointer-events:none;animation:heartbeat3d 0.43s ease-in-out infinite;opacity:1;}@keyframes heartbeat3d{0%{transform:translateX(-50%) scale(1) rotateY(0deg);}15%{transform:translateX(-50%) scale(1.18) rotateY(8deg);}30%{transform:translateX(-50%) scale(1.08) rotateY(4deg);}45%{transform:translateX(-50%) scale(1.22) rotateY(-6deg);}65%{transform:translateX(-50%) scale(1) rotateY(0deg);}100%{transform:translateX(-50%) scale(1) rotateY(0deg);}}@keyframes robotBob{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}@keyframes robotBlink{0%,90%,100%{opacity:1;}95%{opacity:0;}}@keyframes robotLegL{0%,100%{transform:rotate(-8deg);}50%{transform:rotate(8deg);}}@keyframes robotLegR{0%,100%{transform:rotate(8deg);}50%{transform:rotate(-8deg);}}@keyframes alienSway{0%,100%{transform:rotate(-4deg);}50%{transform:rotate(4deg);}}
+@keyframes blipSway{0%,100%{transform:scaleX(-1) rotate(-4deg);}50%{transform:scaleX(-1) rotate(4deg);}}@keyframes guitarSway{0%,100%{transform:rotate(-3deg);}50%{transform:rotate(3deg);}}@keyframes strumHand{0%{transform:translateY(-4px) rotate(-10deg);}100%{transform:translateY(4px) rotate(10deg);}}@keyframes ufoFloat2{0%,100%{transform:translateY(0);}50%{transform:translateY(-9px);}}@keyframes alienBop{0%,100%{transform:translateY(0);}50%{transform:translateY(-2px);}}@keyframes mothershipDrift{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(-12px);}}.promo-wrap{position:fixed;top:0;left:0;width:100%;height:100%;z-index:300;pointer-events:none;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:22vh;}.promo-title{font-family:'Abril Fatface',cursive;font-size:42px;color:#fefce0;text-shadow:0 0 60px rgba(255,220,70,1),4px 4px 0 rgba(0,0,0,.4),0 0 120px rgba(255,180,50,.6);letter-spacing:4px;line-height:1;animation:promoFade 12s ease-in-out infinite;text-align:center;}.promo-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:28px;color:#88e870;text-shadow:0 2px 10px rgba(0,0,0,.8),0 0 30px rgba(100,220,80,.5);letter-spacing:6px;margin-top:10px;animation:promoFade 12s ease-in-out infinite 0.5s;text-align:center;}.promo-byline{font-family:'Lato',sans-serif;font-weight:300;font-size:15px;color:rgba(200,255,180,.75);letter-spacing:5px;text-transform:uppercase;margin-top:12px;animation:promoFade 12s ease-in-out infinite 1s;text-align:center;}.promo-divider{width:320px;height:2px;margin:20px auto;background:linear-gradient(90deg,transparent,#ffe066 30%,#88e870 70%,transparent);border-radius:2px;animation:promoFade 12s ease-in-out infinite 1.2s;}.promo-url{font-family:'Abril Fatface',cursive;font-size:72px;color:#ffe066;text-shadow:0 0 40px rgba(255,220,80,1),0 0 80px rgba(255,180,50,.6),0 0 120px rgba(255,150,30,.4);letter-spacing:4px;animation:urlPulse 3s ease-in-out infinite;text-align:center;margin-top:8px;}.promo-location{font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:rgba(160,240,140,.6);letter-spacing:4px;margin-top:8px;animation:promoFade 12s ease-in-out infinite 1.5s;text-align:center;}@keyframes promoFade{0%{opacity:0;transform:translateY(20px);}10%{opacity:1;transform:translateY(0);}80%{opacity:1;transform:translateY(0);}100%{opacity:0;transform:translateY(-10px);}}@keyframes urlPulse{0%,100%{opacity:.7;text-shadow:0 0 20px rgba(255,220,80,.6);}50%{opacity:1;text-shadow:0 0 40px rgba(255,220,80,1),0 0 80px rgba(255,180,50,.6);}}</style>
 <style>.panel-title,.panel-sub,.song-title,.song-duration,.footer-logo,.footer-desc,.title-byline,.lbl,.aud-lbl,.top-ufo-name,.venmo-title,.venmo-subtitle,.venmo-handle,.venmo-price,.modal-title,.promo-title,.promo-sub,.promo-byline,.promo-url,.promo-location{color:#ffe066 !important;}</style>
 </head>
-<body><div class="heart-bg"><svg viewBox="0 0 200 180" width="420" height="380" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="hg1" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#ff8099"/><stop offset="40%" stop-color="#e0103a"/><stop offset="100%" stop-color="#7a0020"/></radialGradient><radialGradient id="hg2" cx="70%" cy="70%" r="50%"><stop offset="0%" stop-color="#ff4466" stop-opacity="0.4"/><stop offset="100%" stop-color="#7a0020" stop-opacity="0"/></radialGradient><filter id="hblur"><feGaussianBlur stdDeviation="2.5"/></filter></defs><ellipse cx="100" cy="175" rx="70" ry="8" fill="rgba(0,0,0,0.35)" filter="url(#hblur)"/><path d="M100 155 C60 125, 10 100, 10 60 C10 30, 35 10, 60 10 C75 10, 90 18, 100 30 C110 18, 125 10, 140 10 C165 10, 190 30, 190 60 C190 100, 140 125, 100 155Z" fill="url(#hg1)"/><path d="M100 155 C60 125, 10 100, 10 60 C10 30, 35 10, 60 10 C75 10, 90 18, 100 30 C110 18, 125 10, 140 10 C165 10, 190 30, 190 60 C190 100, 140 125, 100 155Z" fill="url(#hg2)"/></svg>
+<body><div class="heart-bg"><svg viewBox="0 0 200 180" width="260" height="235" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="hg1" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#ff8099"/><stop offset="40%" stop-color="#e0103a"/><stop offset="100%" stop-color="#7a0020"/></radialGradient><radialGradient id="hg2" cx="70%" cy="70%" r="50%"><stop offset="0%" stop-color="#ff4466" stop-opacity="0.4"/><stop offset="100%" stop-color="#7a0020" stop-opacity="0"/></radialGradient><filter id="hblur"><feGaussianBlur stdDeviation="2.5"/></filter></defs><path d="M100 155 C60 125, 10 100, 10 60 C10 30, 35 10, 60 10 C75 10, 90 18, 100 30 C110 18, 125 10, 140 10 C165 10, 190 30, 190 60 C190 100, 140 125, 100 155Z" fill="url(#hg1)"/><path d="M100 155 C60 125, 10 100, 10 60 C10 30, 35 10, 60 10 C75 10, 90 18, 100 30 C110 18, 125 10, 140 10 C165 10, 190 30, 190 60 C190 100, 140 125, 100 155Z" fill="url(#hg2)"/></svg>
 </div><div class="sky-bg"></div>
 <div class="forest-photo-bg"></div>
 <div class="forest-overlay"></div>
@@ -85,11 +85,300 @@
 <div class="cloud"></div><div id="top-ufo-zork" class="top-ufo"><div class="top-ufo-saucer"><div class="top-ufo-alien">👽</div><div class="top-ufo-dish"><div class="top-ufo-light" style="--c:255,80,80;"></div><div class="top-ufo-light" style="--c:80,255,120;animation-delay:.2s;"></div><div class="top-ufo-light" style="--c:80,160,255;animation-delay:.4s;"></div><div class="top-ufo-light" style="--c:255,220,80;animation-delay:.6s;"></div><div class="top-ufo-light" style="--c:255,80,255;animation-delay:.8s;"></div></div></div>
 </div><div id="top-ufo-blip" class="top-ufo" style="top:180px; left:50%; margin-left:-40px; animation:topUfoBlip 3.5s ease-in-out infinite 0.8s;"><div class="top-ufo-saucer"><div class="top-ufo-alien">👽</div><div class="top-ufo-dish"><div class="top-ufo-light" style="--c:80,255,240;"></div><div class="top-ufo-light" style="--c:255,220,80;animation-delay:.3s;"></div><div class="top-ufo-light" style="--c:255,80,80;animation-delay:.6s;"></div><div class="top-ufo-light" style="--c:80,255,120;animation-delay:.9s;"></div><div class="top-ufo-light" style="--c:220,170,255;animation-delay:1.1s;"></div></div></div>
 </div><div id="top-ufo-xenu" class="top-ufo" style="top:70px; right:16%;"><div class="top-ufo-saucer"><div class="top-ufo-alien">👽</div><div class="top-ufo-dish"><div class="top-ufo-light" style="--c:255,210,140;"></div><div class="top-ufo-light" style="--c:160,245,255;animation-delay:.25s;"></div><div class="top-ufo-light" style="--c:255,80,255;animation-delay:.5s;"></div><div class="top-ufo-light" style="--c:80,255,120;animation-delay:.75s;"></div><div class="top-ufo-light" style="--c:255,80,80;animation-delay:1s;"></div></div></div>
-</div><div id="drag-disco" style="position:fixed;bottom:220px;left:50%;transform:translateX(-50%);z-index:20;pointer-events:none;display:flex;flex-direction:column;align-items:center;"><canvas id="discoCanvas" width="110" height="110" style="display:block;margin-top:-1px;filter:drop-shadow(0 0 50px rgba(255,255,255,1)) drop-shadow(0 0 90px rgba(200,230,255,1)) drop-shadow(0 0 140px rgba(160,210,255,.9));"></canvas>
+</div><div id="drag-disco" style="position:fixed;bottom:220px;left:50%;transform:translateX(-50%);z-index:20;pointer-events:none;display:flex;flex-direction:column;align-items:center;"><canvas id="discoCanvas" width="110" height="110" style="display:block;margin-top:-1px;background:transparent;filter:drop-shadow(0 0 50px rgba(255,255,255,1)) drop-shadow(0 0 90px rgba(200,230,255,1)) drop-shadow(0 0 140px rgba(160,210,255,.9));"></canvas>
 </div><div class="notes"><div class="note">🎵</div><div class="note">🎶</div><div class="note">🎵</div><div class="note">🎶</div><div class="note">🎵</div><div class="note">🎶</div>
 </div><svg class="amph-tiers" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="position:fixed;bottom:0;left:0;width:100%;z-index:7;pointer-events:none;"><ellipse cx="720" cy="320" rx="900" ry="120" fill="rgba(20,45,18,0.55)"/><ellipse cx="720" cy="320" rx="720" ry="90" fill="rgba(15,35,14,0.6)"/><ellipse cx="720" cy="320" rx="540" ry="65" fill="rgba(10,28,10,0.65)"/><ellipse cx="720" cy="320" rx="360" ry="45" fill="rgba(8,22,8,0.7)"/>
-</svg><div style="position:fixed;bottom:420px;left:50%;transform:translateX(-50%);z-index:2;pointer-events:none;opacity:0.85;animation:mothershipDrift 8s ease-in-out infinite;"><svg viewBox="0 0 400 120" width="420" height="126" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="ms-hull" cx="50%" cy="35%" r="60%"><stop offset="0%" stop-color="#8090a0"/><stop offset="50%" stop-color="#405060"/><stop offset="100%" stop-color="#1a2530"/></radialGradient><filter id="ms-glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><ellipse cx="200" cy="55" rx="195" ry="38" fill="url(#ms-hull)" stroke="rgba(100,160,200,0.3)" stroke-width="1"/><ellipse cx="200" cy="38" rx="90" ry="28" fill="#506070"/><ellipse cx="200" cy="32" rx="70" ry="18" fill="#607888"/><ellipse cx="200" cy="58" rx="195" ry="12" fill="#1a2530"/><text x="60"  y="62" text-anchor="middle" font-size="11" style="animation:alienBop 1.8s ease-in-out infinite 0s;">👽</text><text x="128" y="62" text-anchor="middle" font-size="11" style="animation:alienBop 2.2s ease-in-out infinite 0.4s;">👽</text><text x="200" y="62" text-anchor="middle" font-size="12" style="animation:alienBop 1.7s ease-in-out infinite 0.8s;">👽</text><text x="272" y="62" text-anchor="middle" font-size="11" style="animation:alienBop 2.0s ease-in-out infinite 1.2s;">👽</text><text x="338" y="62" text-anchor="middle" font-size="11" style="animation:alienBop 2.3s ease-in-out infinite 1.6s;">👽</text><circle cx="110" cy="68" r="4" fill="#ff4466" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0s" repeatCount="indefinite"/></circle><circle cx="145" cy="72" r="4" fill="#00ccff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.15s" repeatCount="indefinite"/></circle><circle cx="180" cy="74" r="5" fill="#ffee00" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.3s" repeatCount="indefinite"/></circle><circle cx="200" cy="75" r="5" fill="#ffffff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.1s" repeatCount="indefinite"/></circle><circle cx="220" cy="74" r="5" fill="#88ff00" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.45s" repeatCount="indefinite"/></circle><circle cx="255" cy="72" r="4" fill="#ff80ff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.6s" repeatCount="indefinite"/></circle><circle cx="290" cy="68" r="4" fill="#00ffcc" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.75s" repeatCount="indefinite"/></circle><ellipse cx="200" cy="80" rx="80" ry="12" fill="rgba(120,200,255,0.12)" filter="url(#ms-glow)"/><ellipse cx="200" cy="42" rx="120" ry="10" fill="rgba(200,230,255,0.12)"/></svg>
-</div><div class="promo-wrap"><div class="promo-title">Steven Bickham</div><div class="promo-sub">The Forest Sessions</div><div class="promo-byline">ALL SONGS PENNED BY STEVEN DOUGLAS BICKHAM</div><div class="promo-divider"></div><div class="promo-url">MusicRow.US</div><div class="promo-location">Where the campfire never goes out 🔥</div>
+</svg>
+
+<!-- FLYBY MOTHERSHIPS -->
+<style>
+@keyframes flyby1{
+  0%   { transform: translateX(-50%) scale(0.01); opacity:0;   bottom: 34vh; }
+  3%   { transform: translateX(-50%) scale(0.01); opacity:1;   bottom: 34vh; }
+  40%  { transform: translateX(-50%) scale(0.04); opacity:1;   bottom: 34vh; }
+  65%  { transform: translateX(-50%) scale(0.10); opacity:1;   bottom: 33vh; }
+  78%  { transform: translateX(-50%) scale(0.30); opacity:1;   bottom: 32vh; }
+  86%  { transform: translateX(-50%) scale(1.1);  opacity:1;   bottom: 29vh; }
+  90%  { transform: translateX(-50%) scale(1.3);  opacity:1;   bottom: 28vh; }
+  93%  { transform: translateX(-50%) scale(1.2);  opacity:1;   bottom: 28vh; }
+  96%  { transform: translateX(-50%) scale(0.4);  opacity:1;   bottom: 31vh; }
+  98%  { transform: translateX(-50%) scale(0.08); opacity:0.6; bottom: 33vh; }
+  99%  { transform: translateX(-50%) scale(0.01); opacity:0;   bottom: 34vh; }
+  99.5%{ transform: translateX(-50%) scale(0.01); opacity:0;   bottom: 34vh; }
+  100% { transform: translateX(-50%) scale(0.01); opacity:0;   bottom: 34vh; }
+}
+@keyframes flyby2{
+  0%   { transform: translateX(-50%) scale(0.01); opacity:1; bottom: 41vh; }
+  51.9%{ transform: translateX(-50%) scale(0.01); opacity:1; bottom: 41vh; }
+  52%  { transform: translateX(-50%) scale(0.01); opacity:1; bottom: 41vh; }
+  75%  { transform: translateX(-50%) scale(0.05); opacity:1; bottom: 41vh; }
+  85%  { transform: translateX(-50%) scale(0.20); opacity:1; bottom: 40vh; }
+  92%  { transform: translateX(-50%) scale(0.90); opacity:1; bottom: 37vh; }
+  97%  { transform: translateX(-50%) scale(4.5);  opacity:1; bottom: 24vh; }
+  99.9%{ transform: translateX(-50%) scale(10.0); opacity:1; bottom: 10vh; }
+  100% { transform: translateX(-50%) scale(0.01); opacity:1; bottom: 41vh; }
+}
+.ms-flyby { position:fixed; left:50%; pointer-events:none; z-index:22; transform-origin: center center; }
+#ms-flyby1 { transform: translateX(-50%) scale(0.01); bottom: 34vh; animation: flyby1 22s ease-in-out infinite; }
+#ms-flyby2 { transform: translateX(-50%) scale(0.75); bottom: 32vh; animation: none; opacity:0; }
+</style>
+
+<div id="ms-flyby1" class="ms-flyby">
+  <svg viewBox="0 0 800 260" width="480" height="156" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="fb1-hull" cx="50%" cy="30%" r="65%">
+        <stop offset="0%" stop-color="#b0c4d8"/><stop offset="30%" stop-color="#7090a8"/><stop offset="65%" stop-color="#3a5468"/><stop offset="100%" stop-color="#0e1c28"/>
+      </radialGradient>
+      <radialGradient id="fb1-dome" cx="42%" cy="28%" r="60%">
+        <stop offset="0%" stop-color="#d8eef8"/><stop offset="35%" stop-color="#80b8d8"/><stop offset="70%" stop-color="#3870a0"/><stop offset="100%" stop-color="#1a3a58"/>
+      </radialGradient>
+      <radialGradient id="fb1-belly" cx="50%" cy="20%" r="70%">
+        <stop offset="0%" stop-color="#304858"/><stop offset="100%" stop-color="#080e18"/>
+      </radialGradient>
+      <radialGradient id="fb1-eng1" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#ffffff"/><stop offset="30%" stop-color="#80e8ff"/><stop offset="70%" stop-color="#0060a0"/><stop offset="100%" stop-color="#001830"/>
+      </radialGradient>
+      <radialGradient id="fb1-eng2" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#ffffff"/><stop offset="30%" stop-color="#a0c0ff"/><stop offset="70%" stop-color="#2040c0"/><stop offset="100%" stop-color="#080820"/>
+      </radialGradient>
+      <filter id="fb1-glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <filter id="fb1-softglow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <filter id="fb1-engblur"><feGaussianBlur stdDeviation="6"/></filter>
+      <clipPath id="fb1-hullclip"><ellipse cx="400" cy="148" rx="388" ry="72"/></clipPath>
+    </defs>
+
+    <!-- Engine exhaust glow behind hull -->
+    <ellipse cx="120" cy="210" rx="38" ry="22" fill="#0050aa" filter="url(#fb1-engblur)"/>
+    <ellipse cx="400" cy="218" rx="50" ry="28" fill="#0040a0" filter="url(#fb1-engblur)"/>
+    <ellipse cx="680" cy="210" rx="38" ry="22" fill="#0050aa" filter="url(#fb1-engblur)"/>
+
+    <!-- Main hull disc -->
+    <ellipse cx="400" cy="148" rx="388" ry="72" fill="url(#fb1-hull)" stroke="#4a7090" stroke-width="1.5"/>
+
+    <!-- Hull panel lines -->
+    <g clip-path="url(#fb1-hullclip)" stroke="#6a9ab8" stroke-width="0.8" fill="none">
+      <ellipse cx="400" cy="148" rx="300" ry="55"/>
+      <ellipse cx="400" cy="148" rx="210" ry="40"/>
+      <ellipse cx="400" cy="148" rx="120" ry="24"/>
+      <line x1="100" y1="148" x2="700" y2="148"/>
+      <line x1="160" y1="100" x2="640" y2="196"/>
+      <line x1="160" y1="196" x2="640" y2="100"/>
+      <line x1="400" y1="76" x2="400" y2="220"/>
+    </g>
+
+    <!-- Belly underside shadow -->
+    <ellipse cx="400" cy="185" rx="380" ry="55" fill="url(#fb1-belly)"/>
+
+    <!-- Upper dome base ring -->
+    <ellipse cx="400" cy="118" rx="165" ry="44" fill="#283848" stroke="#3a5870" stroke-width="1"/>
+    <!-- Upper dome -->
+    <ellipse cx="400" cy="100" rx="140" ry="52" fill="url(#fb1-dome)" stroke="#2a4060" stroke-width="1.2"/>
+    <!-- Front window frame -->
+    <ellipse cx="420" cy="102" rx="125" ry="52" fill="#0a1e30" stroke="#4a7898" stroke-width="2"/>
+    <!-- Window glass -->
+    <ellipse cx="420" cy="102" rx="117" ry="44" fill="#0d2a42" stroke="#3a6080" stroke-width="1"/>
+    <!-- Glass interior glow -->
+    <ellipse cx="420" cy="102" rx="117" ry="44" fill="#1a4060"><animate attributeName="opacity" values="1;0;1" dur="0.43s" repeatCount="indefinite"/></ellipse>
+    <!-- Window glare reflection -->
+    <ellipse cx="388" cy="82" rx="38" ry="12" fill="#4a90b8"/>
+    <!-- Mantis body/thorax inside - centered in cockpit -->
+    <ellipse cx="420" cy="118" rx="16" ry="13" fill="#5a8030"/>
+    <!-- Neck poking out -->
+    <rect x="413" y="98" width="14" height="18" rx="5" fill="#4a7028"/>
+    <!-- Cockpit strobe flash -->
+    <ellipse cx="400" cy="100" rx="140" ry="52" fill="#c8eeff" filter="url(#fb1-softglow)"><animate attributeName="opacity" values="1;0;1" dur="0.43s" repeatCount="indefinite"/></ellipse>
+    <!-- Mantis centered in cockpit, higher up -->
+    <g transform="translate(420,70) scale(1.7) translate(-420,-70)">
+    <polygon points="420,28 384,80 456,80" fill="#6aaa38"/>
+    <polygon points="420,28 420,80 456,80" fill="#5a9030"/>
+    <!-- Large compound eyes -->
+    <ellipse cx="395" cy="66" rx="16" ry="18" fill="#1a2a08" stroke="#3a5818" stroke-width="1"/>
+    <ellipse cx="443" cy="66" rx="16" ry="18" fill="#1a2a08" stroke="#3a5818" stroke-width="1"/>
+    <circle cx="390" cy="57" r="6" fill="#2a4a10"/>
+    <circle cx="438" cy="57" r="6" fill="#2a4a10"/>
+    <circle cx="388" cy="55" r="3" fill="#88cc44"/>
+    <circle cx="436" cy="55" r="3" fill="#88cc44"/>
+    <circle cx="387" cy="53" r="1.5" fill="#ffffff"/>
+    <circle cx="435" cy="53" r="1.5" fill="#ffffff"/>
+    <!-- Antennae sticking out -->
+    <line x1="406" y1="34" x2="366" y2="-8" stroke="#8aaa40" stroke-width="2" stroke-linecap="round"/>
+    <line x1="434" y1="34" x2="474" y2="-8" stroke="#8aaa40" stroke-width="2" stroke-linecap="round"/>
+    <!-- Mandibles -->
+    <path d="M402,80 Q392,96 397,104" stroke="#4a7020" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M438,80 Q448,96 443,104" stroke="#4a7020" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- Forelegs braced on frame edge -->
+    <path d="M393,72 Q372,64 364,78 Q356,92 370,87" stroke="#5a8030" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M443,72 Q464,64 472,78 Q480,92 466,87" stroke="#5a8030" stroke-width="4" fill="none" stroke-linecap="round"/>
+    </g>
+    <!-- Dome windows removed -->
+    <!-- Dome highlight removed -->
+
+    <!-- Hull edge strobes - left and right inner rim -->
+    <ellipse cx="48" cy="148" rx="35" ry="16" fill="#c8eeff" filter="url(#fb1-softglow)"><animate attributeName="opacity" values="1;0;1" dur="0.43s" repeatCount="indefinite"/></ellipse>
+    <ellipse cx="752" cy="148" rx="35" ry="16" fill="#c8eeff" filter="url(#fb1-softglow)"><animate attributeName="opacity" values="1;0;1" dur="0.43s" repeatCount="indefinite"/></ellipse>
+
+    <!-- Hull porthole windows removed -->
+
+    <!-- Underside running light strip -->
+    <g>
+      <rect x="90" y="195" width="620" height="5" rx="2" fill="#1a3050" stroke="#2a4868" stroke-width="0.5"/>
+      <circle cx="120" cy="197" r="4" fill="#ff4444"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0s" repeatCount="indefinite"/></circle>
+      <circle cx="175" cy="197" r="4" fill="#ffffff"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.1s" repeatCount="indefinite"/></circle>
+      <circle cx="230" cy="197" r="4" fill="#ffffff"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.2s" repeatCount="indefinite"/></circle>
+      <circle cx="285" cy="197" r="5" fill="#ffffff"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.05s" repeatCount="indefinite"/></circle>
+      <circle cx="340" cy="197" r="4" fill="#d0e4f0"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.3s" repeatCount="indefinite"/></circle>
+      <circle cx="400" cy="197" r="5" fill="#ffffff"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.15s" repeatCount="indefinite"/></circle>
+      <circle cx="460" cy="197" r="4" fill="#d0e4f0"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.25s" repeatCount="indefinite"/></circle>
+      <circle cx="515" cy="197" r="5" fill="#ffffff"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.4s" repeatCount="indefinite"/></circle>
+      <circle cx="570" cy="197" r="4" fill="#ffffff"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.08s" repeatCount="indefinite"/></circle>
+      <circle cx="625" cy="197" r="4" fill="#d0e4f0"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.35s" repeatCount="indefinite"/></circle>
+      <circle cx="680" cy="197" r="4" fill="#ff4444"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.5s" repeatCount="indefinite"/></circle>
+    </g>
+
+    <!-- Engine nacelles -->
+    <ellipse cx="120" cy="206" rx="36" ry="18" fill="#0c1824" stroke="#2a4868" stroke-width="1"/>
+    <ellipse cx="120" cy="206" rx="26" ry="12" fill="url(#fb1-eng1)" filter="url(#fb1-glow)"/>
+    <ellipse cx="120" cy="206" rx="14" ry="7" fill="#80e8ff"/>
+    <ellipse cx="400" cy="214" rx="46" ry="22" fill="#0c1824" stroke="#2a4868" stroke-width="1"/>
+    <ellipse cx="400" cy="214" rx="34" ry="15" fill="url(#fb1-eng2)" filter="url(#fb1-glow)"/>
+    <ellipse cx="400" cy="214" rx="18" ry="8" fill="#c0d8ff"/>
+    <ellipse cx="680" cy="206" rx="36" ry="18" fill="#0c1824" stroke="#2a4868" stroke-width="1"/>
+    <ellipse cx="680" cy="206" rx="26" ry="12" fill="url(#fb1-eng1)" filter="url(#fb1-glow)"/>
+    <ellipse cx="680" cy="206" rx="14" ry="7" fill="#80e8ff"/>
+
+    <!-- Hull rim highlight removed -->
+
+    <!-- Top antenna -->
+    <line x1="400" y1="48" x2="400" y2="30" stroke="#607888" stroke-width="2"/>
+    <circle cx="400" cy="28" r="4" fill="#ffffff" filter="url(#fb1-softglow)"><animate attributeName="opacity" values="1;0;1" dur="0.43s" repeatCount="indefinite"/></circle>
+    <circle cx="400" cy="28" r="12" fill="#ffffff" filter="url(#fb1-softglow)"><animate attributeName="opacity" values="0.9;0;0.9" dur="0.43s" repeatCount="indefinite"/></circle>
+    <circle cx="400" cy="28" r="28" fill="#aaddff" filter="url(#fb1-softglow)"><animate attributeName="opacity" values="0.6;0;0.6" dur="0.43s" repeatCount="indefinite"/></circle>
+    <circle cx="400" cy="28" r="55" fill="#88ccff" filter="url(#fb1-softglow)"><animate attributeName="opacity" values="0.3;0;0.3" dur="0.43s" repeatCount="indefinite"/></circle>
+  </svg>
+</div>
+
+<div id="ms-flyby2" class="ms-flyby">
+  <svg viewBox="0 0 900 280" width="560" height="174" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="fb2-hull" cx="50%" cy="30%" r="65%">
+        <stop offset="0%" stop-color="#b0c4d8"/><stop offset="30%" stop-color="#7090a8"/><stop offset="65%" stop-color="#3a5468"/><stop offset="100%" stop-color="#0e1c28"/>
+      </radialGradient>
+      <radialGradient id="fb2-dome" cx="42%" cy="28%" r="60%">
+        <stop offset="0%" stop-color="#d8eef8"/><stop offset="35%" stop-color="#80b8d8"/><stop offset="70%" stop-color="#3870a0"/><stop offset="100%" stop-color="#1a3a58"/>
+      </radialGradient>
+      <radialGradient id="fb2-belly" cx="50%" cy="20%" r="70%">
+        <stop offset="0%" stop-color="#304858"/><stop offset="100%" stop-color="#080e18"/>
+      </radialGradient>
+      <radialGradient id="fb2-eng1" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#ffffff"/><stop offset="30%" stop-color="#80e8ff"/><stop offset="70%" stop-color="#0060a0"/><stop offset="100%" stop-color="#001830"/>
+      </radialGradient>
+      <radialGradient id="fb2-eng2" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#ffffff"/><stop offset="30%" stop-color="#a0c0ff"/><stop offset="70%" stop-color="#2040c0"/><stop offset="100%" stop-color="#080820"/>
+      </radialGradient>
+      <filter id="fb2-glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <filter id="fb2-softglow"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <filter id="fb2-engblur"><feGaussianBlur stdDeviation="7"/></filter>
+      <clipPath id="fb2-hullclip"><ellipse cx="450" cy="162" rx="435" ry="80"/></clipPath>
+    </defs>
+    <!-- Engine exhaust glow -->
+    <ellipse cx="130" cy="228" rx="44" ry="26" fill="#0050aa" filter="url(#fb2-engblur)"/>
+    <ellipse cx="450" cy="238" rx="58" ry="32" fill="#0040a0" filter="url(#fb2-engblur)"/>
+    <ellipse cx="770" cy="228" rx="44" ry="26" fill="#0050aa" filter="url(#fb2-engblur)"/>
+    <!-- Main hull disc -->
+    <ellipse cx="450" cy="162" rx="435" ry="80" fill="url(#fb2-hull)" stroke="#4a7090" stroke-width="1.5"/>
+    <!-- Hull panel lines -->
+    <g clip-path="url(#fb2-hullclip)" stroke="#6a9ab8" stroke-width="0.8" fill="none">
+      <ellipse cx="450" cy="162" rx="340" ry="62"/>
+      <ellipse cx="450" cy="162" rx="240" ry="44"/>
+      <ellipse cx="450" cy="162" rx="140" ry="27"/>
+      <line x1="110" y1="162" x2="790" y2="162"/>
+      <line x1="175" y1="110" x2="725" y2="214"/>
+      <line x1="175" y1="214" x2="725" y2="110"/>
+      <line x1="450" y1="82" x2="450" y2="242"/>
+    </g>
+    <!-- Belly -->
+    <ellipse cx="450" cy="202" rx="425" ry="62" fill="url(#fb2-belly)"/>
+    <!-- Dome base ring -->
+    <ellipse cx="450" cy="130" rx="185" ry="50" fill="#283848" stroke="#3a5870" stroke-width="1"/>
+    <!-- Upper dome -->
+    <ellipse cx="450" cy="110" rx="158" ry="58" fill="url(#fb2-dome)" stroke="#2a4060" stroke-width="1.2"/>
+    <!-- Window frame -->
+    <ellipse cx="472" cy="112" rx="140" ry="58" fill="#0a1e30" stroke="#4a7898" stroke-width="2"/>
+    <!-- Window glass -->
+    <ellipse cx="472" cy="112" rx="132" ry="50" fill="#0d2a42" stroke="#3a6080" stroke-width="1"/>
+    <!-- Glass glow -->
+    <ellipse cx="472" cy="112" rx="132" ry="50" fill="#1a4060"><animate attributeName="opacity" values="1;0;1" dur="0.43s" repeatCount="indefinite"/></ellipse>
+    <!-- Window glare -->
+    <ellipse cx="438" cy="90" rx="44" ry="14" fill="#4a90b8"/>
+    <!-- Mantis thorax -->
+    <ellipse cx="472" cy="130" rx="18" ry="15" fill="#5a8030"/>
+    <!-- Neck -->
+    <rect x="464" y="108" width="16" height="20" rx="5" fill="#4a7028"/>
+    <!-- Cockpit strobe -->
+    <ellipse cx="450" cy="110" rx="158" ry="58" fill="#c8eeff" filter="url(#fb2-softglow)"><animate attributeName="opacity" values="1;0;1" dur="0.43s" repeatCount="indefinite"/></ellipse>
+    <!-- Mantis head -->
+    <g transform="translate(472,78) scale(1.7) translate(-472,-78)">
+    <polygon points="472,36 436,88 508,88" fill="#6aaa38"/>
+    <polygon points="472,36 472,88 508,88" fill="#5a9030"/>
+    <ellipse cx="447" cy="74" rx="16" ry="18" fill="#1a2a08" stroke="#3a5818" stroke-width="1"/>
+    <ellipse cx="495" cy="74" rx="16" ry="18" fill="#1a2a08" stroke="#3a5818" stroke-width="1"/>
+    <circle cx="442" cy="65" r="6" fill="#2a4a10"/>
+    <circle cx="490" cy="65" r="6" fill="#2a4a10"/>
+    <circle cx="440" cy="63" r="3" fill="#88cc44"/>
+    <circle cx="488" cy="63" r="3" fill="#88cc44"/>
+    <circle cx="439" cy="61" r="1.5" fill="#ffffff"/>
+    <circle cx="487" cy="61" r="1.5" fill="#ffffff"/>
+    <line x1="458" y1="42" x2="418" y2="0" stroke="#8aaa40" stroke-width="2" stroke-linecap="round"/>
+    <line x1="486" y1="42" x2="526" y2="0" stroke="#8aaa40" stroke-width="2" stroke-linecap="round"/>
+    <path d="M454,88 Q444,104 449,112" stroke="#4a7020" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M490,88 Q500,104 495,112" stroke="#4a7020" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M445,80 Q424,72 416,86 Q408,100 422,95" stroke="#5a8030" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M495,80 Q516,72 524,86 Q532,100 518,95" stroke="#5a8030" stroke-width="4" fill="none" stroke-linecap="round"/>
+    </g>
+    <!-- Hull strobes -->
+    <ellipse cx="58" cy="162" rx="40" ry="18" fill="#c8eeff" filter="url(#fb2-softglow)"><animate attributeName="opacity" values="1;0;1" dur="0.43s" repeatCount="indefinite"/></ellipse>
+    <ellipse cx="842" cy="162" rx="40" ry="18" fill="#c8eeff" filter="url(#fb2-softglow)"><animate attributeName="opacity" values="1;0;1" dur="0.43s" repeatCount="indefinite"/></ellipse>
+    <!-- Running lights -->
+    <g>
+      <rect x="100" y="212" width="700" height="5" rx="2" fill="#1a3050" stroke="#2a4868" stroke-width="0.5"/>
+      <circle cx="130" cy="214" r="4" fill="#ff4444"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0s" repeatCount="indefinite"/></circle>
+      <circle cx="196" cy="214" r="4" fill="#ffffff"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.1s" repeatCount="indefinite"/></circle>
+      <circle cx="262" cy="214" r="4" fill="#ffffff"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.2s" repeatCount="indefinite"/></circle>
+      <circle cx="328" cy="214" r="5" fill="#ffffff"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.05s" repeatCount="indefinite"/></circle>
+      <circle cx="390" cy="214" r="4" fill="#d0e4f0"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.3s" repeatCount="indefinite"/></circle>
+      <circle cx="450" cy="214" r="5" fill="#ffffff"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.15s" repeatCount="indefinite"/></circle>
+      <circle cx="510" cy="214" r="4" fill="#d0e4f0"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.25s" repeatCount="indefinite"/></circle>
+      <circle cx="572" cy="214" r="5" fill="#ffffff"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.4s" repeatCount="indefinite"/></circle>
+      <circle cx="638" cy="214" r="4" fill="#ffffff"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.08s" repeatCount="indefinite"/></circle>
+      <circle cx="704" cy="214" r="4" fill="#d0e4f0"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.35s" repeatCount="indefinite"/></circle>
+      <circle cx="770" cy="214" r="4" fill="#ff4444"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.5s" repeatCount="indefinite"/></circle>
+    </g>
+    <!-- Engine nacelles (5 engines) -->
+    <ellipse cx="130" cy="222" rx="42" ry="20" fill="#0c1824" stroke="#2a4868" stroke-width="1"/>
+    <ellipse cx="130" cy="222" rx="30" ry="14" fill="url(#fb2-eng1)" filter="url(#fb2-glow)"/>
+    <ellipse cx="130" cy="222" rx="16" ry="8" fill="#80e8ff"/>
+    <ellipse cx="290" cy="232" rx="38" ry="18" fill="#0c1824" stroke="#2a4868" stroke-width="1"/>
+    <ellipse cx="290" cy="232" rx="27" ry="13" fill="url(#fb2-eng2)" filter="url(#fb2-glow)"/>
+    <ellipse cx="290" cy="232" rx="14" ry="7" fill="#c0d8ff"/>
+    <ellipse cx="450" cy="238" rx="52" ry="24" fill="#0c1824" stroke="#2a4868" stroke-width="1"/>
+    <ellipse cx="450" cy="238" rx="38" ry="17" fill="url(#fb2-eng2)" filter="url(#fb2-glow)"/>
+    <ellipse cx="450" cy="238" rx="20" ry="9" fill="#c0d8ff"/>
+    <ellipse cx="610" cy="232" rx="38" ry="18" fill="#0c1824" stroke="#2a4868" stroke-width="1"/>
+    <ellipse cx="610" cy="232" rx="27" ry="13" fill="url(#fb2-eng2)" filter="url(#fb2-glow)"/>
+    <ellipse cx="610" cy="232" rx="14" ry="7" fill="#c0d8ff"/>
+    <ellipse cx="770" cy="222" rx="42" ry="20" fill="#0c1824" stroke="#2a4868" stroke-width="1"/>
+    <ellipse cx="770" cy="222" rx="30" ry="14" fill="url(#fb2-eng1)" filter="url(#fb2-glow)"/>
+    <ellipse cx="770" cy="222" rx="16" ry="8" fill="#80e8ff"/>
+    <!-- Top antenna -->
+    <line x1="450" y1="52" x2="450" y2="32" stroke="#607888" stroke-width="2"/>
+    <circle cx="450" cy="30" r="4" fill="#ffffff" filter="url(#fb2-softglow)"><animate attributeName="opacity" values="1;0;1" dur="0.43s" repeatCount="indefinite"/></circle>
+    <circle cx="450" cy="30" r="12" fill="#ffffff" filter="url(#fb2-softglow)"><animate attributeName="opacity" values="0.9;0;0.9" dur="0.43s" repeatCount="indefinite"/></circle>
+    <circle cx="450" cy="30" r="28" fill="#aaddff" filter="url(#fb2-softglow)"><animate attributeName="opacity" values="0.6;0;0.6" dur="0.43s" repeatCount="indefinite"/></circle>
+    <circle cx="450" cy="30" r="55" fill="#88ccff" filter="url(#fb2-softglow)"><animate attributeName="opacity" values="0.3;0;0.3" dur="0.43s" repeatCount="indefinite"/></circle>
+  </svg>
+</div>
+
+<div class="promo-wrap"><div class="promo-sub">The Forest Sessions</div><div class="promo-byline">ALL SONGS PENNED BY STEVEN DOUGLAS BICKHAM</div><div class="promo-divider"></div><div class="promo-url" style="position:fixed;bottom:calc(45vh + 166px);left:50%;transform:translateX(-50%);z-index:301;">MusicRow.US</div>
 </div><script>
 // ── Disco ball ──
 const C = document.getElementById('discoCanvas');
@@ -104,7 +393,7 @@ function drawFrame(a){
   ctx.clearRect(0,0,S,S);
   ctx.save();ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.clip();
   const bg=ctx.createRadialGradient(cx-R*.3,cy-R*.38,2,cx,cy,R);
-  bg.addColorStop(0,'#ffffff');bg.addColorStop(.3,'#a0b8d0');bg.addColorStop(.7,'#506070');bg.addColorStop(1,'#1a2a3a');
+  bg.addColorStop(0,'#c8d0d8');bg.addColorStop(.25,'#8898a8');bg.addColorStop(.55,'#485868');bg.addColorStop(.8,'#303848');bg.addColorStop(1,'#303848');
   ctx.fillStyle=bg;ctx.fillRect(0,0,S,S);ctx.restore();
   const faces=[];
   for(let row=0;row<ROWS;row++){
@@ -126,11 +415,11 @@ function drawFrame(a){
     const diff=Math.max(0,f.nx*lxn+f.ny*lyn+f.nz*lzn);
     const hx=(lxn+0)/2,hy=(lyn+0)/2,hz=(lzn+1)/2,hl=Math.hypot(hx,hy,hz);
     const spec=Math.pow(Math.max(0,(f.nx*hx/hl+f.ny*hy/hl+f.nz*hz/hl)),3);
-    const base=[255,255,255];
-    const br=1.0+diff*1.8+spec*4.0;
-    const rr=Math.min(255,base[0]*br+spec*255*0.5)|0;
-    const gg=Math.min(255,base[1]*br+spec*255*0.55)|0;
-    const bb=Math.min(255,base[2]*br+spec*255*0.7)|0;
+    // Mirror tile: dark base, snap to bright only when catching light
+    const lit = diff * 0.6 + spec * 2.2;
+    const rr = Math.min(255, 18 + lit * 255 + spec * 255 * 0.6) | 0;
+    const gg = Math.min(255, 22 + lit * 255 + spec * 255 * 0.65) | 0;
+    const bb = Math.min(255, 30 + lit * 270 + spec * 255 * 0.9) | 0;
     ctx.beginPath();
     ctx.moveTo(corners4[0][0],corners4[0][1]);
     ctx.lineTo(corners4[1][0],corners4[1][1]);
@@ -138,7 +427,7 @@ function drawFrame(a){
     ctx.lineTo(corners4[3][0],corners4[3][1]);
     ctx.closePath();
     ctx.fillStyle=`rgb(${rr},${gg},${bb})`;ctx.fill();
-    ctx.strokeStyle='rgba(0,0,0,0.5)';ctx.lineWidth=0.5;ctx.stroke();
+    ctx.strokeStyle='rgba(0,0,0,0.75)';ctx.lineWidth=0.7;ctx.stroke();
   }
   ctx.save();ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.clip();
   const rim=ctx.createRadialGradient(cx,cy,R*0.6,cx,cy,R);
@@ -182,7 +471,83 @@ function loop(){spin+=SPEED;drawFrame(spin);updateDots(spin);updateFireflies();u
 loop();
 // ── Fireflies ──
 for(let i=0;i<45;i++){const f=document.createElement('div');f.className='firefly';const size=3+Math.random()*6;const warm=Math.random()>.5;const glowColor=warm?'rgba(255,240,80,.8)':'rgba(180,255,120,.7)';f.style.cssText=`left:${Math.random()*98}vw;top:${5+Math.random()*80}vh;--dx:${(Math.random()-.5)*160}px;--dy:${(Math.random()-.5)*120}px;animation-duration:${2+Math.random()*4}s;animation-delay:${Math.random()*6}s;width:${size}px;height:${size}px;box-shadow:0 0 ${size*2}px ${size}px ${glowColor},0 0 ${size*4}px ${size*1.5}px ${glowColor.replace('.8','.3').replace('.7','.25')};`;document.body.appendChild(f);}
-</script><div id="ms-flyer" style="position:fixed;z-index:2;pointer-events:none;opacity:1;"><svg viewBox="0 0 400 120" width="252" height="76" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="msf-hull" cx="50%" cy="35%" r="60%"><stop offset="0%" stop-color="#8090a0"/><stop offset="50%" stop-color="#405060"/><stop offset="100%" stop-color="#1a2530"/></radialGradient><filter id="msf-glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><ellipse cx="200" cy="55" rx="195" ry="38" fill="url(#msf-hull)" stroke="rgba(100,160,200,0.3)" stroke-width="1"/><ellipse cx="200" cy="38" rx="90" ry="28" fill="#506070"/><ellipse cx="200" cy="32" rx="70" ry="18" fill="#607888"/><ellipse cx="200" cy="58" rx="195" ry="12" fill="#1a2530"/><text x="128" y="62" text-anchor="middle" font-size="11">👽</text><text x="200" y="62" text-anchor="middle" font-size="12">👽</text><text x="272" y="62" text-anchor="middle" font-size="11">👽</text><circle cx="145" cy="72" r="4" fill="#00ccff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.15s" repeatCount="indefinite"/></circle><circle cx="180" cy="74" r="5" fill="#ffee00" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.3s" repeatCount="indefinite"/></circle><circle cx="200" cy="75" r="5" fill="#ffffff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.1s" repeatCount="indefinite"/></circle><circle cx="220" cy="74" r="5" fill="#88ff00" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.45s" repeatCount="indefinite"/></circle><circle cx="255" cy="72" r="4" fill="#ff80ff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.6s" repeatCount="indefinite"/></circle><ellipse cx="200" cy="80" rx="80" ry="12" fill="rgba(120,200,255,0.12)" filter="url(#msf-glow)"/><ellipse cx="200" cy="42" rx="120" ry="10" fill="rgba(200,230,255,0.12)"/></svg>
+</script><div id="ms-flyer" style="position:fixed;z-index:2;pointer-events:none;opacity:1;"><svg viewBox="0 0 400 120" width="252" height="76" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="msf-hull" cx="50%" cy="30%" r="65%">
+        <stop offset="0%" stop-color="#b0c4d8"/><stop offset="30%" stop-color="#7090a8"/><stop offset="65%" stop-color="#3a5468"/><stop offset="100%" stop-color="#0e1c28"/>
+      </radialGradient>
+      <radialGradient id="msf-dome" cx="42%" cy="28%" r="60%">
+        <stop offset="0%" stop-color="#d8eef8"/><stop offset="35%" stop-color="#80b8d8"/><stop offset="70%" stop-color="#3870a0"/><stop offset="100%" stop-color="#1a3a58"/>
+      </radialGradient>
+      <radialGradient id="msf-belly" cx="50%" cy="20%" r="70%">
+        <stop offset="0%" stop-color="#304858"/><stop offset="100%" stop-color="#080e18"/>
+      </radialGradient>
+      <radialGradient id="msf-eng" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#ffffff"/><stop offset="30%" stop-color="#80e8ff"/><stop offset="70%" stop-color="#0060a0"/><stop offset="100%" stop-color="#001830"/>
+      </radialGradient>
+      <filter id="msf-glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <filter id="msf-softglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <filter id="msf-engblur"><feGaussianBlur stdDeviation="3"/></filter>
+      <clipPath id="msf-hullclip"><ellipse cx="200" cy="72" rx="194" ry="36"/></clipPath>
+    </defs>
+    <ellipse cx="60" cy="102" rx="19" ry="11" fill="#0050aa" filter="url(#msf-engblur)"/>
+    <ellipse cx="200" cy="106" rx="25" ry="14" fill="#0040a0" filter="url(#msf-engblur)"/>
+    <ellipse cx="340" cy="102" rx="19" ry="11" fill="#0050aa" filter="url(#msf-engblur)"/>
+    <ellipse cx="200" cy="72" rx="194" ry="36" fill="url(#msf-hull)" stroke="#4a7090" stroke-width="1"/>
+    <g clip-path="url(#msf-hullclip)" stroke="#6a9ab8" stroke-width="0.5" fill="none">
+      <ellipse cx="200" cy="72" rx="150" ry="27"/>
+      <ellipse cx="200" cy="72" rx="105" ry="20"/>
+      <ellipse cx="200" cy="72" rx="60" ry="12"/>
+      <line x1="50" y1="72" x2="350" y2="72"/>
+    </g>
+    <ellipse cx="200" cy="92" rx="190" ry="28" fill="url(#msf-belly)"/>
+    <ellipse cx="200" cy="58" rx="82" ry="22" fill="#283848" stroke="#3a5870" stroke-width="0.8"/>
+    <ellipse cx="200" cy="50" rx="70" ry="26" fill="url(#msf-dome)" stroke="#2a4060" stroke-width="0.8"/>
+    <ellipse cx="210" cy="51" rx="62" ry="26" fill="#0a1e30" stroke="#4a7898" stroke-width="1.2"/>
+    <ellipse cx="210" cy="51" rx="58" ry="22" fill="#0d2a42" stroke="#3a6080" stroke-width="0.7"/>
+    <ellipse cx="210" cy="51" rx="58" ry="22" fill="#1a4060"><animate attributeName="opacity" values="1;0;1" dur="0.43s" repeatCount="indefinite"/></ellipse>
+    <ellipse cx="194" cy="41" rx="19" ry="6" fill="#4a90b8"/>
+    <ellipse cx="210" cy="59" rx="8" ry="6" fill="#5a8030"/>
+    <rect x="206" y="48" width="7" height="9" rx="2.5" fill="#4a7028"/>
+    <ellipse cx="200" cy="50" rx="70" ry="26" fill="#c8eeff" filter="url(#msf-softglow)"><animate attributeName="opacity" values="1;0;1" dur="0.43s" repeatCount="indefinite"/></ellipse>
+    <g transform="translate(210,34) scale(1.7) translate(-210,-34)">
+    <polygon points="210,14 192,40 228,40" fill="#6aaa38"/>
+    <polygon points="210,14 210,40 228,40" fill="#5a9030"/>
+    <ellipse cx="197" cy="33" rx="8" ry="9" fill="#1a2a08" stroke="#3a5818" stroke-width="0.7"/>
+    <ellipse cx="221" cy="33" rx="8" ry="9" fill="#1a2a08" stroke="#3a5818" stroke-width="0.7"/>
+    <circle cx="195" cy="28" r="3" fill="#2a4a10"/>
+    <circle cx="219" cy="28" r="3" fill="#2a4a10"/>
+    <circle cx="194" cy="27" r="1.5" fill="#88cc44"/>
+    <circle cx="218" cy="27" r="1.5" fill="#88cc44"/>
+    <line x1="203" y1="17" x2="183" y2="-4" stroke="#8aaa40" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="217" y1="17" x2="237" y2="-4" stroke="#8aaa40" stroke-width="1.2" stroke-linecap="round"/>
+    </g>
+    <ellipse cx="24" cy="72" rx="17" ry="8" fill="#c8eeff" filter="url(#msf-softglow)"><animate attributeName="opacity" values="1;0;1" dur="0.43s" repeatCount="indefinite"/></ellipse>
+    <ellipse cx="376" cy="72" rx="17" ry="8" fill="#c8eeff" filter="url(#msf-softglow)"><animate attributeName="opacity" values="1;0;1" dur="0.43s" repeatCount="indefinite"/></ellipse>
+    <g>
+      <rect x="45" y="96" width="310" height="3" rx="1" fill="#1a3050"/>
+      <circle cx="60" cy="97" r="2.5" fill="#ff4444"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0s" repeatCount="indefinite"/></circle>
+      <circle cx="107" cy="97" r="2.5" fill="#ffffff"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.1s" repeatCount="indefinite"/></circle>
+      <circle cx="154" cy="97" r="2.5" fill="#ffffff"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.2s" repeatCount="indefinite"/></circle>
+      <circle cx="200" cy="97" r="3" fill="#ffffff"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.15s" repeatCount="indefinite"/></circle>
+      <circle cx="246" cy="97" r="2.5" fill="#d0e4f0"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.25s" repeatCount="indefinite"/></circle>
+      <circle cx="293" cy="97" r="2.5" fill="#ffffff"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.08s" repeatCount="indefinite"/></circle>
+      <circle cx="340" cy="97" r="2.5" fill="#ff4444"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.5s" repeatCount="indefinite"/></circle>
+    </g>
+    <ellipse cx="60" cy="100" rx="18" ry="9" fill="#0c1824" stroke="#2a4868" stroke-width="0.8"/>
+    <ellipse cx="60" cy="100" rx="13" ry="6" fill="url(#msf-eng)" filter="url(#msf-glow)"/>
+    <ellipse cx="60" cy="100" rx="7" ry="3.5" fill="#80e8ff"/>
+    <ellipse cx="200" cy="104" rx="23" ry="11" fill="#0c1824" stroke="#2a4868" stroke-width="0.8"/>
+    <ellipse cx="200" cy="104" rx="17" ry="8" fill="url(#msf-eng)" filter="url(#msf-glow)"/>
+    <ellipse cx="200" cy="104" rx="9" ry="4" fill="#80e8ff"/>
+    <ellipse cx="340" cy="100" rx="18" ry="9" fill="#0c1824" stroke="#2a4868" stroke-width="0.8"/>
+    <ellipse cx="340" cy="100" rx="13" ry="6" fill="url(#msf-eng)" filter="url(#msf-glow)"/>
+    <ellipse cx="340" cy="100" rx="7" ry="3.5" fill="#80e8ff"/>
+    <line x1="200" y1="24" x2="200" y2="14" stroke="#607888" stroke-width="1.5"/>
+    <circle cx="200" cy="13" r="2.5" fill="#ffffff" filter="url(#msf-softglow)"><animate attributeName="opacity" values="1;0;1" dur="0.43s" repeatCount="indefinite"/></circle>
+    <circle cx="200" cy="13" r="7" fill="#ffffff" filter="url(#msf-softglow)"><animate attributeName="opacity" values="0.9;0;0.9" dur="0.43s" repeatCount="indefinite"/></circle>
+    <circle cx="200" cy="13" r="16" fill="#aaddff" filter="url(#msf-softglow)"><animate attributeName="opacity" values="0.6;0;0.6" dur="0.43s" repeatCount="indefinite"/></circle>
+  </svg>
 </div>
 <script>
 (function(){
@@ -208,24 +573,24 @@ for(let i=0;i<45;i++){const f=document.createElement('div');f.className='firefly
   }
   requestAnimationFrame(step);
 })();
-</script><div style="position:fixed; bottom:100px; left:50%; transform:translateX(-50%); z-index:22; pointer-events:none; width:340px;">
-<svg viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;overflow:visible;"><defs><radialGradient id="alien-body-g" cx="45%" cy="30%" r="60%"><stop offset="0%" stop-color="#dce0e4"/><stop offset="45%" stop-color="#9aa0a8"/><stop offset="100%" stop-color="#4a5058"/></radialGradient><radialGradient id="alien-neck-g" cx="40%" cy="30%" r="60%"><stop offset="0%" stop-color="#c8ccd0"/><stop offset="100%" stop-color="#7a8088"/></radialGradient></defs><g style="animation:alienSway 3.2s ease-in-out infinite;transform-origin:140px 160px;"><text x="140" y="118" text-anchor="middle" font-size="62" style="filter:drop-shadow(0 0 8px rgba(120,255,120,0.7));">👽</text><rect x="133" y="118" width="14" height="14" rx="4" fill="url(#alien-neck-g)"/><rect x="118" y="132" width="44" height="36" rx="8" fill="url(#alien-body-g)"/><path d="M118 138 L98 148" stroke="#9aa0a8" stroke-width="8" stroke-linecap="round" fill="none"/><path d="M98 148 L84 162" stroke="#7a8088" stroke-width="7" stroke-linecap="round" fill="none"/><circle cx="84" cy="163" r="5" fill="#9aa0a8"/><path d="M162 138 L182 148" stroke="#9aa0a8" stroke-width="8" stroke-linecap="round" fill="none"/><path d="M182 148 L196 162" stroke="#7a8088" stroke-width="7" stroke-linecap="round" fill="none"/><circle cx="196" cy="163" r="5" fill="#9aa0a8"/><path d="M128 168 L122 190" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/><path d="M122 190 L116 208" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/><ellipse cx="112" cy="210" rx="9" ry="5" fill="#7a8088"/><path d="M152 168 L158 190" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/><path d="M158 190 L164 208" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/><ellipse cx="168" cy="210" rx="9" ry="5" fill="#7a8088"/></g><g style="animation:blipSway 2.8s ease-in-out infinite alternate;transform-origin:340px 168px;"><text x="340" y="124" text-anchor="middle" font-size="72" style="filter:drop-shadow(0 0 10px rgba(120,255,120,0.8));">👽</text><rect x="333" y="124" width="16" height="16" rx="5" fill="url(#alien-neck-g)"/><rect x="314" y="140" width="52" height="42" rx="9" fill="url(#alien-body-g)"/><path d="M314 146 L292 150" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/><path d="M292 150 L272 158" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/><circle cx="272" cy="158" r="6" fill="#9aa0a8"/><path d="M366 146 L388 155" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/><path d="M388 155 L404 163" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/><circle cx="404" cy="163" r="6" fill="#9aa0a8"/><path d="M328 182 L320 206" stroke="#9aa0a8" stroke-width="10" stroke-linecap="round" fill="none"/><path d="M320 206 L313 226" stroke="#7a8088" stroke-width="9" stroke-linecap="round" fill="none"/><ellipse cx="309" cy="228" rx="10" ry="5" fill="#7a8088"/><path d="M352 182 L360 206" stroke="#9aa0a8" stroke-width="10" stroke-linecap="round" fill="none"/><path d="M360 206 L367 226" stroke="#7a8088" stroke-width="9" stroke-linecap="round" fill="none"/><ellipse cx="371" cy="228" rx="10" ry="5" fill="#7a8088"/><ellipse cx="345" cy="162" rx="20" ry="16" fill="#c47a2a"/><ellipse cx="345" cy="162" rx="20" ry="16" fill="none" stroke="#8B5E3C" stroke-width="1.5"/><ellipse cx="320" cy="160" rx="15" ry="12" fill="#c47a2a"/><ellipse cx="320" cy="160" rx="15" ry="12" fill="none" stroke="#8B5E3C" stroke-width="1.2"/><rect x="318" y="152" width="28" height="16" fill="#c47a2a"/><circle cx="338" cy="162" r="5" fill="#7a3d10"/><circle cx="338" cy="162" r="5" fill="none" stroke="#5a2d08" stroke-width="0.8"/><ellipse cx="348" cy="156" rx="5" ry="7" fill="rgba(255,220,150,0.18)"/><rect x="352" y="159" width="3" height="12" rx="1" fill="#5a3010"/><rect x="248" y="157" width="72" height="7" rx="3" fill="#8B5E3C"/><rect x="248" y="158" width="72" height="5" rx="2" fill="#a0723d"/><line x1="258" y1="157" x2="258" y2="164" stroke="#ccc" stroke-width="0.8"/><line x1="268" y1="157" x2="268" y2="164" stroke="#ccc" stroke-width="0.8"/><line x1="278" y1="157" x2="278" y2="164" stroke="#ccc" stroke-width="0.8"/><line x1="288" y1="157" x2="288" y2="164" stroke="#ccc" stroke-width="0.8"/><rect x="239" y="155" width="10" height="11" rx="3" fill="#6B3F1C"/><circle cx="241" cy="157" r="1.5" fill="#ccc"/><circle cx="241" cy="161" r="1.5" fill="#ccc"/><circle cx="245" cy="159" r="1.5" fill="#ccc"/><line x1="248" y1="159" x2="355" y2="159" stroke="rgba(200,200,200,0.6)" stroke-width="0.5"/><line x1="248" y1="160.5" x2="355" y2="160.5" stroke="rgba(200,200,200,0.55)" stroke-width="0.5"/><line x1="248" y1="162" x2="355" y2="162" stroke="rgba(200,200,200,0.5)" stroke-width="0.6"/><line x1="248" y1="163.5" x2="355" y2="163.5" stroke="rgba(200,200,200,0.5)" stroke-width="0.5"/><line x1="248" y1="165" x2="355" y2="165" stroke="rgba(200,200,200,0.45)" stroke-width="0.5"/><ellipse cx="404" cy="163" rx="5" ry="4" fill="#c0a878" style="animation:strumHand 0.4s ease-in-out infinite alternate;transform-origin:404px 163px;"/></g></g><g style="animation:alienSway 3.5s ease-in-out infinite alternate-reverse;transform-origin:540px 160px;"><text x="540" y="118" text-anchor="middle" font-size="62" style="transform:scaleX(-1);transform-origin:540px 90px;filter:drop-shadow(0 0 8px rgba(120,255,120,0.7));">👽</text><rect x="533" y="118" width="14" height="14" rx="4" fill="url(#alien-neck-g)"/><rect x="518" y="132" width="44" height="36" rx="8" fill="url(#alien-body-g)"/><path d="M518 138 L498 148" stroke="#9aa0a8" stroke-width="8" stroke-linecap="round" fill="none"/><path d="M498 148 L484 162" stroke="#7a8088" stroke-width="7" stroke-linecap="round" fill="none"/><circle cx="484" cy="163" r="5" fill="#9aa0a8"/><path d="M562 138 L582 148" stroke="#9aa0a8" stroke-width="8" stroke-linecap="round" fill="none"/><path d="M582 148 L596 162" stroke="#7a8088" stroke-width="7" stroke-linecap="round" fill="none"/><circle cx="596" cy="163" r="5" fill="#9aa0a8"/><path d="M528 168 L522 190" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/><path d="M522 190 L516 208" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/><ellipse cx="512" cy="210" rx="9" ry="5" fill="#7a8088"/><path d="M552 168 L558 190" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/><path d="M558 190 L564 208" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/><ellipse cx="568" cy="210" rx="9" ry="5" fill="#7a8088"/></g>
+</script><div style="position:fixed; bottom:100px; left:50%; transform:translateX(-50%); z-index:35; pointer-events:none; width:340px;">
+<svg viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;overflow:visible;"><defs><radialGradient id="alien-body-g" cx="45%" cy="30%" r="60%"><stop offset="0%" stop-color="#dce0e4"/><stop offset="45%" stop-color="#9aa0a8"/><stop offset="100%" stop-color="#4a5058"/></radialGradient><radialGradient id="alien-neck-g" cx="40%" cy="30%" r="60%"><stop offset="0%" stop-color="#c8ccd0"/><stop offset="100%" stop-color="#7a8088"/></radialGradient></defs><g style="animation:alienSway 3.2s ease-in-out infinite;transform-origin:140px 160px;"><text x="140" y="118" text-anchor="middle" font-size="62" style="filter:drop-shadow(0 0 8px rgba(120,255,120,0.7));">👽</text><rect x="133" y="118" width="14" height="14" rx="4" fill="url(#alien-neck-g)"/><rect x="118" y="132" width="44" height="36" rx="8" fill="url(#alien-body-g)"/><path d="M118 138 L98 148" stroke="#9aa0a8" stroke-width="8" stroke-linecap="round" fill="none"/><path d="M98 148 L84 162" stroke="#7a8088" stroke-width="7" stroke-linecap="round" fill="none"/><circle cx="84" cy="163" r="5" fill="#9aa0a8"/><path d="M162 138 L182 148" stroke="#9aa0a8" stroke-width="8" stroke-linecap="round" fill="none"/><path d="M182 148 L196 162" stroke="#7a8088" stroke-width="7" stroke-linecap="round" fill="none"/><circle cx="196" cy="163" r="5" fill="#9aa0a8"/><path d="M128 168 L122 190" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/><path d="M122 190 L116 208" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/><ellipse cx="112" cy="210" rx="9" ry="5" fill="#7a8088"/><path d="M152 168 L158 190" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/><path d="M158 190 L164 208" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/><ellipse cx="168" cy="210" rx="9" ry="5" fill="#7a8088"/></g><g style="animation:blipSway 2.8s ease-in-out infinite alternate;transform-origin:340px 168px;"><text x="340" y="124" text-anchor="middle" font-size="72" style="filter:drop-shadow(0 0 10px rgba(120,255,120,0.8));">👽</text><rect x="333" y="124" width="16" height="16" rx="5" fill="url(#alien-neck-g)"/><rect x="314" y="140" width="52" height="42" rx="9" fill="url(#alien-body-g)"/><path d="M314 146 L292 150" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/><path d="M292 150 L272 158" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/><circle cx="272" cy="158" r="6" fill="#9aa0a8"/><path d="M366 146 L388 155" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/><path d="M388 155 L404 163" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/><circle cx="404" cy="163" r="6" fill="#9aa0a8"/><path d="M328 182 L320 206" stroke="#9aa0a8" stroke-width="10" stroke-linecap="round" fill="none"/><path d="M320 206 L313 226" stroke="#7a8088" stroke-width="9" stroke-linecap="round" fill="none"/><ellipse cx="309" cy="228" rx="10" ry="5" fill="#7a8088"/><path d="M352 182 L360 206" stroke="#9aa0a8" stroke-width="10" stroke-linecap="round" fill="none"/><path d="M360 206 L367 226" stroke="#7a8088" stroke-width="9" stroke-linecap="round" fill="none"/><ellipse cx="371" cy="228" rx="10" ry="5" fill="#7a8088"/><g transform="translate(300,161) scale(1.6) translate(-300,-161)"><ellipse cx="345" cy="162" rx="20" ry="16" fill="#c47a2a"/><ellipse cx="345" cy="162" rx="20" ry="16" fill="none" stroke="#8B5E3C" stroke-width="1.5"/><ellipse cx="320" cy="160" rx="15" ry="12" fill="#c47a2a"/><ellipse cx="320" cy="160" rx="15" ry="12" fill="none" stroke="#8B5E3C" stroke-width="1.2"/><rect x="318" y="152" width="28" height="16" fill="#c47a2a"/><circle cx="338" cy="162" r="5" fill="#7a3d10"/><circle cx="338" cy="162" r="5" fill="none" stroke="#5a2d08" stroke-width="0.8"/><ellipse cx="348" cy="156" rx="5" ry="7" fill="rgba(255,220,150,0.18)"/><rect x="352" y="159" width="3" height="12" rx="1" fill="#5a3010"/><rect x="248" y="157" width="72" height="7" rx="3" fill="#8B5E3C"/><rect x="248" y="158" width="72" height="5" rx="2" fill="#a0723d"/><line x1="258" y1="157" x2="258" y2="164" stroke="#ccc" stroke-width="0.8"/><line x1="268" y1="157" x2="268" y2="164" stroke="#ccc" stroke-width="0.8"/><line x1="278" y1="157" x2="278" y2="164" stroke="#ccc" stroke-width="0.8"/><line x1="288" y1="157" x2="288" y2="164" stroke="#ccc" stroke-width="0.8"/><rect x="239" y="155" width="10" height="11" rx="3" fill="#6B3F1C"/><circle cx="241" cy="157" r="1.5" fill="#ccc"/><circle cx="241" cy="161" r="1.5" fill="#ccc"/><circle cx="245" cy="159" r="1.5" fill="#ccc"/><line x1="248" y1="159" x2="355" y2="159" stroke="rgba(200,200,200,0.6)" stroke-width="0.5"/><line x1="248" y1="160.5" x2="355" y2="160.5" stroke="rgba(200,200,200,0.55)" stroke-width="0.5"/><line x1="248" y1="162" x2="355" y2="162" stroke="rgba(200,200,200,0.5)" stroke-width="0.6"/><line x1="248" y1="163.5" x2="355" y2="163.5" stroke="rgba(200,200,200,0.5)" stroke-width="0.5"/><line x1="248" y1="165" x2="355" y2="165" stroke="rgba(200,200,200,0.45)" stroke-width="0.5"/><ellipse cx="404" cy="163" rx="5" ry="4" fill="#c0a878" style="animation:strumHand 0.4s ease-in-out infinite alternate;transform-origin:404px 163px;"/></g></g><g style="animation:alienSway 3.5s ease-in-out infinite alternate-reverse;transform-origin:540px 160px;"><text x="540" y="118" text-anchor="middle" font-size="62" style="transform:scaleX(-1);transform-origin:540px 90px;filter:drop-shadow(0 0 8px rgba(120,255,120,0.7));">👽</text><rect x="533" y="118" width="14" height="14" rx="4" fill="url(#alien-neck-g)"/><rect x="518" y="132" width="44" height="36" rx="8" fill="url(#alien-body-g)"/><path d="M518 138 L498 148" stroke="#9aa0a8" stroke-width="8" stroke-linecap="round" fill="none"/><path d="M498 148 L484 162" stroke="#7a8088" stroke-width="7" stroke-linecap="round" fill="none"/><circle cx="484" cy="163" r="5" fill="#9aa0a8"/><path d="M562 138 L582 148" stroke="#9aa0a8" stroke-width="8" stroke-linecap="round" fill="none"/><path d="M582 148 L596 162" stroke="#7a8088" stroke-width="7" stroke-linecap="round" fill="none"/><circle cx="596" cy="163" r="5" fill="#9aa0a8"/><path d="M528 168 L522 190" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/><path d="M522 190 L516 208" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/><ellipse cx="512" cy="210" rx="9" ry="5" fill="#7a8088"/><path d="M552 168 L558 190" stroke="#9aa0a8" stroke-width="9" stroke-linecap="round" fill="none"/><path d="M558 190 L564 208" stroke="#7a8088" stroke-width="8" stroke-linecap="round" fill="none"/><ellipse cx="568" cy="210" rx="9" ry="5" fill="#7a8088"/></g>
 </svg>
 </div>
 <style>@keyframes alienSway{0%,100%{transform:rotate(-4deg);}50%{transform:rotate(4deg);}}
-@keyframes blipSway{0%,100%{transform:scaleX(-1) rotate(-4deg);}50%{transform:scaleX(-1) rotate(4deg);}}@keyframes guitarSway{0%,100%{transform:rotate(-3deg);}50%{transform:rotate(3deg);}}@keyframes strumHand{0%{transform:translateY(-4px) rotate(-10deg);}100%{transform:translateY(4px) rotate(10deg);}}</style><div style="position:fixed; bottom:95px; left:calc(50% - 200px); z-index:22; pointer-events:none; animation:robotBob 2s ease-in-out infinite;">
+@keyframes blipSway{0%,100%{transform:scaleX(-1) rotate(-4deg);}50%{transform:scaleX(-1) rotate(4deg);}}@keyframes guitarSway{0%,100%{transform:rotate(-3deg);}50%{transform:rotate(3deg);}}@keyframes strumHand{0%{transform:translateY(-4px) rotate(-10deg);}100%{transform:translateY(4px) rotate(10deg);}}</style><div style="position:fixed; bottom:95px; left:calc(50% - 200px); z-index:35; pointer-events:none; animation:robotBob 2s ease-in-out infinite;">
 <svg viewBox="0 0 56 120" width="25" height="54" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="rb-g" cx="40%" cy="30%" r="60%"><stop offset="0%" stop-color="#e0e8f0"/><stop offset="50%" stop-color="#90a0b0"/><stop offset="100%" stop-color="#405060"/></radialGradient></defs><rect x="26" y="0" width="3" height="12" fill="#708090" rx="1"/><circle cx="27" cy="0" r="4" fill="#ff4444" style="animation:ufoFlash 1s ease-in-out infinite;"/><rect x="6" y="12" width="44" height="30" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="1"/><rect x="11" y="19" width="10" height="8" rx="2" fill="#00eeff" opacity="0.9" style="animation:robotBlink 3s infinite;"/><rect x="35" y="19" width="10" height="8" rx="2" fill="#00eeff" opacity="0.9" style="animation:robotBlink 3s infinite .15s;"/><rect x="15" y="32" width="24" height="4" rx="1" fill="#304050"/><rect x="17" y="32" width="4" height="4" fill="#00eeff" opacity="0.5"/><rect x="24" y="32" width="4" height="4" fill="#00eeff" opacity="0.5"/><rect x="31" y="32" width="4" height="4" fill="#00eeff" opacity="0.5"/><rect x="21" y="42" width="12" height="7" rx="2" fill="#607080"/><rect x="2" y="49" width="52" height="38" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="1"/><circle cx="17" cy="63" r="4" fill="#ff8800" style="animation:ufoFlash .7s infinite .1s;"/><circle cx="28" cy="63" r="4" fill="#00ccff" style="animation:ufoFlash .7s infinite .3s;"/><circle cx="39" cy="63" r="4" fill="#88ff00" style="animation:ufoFlash .7s infinite .5s;"/><rect x="14" y="73" width="28" height="5" rx="2" fill="#304050"/><rect x="-10" y="51" width="12" height="28" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8"/><rect x="54" y="51" width="12" height="28" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8"/><rect x="10" y="87" width="13" height="24" rx="4" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8" style="animation:robotLegL 2s ease-in-out infinite;transform-origin:16px 87px;"/><rect x="33" y="87" width="13" height="24" rx="4" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8" style="animation:robotLegR 2s ease-in-out infinite;transform-origin:39px 87px;"/><rect x="7" y="109" width="18" height="7" rx="3" fill="#405060"/><rect x="30" y="109" width="18" height="7" rx="3" fill="#405060"/>
 </svg>
-</div><div style="position:fixed; bottom:95px; left:calc(50% + 145px); z-index:22; pointer-events:none; animation:robotBob 2.2s ease-in-out infinite .4s;">
+</div><div style="position:fixed; bottom:95px; left:calc(50% + 145px); z-index:35; pointer-events:none; animation:robotBob 2.2s ease-in-out infinite .4s;">
 <svg viewBox="0 0 56 120" width="25" height="54" xmlns="http://www.w3.org/2000/svg"><rect x="26" y="0" width="3" height="12" fill="#708090" rx="1"/><circle cx="27" cy="0" r="4" fill="#ff4444" style="animation:ufoFlash 1.2s ease-in-out infinite;"/><rect x="6" y="12" width="44" height="30" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="1"/><rect x="11" y="19" width="10" height="8" rx="2" fill="#00eeff" opacity="0.9" style="animation:robotBlink 3s infinite .3s;"/><rect x="35" y="19" width="10" height="8" rx="2" fill="#00eeff" opacity="0.9" style="animation:robotBlink 3s infinite .45s;"/><rect x="15" y="32" width="24" height="4" rx="1" fill="#304050"/><rect x="17" y="32" width="4" height="4" fill="#00eeff" opacity="0.5"/><rect x="24" y="32" width="4" height="4" fill="#00eeff" opacity="0.5"/><rect x="31" y="32" width="4" height="4" fill="#00eeff" opacity="0.5"/><rect x="21" y="42" width="12" height="7" rx="2" fill="#607080"/><rect x="2" y="49" width="52" height="38" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="1"/><circle cx="17" cy="63" r="4" fill="#ff8800" style="animation:ufoFlash .8s infinite .2s;"/><circle cx="28" cy="63" r="4" fill="#00ccff" style="animation:ufoFlash .8s infinite .4s;"/><circle cx="39" cy="63" r="4" fill="#88ff00" style="animation:ufoFlash .8s infinite .6s;"/><rect x="14" y="73" width="28" height="5" rx="2" fill="#304050"/><rect x="-10" y="51" width="12" height="28" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8"/><rect x="54" y="51" width="12" height="28" rx="5" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8"/><rect x="10" y="87" width="13" height="24" rx="4" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8" style="animation:robotLegR 2.2s ease-in-out infinite;transform-origin:16px 87px;"/><rect x="33" y="87" width="13" height="24" rx="4" fill="url(#rb-g)" stroke="#506070" stroke-width="0.8" style="animation:robotLegL 2.2s ease-in-out infinite;transform-origin:39px 87px;"/><rect x="7" y="109" width="18" height="7" rx="3" fill="#405060"/><rect x="30" y="109" width="18" height="7" rx="3" fill="#405060"/>
 </svg>
 </div>
-<style>@keyframes robotBob{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}@keyframes robotBlink{0%,90%,100%{opacity:1;}95%{opacity:0;}}@keyframes robotLegL{0%,100%{transform:rotate(-8deg);}50%{transform:rotate(8deg);}}@keyframes robotLegR{0%,100%{transform:rotate(8deg);}50%{transform:rotate(-8deg);}}</style><svg id="tractor-beam" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:15;" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="beam-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(140,255,180,0)"/><stop offset="25%" stop-color="rgba(140,255,180,0.06)"/><stop offset="100%" stop-color="rgba(140,255,180,0.28)"/></linearGradient><radialGradient id="funnel-grad" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(140,255,180,0.22)"/><stop offset="100%" stop-color="rgba(140,255,180,0.05)"/></radialGradient></defs><path id="beam-path" fill="url(#beam-grad)"/><ellipse id="beam-funnel" fill="url(#funnel-grad)" stroke="rgba(140,255,180,0.35)" stroke-width="1.5"/>
+<style>@keyframes robotBob{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}@keyframes robotBlink{0%,90%,100%{opacity:1;}95%{opacity:0;}}@keyframes robotLegL{0%,100%{transform:rotate(-8deg);}50%{transform:rotate(8deg);}}@keyframes robotLegR{0%,100%{transform:rotate(8deg);}50%{transform:rotate(-8deg);}}</style><svg id="tractor-beam" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:30;" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="beam-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(140,255,180,0)"/><stop offset="25%" stop-color="rgba(140,255,180,0.06)"/><stop offset="100%" stop-color="rgba(140,255,180,0.28)"/></linearGradient><radialGradient id="funnel-grad" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(140,255,180,0.22)"/><stop offset="100%" stop-color="rgba(140,255,180,0.05)"/></radialGradient></defs><path id="beam-path" fill="url(#beam-grad)"/><ellipse id="beam-funnel" fill="url(#funnel-grad)" stroke="rgba(140,255,180,0.35)" stroke-width="1.5"/>
 </svg>
 <script>
 (function(){
   function positionBeam(){
-    var ms = document.querySelector('[style*="bottom:420px"]');
+    var ms = document.querySelector('[style*="bottom:324px"]');
     if(!ms) return;
     var msR = ms.getBoundingClientRect();
     var tipX = msR.left + msR.width / 2;
@@ -252,6 +617,71 @@ for(let i=0;i<45;i++){const f=document.createElement('div');f.className='firefly
   if(document.readyState === 'complete') { positionBeam(); }
   else { window.addEventListener('load', positionBeam); }
   setTimeout(positionBeam, 300);
+})();
+</script>
+
+<script>
+// ── Tractor beam fires when flyby1 mothership is parked over aliens ──
+(function(){
+  var CYCLE = 22000; // ms, matches flyby1 animation-duration
+  // beam is "on" from 86%–96% of cycle (ship at full size, centered)
+  var BEAM_ON  = 0.86;
+  var BEAM_OFF = 0.96;
+
+  var beamPath   = document.getElementById('beam-path');
+  var beamFunnel = document.getElementById('beam-funnel');
+  var beamSvg    = document.getElementById('tractor-beam');
+  var flyby1     = document.getElementById('ms-flyby1');
+
+  function updateBeam(ts) {
+    var phase = (ts % CYCLE) / CYCLE;
+    var active = (phase >= BEAM_ON && phase < BEAM_OFF);
+
+    if (!active) {
+      beamPath.setAttribute('d', '');
+      beamFunnel.setAttribute('rx', '0');
+      requestAnimationFrame(updateBeam);
+      return;
+    }
+
+    // Fade: ramp in over first 30% of window, ramp out over last 30%
+    var window_len = BEAM_OFF - BEAM_ON;
+    var within = (phase - BEAM_ON) / window_len;
+    var alpha = within < 0.3 ? within/0.3 : within > 0.7 ? (1-within)/0.3 : 1;
+    alpha = Math.min(1, Math.max(0, alpha));
+
+    // Ship is centered (translateX(-50%), left:50%) when active
+    var vw = window.innerWidth;
+    var vh = window.innerHeight;
+    var tipX = vw / 2;
+
+    // Ship bottom: at peak it's at ~28vh from bottom = 72vh from top
+    var tipY = vh * 0.72;
+    var botY = vh - 130;
+    var halfW = vw * 0.13 * alpha;
+    var ry = 20;
+    var leftX  = tipX - halfW;
+    var rightX = tipX + halfW;
+
+    var path = 'M '+tipX+','+tipY+
+               ' Q '+(tipX - halfW*0.3)+','+((tipY+botY)/2)+' '+leftX+','+(botY-ry)+
+               ' A '+halfW+' '+ry+' 0 0 0 '+rightX+','+(botY-ry)+
+               ' Q '+(tipX + halfW*0.3)+','+((tipY+botY)/2)+' '+tipX+','+tipY+' Z';
+
+    beamPath.setAttribute('d', path);
+    beamPath.setAttribute('fill-opacity', (alpha * 0.55).toFixed(2));
+    beamFunnel.setAttribute('cx', tipX);
+    beamFunnel.setAttribute('cy', botY);
+    beamFunnel.setAttribute('rx', halfW);
+    beamFunnel.setAttribute('ry', ry);
+    beamFunnel.setAttribute('fill-opacity', (alpha * 0.4).toFixed(2));
+    beamFunnel.setAttribute('stroke-opacity', (alpha * 0.6).toFixed(2));
+
+    requestAnimationFrame(updateBeam);
+  }
+
+  // Sync to the CSS animation start time (it fires immediately on load)
+  requestAnimationFrame(updateBeam);
 })();
 </script>
 
@@ -332,29 +762,80 @@ for(let i=0;i<45;i++){const f=document.createElement('div');f.className='firefly
 <div id="ms-topdrift" style="position:fixed; top:18px; z-index:25; pointer-events:none; opacity:1;">
   <svg viewBox="0 0 400 120" width="200" height="60" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <radialGradient id="mst-hull" cx="50%" cy="35%" r="60%">
-        <stop offset="0%" stop-color="#8090a0"/>
-        <stop offset="50%" stop-color="#405060"/>
-        <stop offset="100%" stop-color="#1a2530"/>
+      <radialGradient id="mst-hull" cx="50%" cy="30%" r="65%">
+        <stop offset="0%" stop-color="#b0c4d8"/><stop offset="30%" stop-color="#7090a8"/><stop offset="65%" stop-color="#3a5468"/><stop offset="100%" stop-color="#0e1c28"/>
       </radialGradient>
-      <radialGradient id="mst-belly" cx="50%" cy="80%" r="50%">
-        <stop offset="0%" stop-color="#304050"/>
-        <stop offset="100%" stop-color="#0a1520"/>
+      <radialGradient id="mst-dome" cx="42%" cy="28%" r="60%">
+        <stop offset="0%" stop-color="#d8eef8"/><stop offset="35%" stop-color="#80b8d8"/><stop offset="70%" stop-color="#3870a0"/><stop offset="100%" stop-color="#1a3a58"/>
       </radialGradient>
-      <filter id="mst-glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <radialGradient id="mst-belly" cx="50%" cy="20%" r="70%">
+        <stop offset="0%" stop-color="#304858"/><stop offset="100%" stop-color="#080e18"/>
+      </radialGradient>
+      <radialGradient id="mst-eng" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#ffffff"/><stop offset="30%" stop-color="#80e8ff"/><stop offset="70%" stop-color="#0060a0"/><stop offset="100%" stop-color="#001830"/>
+      </radialGradient>
+      <filter id="mst-glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <filter id="mst-softglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <filter id="mst-engblur"><feGaussianBlur stdDeviation="3"/></filter>
+      <clipPath id="mst-hullclip"><ellipse cx="200" cy="72" rx="194" ry="36"/></clipPath>
     </defs>
-    <ellipse cx="200" cy="55" rx="195" ry="38" fill="url(#mst-hull)" stroke="rgba(100,160,200,0.3)" stroke-width="1"/>
-    <ellipse cx="200" cy="38" rx="90" ry="28" fill="#506070"/>
-    <ellipse cx="200" cy="32" rx="70" ry="18" fill="#607888"/>
-    <ellipse cx="200" cy="58" rx="195" ry="12" fill="url(#mst-belly)"/>
-    <circle cx="110" cy="68" r="4" fill="#ff4466" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0s" repeatCount="indefinite"/></circle>
-    <circle cx="145" cy="72" r="4" fill="#00ccff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.15s" repeatCount="indefinite"/></circle>
-    <circle cx="180" cy="74" r="5" fill="#ffee00" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.3s" repeatCount="indefinite"/></circle>
-    <circle cx="200" cy="75" r="5" fill="#ffffff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.1s" repeatCount="indefinite"/></circle>
-    <circle cx="220" cy="74" r="5" fill="#88ff00" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.45s" repeatCount="indefinite"/></circle>
-    <circle cx="255" cy="72" r="4" fill="#ff80ff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.6s" repeatCount="indefinite"/></circle>
-    <circle cx="290" cy="68" r="4" fill="#00ffcc" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.75s" repeatCount="indefinite"/></circle>
-    <ellipse cx="200" cy="80" rx="80" ry="12" fill="rgba(120,200,255,0.12)" filter="url(#mst-glow)"/>
+    <ellipse cx="60" cy="102" rx="19" ry="11" fill="#0050aa" filter="url(#mst-engblur)"/>
+    <ellipse cx="200" cy="106" rx="25" ry="14" fill="#0040a0" filter="url(#mst-engblur)"/>
+    <ellipse cx="340" cy="102" rx="19" ry="11" fill="#0050aa" filter="url(#mst-engblur)"/>
+    <ellipse cx="200" cy="72" rx="194" ry="36" fill="url(#mst-hull)" stroke="#4a7090" stroke-width="1"/>
+    <g clip-path="url(#mst-hullclip)" stroke="#6a9ab8" stroke-width="0.5" fill="none">
+      <ellipse cx="200" cy="72" rx="150" ry="27"/>
+      <ellipse cx="200" cy="72" rx="105" ry="20"/>
+      <ellipse cx="200" cy="72" rx="60" ry="12"/>
+      <line x1="50" y1="72" x2="350" y2="72"/>
+    </g>
+    <ellipse cx="200" cy="92" rx="190" ry="28" fill="url(#mst-belly)"/>
+    <ellipse cx="200" cy="58" rx="82" ry="22" fill="#283848" stroke="#3a5870" stroke-width="0.8"/>
+    <ellipse cx="200" cy="50" rx="70" ry="26" fill="url(#mst-dome)" stroke="#2a4060" stroke-width="0.8"/>
+    <ellipse cx="210" cy="51" rx="62" ry="26" fill="#0a1e30" stroke="#4a7898" stroke-width="1.2"/>
+    <ellipse cx="210" cy="51" rx="58" ry="22" fill="#0d2a42" stroke="#3a6080" stroke-width="0.7"/>
+    <ellipse cx="210" cy="51" rx="58" ry="22" fill="#1a4060"><animate attributeName="opacity" values="1;0;1" dur="0.43s" repeatCount="indefinite"/></ellipse>
+    <ellipse cx="194" cy="41" rx="19" ry="6" fill="#4a90b8"/>
+    <ellipse cx="210" cy="59" rx="8" ry="6" fill="#5a8030"/>
+    <rect x="206" y="48" width="7" height="9" rx="2.5" fill="#4a7028"/>
+    <ellipse cx="200" cy="50" rx="70" ry="26" fill="#c8eeff" filter="url(#mst-softglow)"><animate attributeName="opacity" values="1;0;1" dur="0.43s" repeatCount="indefinite"/></ellipse>
+    <g transform="translate(210,34) scale(1.7) translate(-210,-34)">
+    <polygon points="210,14 192,40 228,40" fill="#6aaa38"/>
+    <polygon points="210,14 210,40 228,40" fill="#5a9030"/>
+    <ellipse cx="197" cy="33" rx="8" ry="9" fill="#1a2a08" stroke="#3a5818" stroke-width="0.7"/>
+    <ellipse cx="221" cy="33" rx="8" ry="9" fill="#1a2a08" stroke="#3a5818" stroke-width="0.7"/>
+    <circle cx="195" cy="28" r="3" fill="#2a4a10"/>
+    <circle cx="219" cy="28" r="3" fill="#2a4a10"/>
+    <circle cx="194" cy="27" r="1.5" fill="#88cc44"/>
+    <circle cx="218" cy="27" r="1.5" fill="#88cc44"/>
+    <line x1="203" y1="17" x2="183" y2="-4" stroke="#8aaa40" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="217" y1="17" x2="237" y2="-4" stroke="#8aaa40" stroke-width="1.2" stroke-linecap="round"/>
+    </g>
+    <ellipse cx="24" cy="72" rx="17" ry="8" fill="#c8eeff" filter="url(#mst-softglow)"><animate attributeName="opacity" values="1;0;1" dur="0.43s" repeatCount="indefinite"/></ellipse>
+    <ellipse cx="376" cy="72" rx="17" ry="8" fill="#c8eeff" filter="url(#mst-softglow)"><animate attributeName="opacity" values="1;0;1" dur="0.43s" repeatCount="indefinite"/></ellipse>
+    <g>
+      <rect x="45" y="96" width="310" height="3" rx="1" fill="#1a3050"/>
+      <circle cx="60" cy="97" r="2.5" fill="#ff4444"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0s" repeatCount="indefinite"/></circle>
+      <circle cx="107" cy="97" r="2.5" fill="#ffffff"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.1s" repeatCount="indefinite"/></circle>
+      <circle cx="154" cy="97" r="2.5" fill="#ffffff"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.2s" repeatCount="indefinite"/></circle>
+      <circle cx="200" cy="97" r="3" fill="#ffffff"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.15s" repeatCount="indefinite"/></circle>
+      <circle cx="246" cy="97" r="2.5" fill="#d0e4f0"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.25s" repeatCount="indefinite"/></circle>
+      <circle cx="293" cy="97" r="2.5" fill="#ffffff"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.08s" repeatCount="indefinite"/></circle>
+      <circle cx="340" cy="97" r="2.5" fill="#ff4444"><animate attributeName="opacity" values="1;0.1;1" dur="0.6s" begin="0.5s" repeatCount="indefinite"/></circle>
+    </g>
+    <ellipse cx="60" cy="100" rx="18" ry="9" fill="#0c1824" stroke="#2a4868" stroke-width="0.8"/>
+    <ellipse cx="60" cy="100" rx="13" ry="6" fill="url(#mst-eng)" filter="url(#mst-glow)"/>
+    <ellipse cx="60" cy="100" rx="7" ry="3.5" fill="#80e8ff"/>
+    <ellipse cx="200" cy="104" rx="23" ry="11" fill="#0c1824" stroke="#2a4868" stroke-width="0.8"/>
+    <ellipse cx="200" cy="104" rx="17" ry="8" fill="url(#mst-eng)" filter="url(#mst-glow)"/>
+    <ellipse cx="200" cy="104" rx="9" ry="4" fill="#80e8ff"/>
+    <ellipse cx="340" cy="100" rx="18" ry="9" fill="#0c1824" stroke="#2a4868" stroke-width="0.8"/>
+    <ellipse cx="340" cy="100" rx="13" ry="6" fill="url(#mst-eng)" filter="url(#mst-glow)"/>
+    <ellipse cx="340" cy="100" rx="7" ry="3.5" fill="#80e8ff"/>
+    <line x1="200" y1="24" x2="200" y2="14" stroke="#607888" stroke-width="1.5"/>
+    <circle cx="200" cy="13" r="2.5" fill="#ffffff" filter="url(#mst-softglow)"><animate attributeName="opacity" values="1;0;1" dur="0.43s" repeatCount="indefinite"/></circle>
+    <circle cx="200" cy="13" r="7" fill="#ffffff" filter="url(#mst-softglow)"><animate attributeName="opacity" values="0.9;0;0.9" dur="0.43s" repeatCount="indefinite"/></circle>
+    <circle cx="200" cy="13" r="16" fill="#aaddff" filter="url(#mst-softglow)"><animate attributeName="opacity" values="0.6;0;0.6" dur="0.43s" repeatCount="indefinite"/></circle>
   </svg>
 </div>
 <script>
