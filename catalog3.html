@@ -227,7 +227,7 @@ to { transform: rotate(360deg); } }
   #drag-squirrel, #drag-squirrel2, #bongo, #drag-keyboard, #drag-eagle1, #drag-eagle2, #drag-light-red, #drag-light-blue, #drag-light-green, #drag-light-yellow, #drag-disco, #drag-raccoon, #drag-mic, #drag-bird, #drag-rabbit, #drag-bear, #drag-flash, .moon, .bird, .cloud { display: none !important; }
   .campfire { transform: scale(0.7); }
   .content { padding-top: 30vh; }
-  .song-title { font-size: 1.15rem; }
+  .song-title { font-size: .75rem; }
   .btn { padding: 12px 18px; font-size: .8rem; }
   .title-main { font-size: clamp(2rem, 10vw, 3.5rem); }
   .title-site { font-size: clamp(.9rem, 4vw, 1.3rem); }
@@ -1045,7 +1045,7 @@ songs.forEach((s,i) => {
     <div class="track-num">${i+1}</div>
     <div class="song-info">
       <div class="song-title">${s.title}</div>
-      <div class="song-duration">⏱ ${s.duration} &nbsp;·&nbsp; ${s.genre}</div>
+
       <audio id="audio-${i}" src="${BASE}${s.mp3}" preload="none"></audio>
     </div>
     <div class="song-btns">

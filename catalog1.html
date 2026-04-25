@@ -662,7 +662,7 @@ body {
   .title-main { font-size: clamp(2rem, 10vw, 3.5rem); }
   .title-site { font-size: clamp(.9rem, 4vw, 1.3rem); }
   .panel { border-radius: 18px; padding: 16px 12px; width: 98vw; }
-  .song-title { font-size: 1.15rem; }
+  .song-title { font-size: .75rem; }
   .track-num { font-size: 1.1rem; min-width: 24px; }
 }
 </style>
@@ -1260,7 +1260,7 @@ songs.forEach((s,i) => {
     <div class="track-num">${i+1}</div>
     <div class="song-info">
       <div class="song-title">${s.title}</div>
-      <div class="song-duration">⏱ ${s.duration} &nbsp;·&nbsp; ${s.genre}</div>
+
       <audio id="audio-${i}" src="${BASE}${s.mp3}" preload="none"></audio>
     </div>
     <div class="song-btns">
