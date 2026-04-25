@@ -504,7 +504,7 @@ body {
   font-size:.72rem;
   color:#ffffff;
   text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 0 2px 8px rgba(0,0,0,.9);
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  white-space:normal;
   font-weight:700;
 }
 .song-duration{font-size:.7rem;color:rgba(100,190,80,.65);letter-spacing:1.5px;margin-top:2px;text-transform:uppercase;}
@@ -1591,11 +1591,11 @@ document.addEventListener('visibilitychange', function() {
 })();
 </script>
 
-<div style="position:fixed;bottom:0;left:0;width:100%;z-index:9999;display:flex;justify-content:center;gap:10px;padding:10px 0;background:rgba(0,0,0,0.75);backdrop-filter:blur(4px);">
-  <a href="index.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:1rem;padding:10px 22px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:1px;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);">&#127925; Page 1</button></a>
-  <a href="catalog1.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:1rem;padding:10px 22px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:1px;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);">&#127925; Page 2</button></a>
-  <a href="catalog2.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:1rem;padding:10px 22px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:1px;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);">&#127925; Page 3</button></a>
-  <a href="catalog3.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:1rem;padding:10px 22px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:1px;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);">&#127925; Page 4</button></a>
+<div style="position:fixed;bottom:0;left:0;width:100%;z-index:9999;display:flex;justify-content:center;align-items:center;flex-wrap:nowrap;gap:6px;padding:8px 4px;background:rgba(0,0,0,0.75);backdrop-filter:blur(4px);box-sizing:border-box;">
+  <a href="index.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:clamp(.6rem,.9rem,1rem);padding:8px 10px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:1px;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);white-space:nowrap;">&#127925; Page 1</button></a>
+  <a href="catalog1.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:clamp(.6rem,.9rem,1rem);padding:8px 10px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:1px;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);white-space:nowrap;">&#127925; Page 2</button></a>
+  <a href="catalog2.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:clamp(.6rem,.9rem,1rem);padding:8px 10px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:1px;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);white-space:nowrap;">&#127925; Page 3</button></a>
+  <a href="catalog3.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:clamp(.6rem,.9rem,1rem);padding:8px 10px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:1px;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);white-space:nowrap;">&#127925; Page 4</button></a>
 </div>
 <style>
 body::before, body::after {
