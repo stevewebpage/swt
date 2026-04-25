@@ -1406,7 +1406,7 @@ document.head.appendChild(style);
 // Cleanup
 document.addEventListener('visibilitychange', function() {
   if (document.visibilityState === 'hidden') {
-    document.querySelectorAll('audio').forEach(a => { a.pause(); a.src = ''; });
+    document.querySelectorAll('audio').forEach(a => { a.pause(); });
   }
 });
 </script>

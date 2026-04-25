@@ -1067,14 +1067,14 @@ for(let i=0;i<14;i++){
 }
 
 document.addEventListener('visibilitychange', function() {
-  if (document.visibilityState === 'hidden') { document.querySelectorAll('audio').forEach(a => { a.pause(); a.src = ''; }); }
+  if (document.visibilityState === 'hidden') { document.querySelectorAll('audio').forEach(a => { a.pause(); }); }
 });
 window.addEventListener('pagehide', function() {
-  document.querySelectorAll('audio').forEach(a => { a.pause(); a.src = ''; });
+  document.querySelectorAll('audio').forEach(a => { a.pause(); });
   document.querySelectorAll('.firefly, .leaf, .cloud').forEach(el => el.remove());
 });
 document.querySelectorAll('a[href]').forEach(link => {
-  link.addEventListener('click', function() { document.querySelectorAll('audio').forEach(a => { a.pause(); a.src = ''; }); });
+  link.addEventListener('click', function() { document.querySelectorAll('audio').forEach(a => { a.pause(); }); });
 });
 </script>
 
