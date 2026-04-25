@@ -216,7 +216,7 @@ body {
   #drag-squirrel, #drag-squirrel2, #bongo, #drag-keyboard, #drag-eagle1, #drag-eagle2, #drag-light-red, #drag-light-blue, #drag-light-green, #drag-light-yellow, #drag-disco, #drag-raccoon, #drag-mic, #drag-bird, #drag-rabbit, #drag-bear, #drag-flash, .moon, .bird, .cloud { display: none !important; }
   .campfire { transform: scale(0.7); }
   .content { padding-top: 30vh; }
-  .song-title { font-size: .75rem; }
+  .song-title { font-size: .72rem; padding: 8px 0; line-height: 1; }
   .btn { padding: 12px 18px; font-size: .8rem; }
   .title-main { font-size: clamp(2rem, 10vw, 3.5rem); }
   .title-site { font-size: clamp(.9rem, 4vw, 1.3rem); }
@@ -1083,7 +1083,7 @@ document.querySelectorAll('a[href]').forEach(link => {
 @keyframes mothershipDrift{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
 @keyframes alienBop{0%,100%{transform:translateY(0);}50%{transform:translateY(-2px);}}
 </style>
-<div style="position:fixed;bottom:180px;left:20px;z-index:22;pointer-events:none;opacity:0.85;animation:mothershipDrift 8s ease-in-out infinite;">
+<div style="position:fixed;bottom:180px;left:20px;z-index:22;pointer-events:none;opacity:1;animation:mothershipDrift 8s ease-in-out infinite;">
   <svg viewBox="0 0 400 120" width="440" height="132" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <radialGradient id="ms-hull" cx="50%" cy="35%" r="60%">
