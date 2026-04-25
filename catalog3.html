@@ -1394,10 +1394,105 @@ document.querySelectorAll('a[href]').forEach(link => {
 })();
 </script>
 <div style="position:fixed;bottom:0;left:0;width:100%;z-index:9999;display:flex;justify-content:center;gap:10px;padding:10px 0;background:rgba(0,0,0,0.75);backdrop-filter:blur(4px);">
-  <a href="index.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:1rem;padding:10px 22px;background:#1a3a1a;color:#ffe066;border:2px solid #ffe066;border-radius:8px;cursor:pointer;letter-spacing:1px;">&#127925; Page 1</button></a>
-  <a href="catalog1.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:1rem;padding:10px 22px;background:#1a3a1a;color:#ffe066;border:2px solid #ffe066;border-radius:8px;cursor:pointer;letter-spacing:1px;">&#127925; Page 2</button></a>
-  <a href="catalog2.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:1rem;padding:10px 22px;background:#1a3a1a;color:#ffe066;border:2px solid #ffe066;border-radius:8px;cursor:pointer;letter-spacing:1px;">&#127925; Page 3</button></a>
-  <a href="catalog3.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:1rem;padding:10px 22px;background:#1a3a1a;color:#ffe066;border:2px solid #ffe066;border-radius:8px;cursor:pointer;letter-spacing:1px;">&#127925; Page 4</button></a>
+  <a href="index.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:1rem;padding:10px 22px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:1px;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);">&#127925; Page 1</button></a>
+  <a href="catalog1.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:1rem;padding:10px 22px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:1px;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);">&#127925; Page 2</button></a>
+  <a href="catalog2.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:1rem;padding:10px 22px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:1px;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);">&#127925; Page 3</button></a>
+  <a href="catalog3.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:1rem;padding:10px 22px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:1px;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);">&#127925; Page 4</button></a>
 </div>
+<style>
+body::before, body::after {
+  content:'';
+  position:fixed;
+  z-index:99998;
+  pointer-events:none;
+}
+body::before {
+  top:0;left:0;right:0;bottom:0;
+  border:6px solid transparent;
+  border-image: linear-gradient(90deg,#ff2200,#ff6a00,#ffcc00,#ff6a00,#ff2200) 1;
+  animation: fire-pulse 1.8s ease-in-out infinite alternate;
+}
+body::after {
+  top:0;left:0;right:0;bottom:0;
+  border:14px solid transparent;
+  border-image: linear-gradient(90deg,rgba(255,60,0,0.35),rgba(255,140,0,0.5),rgba(255,220,0,0.3),rgba(255,140,0,0.5),rgba(255,60,0,0.35)) 1;
+  animation: fire-pulse 2.4s ease-in-out infinite alternate-reverse;
+  filter:blur(3px);
+}
+@keyframes fire-pulse {
+  0%   { opacity:0.6; filter:blur(1px) brightness(1);   }
+  50%  { opacity:1;   filter:blur(2px) brightness(1.4); }
+  100% { opacity:0.7; filter:blur(1px) brightness(1.1); }
+}
+</style>
+<canvas id="flameCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;"></canvas>
+<script>
+(function(){
+  const canvas = document.getElementById('flameCanvas');
+  const ctx = canvas.getContext('2d');
+  let W, H;
+
+  function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Flame particle
+  function Flame(x, y, dir) {
+    this.initDir = dir;
+    this.reset = function() {
+      this.x = x + (Math.random()-0.5)*18;
+      this.y = y;
+      this.vx = (Math.random()-0.5)*0.8 + (dir==='left'?0.4:dir==='right'?-0.4:0);
+      this.vy = dir==='bottom' ? -(Math.random()*2+1.5) : dir==='top' ? (Math.random()*2+1.5) : (Math.random()-0.5)*0.5 - 1.5;
+      this.life = Math.random()*0.6+0.4;
+      this.maxLife = this.life;
+      this.size = Math.random()*14+8;
+    };
+    this.reset();
+  }
+
+  const flames = [];
+  const DENSITY = 1; // one flame per N pixels
+  function buildFlames() {
+    flames.length = 0;
+    // bottom edge
+    for(let x=0;x<W;x+=22) flames.push(new Flame(x, H, 'bottom'));
+    // top edge - toned down 50%
+    for(let x=0;x<W;x+=44) { const f = new Flame(x, 0, 'top'); f.size=f.size*0.5; flames.push(f); }
+    // left edge
+    for(let y=0;y<H;y+=22) flames.push(new Flame(0, y, 'left'));
+    // right edge
+    for(let y=0;y<H;y+=22) flames.push(new Flame(W, y, 'right'));
+  }
+  buildFlames();
+  window.addEventListener('resize', buildFlames);
+
+  function draw() {
+    ctx.clearRect(0,0,W,H);
+    flames.forEach(f => {
+      f.life -= 0.018 + Math.random()*0.008;
+      if(f.life <= 0) { f.reset(); return; }
+      f.x += f.vx + Math.sin(Date.now()*0.003+f.y)*0.4;
+      f.y += f.vy;
+      const t = f.life / f.maxLife;
+      const isTop = f.initDir === 'top';
+      const alpha = isTop ? t * 0.27 : t * 0.55;
+      const r = Math.round(255);
+      const g = Math.round(t > 0.5 ? 180*t : 80*t);
+      const b = 0;
+      const grad = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.size);
+      grad.addColorStop(0, `rgba(${r},${g},${b},${alpha})`);
+      grad.addColorStop(0.5, `rgba(255,80,0,${alpha*0.5})`);
+      grad.addColorStop(1, `rgba(255,30,0,0)`);
+      ctx.beginPath();
+      ctx.ellipse(f.x, f.y, f.size*0.5, f.size, 0, 0, Math.PI*2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
 </body>
 </html>
