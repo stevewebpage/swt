@@ -1932,6 +1932,12 @@ document.addEventListener('visibilitychange', function() {
     document.querySelectorAll('audio').forEach(a => { a.pause(); a.src = ''; });
   }
 });
+window.addEventListener('scroll', function() {
+  const btn = document.getElementById('ab-launch-btn');
+  if(btn) btn.style.opacity = window.scrollY > 80 ? '0' : '1';
+  if(btn) btn.style.pointerEvents = window.scrollY > 80 ? 'none' : 'auto';
+});
+
 window.addEventListener('pagehide', function() {
   document.querySelectorAll('audio').forEach(a => { a.pause(); a.src = ''; });
   document.querySelectorAll('.firefly, .leaf, .cloud').forEach(el => el.remove());
@@ -1947,7 +1953,7 @@ document.querySelectorAll('a[href]').forEach(link => {
 @keyframes mothershipDrift{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
 @keyframes alienBop{0%,100%{transform:translateY(0);}50%{transform:translateY(-2px);}}
 </style>
-<div style="position:fixed;bottom:180px;left:20px;z-index:22;pointer-events:none;opacity:0.85;animation:mothershipDrift 8s ease-in-out infinite;">
+<div style="position:fixed;bottom:180px;left:20px;z-index:22;pointer-events:none;opacity:1;animation:mothershipDrift 8s ease-in-out infinite;">
   <svg viewBox="0 0 400 120" width="440" height="132" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <radialGradient id="ms-hull" cx="50%" cy="35%" r="60%">
@@ -2145,9 +2151,10 @@ document.querySelectorAll('a[href]').forEach(link => {
 <style>
 #ab-launch-btn {
   position: fixed;
-  bottom: 44px;
-  right: 18px;
-  z-index: 500;
+  top: 288px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100000;
   background: linear-gradient(135deg, #ffe066, #ffb030);
   color: #071a0c;
   font-family: 'Abril Fatface', cursive;
@@ -2199,7 +2206,7 @@ document.querySelectorAll('a[href]').forEach(link => {
 </style>
 
 <!-- Launch button -->
-<button id="ab-launch-btn">🛸 ALIEN BLASTER</button>
+<button id="ab-launch-btn">🛸 PLAY STEVE'S APP BLASTER</button>
 
 <!-- Modal overlay — game runs here -->
 <div id="ab-modal">
