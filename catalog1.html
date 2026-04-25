@@ -619,7 +619,6 @@ body {
 }
 .footer-logo span{color:#88e870;}
 
-/* VIDEO MODAL */
 .modal-overlay{
   display:none;position:fixed;inset:0;z-index:1000;
   background:rgba(0,10,0,.88);backdrop-filter:blur(8px);
@@ -645,15 +644,6 @@ body {
   text-align:center;margin-bottom:16px;letter-spacing:1px;
 }
 .modal-title span{ color:#88e870; font-style:italic; }
-.video-wrap{
-  position:relative;width:100%;padding-bottom:56.25%;
-  border-radius:14px;overflow:hidden;
-  box-shadow:0 8px 40px rgba(0,0,0,.6);
-  background:#000;
-}
-.video-wrap iframe{
-  position:absolute;inset:0;width:100%;height:100%;border:none;
-}
 .modal-close{
   position:absolute;top:14px;right:16px;
   background:rgba(100,200,70,.15);border:1px solid rgba(100,200,70,.3);
@@ -662,12 +652,6 @@ body {
   transition:all .2s;font-family:'Lato',sans-serif;line-height:1;
 }
 .modal-close:hover{background:rgba(100,200,70,.3);transform:scale(1.1);}
-.btn-video{
-  background:linear-gradient(135deg,#1a7a1a,#2db82d);color:#fff;
-  box-shadow:0 4px 14px rgba(40,160,40,.4);
-}
-.btn-video:hover{background:linear-gradient(135deg,#22aa22,#3add3a);transform:translateY(-2px);box-shadow:0 6px 20px rgba(40,160,40,.6);}
-
 @media(max-width:560px){
   .song-item{flex-wrap:wrap;}
   .song-btns{width:100%;justify-content:flex-end;margin-top:6px;}
@@ -1228,17 +1212,6 @@ body {
   </div>
 </div>
 
-<!-- VIDEO MODAL -->
-<div class="modal-overlay" id="videoModal">
-  <div class="modal-box">
-    <button class="modal-close" id="modalClose" title="Close">✕</button>
-    <div class="modal-title">🎬 <span>Simple Things</span> — Steven Bickham</div>
-    <div class="video-wrap">
-      <iframe id="videoFrame" allowfullscreen allow="autoplay"></iframe>
-    </div>
-  </div>
-</div>
-
 <!-- MAIN CONTENT -->
 <div class="content">
   <header class="header"></header>
@@ -1246,7 +1219,6 @@ body {
   <div class="panel">
     <div class="panel-header">
       <div class="title-main" style="text-align:center;">Steven Bickham</div>
-      <div class="title-site" style="text-align:center;">Page 2</div>
       <div class="title-byline" style="text-align:center;">ALL SONGS PENNED BY STEVEN DOUGLAS BICKHAM</div>
       <div class="divider"></div>
       <div style="margin-top:18px; text-align:center;">
@@ -1260,9 +1232,6 @@ body {
 
 <!-- SITE NAV -->
 <div style="position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;justify-content:center;gap:16px;flex-wrap:wrap;pointer-events:auto;">
-  <a href="index.html" class="nav-btn" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:0.85rem;color:#ffe066;text-decoration:none;letter-spacing:1.5px;border:2px solid rgba(255,220,80,.5);padding:7px 18px;border-radius:30px;background:rgba(5,15,6,0.92);transition:all .2s;">🏠 Page 1</a>
-  <a href="catalog2.html" class="nav-btn" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:0.85rem;color:#ffe066;text-decoration:none;letter-spacing:1.5px;border:2px solid rgba(255,220,80,.5);padding:7px 18px;border-radius:30px;background:rgba(5,15,6,0.92);transition:all .2s;">Page 3 →</a>
-  <a href="catalog3.html" class="nav-btn" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:0.85rem;color:#ffe066;text-decoration:none;letter-spacing:1.5px;border:2px solid rgba(255,220,80,.5);padding:7px 18px;border-radius:30px;background:rgba(5,15,6,0.92);transition:all .2s;">Page 4 →</a>
 </div>
 
 <script>
@@ -1279,21 +1248,19 @@ const songs = [
   { title:"There's Nothin' Like Me with You",        duration:"3:08", genre:"Country",        mp3:"tnlmy.mp3" },
   { title:"King of Kings, Lord of Lords",            duration:"3:30", genre:"Gospel",         mp3:"kokl.mp3"  },
   { title:"My Life Is Yours (Jesus)",                duration:"3:30", genre:"Gospel",         mp3:"mliyj.mp3" },
-  { title:"Simple Things",                           duration:"3:30", genre:"Country",        mp3:"st.mp3", video:true },
+  { title:"Simple Things",                           duration:"3:30", genre:"Country",        mp3:"st.mp3" },
 ];
 
 const ul = document.getElementById('songList');
 songs.forEach((s,i) => {
   const li = document.createElement('li');
   li.className='song-item';
-  const listenBtn = s.video
-    ? `<button onclick="openVideo()" class="btn btn-video">🎬 VIDEO</button>`
-    : `<button onclick="playSong(${i})" class="btn btn-listen" id="btn-${i}">▶ Listen</button>`;
+  const listenBtn = `<button onclick="playSong(${i})" class="btn btn-listen" id="btn-${i}">▶ Listen</button>`;
   li.innerHTML=`
     <div class="track-num">${i+1}</div>
     <div class="song-info">
       <div class="song-title">${s.title}</div>
-      <div class="song-duration">⏱ ${s.duration} &nbsp;·&nbsp; ${s.genre}${s.video?' &nbsp;🎬':''}</div>
+      <div class="song-duration">⏱ ${s.duration} &nbsp;·&nbsp; ${s.genre}</div>
       <audio id="audio-${i}" src="${BASE}${s.mp3}" preload="none"></audio>
     </div>
     <div class="song-btns">
@@ -1305,6 +1272,19 @@ songs.forEach((s,i) => {
 
 // Audio player
 let currentIndex = null;
+
+// Unlock AudioContext on first interaction (iOS/browser autoplay fix)
+let audioUnlocked = false;
+function unlockAudio() {
+  if (audioUnlocked) return;
+  audioUnlocked = true;
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  ctx.resume().then(() => ctx.close());
+  document.removeEventListener('click', unlockAudio);
+  document.removeEventListener('touchstart', unlockAudio);
+}
+document.addEventListener('click', unlockAudio);
+document.addEventListener('touchstart', unlockAudio);
 function playSong(i) {
   const audio = document.getElementById('audio-'+i);
   const btn   = document.getElementById('btn-'+i);
@@ -1319,25 +1299,6 @@ function playSong(i) {
   audio.onended = () => { btn.textContent = '▶ Listen'; currentIndex = null; };
 }
 
-// Video modal
-const modal   = document.getElementById('videoModal');
-const frame   = document.getElementById('videoFrame');
-const closeBtn= document.getElementById('modalClose');
-const videoSrc= 'https://www.youtube.com/embed/CAiJ-B0fdcw';
-
-function openVideo(){
-  frame.src = videoSrc;
-  modal.classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeVideo(){
-  modal.classList.remove('open');
-  frame.src='';
-  document.body.style.overflow='';
-}
-closeBtn.addEventListener('click', closeVideo);
-modal.addEventListener('click', e => { if(e.target===modal) closeVideo(); });
-document.addEventListener('keydown', e => { if(e.key==='Escape') closeVideo(); });
 
 // Venmo modal
 const venmoModal   = document.getElementById('venmoModal');
@@ -1437,13 +1398,8 @@ for(let i=0;i<14;i++){
 // Nav pulse animation
 const style = document.createElement('style');
 style.textContent = `
-@keyframes navPulse {
-  0%,100% { box-shadow:0 0 8px rgba(255,200,60,.4), 0 0 18px rgba(255,200,60,.15); border-color:rgba(255,220,80,.5); color:#ffe066; }
   50%      { box-shadow:0 0 18px rgba(255,200,60,.9), 0 0 36px rgba(255,200,60,.5); border-color:rgba(255,240,120,1); color:#fff8c0; }
 }
-.nav-btn { animation: navPulse 2.2s ease-in-out infinite; }
-.nav-btn:nth-child(2) { animation-delay: 0.4s; }
-.nav-btn:nth-child(3) { animation-delay: 0.8s; }
 `;
 document.head.appendChild(style);
 

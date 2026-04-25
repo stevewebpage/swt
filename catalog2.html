@@ -932,7 +932,6 @@ body {
   <div class="panel">
     <div class="panel-header">
       <div class="title-main" style="text-align:center;">Steven Bickham</div>
-      <div class="title-site" style="text-align:center;">Page 3</div>
       <div class="title-byline" style="text-align:center;">ALL SONGS PENNED BY STEVEN DOUGLAS BICKHAM</div>
       <div class="divider"></div>
       <div style="margin-top:18px; text-align:center;">
@@ -945,9 +944,6 @@ body {
 </div>
 
 <div style="position:fixed;bottom:18px;left:0;width:100%;display:flex;justify-content:center;gap:16px;flex-wrap:wrap;z-index:9999;">
-  <a href="index.html" class="nav-btn" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:0.85rem;color:#ffe066;text-decoration:none;letter-spacing:1.5px;border:2px solid rgba(255,220,80,.5);padding:7px 18px;border-radius:30px;background:rgba(5,15,6,0.92);transition:all .2s;">🏠 Page 1</a>
-  <a href="catalog1.html" class="nav-btn" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:0.85rem;color:#ffe066;text-decoration:none;letter-spacing:1.5px;border:2px solid rgba(255,220,80,.5);padding:7px 18px;border-radius:30px;background:rgba(5,15,6,0.92);transition:all .2s;">← Page 2</a>
-  <a href="catalog3.html" class="nav-btn" style="display:inline-block;font-family:'Abril Fatface',cursive;font-size:0.85rem;color:#ffe066;text-decoration:none;letter-spacing:1.5px;border:2px solid rgba(255,220,80,.5);padding:7px 18px;border-radius:30px;background:rgba(5,15,6,0.92);transition:all .2s;">Page 4 →</a>
 </div>
 
 <script>
@@ -987,6 +983,19 @@ songs.forEach((s,i) => {
 });
 
 let currentIndex = null;
+
+// Unlock AudioContext on first interaction (iOS/browser autoplay fix)
+let audioUnlocked = false;
+function unlockAudio() {
+  if (audioUnlocked) return;
+  audioUnlocked = true;
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  ctx.resume().then(() => ctx.close());
+  document.removeEventListener('click', unlockAudio);
+  document.removeEventListener('touchstart', unlockAudio);
+}
+document.addEventListener('click', unlockAudio);
+document.addEventListener('touchstart', unlockAudio);
 function playSong(i) {
   const audio = document.getElementById('audio-'+i);
   const btn   = document.getElementById('btn-'+i);
