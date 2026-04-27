@@ -373,14 +373,6 @@ body {
   overflow: hidden;
   border-radius: 4px;
 }
-#successCanvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
 .success-inner {
   position: relative;
   z-index: 1;
@@ -841,9 +833,6 @@ body {
       <!-- SUCCESS SCREEN -->
       <div class="success" id="success">
 
-        <!-- CANVAS FOR MOTHERSHIPS + FIREFLIES -->
-        <canvas id="successCanvas"></canvas>
-
         <div class="success-inner">
           <div class="success-icon">🛸</div>
           <h2>You've Been Beamed Up!</h2>
@@ -870,8 +859,7 @@ body {
           <div style="margin-top:28px;">
             <p style="font-size:15px; color:rgba(254,252,232,.8); margin-bottom:16px; line-height:1.7;">Did you visit the webpage and play songs? Come see us again and enter to win!</p>
             <a href="https://musicrow.us" class="fire-btn" id="artistBtn" style="position:relative; overflow:hidden; display:block;">
-              <canvas class="btn-fireflies" id="btnFireflies"></canvas>
-              <span style="position:relative; z-index:2;">🔥 Listen To Our Featured Artist For Bonus Credit To WIN 🔥</span>
+<span style="position:relative; z-index:2;">🔥 Listen To Our Featured Artist For Bonus Credit To WIN 🔥</span>
             </a>
           </div>
 
@@ -997,223 +985,7 @@ document.getElementById('bonusForm').addEventListener('submit', async function(e
   }
 });
 
-// ── COSMIC CANVAS ──
-function initCosmicCanvas() {
-  const canvas = document.getElementById('successCanvas');
-  const ctx = canvas.getContext('2d');
 
-  function resize() {
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  // Fireflies
-  const fireflies = Array.from({length: 40}, () => ({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: Math.random() * 2 + 1,
-    dx: (Math.random() - 0.5) * 0.4,
-    dy: (Math.random() - 0.5) * 0.4,
-    alpha: Math.random(),
-    dalpha: (Math.random() * 0.02 + 0.005) * (Math.random() < 0.5 ? 1 : -1)
-  }));
-
-  // Motherships
-  const ships = [
-    { x: -120, y: canvas.height * 0.15, speed: 0.4, scale: 0.7 },
-    { x: canvas.width + 120, y: canvas.height * 0.5, speed: -0.3, scale: 0.5 },
-    { x: -80, y: canvas.height * 0.75, speed: 0.25, scale: 0.4 }
-  ];
-
-  function drawMothership(x, y, scale) {
-    ctx.save();
-    ctx.translate(x, y);
-    ctx.scale(scale, scale);
-    // Body
-    ctx.beginPath();
-    ctx.ellipse(0, 0, 60, 18, 0, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(180,160,80,0.55)';
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(245,192,48,0.6)';
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
-    // Dome
-    ctx.beginPath();
-    ctx.ellipse(0, -10, 28, 16, 0, Math.PI, 0);
-    ctx.fillStyle = 'rgba(100,200,255,0.25)';
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(245,192,48,0.4)';
-    ctx.lineWidth = 1;
-    ctx.stroke();
-    // Glow ring
-    const grd = ctx.createRadialGradient(0, 5, 10, 0, 5, 70);
-    grd.addColorStop(0, 'rgba(245,192,48,0.12)');
-    grd.addColorStop(1, 'rgba(245,192,48,0)');
-    ctx.beginPath();
-    ctx.ellipse(0, 5, 70, 22, 0, 0, Math.PI * 2);
-    ctx.fillStyle = grd;
-    ctx.fill();
-    ctx.restore();
-  }
-
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Draw fireflies
-    fireflies.forEach(f => {
-      f.x += f.dx; f.y += f.dy;
-      f.alpha += f.dalpha;
-      if (f.alpha > 1 || f.alpha < 0) f.dalpha *= -1;
-      if (f.x < 0) f.x = canvas.width;
-      if (f.x > canvas.width) f.x = 0;
-      if (f.y < 0) f.y = canvas.height;
-      if (f.y > canvas.height) f.y = 0;
-      ctx.beginPath();
-      ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(245,220,80,${Math.max(0, Math.min(1, f.alpha))})`;
-      ctx.shadowBlur = 8;
-      ctx.shadowColor = 'rgba(245,192,48,0.8)';
-      ctx.fill();
-      ctx.shadowBlur = 0;
-    });
-
-    // Draw motherships
-    ships.forEach(s => {
-      s.x += s.speed;
-      if (s.speed > 0 && s.x > canvas.width + 150) s.x = -150;
-      if (s.speed < 0 && s.x < -150) s.x = canvas.width + 150;
-      drawMothership(s.x, s.y, s.scale);
-    });
-
-    requestAnimationFrame(animate);
-  }
-  animate();
-}
-
-// ── BUTTON FIREFLIES ──
-function initBtnFireflies() {
-  const canvas = document.getElementById('btnFireflies');
-  if (!canvas) return;
-  const btn = document.getElementById('artistBtn');
-  const ctx = canvas.getContext('2d');
-
-  function resize() {
-    canvas.width = btn.offsetWidth;
-    canvas.height = btn.offsetHeight;
-  }
-  resize();
-
-  const flies = Array.from({length: 60}, () => ({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: Math.random() * 2 + 0.5,
-    dx: (Math.random() - 0.5) * 1.2,
-    dy: (Math.random() - 0.5) * 1.2,
-    alpha: Math.random(),
-    dalpha: (Math.random() * 0.04 + 0.01) * (Math.random() < 0.5 ? 1 : -1)
-  }));
-
-  // Meteors
-  function newMeteor() {
-    const side = Math.random();
-    return {
-      x: canvas.width * (0.2 + Math.random() * 0.6),
-      y: canvas.height * (0.2 + Math.random() * 0.6),
-      vx: (Math.random() * 6 + 5) * (Math.random() < 0.5 ? 1 : -1),
-      vy: -(Math.random() * 5 + 4),
-      len: Math.random() * 40 + 30,
-      alpha: 1,
-      dead: false
-    };
-  }
-
-  let meteors = [];
-  let meteorTimer = 0;
-
-  function animateBtn() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Fireflies
-    flies.forEach(f => {
-      f.x += f.dx; f.y += f.dy;
-      f.alpha += f.dalpha;
-      if (f.alpha > 1 || f.alpha < 0) f.dalpha *= -1;
-      if (f.x < 0) f.x = canvas.width;
-      if (f.x > canvas.width) f.x = 0;
-      if (f.y < 0) f.y = canvas.height;
-      if (f.y > canvas.height) f.y = 0;
-      ctx.beginPath();
-      ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(245,220,80,${Math.max(0, Math.min(1, f.alpha))})`;
-      ctx.shadowBlur = 6;
-      ctx.shadowColor = 'rgba(245,192,48,0.9)';
-      ctx.fill();
-      ctx.shadowBlur = 0;
-    });
-
-    // Spawn meteors
-    meteorTimer++;
-    if (meteorTimer > 40 && meteors.length < 10) {
-      meteors.push(newMeteor());
-      meteorTimer = 0;
-    }
-
-    // Draw meteors
-    meteors.forEach(m => {
-      m.x += m.vx;
-      m.y += m.vy;
-      m.alpha -= 0.025;
-      if (m.alpha <= 0 || m.x < -100 || m.x > canvas.width + 100 || m.y < -100) {
-        m.dead = true;
-        return;
-      }
-      const tailX = m.x - m.vx * (m.len / Math.abs(m.vx));
-      const tailY = m.y - m.vy * (m.len / Math.abs(m.vy));
-      const grad = ctx.createLinearGradient(tailX, tailY, m.x, m.y);
-      grad.addColorStop(0, `rgba(255,80,0,0)`);
-      grad.addColorStop(0.5, `rgba(255,160,0,${m.alpha * 0.6})`);
-      grad.addColorStop(1, `rgba(255,255,200,${m.alpha})`);
-      ctx.beginPath();
-      ctx.moveTo(tailX, tailY);
-      ctx.lineTo(m.x, m.y);
-      ctx.strokeStyle = grad;
-      ctx.lineWidth = 2.5;
-      ctx.shadowBlur = 10;
-      ctx.shadowColor = 'rgba(255,100,0,0.8)';
-      ctx.stroke();
-      ctx.shadowBlur = 0;
-      // Head glow
-      ctx.beginPath();
-      ctx.arc(m.x, m.y, 3, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255,255,200,${m.alpha})`;
-      ctx.fill();
-    });
-    meteors = meteors.filter(m => !m.dead);
-
-    requestAnimationFrame(animateBtn);
-  }
-  animateBtn();
-}
-
-// Start button fireflies when success screen shows
-const successDiv = document.getElementById('success');
-const btnObserver = new MutationObserver(() => {
-  if (successDiv.style.display !== 'none' && successDiv.style.display !== '') {
-    setTimeout(initBtnFireflies, 200);
-    btnObserver.disconnect();
-  }
-});
-btnObserver.observe(successDiv, { attributes: true, attributeFilter: ['style'] });
-const origShow = document.getElementById('success');
-const observer = new MutationObserver(() => {
-  if (origShow.style.display !== 'none' && origShow.style.display !== '') {
-    setTimeout(initCosmicCanvas, 100);
-    observer.disconnect();
-  }
-});
-observer.observe(origShow, { attributes: true, attributeFilter: ['style'] });
 </script>
 
 </body>
