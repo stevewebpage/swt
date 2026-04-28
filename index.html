@@ -1074,57 +1074,8 @@ to   { transform: rotate(360deg); }
     ctx.fillStyle=glare; ctx.fillRect(0,0,S,S);
     ctx.restore();
   }
-  const DOT_RINGS = [
-    { r: 40,  count: 16, sz: 3.5  },
-    { r: 90,  count: 28, sz: 3    },
-    { r: 150, count: 40, sz: 3    },
-    { r: 210, count: 52, sz: 2.5  },
-    { r: 270, count: 64, sz: 2.5  },
-    { r: 330, count: 72, sz: 2    },
-  ];
-  const DOT_TINTS = [
-    [255,255,255],[255,255,255],[255,255,255],[255,255,255],[255,255,255],
-    [255,255,255],[255,255,255],[255,255,255],[255,255,255],[255,255,255],
-    [255,200,180],[180,220,255],[180,255,210],[255,255,160],[220,170,255],
-    [255,210,140],[160,245,255],[255,170,220],[200,255,170],[255,225,140],
-  ];
-  const dots = [];
-  let tintIdx = 0;
-  DOT_RINGS.forEach((ring) => {
-    for(let i = 0; i < ring.count; i++){
-      const el = document.createElement('div');
-      const sz = ring.sz + Math.random()*1;
-      const tint = DOT_TINTS[tintIdx++ % DOT_TINTS.length];
-      el.style.cssText = `
-        position:fixed; border-radius:50%; pointer-events:none; z-index:5;
-        width:${sz}px; height:${sz}px;
-        background: radial-gradient(circle,
-          rgba(${tint[0]},${tint[1]},${tint[2]},0.95) 0%,
-          rgba(${tint[0]},${tint[1]},${tint[2]},0.3) 55%,
-          transparent 100%);
-        box-shadow: 0 0 ${sz*1.5}px ${sz*0.7}px rgba(${tint[0]},${tint[1]},${tint[2]},0.45);
-        will-change: left, top, opacity;
-      `;
-      document.body.appendChild(el);
-      dots.push({ el, sz, r: ring.r, baseAngle: (2 * Math.PI * i) / ring.count });
-    }
-  });
-  function updateDots(a) {
-    const vw = window.innerWidth, vh = window.innerHeight;
-    const STAGE_X = vw / 2;
-    const STAGE_Y = vh - 110;
-    for(const d of dots){
-      const angle = d.baseAngle + a;
-      const cosA = Math.cos(angle);
-      const sinA = Math.sin(angle);
-      const px = STAGE_X + cosA * d.r;
-      const py = STAGE_Y + sinA * (d.r / 3);
-      const opacity = 0.3 + (sinA * 0.5 + 0.5) * 0.65;
-      d.el.style.opacity = opacity.toFixed(3);
-      d.el.style.left = (px - d.sz / 2).toFixed(1) + 'px';
-      d.el.style.top  = (py - d.sz / 2).toFixed(1) + 'px';
-    }
-  }
+
+
   const LX = -0.55, LY = -0.65, LZ = 0.52;
   const LL = Math.hypot(LX,LY,LZ);
   const lx2=LX/LL, ly2=LY/LL, lz2=LZ/LL;
@@ -1358,7 +1309,6 @@ to   { transform: rotate(360deg); }
   function loop(){
     spin += SPEED;
     drawFrame(spin);
-    updateDots(spin);
     updateBeams(spin);
     updateFireflies();
     updateFlashes(spin);
@@ -2186,20 +2136,20 @@ window.addEventListener('scroll', function() {
 </script>
 <!-- ── END ALIEN BLASTER ──────────────────────────────────────────────────── -->
 
-<div style="position:fixed;bottom:0;left:0;width:100%;z-index:9999;display:flex;justify-content:center;align-items:center;flex-wrap:nowrap;gap:6px;padding:8px 4px;background:rgba(0,0,0,0.75);backdrop-filter:blur(4px);box-sizing:border-box;">
-  <a href="index.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:clamp(.6rem,.9rem,1rem);padding:8px 10px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:1px;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);white-space:nowrap;">&#127925; Page 1</button></a>
-  <a href="catalog1.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:clamp(.6rem,.9rem,1rem);padding:8px 10px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:1px;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);white-space:nowrap;">&#127925; Page 2</button></a>
-  <a href="catalog2.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:clamp(.6rem,.9rem,1rem);padding:8px 10px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:1px;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);white-space:nowrap;">&#127925; Page 3</button></a>
-  <a href="catalog3.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:clamp(.6rem,.9rem,1rem);padding:8px 10px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:1px;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);white-space:nowrap;">&#127925; Page 4</button></a>
-  <a href="#" onclick="document.getElementById('win-modal').style.display='flex';return false;" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:clamp(.6rem,.9rem,1rem);padding:8px 10px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:1px;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);white-space:nowrap;">&#127942; ENTER TO WIN</button></a>
-  <a href="missionstatement.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:clamp(.6rem,.9rem,1rem);padding:8px 10px;background:linear-gradient(180deg,#2d6128,#0d1f0e);color:#ffe566;border:2px solid #6bbf5a;border-radius:8px;cursor:pointer;letter-spacing:1px;text-shadow:0 0 8px #ffe566,0 1px 2px #000;box-shadow:0 0 14px 3px #4a9640,0 0 30px 6px rgba(74,150,64,.4);white-space:nowrap;">🌲 MISSION</button></a>
+<div style="position:fixed;bottom:0;left:0;width:100%;z-index:9999;display:flex;justify-content:center;align-items:center;flex-wrap:nowrap;gap:3px;padding:6px 3px;background:rgba(0,0,0,0.75);backdrop-filter:blur(4px);box-sizing:border-box;">
+  <a href="index.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:clamp(.55rem,.75rem,.85rem);padding:5px 7px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:0;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);white-space:nowrap;">&#127925; Page 1</button></a>
+  <a href="catalog1.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:clamp(.55rem,.75rem,.85rem);padding:5px 7px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:0;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);white-space:nowrap;">&#127925; Page 2</button></a>
+  <a href="catalog2.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:clamp(.55rem,.75rem,.85rem);padding:5px 7px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:0;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);white-space:nowrap;">&#127925; Page 3</button></a>
+  <a href="catalog3.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:clamp(.55rem,.75rem,.85rem);padding:5px 7px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:0;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);white-space:nowrap;">&#127925; Page 4</button></a>
+  <a href="#" onclick="document.getElementById('win-modal').style.display='flex';return false;" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:clamp(.55rem,.75rem,.85rem);padding:5px 7px;background:linear-gradient(180deg,#ff6a00,#cc2200);color:#fff;border:2px solid #ff4400;border-radius:8px;cursor:pointer;letter-spacing:0;text-shadow:0 0 8px #ff2200,0 1px 2px #000;box-shadow:0 0 14px 3px #ff4400,0 0 30px 6px rgba(255,80,0,.4);white-space:nowrap;">🏆 WIN</button></a>
+  <a href="missionstatement.html" style="text-decoration:none;"><button style="font-family:'Abril Fatface',cursive;font-size:clamp(.55rem,.75rem,.85rem);padding:5px 7px;background:linear-gradient(180deg,#2d6128,#0d1f0e);color:#ffe566;border:2px solid #6bbf5a;border-radius:8px;cursor:pointer;letter-spacing:0;text-shadow:0 0 8px #ffe566,0 1px 2px #000;box-shadow:0 0 14px 3px #4a9640,0 0 30px 6px rgba(74,150,64,.4);white-space:nowrap;">🌲 MISSION</button></a>
 </div>
 
 <!-- ENTER TO WIN MODAL -->
 <div id="win-modal" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,0.82);align-items:center;justify-content:center;padding:16px;">
   <div style="background:linear-gradient(160deg,#0d1f0e,#1a3d1c);border:2px solid #ff4400;border-radius:16px;padding:28px 24px;max-width:360px;width:100%;box-shadow:0 0 40px rgba(255,80,0,.5);position:relative;">
     <button onclick="document.getElementById('win-modal').style.display='none'" style="position:absolute;top:10px;right:14px;background:none;border:none;color:#ffe066;font-size:1.4rem;cursor:pointer;line-height:1;">✕</button>
-    <div style="font-family:'Abril Fatface',cursive;font-size:1.4rem;color:#ffe066;text-align:center;text-shadow:0 0 12px #ff4400;margin-bottom:4px;">&#127942; ENTER TO WIN</div>
+    <div style="font-family:'Abril Fatface',cursive;font-size:1.4rem;color:#ffe066;text-align:center;text-shadow:0 0 12px #ff4400;margin-bottom:4px;">🏆 WIN</div>
     <div style="font-family:'Playfair Display',serif;font-size:.9rem;color:#b8e0f7;text-align:center;margin-bottom:18px;font-style:italic;">$100 Cash Giveaway — MusicRow.us</div>
     <div id="win-msg" style="display:none;padding:12px 0;">
       <div style="font-family:'Lato',sans-serif;font-size:1rem;color:#ffe066;text-align:center;margin-bottom:16px;">&#127881; You are entered! Good luck!</div>
