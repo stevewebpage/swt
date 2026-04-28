@@ -1468,32 +1468,6 @@ document.getElementById('bonusForm').addEventListener('submit', function(e){
     .then(function(r){ if(r.ok){ document.getElementById('bonusForm').style.display='none'; document.getElementById('bonusSuccess').style.display='block'; } });
 });
 </script>
-<style>
-body::before, body::after {
-  content:'';
-  position:fixed;
-  z-index:99998;
-  pointer-events:none;
-}
-body::before {
-  top:0;left:0;right:0;bottom:0;
-  border:6px solid transparent;
-  border-image: linear-gradient(90deg,#ff2200,#ff6a00,#ffcc00,#ff6a00,#ff2200) 1;
-  animation: fire-pulse 1.8s ease-in-out infinite alternate;
-}
-body::after {
-  top:0;left:0;right:0;bottom:0;
-  border:14px solid transparent;
-  border-image: linear-gradient(90deg,rgba(255,60,0,0.35),rgba(255,140,0,0.5),rgba(255,220,0,0.3),rgba(255,140,0,0.5),rgba(255,60,0,0.35)) 1;
-  animation: fire-pulse 2.4s ease-in-out infinite alternate-reverse;
-  filter:blur(3px);
-}
-@keyframes fire-pulse {
-  0%   { opacity:0.6; filter:blur(1px) brightness(1);   }
-  50%  { opacity:1;   filter:blur(2px) brightness(1.4); }
-  100% { opacity:0.7; filter:blur(1px) brightness(1.1); }
-}
-</style>
 
 </body>
 </html>
