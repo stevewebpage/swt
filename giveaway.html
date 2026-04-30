@@ -895,6 +895,16 @@ body {
 
 </div>
 
+<!-- BACKGROUND AUDIO -->
+<audio id="ga-audio" autoplay loop>
+  <source src="ga.mp3" type="audio/mpeg">
+</audio>
+<script>
+  const gaAudio = document.getElementById('ga-audio');
+  gaAudio.muted = true;
+  gaAudio.play().then(() => { gaAudio.muted = false; }).catch(() => {});
+</script>
+
 <script>
 // ── CAROUSEL ──
 const slides = document.querySelectorAll('.carousel-slide');
