@@ -896,13 +896,23 @@ body {
 </div>
 
 <!-- BACKGROUND AUDIO -->
-<audio id="ga-audio" autoplay loop>
+<audio id="ga-audio">
   <source src="ga.mp3" type="audio/mpeg">
 </audio>
 <script>
   const gaAudio = document.getElementById('ga-audio');
-  gaAudio.muted = true;
-  gaAudio.play().then(() => { gaAudio.muted = false; }).catch(() => {});
+
+  function playAudio() {
+    gaAudio.muted = true;
+    gaAudio.currentTime = 0;
+    gaAudio.play().then(() => { gaAudio.muted = false; }).catch(() => {});
+  }
+
+  gaAudio.addEventListener('ended', () => {
+    setTimeout(playAudio, 20000);
+  });
+
+  playAudio();
 </script>
 
 <script>
