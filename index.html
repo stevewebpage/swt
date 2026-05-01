@@ -1743,25 +1743,22 @@ to   { transform: rotate(360deg); }
 
 <!-- VENMO PAYMENT MODAL -->
 <div class="venmo-overlay" id="venmoModal">
-  <div class="venmo-box">
+  <div class="venmo-box" style="max-width:340px;text-align:center;padding:32px 24px 28px;">
     <button class="venmo-close" id="venmoClose" title="Close">✕</button>
-    <div class="venmo-title">💛 Support the Music</div>
-    <div class="venmo-subtitle">Scan the <span style="font-family:'Abril Fatface',cursive;color:#ffe066;font-style:normal;letter-spacing:2px;text-shadow:0 0 10px rgba(255,220,80,.5);">QR</span> code or search Venmo — $3.00 per song — then tap Download.</div>
-    <img class="venmo-qr" src="venmo-qr.jpg" alt="Venmo QR Code"
-         onerror="this.style.display='none';document.getElementById('venmoFallback').style.display='flex';">
-    <div class="venmo-qr-fallback" id="venmoFallback" style="display:none;">
-      <span style="font-size:2rem;">📱</span>
-      <span>venmo-qr.jpg</span>
-      <span style="font-size:.7rem;opacity:.7;">Place your QR image in<br>the same folder as this page</span>
-    </div>
-    <div class="venmo-handle"><span style="font-size:.7em;font-family:'Lato',sans-serif;font-weight:700;letter-spacing:2px;opacity:.8;">Steve's Venmo:</span> @steve bickham</div>
-    <div class="venmo-price">$3.00 per song 🎸</div>
-    <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:.75rem;color:rgba(160,240,140,.65);text-align:center;margin-top:8px;margin-bottom:4px;line-height:1.5;padding:0 10px;">All donations go directly to Steve's promotion fund —<br>helping to bring Steve's music to the masses. 🎶</div>
-    <div id="venmoDownloadBtn" style="margin-top:10px;padding:14px 20px;border-radius:14px;background:rgba(255,220,80,.08);border:1px solid rgba(255,220,80,.25);text-align:center;">
-      <div style="font-family:'Abril Fatface',cursive;color:#ffe066;font-size:1rem;letter-spacing:1px;margin-bottom:6px;">💛 Thank You!</div>
-      <div style="font-family:'Lato',sans-serif;font-size:.82rem;color:rgba(160,240,140,.85);line-height:1.6;">Email us the song name at<br><a href="mailto:steve@musicrow.us" style="color:#ffe066;font-weight:700;text-decoration:none;">steve@musicrow.us</a><br>and we'll send it right to you.</div>
+    <div class="venmo-title" style="font-size:1.5rem;margin-bottom:6px;">🎸 Get This Song</div>
+    <div style="font-family:'Abril Fatface',cursive;font-size:2.4rem;color:#ffe066;letter-spacing:2px;margin-bottom:4px;">$3.00</div>
+    <div style="font-family:'Lato',sans-serif;font-size:.8rem;color:rgba(160,240,140,.75);letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;">per song</div>
+    <a href="https://venmo.com/stevebickham" target="_blank"
+       style="display:block;padding:16px 24px;border-radius:30px;background:linear-gradient(135deg,#008cff,#0070d4);color:#fff;font-family:'Lato',sans-serif;font-weight:900;font-size:1rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;box-shadow:0 4px 20px rgba(0,140,255,.4);margin-bottom:16px;">
+      💙 Pay on Venmo
+    </a>
+    <div style="font-family:'Lato',sans-serif;font-size:.78rem;color:rgba(255,220,80,.6);margin-bottom:20px;">or search <strong style="color:#ffe066;">@stevebickham</strong> in Venmo</div>
+    <div style="padding:14px 16px;border-radius:14px;background:rgba(255,220,80,.07);border:1px solid rgba(255,220,80,.2);">
+      <div style="font-family:'Abril Fatface',cursive;color:#ffe066;font-size:.95rem;letter-spacing:1px;margin-bottom:6px;">💛 After you pay —</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.82rem;color:rgba(160,240,140,.85);line-height:1.7;">Email the song name to<br><a href="mailto:steve@musicrow.us" style="color:#ffe066;font-weight:700;text-decoration:none;">steve@musicrow.us</a><br>and we'll send it right to you.</div>
     </div>
   </div>
+</div>
 </div>
 
 
