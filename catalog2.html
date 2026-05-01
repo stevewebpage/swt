@@ -892,7 +892,7 @@ body {
   <div class="venmo-box">
     <button class="venmo-close" id="venmoClose" title="Close">✕</button>
     <div class="venmo-title">💛 Support the Music</div>
-    <div class="venmo-subtitle">Scan the QR code or search Venmo<br>to send a tip before downloading!</div>
+    <div class="venmo-subtitle">Scan the QR code or search Venmo — $3.00 per song — then tap Download.</div>
     <img class="venmo-qr" src="venmo-qr.jpg" alt="Venmo QR Code"
          onerror="this.style.display='none';document.getElementById('venmoFallback').style.display='flex';">
     <div class="venmo-qr-fallback" id="venmoFallback" style="display:none;">
@@ -901,9 +901,12 @@ body {
       <span style="font-size:.7rem;opacity:.7;">Place your QR image in<br>the same folder as this page</span>
     </div>
     <div class="venmo-handle">@StevenBickham</div>
-    <div class="venmo-price">Any amount is appreciated 🎸</div>
+    <div class="venmo-price">$3.00 per song 🎸</div>
     <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:.75rem;color:rgba(160,240,140,.65);text-align:center;margin-top:8px;margin-bottom:4px;line-height:1.5;padding:0 10px;">All donations go directly to Steve's promotion fund —<br>helping to bring Steve's music to the masses. 🎶</div>
-    <a id="venmoDownloadBtn" href="#" download class="btn-confirm-download">⬇️ I've Paid — Download Now</a>
+    <div id="venmoDownloadBtn" style="margin-top:10px;padding:14px 20px;border-radius:14px;background:rgba(255,220,80,.08);border:1px solid rgba(255,220,80,.25);text-align:center;">
+      <div style="font-family:'Abril Fatface',cursive;color:#ffe066;font-size:1rem;letter-spacing:1px;margin-bottom:6px;">💛 Thank You!</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.82rem;color:rgba(160,240,140,.85);line-height:1.6;">Email us the song name at<br><a href="mailto:steve@musicrow.us" style="color:#ffe066;font-weight:700;text-decoration:none;">steve@musicrow.us</a><br>and we'll send it right to you.</div>
+    </div>
   </div>
 </div>
 
@@ -960,7 +963,7 @@ songs.forEach((s,i) => {
     </div>
     <div class="song-btns">
       ${listenBtn}
-      <button class="btn btn-buy btn-download" data-mp3="${BASE}${s.mp3}">⬇️ Download</button>
+      <button class="btn btn-buy btn-download" data-mp3="${BASE}${s.mp3}">🛒 Buy</button>
     </div>`;
   ul.appendChild(li);
 });
@@ -997,8 +1000,7 @@ function playSong(i) {
 
 const venmoModal   = document.getElementById('venmoModal');
 const venmoClose   = document.getElementById('venmoClose');
-const venmoDownBtn = document.getElementById('venmoDownloadBtn');
-function openVenmo(mp3path) { venmoDownBtn.href=mp3path; venmoDownBtn.setAttribute('download',''); venmoModal.classList.add('open'); document.body.style.overflow='hidden'; }
+function openVenmo(mp3path) { venmoModal.classList.add('open'); document.body.style.overflow = 'hidden'; }
 function closeVenmo() { venmoModal.classList.remove('open'); document.body.style.overflow=''; }
 venmoClose.addEventListener('click', closeVenmo);
 venmoModal.addEventListener('click', e => { if(e.target===venmoModal) closeVenmo(); });
@@ -1021,16 +1023,14 @@ document.getElementById('adminToggle').addEventListener('click', function() {
 function toggleDownloadAccess() {
   downloadsUnlocked = !downloadsUnlocked;
   const btn = document.getElementById('toggleDownloads');
-  if (downloadsUnlocked) { btn.textContent='🔓 UNLOCKED'; btn.style.background='linear-gradient(135deg,#206820,#48ba48)'; btn.style.color='#fff'; }
+  // always open venmo for purchase
+    if (true) { btn.textContent='🔓 UNLOCKED'; btn.style.background='linear-gradient(135deg,#206820,#48ba48)'; btn.style.color='#fff'; }
   else { btn.textContent='🔒 LOCKED'; btn.style.background='linear-gradient(135deg,#b87010,#f5c030)'; btn.style.color='#1a0f00'; }
 }
 document.addEventListener('click', function(e) {
   const btn = e.target.closest('.btn-download');
-  if (btn) {
-    e.preventDefault();
-    if (downloadsUnlocked) { const link=document.createElement('a'); link.href=btn.getAttribute('data-mp3'); link.setAttribute('download',''); link.click(); }
-    else { openVenmo(btn.getAttribute('data-mp3')); }
-  }
+  if (!btn) return;
+  openVenmo(btn.getAttribute('data-mp3'));
 });
 
 for(let i=0;i<45;i++){
