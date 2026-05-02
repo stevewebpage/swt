@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Win $100 Cash — MusicRow.US</title>
+<title>Win $200 in Groceries — MusicRow.US</title>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-L5C9Q0Q16C"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -647,12 +647,12 @@ body {
 
   <!-- HERO -->
   <div class="fade">
-    <p class="hero-eyebrow">🎸 Monthly Giveaway — Free To Enter</p>
+    <p class="hero-eyebrow">🎸 MusicRow.us Giveaway — Free To Enter</p>
     <h1 class="hero-headline">
       You COULD Win This Prize.
       <em>Why couldn't it be YOU?</em>
     </h1>
-    <p class="hero-sub">A lucky winner walks away with $100 CASH! Fill out the form below for YOUR chance. This is a drawing and we will draw a winner from the entries.</p>
+    <p class="hero-sub">You can't win if you don't enter.</p>
     <div class="hero-prize">
       <div class="medal-badge">
         <div class="medal-circle" style="width:120px;height:120px;font-size:52px;">💵</div>
@@ -769,7 +769,7 @@ body {
   <div class="fade">
     <div class="form-wrap" id="formWrap">
       <h2 class="form-title">🔥 Fill Out This Form To Enter! 🔥</h2>
-      <p class="form-sub">That's right — $100 CASH waiting for ONE lucky winner! Fill out the form completely for YOUR chance to win. This is a drawing and we will draw a winner from the entries.</p>
+      <p class="form-sub">That's right — $100 CASH waiting for the lucky winner! Fill out the form completely for YOUR chance to win. This is a drawing and we will draw a winner from the entries.</p>
 
       <form id="entryForm" action="https://formspree.io/f/mbdqpkzw" method="POST">
         <input type="hidden" name="_subject" value="New Giveaway Entry — MusicRow.US">
@@ -826,7 +826,7 @@ body {
 
         <button type="submit" class="submit-btn">🔥 YES! Enter Me In The Drawing! 🔥</button>
 
-        <p class="legal">No purchase necessary. One entry per person. Open to US residents 18+. Winner selected randomly and notified by email. Prize: $100 Cash (approx. value $100). Void where prohibited. Winner consent to use of likeness required for prize acceptance. Drawing times are based on certain thresholds and current submission numbers.</p>
+        <p class="legal">No purchase necessary. Maximum one entry and one bonus entry per person. Open to US residents 18+. Winner selected randomly and notified by email. Prize: $100 Cash (approx. value $100). Void where prohibited. Winner consent to use of likeness required for prize acceptance. We will draw a winner from the entries once they reach a predetermined threshold.</p>
       </form>
 
       <!-- SUCCESS -->
@@ -837,17 +837,6 @@ body {
           <div class="success-icon">🛸</div>
           <h2>You've Been Beamed Up!</h2>
           <p>You're officially in the drawing! A winner is selected randomly and notified by email. Good luck! 🌟</p>
-
-          <!-- SHARE BUTTON -->
-          <div style="margin-bottom:28px;">
-            <p style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:14px;">✦ Spread The Word ✦</p>
-            <button onclick="shareGiveaway()" style="display:inline-flex; align-items:center; gap:10px; background:#1877F2; color:#fff; font-family:'Oswald',sans-serif; font-size:16px; font-weight:700; letter-spacing:2px; text-transform:uppercase; border:none; cursor:pointer; padding:16px 36px; border-radius:4px; box-shadow:0 4px 18px rgba(24,119,242,.5); transition:background .2s, transform .15s;"
-              onmouseover="this.style.background='#1464d8';this.style.transform='translateY(-2px)'"
-              onmouseout="this.style.background='#1877F2';this.style.transform='translateY(0)'">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-              Share
-            </button>
-          </div>
 
           <!-- BONUS ENTRY SONG FORM -->
           <div class="bonus-wrap" id="bonusWrap">
@@ -989,21 +978,6 @@ document.querySelectorAll('input, select').forEach(el => {
   el.addEventListener('focus', () => el.style.borderColor = 'rgba(245,192,48,.7)');
   el.addEventListener('blur',  () => el.style.borderColor = 'rgba(245,192,48,.2)');
 });
-
-// ── NATIVE SHARE ──
-function shareGiveaway() {
-  const shareData = {
-    title: 'Win $100 Cash — FREE Giveaway!',
-    text: 'Enter the FREE $100 Cash Giveaway from MusicRow.US — you might be the WINNER!',
-    url: 'https://musicrow.us/giveaway'
-  };
-  if (navigator.share) {
-    navigator.share(shareData).catch(() => {});
-  } else {
-    // Fallback for desktop browsers that don't support Web Share API
-    window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmusicrow.us%2Fgiveaway', '_blank');
-  }
-}
 
 // ── BONUS FORM ──
 document.getElementById('bonusForm').addEventListener('submit', async function(e) {
