@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Win $200 in Groceries — MusicRow.US</title>
+<title>WIN $100 CASH — MusicRow.US Space Giveaway</title>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-L5C9Q0Q16C"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -11,22 +11,21 @@
   gtag('js', new Date());
   gtag('config', 'G-L5C9Q0Q16C');
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Oswald:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Oswald:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --ink:    #0d1a08;
-  --forest: #1a3d1c;
+  --ink:    #03060f;
+  --space1: #060d1f;
+  --space2: #0a0e2a;
   --gold:   #f5c030;
   --gold2:  #ffdb6a;
   --cream:  #fefce8;
-  --rust:   #8b3a1a;
-  --muted:  #4a6741;
-  --red:    #9b1c1c;
+  --cyan:   #60e0ff;
+  --purple: #b060ff;
+  --green:  #50ff90;
 }
-
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-
 body {
   font-family: 'Lato', sans-serif;
   background: var(--ink);
@@ -35,628 +34,602 @@ body {
   min-height: 100vh;
 }
 
-/* ── FOREST BG ── */
-.bg {
+/* ── DEEP SPACE BACKGROUND ── */
+.space-bg {
   position: fixed; inset: 0; z-index: 0;
-  background: radial-gradient(ellipse at 50% 0%, #2d6128 0%, #1a3d1c 40%, #0d1a08 100%);
+  background: radial-gradient(ellipse at 30% 20%, #0d1a3a 0%, #060d1f 40%, #03060f 100%);
 }
-.bg-overlay {
-  position: fixed; inset: 0; z-index: 1;
-  background: linear-gradient(180deg, rgba(13,26,8,.3) 0%, rgba(13,26,8,.7) 60%, rgba(13,26,8,.95) 100%);
+/* Nebula clouds */
+.nebula {
+  position: fixed; z-index: 0; pointer-events: none; border-radius: 50%;
+  filter: blur(60px);
 }
+.nebula-1 { top:-10%; left:-10%; width:600px; height:400px;
+  background: radial-gradient(ellipse, rgba(80,40,180,.18) 0%, transparent 70%); }
+.nebula-2 { bottom:10%; right:-10%; width:700px; height:500px;
+  background: radial-gradient(ellipse, rgba(20,80,160,.15) 0%, transparent 70%); }
+.nebula-3 { top:40%; left:30%; width:400px; height:300px;
+  background: radial-gradient(ellipse, rgba(180,30,80,.08) 0%, transparent 70%); }
+
+/* ── STAR FIELD ── */
+#star-canvas {
+  position: fixed; inset: 0; z-index: 1; pointer-events: none;
+}
+
+/* ── TOP UFOs ── */
+.top-ufo { position:fixed; z-index:8; pointer-events:none; }
+.top-ufo-saucer { position:relative; display:flex; flex-direction:column; align-items:center; }
+.top-ufo-dome {
+  width:44px; height:22px; border-radius:50% 50% 0 0;
+  background: radial-gradient(ellipse at 40% 30%, rgba(180,240,255,0.9) 0%, rgba(80,160,220,0.6) 50%, rgba(20,60,120,0.4) 100%);
+  border: 1px solid rgba(150,220,255,0.5);
+  margin-bottom: -2px;
+  box-shadow: 0 0 12px rgba(100,200,255,0.4), inset 0 2px 6px rgba(255,255,255,0.2);
+}
+.top-ufo-dish {
+  width:80px; height:18px; border-radius:50%;
+  background:radial-gradient(ellipse at 40% 28%, #e8eef4 0%, #b0c0d0 35%, #708090 70%, #405060 100%);
+  box-shadow:0 2px 12px rgba(0,0,0,0.7), 0 0 18px rgba(120,200,255,0.4), inset 0 1px 3px rgba(255,255,255,0.4);
+  display:flex; justify-content:space-around; align-items:center; padding:0 6px;
+}
+.top-ufo-light { width:6px; height:6px; border-radius:50%; background:rgba(var(--c),1); box-shadow:0 0 4px 2px rgba(var(--c),0.8); animation:ufoFlash .9s ease-in-out infinite; }
+@keyframes ufoFlash { 0%,100%{opacity:1;} 50%{opacity:.25;} }
+.top-ufo-beam {
+  width:0; height:0;
+  border-left:20px solid transparent;
+  border-right:20px solid transparent;
+  border-top:80px solid rgba(120,220,255,0.07);
+  margin-top:-1px;
+  filter: blur(3px);
+  animation: beamPulse 2s ease-in-out infinite;
+}
+@keyframes beamPulse { 0%,100%{opacity:.5;} 50%{opacity:1;} }
+.top-ufo-alien { font-size:20px; margin-bottom:0px; filter:drop-shadow(0 0 8px rgba(120,255,120,0.8)); animation:alienPilot 2s ease-in-out infinite; }
+@keyframes alienPilot { 0%,100%{transform:translateY(0) rotate(-5deg);} 50%{transform:translateY(-4px) rotate(5deg);} }
+@keyframes topUfoFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-12px);} }
+.ufo-name { font-family:'Abril Fatface',cursive; font-size:8px; font-weight:900; letter-spacing:2px; color:#aaffaa; text-shadow:0 0 6px #0f0; margin-top:2px; text-align:center; }
+
+/* ── SHOOTING STARS ── */
+.shoot { position:fixed; z-index:2; pointer-events:none; top:0; left:0; width:100%; height:100%; }
+
+/* ── MOTHERSHIP (center) ── */
+.mothership-wrap {
+  position: fixed; top: 140px; left: 50%; transform: translateX(-50%);
+  z-index: 7; pointer-events: none;
+  animation: motherFloat 5s ease-in-out infinite;
+}
+@keyframes motherFloat { 0%,100%{transform:translateX(-50%) translateY(0);} 50%{transform:translateX(-50%) translateY(-14px);} }
+
+/* ── DISCO BALL (canvas-based from index) ── */
+#disco-wrap {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9;
+  pointer-events: none;
+  animation: discoFloat 3.5s ease-in-out infinite 0.8s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@keyframes discoFloat { 0%,100%{transform:translateX(-50%) translateY(0);} 50%{transform:translateX(-50%) translateY(-12px);} }
 
 /* ── CONTENT ── */
 .page {
-  position: relative; z-index: 2;
+  position: relative; z-index: 20;
   max-width: 680px;
   margin: 0 auto;
-  padding: 40px 20px 60px;
+  padding: 40px 20px 80px;
+  /* push content below UFOs */
+  padding-top: 200px;
 }
 
 /* ── HEADER ── */
 .site-link {
-  display: block;
-  text-align: center;
-  font-family: 'Oswald', sans-serif;
-  font-size: 13px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-decoration: none;
-  margin-bottom: 32px;
-  transition: color .2s;
+  display: block; text-align: center;
+  font-family: 'Oswald', sans-serif; font-size: 13px;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: rgba(96,224,255,.6); text-decoration: none;
+  margin-bottom: 32px; transition: color .2s;
 }
-.site-link:hover { color: var(--gold); }
+.site-link:hover { color: var(--cyan); }
 
-/* ── HERO TEXT ── */
+/* ── HERO ── */
 .hero-eyebrow {
-  text-align: center;
-  font-family: 'Oswald', sans-serif;
-  font-size: 12px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 16px;
+  text-align: center; font-family: 'Oswald', sans-serif;
+  font-size: 13px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--cyan); margin-bottom: 16px;
 }
-
 .hero-headline {
-  text-align: center;
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 8vw, 64px);
-  font-weight: 900;
-  line-height: 1.05;
-  color: var(--cream);
-  margin-bottom: 16px;
+  text-align: center; font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 8vw, 64px); font-weight: 900;
+  line-height: 1.05; color: var(--cream); margin-bottom: 16px;
+  text-shadow: 0 0 40px rgba(96,224,255,.3);
 }
 .hero-headline em {
-  font-style: italic;
-  color: var(--gold);
-  display: block;
+  font-style: italic; color: var(--gold); display: block;
+  text-shadow: 0 0 30px rgba(245,192,48,.5);
 }
-
 .hero-sub {
-  text-align: center;
-  font-size: clamp(16px, 3vw, 20px);
-  line-height: 1.6;
-  color: rgba(254,252,232,.75);
-  margin-bottom: 12px;
-  font-weight: 300;
+  text-align: center; font-size: clamp(16px, 3vw, 20px); line-height: 1.6;
+  color: rgba(254,252,232,.75); margin-bottom: 12px; font-weight: 300;
 }
 
+/* ── MEDAL ── */
 .hero-prize {
-  text-align: center;
-  margin: 24px 0;
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
+  display: flex; justify-content: center; gap: 20px;
+  flex-wrap: wrap; margin: 28px 0;
 }
-.prize-pill {
-  background: rgba(245,192,48,.15);
-  border: 1px solid rgba(245,192,48,.4);
-  color: var(--gold);
-  font-family: 'Oswald', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 10px 20px;
-  border-radius: 2px;
-}
-
-/* ── SONG CAROUSEL ── */
-.carousel-wrap {
-  margin: 32px 0;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(245,192,48,.2);
-  background: rgba(0,0,0,.4);
-  border-radius: 4px;
-}
-.carousel-label {
-  position: absolute;
-  top: 10px;
-  left: 14px;
-  font-family: 'Oswald', sans-serif;
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold);
-  opacity: .7;
-  z-index: 10;
-}
-.carousel-track {
-  display: flex;
-  transition: transform .6s cubic-bezier(.4,0,.2,1);
-}
-.carousel-slide {
-  min-width: 100%;
-  padding: 28px 20px 20px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.slide-icon {
-  font-size: 36px;
-  flex-shrink: 0;
-  filter: drop-shadow(0 0 8px rgba(245,192,48,.4));
-}
-.slide-content {}
-.slide-genre {
-  font-family: 'Oswald', sans-serif;
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 4px;
-  opacity: .8;
-}
-.slide-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(18px, 4vw, 26px);
-  font-weight: 700;
-  color: var(--cream);
-  line-height: 1.2;
-  margin-bottom: 6px;
-}
-.slide-desc {
-  font-size: 13px;
-  line-height: 1.6;
-  color: rgba(254,252,232,.6);
-}
-.carousel-dots {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  padding: 12px 0 16px;
-}
-.dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: rgba(245,192,48,.3);
-  transition: background .3s;
-}
-.dot.active { background: var(--gold); }
-.carousel-footer {
-  text-align: center;
-  padding: 0 20px 16px;
-  font-family: 'Oswald', sans-serif;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(254,252,232,.4);
-}
-
-/* ── MEDAL BADGES ── */
-.hero-prize {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin: 28px 0;
-}
-.medal-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  cursor: default;
-}
+.medal-badge { display:flex; flex-direction:column; align-items:center; gap:8px; cursor:default; }
 .medal-circle {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+  width: 120px; height: 120px; border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, #ffe066, #f5c030 40%, #c8952a 70%, #a07010 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36px;
-  box-shadow:
-    0 0 0 4px rgba(245,192,48,.3),
-    0 0 0 8px rgba(245,192,48,.15),
-    0 4px 20px rgba(0,0,0,.5),
-    inset 0 2px 4px rgba(255,255,255,.3);
-  animation: medalGlow 2s ease-in-out infinite;
-  position: relative;
+  display: flex; align-items: center; justify-content: center; font-size: 52px;
+  box-shadow: 0 0 0 4px rgba(245,192,48,.3), 0 0 0 8px rgba(245,192,48,.15),
+    0 0 40px rgba(245,192,48,.4), inset 0 2px 4px rgba(255,255,255,.3);
+  animation: medalGlow 2s ease-in-out infinite; position: relative;
 }
 .medal-circle::after {
-  content: '';
-  position: absolute;
-  top: 8px;
-  left: 14px;
-  width: 20px;
-  height: 10px;
-  background: rgba(255,255,255,.25);
-  border-radius: 50%;
-  transform: rotate(-30deg);
+  content:''; position:absolute; top:14px; left:22px;
+  width:24px; height:12px; background:rgba(255,255,255,.25);
+  border-radius:50%; transform:rotate(-30deg);
 }
 @keyframes medalGlow {
-  0%,100% { box-shadow: 0 0 0 4px rgba(245,192,48,.3), 0 0 0 8px rgba(245,192,48,.15), 0 4px 20px rgba(0,0,0,.5), inset 0 2px 4px rgba(255,255,255,.3); }
-  50%      { box-shadow: 0 0 0 6px rgba(245,192,48,.5), 0 0 0 14px rgba(245,192,48,.25), 0 4px 30px rgba(245,192,48,.3), inset 0 2px 4px rgba(255,255,255,.3); }
+  0%,100% { box-shadow: 0 0 0 4px rgba(245,192,48,.3), 0 0 0 8px rgba(245,192,48,.15), 0 0 40px rgba(245,192,48,.3), inset 0 2px 4px rgba(255,255,255,.3); }
+  50%      { box-shadow: 0 0 0 6px rgba(245,192,48,.5), 0 0 0 14px rgba(245,192,48,.25), 0 0 70px rgba(245,192,48,.6), inset 0 2px 4px rgba(255,255,255,.3); }
 }
 .medal-text {
-  font-family: 'Oswald', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--gold);
-  text-align: center;
-  line-height: 1.5;
+  font-family:'Oswald',sans-serif; font-size:18px; font-weight:700;
+  letter-spacing:1px; text-transform:uppercase;
+  color: var(--gold); text-align:center; line-height:1.5;
+  text-shadow: 0 0 20px rgba(245,192,48,.5);
 }
 
-/* ── PRIZE PILL (keeping for fallback) ── */
+/* ── DIVIDER ── */
 .divider {
-  text-align: center;
-  color: rgba(245,192,48,.3);
-  font-size: 20px;
-  letter-spacing: 8px;
-  margin: 8px 0 28px;
+  text-align:center; color:rgba(96,224,255,.3);
+  font-size:20px; letter-spacing:8px; margin:8px 0 28px;
+}
+
+/* ── CAROUSEL ── */
+.carousel-wrap {
+  margin: 32px 0; position:relative; overflow:hidden;
+  border: 1px solid rgba(96,224,255,.2);
+  background: rgba(6,13,31,.7);
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(96,224,255,.05), inset 0 1px 0 rgba(255,255,255,.04);
+}
+.carousel-label {
+  position:absolute; top:10px; left:14px;
+  font-family:'Oswald',sans-serif; font-size:10px;
+  letter-spacing:3px; text-transform:uppercase;
+  color: var(--cyan); opacity:.7; z-index:10;
+}
+.carousel-track { display:flex; transition:transform .6s cubic-bezier(.4,0,.2,1); }
+.carousel-slide { min-width:100%; padding:28px 20px 20px; display:flex; align-items:center; gap:16px; }
+.slide-icon { font-size:36px; flex-shrink:0; filter:drop-shadow(0 0 8px rgba(96,224,255,.5)); }
+.slide-genre {
+  font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:3px;
+  text-transform:uppercase; color: var(--cyan); margin-bottom:4px; opacity:.9;
+}
+.slide-title {
+  font-family:'Playfair Display',serif; font-size:clamp(18px,4vw,26px);
+  font-weight:700; color:var(--cream); line-height:1.2; margin-bottom:6px;
+}
+.slide-desc { font-size:13px; line-height:1.6; color:rgba(254,252,232,.6); }
+.carousel-dots { display:flex; justify-content:center; gap:6px; padding:12px 0 16px; }
+.dot { width:6px; height:6px; border-radius:50%; background:rgba(96,224,255,.3); transition:background .3s; }
+.dot.active { background: var(--cyan); box-shadow:0 0 6px var(--cyan); }
+.carousel-footer {
+  text-align:center; padding:0 20px 16px;
+  font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:2px;
+  text-transform:uppercase; color:rgba(254,252,232,.3);
 }
 
 /* ── FORM ── */
 .form-wrap {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(245,192,48,.15);
-  padding: 32px 28px;
-  border-radius: 4px;
+  background: rgba(6,13,31,.8);
+  border: 1px solid rgba(96,224,255,.15);
+  padding: 32px 28px; border-radius: 8px;
+  box-shadow: 0 0 40px rgba(96,224,255,.05);
+  backdrop-filter: blur(10px);
 }
 .form-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--cream);
-  margin-bottom: 6px;
-  text-align: center;
+  font-family:'Playfair Display',serif; font-size:26px; font-weight:700;
+  color:var(--cream); margin-bottom:6px; text-align:center;
+  text-shadow: 0 0 20px rgba(96,224,255,.3);
 }
 .form-sub {
-  text-align: center;
-  font-size: 14px;
-  color: rgba(254,252,232,.55);
-  margin-bottom: 24px;
-  line-height: 1.6;
+  text-align:center; font-size:14px; color:rgba(254,252,232,.55);
+  margin-bottom:24px; line-height:1.6;
 }
-.field {
-  margin-bottom: 16px;
-}
+.field { margin-bottom:16px; }
 .field label {
-  display: block;
-  font-family: 'Oswald', sans-serif;
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  opacity: .8;
-  margin-bottom: 6px;
+  display:block; font-family:'Oswald',sans-serif; font-size:10px;
+  letter-spacing:2px; text-transform:uppercase; color:var(--cyan); opacity:.8; margin-bottom:6px;
 }
-.field input,
-.field select {
-  width: 100%;
-  padding: 13px 14px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(245,192,48,.2);
-  color: var(--cream);
-  font-family: 'Lato', sans-serif;
-  font-size: 15px;
-  outline: none;
-  border-radius: 2px;
-  transition: border-color .2s, background .2s;
-  -webkit-appearance: none;
+.field input, .field select, .field textarea {
+  width:100%; padding:13px 14px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(96,224,255,.15);
+  color:var(--cream); font-family:'Lato',sans-serif; font-size:15px;
+  outline:none; border-radius:4px;
+  transition:border-color .2s, background .2s, box-shadow .2s;
+  -webkit-appearance:none;
 }
-.field input::placeholder { color: rgba(254,252,232,.3); }
-.field input:focus,
-.field select:focus {
-  border-color: var(--gold);
-  background: rgba(255,255,255,.09);
+.field input::placeholder, .field textarea::placeholder { color:rgba(254,252,232,.25); }
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: var(--cyan);
+  background:rgba(96,224,255,.05);
+  box-shadow: 0 0 14px rgba(96,224,255,.15);
 }
-.field select option { background: #1a3d1c; color: var(--cream); }
-
-.field-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
+.field select option { background:#06101f; color:var(--cream); }
+.field-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
 .submit-btn {
-  width: 100%;
-  margin-top: 8px;
-  padding: 18px;
-  background: var(--gold);
-  color: var(--ink);
-  font-family: 'Oswald', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
-  border-radius: 2px;
-  transition: background .2s, transform .15s;
+  width:100%; margin-top:8px; padding:18px;
+  background: linear-gradient(135deg, #0080ff 0%, #00c8ff 50%, #60e0ff 100%);
+  color: #000c20;
+  font-family:'Oswald',sans-serif; font-size:16px; font-weight:700;
+  letter-spacing:3px; text-transform:uppercase;
+  border:none; cursor:pointer; border-radius:4px;
+  transition:transform .15s, box-shadow .2s;
+  box-shadow: 0 0 20px rgba(0,180,255,.5), 0 0 50px rgba(0,150,255,.25);
+  animation: launchPulse 2s ease-in-out infinite;
 }
-.submit-btn:hover { background: var(--gold2); transform: translateY(-2px); }
-.submit-btn:active { transform: translateY(0); }
-
+@keyframes launchPulse {
+  0%,100%{ box-shadow:0 0 20px rgba(0,180,255,.5), 0 0 50px rgba(0,150,255,.25); }
+  50%{ box-shadow:0 0 35px rgba(0,220,255,.8), 0 0 80px rgba(0,180,255,.45); }
+}
+.submit-btn:hover { transform:translateY(-2px); }
+.submit-btn:active { transform:translateY(0); }
 .legal {
-  text-align: center;
-  font-size: 11px;
-  color: rgba(254,252,232,.3);
-  margin-top: 16px;
-  line-height: 1.7;
+  text-align:center; font-size:11px; color:rgba(254,252,232,.25);
+  margin-top:16px; line-height:1.7;
 }
 
 /* ── SUCCESS ── */
-.success {
-  display: none;
-  text-align: center;
-  padding: 0;
-  position: relative;
-  overflow: hidden;
-  border-radius: 4px;
-}
-.success-inner {
-  position: relative;
-  z-index: 1;
-  padding: 48px 24px 40px;
-}
-.success-icon { font-size: 64px; margin-bottom: 16px; animation: floatIcon 3s ease-in-out infinite; }
-@keyframes floatIcon {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
+.success { display:none; text-align:center; padding:0; position:relative; overflow:hidden; border-radius:8px; }
+.success-inner { position:relative; z-index:1; padding:48px 24px 40px; }
+.success-icon { font-size:64px; margin-bottom:16px; animation:floatIcon 3s ease-in-out infinite; }
+@keyframes floatIcon { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
 .success h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  color: var(--gold);
-  margin-bottom: 12px;
+  font-family:'Playfair Display',serif; font-size:32px;
+  color: var(--gold); margin-bottom:12px;
+  text-shadow: 0 0 30px rgba(245,192,48,.6);
 }
-.success p {
-  font-size: 16px;
-  color: rgba(254,252,232,.7);
-  line-height: 1.7;
-  margin-bottom: 16px;
-}
+.success p { font-size:16px; color:rgba(254,252,232,.7); line-height:1.7; margin-bottom:16px; }
 .success-btn {
-  display: inline-block;
-  background: var(--gold);
-  color: var(--ink);
-  padding: 16px 36px;
-  font-family: 'Oswald', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 2px;
-  transition: background .2s;
+  display:inline-block; background:var(--gold); color:#060d1f;
+  padding:16px 36px; font-family:'Oswald',sans-serif; font-size:14px;
+  font-weight:700; letter-spacing:3px; text-transform:uppercase;
+  text-decoration:none; border-radius:4px; transition:background .2s;
 }
-.success-btn:hover { background: var(--gold2); }
+.success-btn:hover { background:var(--gold2); }
 
 /* ── FIRE BUTTON ── */
 .fire-btn {
-  display: inline-block;
-  position: relative;
-  padding: 18px 28px;
-  font-family: 'Oswald', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #fff;
-  border-radius: 4px;
-  background: linear-gradient(135deg, #ff2200 0%, #ff6600 40%, #ffaa00 100%);
-  box-shadow:
-    0 0 15px rgba(255,60,0,.7),
-    0 0 35px rgba(255,100,0,.4),
-    0 0 60px rgba(255,150,0,.2),
-    inset 0 1px 0 rgba(255,255,255,.2);
-  animation: firePulse 1.5s ease-in-out infinite;
-  transition: transform .15s;
-}
-.fire-btn:hover {
-  transform: scale(1.03);
-  box-shadow:
-    0 0 25px rgba(255,60,0,.9),
-    0 0 50px rgba(255,100,0,.6),
-    0 0 80px rgba(255,150,0,.35);
+  display:inline-block; position:relative; padding:18px 28px;
+  font-family:'Oswald',sans-serif; font-size:15px; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase; text-decoration:none; color:#fff;
+  border-radius:4px;
+  background:linear-gradient(135deg,#ff2200 0%,#ff6600 40%,#ffaa00 100%);
+  box-shadow:0 0 15px rgba(255,60,0,.7),0 0 35px rgba(255,100,0,.4);
+  animation:firePulse 1.5s ease-in-out infinite;
 }
 @keyframes firePulse {
-  0%,100% {
-    box-shadow: 0 0 15px rgba(255,60,0,.7), 0 0 35px rgba(255,100,0,.4), 0 0 60px rgba(255,150,0,.2), inset 0 1px 0 rgba(255,255,255,.2);
-  }
-  50% {
-    box-shadow: 0 0 25px rgba(255,60,0,.9), 0 0 55px rgba(255,100,0,.6), 0 0 90px rgba(255,150,0,.35), inset 0 1px 0 rgba(255,255,255,.2);
-  }
+  0%,100%{box-shadow:0 0 15px rgba(255,60,0,.7),0 0 35px rgba(255,100,0,.4);}
+  50%{box-shadow:0 0 30px rgba(255,60,0,.9),0 0 70px rgba(255,100,0,.6);}
 }
 
 /* ── SPACE ARTIST BUTTON ── */
 .space-artist-btn {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
-  border-radius: 6px;
-  padding: 24px 20px;
-  background: linear-gradient(135deg, #0a0e1a 0%, #0d1a2e 40%, #0a1a0d 100%);
-  border: 1px solid rgba(245,192,48,.4);
-  box-shadow:
-    0 0 20px rgba(245,192,48,.15),
-    0 0 60px rgba(100,150,255,.08),
-    inset 0 1px 0 rgba(255,255,255,.06);
-  transition: transform .2s, box-shadow .2s;
-  cursor: pointer;
+  display:block; position:relative; overflow:hidden; text-decoration:none;
+  border-radius:6px; padding:24px 20px;
+  background:linear-gradient(135deg,#03060f 0%,#060d1f 40%,#0a0e2a 100%);
+  border:1px solid rgba(96,224,255,.35);
+  box-shadow:0 0 20px rgba(96,224,255,.12),inset 0 1px 0 rgba(255,255,255,.05);
+  transition:transform .2s,box-shadow .2s;
 }
-.space-artist-btn:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 0 35px rgba(245,192,48,.3),
-    0 0 80px rgba(100,150,255,.15),
-    inset 0 1px 0 rgba(255,255,255,.1);
-}
-.space-artist-glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(245,192,48,.12) 0%, transparent 70%);
-  pointer-events: none;
-}
-.space-artist-stars {
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(1px 1px at 15% 25%, rgba(255,255,255,.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 75% 15%, rgba(255,255,255,.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 40% 70%, rgba(255,255,255,.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 85% 60%, rgba(255,255,255,.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 25% 85%, rgba(255,255,255,.3) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 60% 40%, rgba(245,192,48,.7) 0%, transparent 100%),
-    radial-gradient(1px 1px at 90% 80%, rgba(255,255,255,.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 10% 55%, rgba(255,255,255,.3) 0%, transparent 100%);
-  pointer-events: none;
-  animation: starTwinkle 4s ease-in-out infinite alternate;
-}
-@keyframes starTwinkle {
-  from { opacity: .6; }
-  to   { opacity: 1; }
-}
-.btn-fireflies {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-.space-artist-inner { 
-  position: relative; 
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
-.space-artist-site {
-  font-family: 'Oswald', sans-serif;
-  font-size: 12px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: rgba(245,192,48,.6);
-}
+.space-artist-btn:hover { transform:translateY(-3px); box-shadow:0 0 40px rgba(96,224,255,.3); }
+.space-artist-inner { position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; gap:6px; }
+.space-artist-site { font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:4px; text-transform:uppercase; color:rgba(96,224,255,.6); }
 .space-artist-name {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(20px, 5vw, 30px);
-  font-weight: 900;
-  color: var(--cream);
-  text-shadow: 0 0 20px rgba(245,192,48,.4), 0 0 40px rgba(100,150,255,.2);
-  letter-spacing: 1px;
+  font-family:'Playfair Display',serif; font-size:clamp(20px,5vw,30px); font-weight:900;
+  color:var(--cream); text-shadow:0 0 20px rgba(96,224,255,.4),0 0 40px rgba(180,96,255,.2);
 }
 .space-artist-tag {
-  font-family: 'Oswald', sans-serif;
-  font-size: 12px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-top: 4px;
-  animation: tagPulse 2.5s ease-in-out infinite;
+  font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase;
+  color:var(--gold); margin-top:4px; animation:tagPulse 2.5s ease-in-out infinite;
 }
-@keyframes tagPulse {
-  0%,100% { opacity: .7; }
-  50% { opacity: 1; }
-}
+@keyframes tagPulse { 0%,100%{opacity:.7;} 50%{opacity:1;} }
+
+/* ── BONUS FORM ── */
 .bonus-wrap {
-  background: rgba(245,192,48,.07);
-  border: 1px solid rgba(245,192,48,.3);
-  border-radius: 4px;
-  padding: 24px 20px;
-  margin: 24px 0;
+  background:rgba(96,224,255,.05); border:1px solid rgba(96,224,255,.25);
+  border-radius:6px; padding:24px 20px; margin:24px 0;
 }
 .bonus-title {
-  font-family: 'Oswald', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  color: var(--gold);
-  margin-bottom: 8px;
-  text-transform: uppercase;
+  font-family:'Oswald',sans-serif; font-size:18px; font-weight:700;
+  letter-spacing:3px; color:var(--gold); margin-bottom:8px; text-transform:uppercase;
 }
-.bonus-sub {
-  font-size: 14px;
-  color: rgba(254,252,232,.65);
-  margin-bottom: 16px !important;
-  line-height: 1.6;
-}
-.bonus-field { margin-bottom: 10px; }
+.bonus-sub { font-size:14px; color:rgba(254,252,232,.65); margin-bottom:16px !important; line-height:1.6; }
+.bonus-field { margin-bottom:10px; }
 .bonus-field input {
-  width: 100%;
-  padding: 12px 14px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(245,192,48,.2);
-  color: var(--cream);
-  font-family: 'Lato', sans-serif;
-  font-size: 15px;
-  outline: none;
-  border-radius: 2px;
-  transition: border-color .2s;
+  width:100%; padding:12px 14px;
+  background:rgba(255,255,255,.05); border:1px solid rgba(96,224,255,.2);
+  color:var(--cream); font-family:'Lato',sans-serif; font-size:15px;
+  outline:none; border-radius:4px; transition:border-color .2s;
 }
-.bonus-field input::placeholder { color: rgba(254,252,232,.3); }
-.bonus-field input:focus { border-color: var(--gold); }
+.bonus-field input::placeholder { color:rgba(254,252,232,.3); }
+.bonus-field input:focus { border-color:var(--cyan); }
 .bonus-btn {
-  width: 100%;
-  margin-top: 6px;
-  padding: 14px;
-  background: var(--gold);
-  color: var(--ink);
-  font-family: 'Oswald', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
-  border-radius: 2px;
-  transition: background .2s;
+  width:100%; margin-top:6px; padding:14px;
+  background:var(--gold); color:#060d1f;
+  font-family:'Oswald',sans-serif; font-size:15px; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase; border:none; cursor:pointer;
+  border-radius:4px; transition:background .2s;
 }
-.bonus-btn:hover { background: var(--gold2); }
+.bonus-btn:hover { background:var(--gold2); }
 
 /* ── FOOTER ── */
-.page-footer {
-  text-align: center;
-  margin-top: 48px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(245,192,48,.1);
-}
+.page-footer { text-align:center; margin-top:48px; padding-top:24px; border-top:1px solid rgba(96,224,255,.1); }
 .page-footer a {
-  font-family: 'Oswald', sans-serif;
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: rgba(254,252,232,.3);
-  text-decoration: none;
-  transition: color .2s;
+  font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:3px;
+  text-transform:uppercase; color:rgba(254,252,232,.3); text-decoration:none; transition:color .2s;
 }
-.page-footer a:hover { color: var(--gold); }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 480px) {
-  .field-row { grid-template-columns: 1fr; }
-  .form-wrap { padding: 24px 16px; }
-  .hero-prize { gap: 10px; }
-}
+.page-footer a:hover { color:var(--cyan); }
 
 /* ── FADE IN ── */
-@keyframes fadeUp {
-  from { opacity:0; transform:translateY(24px); }
-  to   { opacity:1; transform:translateY(0); }
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px);} to{opacity:1;transform:translateY(0);} }
+.fade { opacity:0; animation:fadeUp .7s ease forwards; }
+.fade:nth-child(1){animation-delay:.1s;}
+.fade:nth-child(2){animation-delay:.25s;}
+.fade:nth-child(3){animation-delay:.4s;}
+.fade:nth-child(4){animation-delay:.55s;}
+.fade:nth-child(5){animation-delay:.7s;}
+
+@media(max-width:480px){
+  .field-row{grid-template-columns:1fr;}
+  .form-wrap{padding:24px 16px;}
+  .page{padding-top:220px;}
+  #top-ufo-zork{left:2%; transform:scale(.7); transform-origin:left top;}
+  #top-ufo-xenu{right:2%; transform:scale(.7); transform-origin:right top;}
 }
-.fade { opacity:0; animation: fadeUp .7s ease forwards; }
-.fade:nth-child(1) { animation-delay: .1s; }
-.fade:nth-child(2) { animation-delay: .25s; }
-.fade:nth-child(3) { animation-delay: .4s; }
-.fade:nth-child(4) { animation-delay: .55s; }
-.fade:nth-child(5) { animation-delay: .7s; }
 </style>
 </head>
 <body>
 
-<div class="bg"></div>
-<div class="bg-overlay"></div>
+<!-- DEEP SPACE BACKGROUND -->
+<div class="space-bg"></div>
+
+<!-- MOTHERSHIP TRAVERSING -->
+<div id="ms-flyer" style="position:fixed;z-index:11;pointer-events:none;opacity:1;">
+  <svg viewBox="0 0 400 120" width="280" height="84" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="msf-hull" cx="50%" cy="35%" r="60%">
+        <stop offset="0%" stop-color="#8090a0"/><stop offset="50%" stop-color="#405060"/><stop offset="100%" stop-color="#1a2530"/>
+      </radialGradient>
+      <radialGradient id="msf-engine" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="rgba(96,224,255,0.9)"/><stop offset="100%" stop-color="rgba(0,80,160,0)"/>
+      </radialGradient>
+      <filter id="msf-glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <filter id="msf-englow"><feGaussianBlur stdDeviation="5"/></filter>
+    </defs>
+    <!-- Hull -->
+    <ellipse cx="200" cy="55" rx="195" ry="38" fill="url(#msf-hull)" stroke="rgba(100,160,200,0.3)" stroke-width="1"/>
+    <!-- Upper dome -->
+    <ellipse cx="200" cy="38" rx="90" ry="28" fill="#506070"/>
+    <ellipse cx="200" cy="32" rx="70" ry="18" fill="#607888"/>
+    <!-- Dome window glow -->
+    <ellipse cx="200" cy="32" rx="55" ry="12" fill="rgba(96,224,255,0.15)"/>
+    <!-- Hull underside shadow band -->
+    <ellipse cx="200" cy="58" rx="195" ry="12" fill="#1a2530"/>
+    <!-- Alien crew -->
+    <text x="128" y="62" text-anchor="middle" font-size="11">👽</text>
+    <text x="200" y="62" text-anchor="middle" font-size="12">👽</text>
+    <text x="272" y="62" text-anchor="middle" font-size="11">👽</text>
+    <!-- Running lights -->
+    <circle cx="145" cy="72" r="4" fill="#00ccff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.15s" repeatCount="indefinite"/></circle>
+    <circle cx="180" cy="74" r="5" fill="#ffee00" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="200" cy="75" r="5" fill="#ffffff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.1s" repeatCount="indefinite"/></circle>
+    <circle cx="220" cy="74" r="5" fill="#88ff00" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.45s" repeatCount="indefinite"/></circle>
+    <circle cx="255" cy="72" r="4" fill="#ff80ff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.7s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <!-- Engine glow underneath -->
+    <ellipse cx="200" cy="82" rx="90" ry="14" fill="rgba(96,224,255,0.10)" filter="url(#msf-englow)"/>
+    <ellipse cx="200" cy="80" rx="80" ry="12" fill="rgba(120,200,255,0.12)" filter="url(#msf-glow)"/>
+    <!-- Dome highlight -->
+    <ellipse cx="200" cy="42" rx="120" ry="10" fill="rgba(200,230,255,0.12)"/>
+  </svg>
+</div>
+<script>
+(function(){
+  var el = document.getElementById("ms-flyer");
+  var w = 280, h = 84;
+  var speed = 0.00016;
+  var t = Math.random() * Math.PI * 2;
+  var lastTime = null;
+  function step(ts) {
+    if (!lastTime) lastTime = ts;
+    t += speed * (ts - lastTime);
+    lastTime = ts;
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var rx = vw * 0.44, ry = vh * 0.40;
+    var cx = vw / 2, cy = vh / 2;
+    var x = cx + rx * Math.cos(t) - w / 2;
+    var y = cy + ry * Math.sin(t) - h / 2;
+    var goingLeft = Math.cos(t - 0.01) > Math.cos(t);
+    el.style.transform = goingLeft ? "scaleX(-1)" : "scaleX(1)";
+    el.style.left = x + "px";
+    el.style.top  = y + "px";
+    requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+})();
+</script>
+<div class="nebula nebula-1"></div>
+<div class="nebula nebula-2"></div>
+<div class="nebula nebula-3"></div>
+
+
+<canvas id="star-canvas"></canvas>
+
+<!-- SHOOTING STARS CANVAS -->
+<canvas id="shoot-canvas" style="position:fixed;inset:0;z-index:4;pointer-events:none;"></canvas>
+
+
+
+
+
+
+
+
+<!-- DISCO BALL + BEAM CANVAS -->
+<div id="disco-wrap">
+  <!-- SOLAR PANEL + BALL + SOLAR PANEL ROW -->
+  <div style="display:flex;align-items:center;gap:0;">
+    <!-- Left solar panel -->
+    <svg viewBox="0 0 90 28" width="90" height="28" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;">
+      <!-- Strut -->
+      <line x1="90" y1="14" x2="55" y2="14" stroke="#999" stroke-width="1.5"/>
+      <!-- Panel frame -->
+      <rect x="2" y="3" width="52" height="22" rx="2" fill="none" stroke="#7090b0" stroke-width="1.2"/>
+      <!-- Panel cells -->
+      <rect x="3" y="4" width="16" height="10" rx="1" fill="#1a3a6a" stroke="#2a4a8a" stroke-width="0.5" opacity="0.9"/>
+      <rect x="3" y="15" width="16" height="9" rx="1" fill="#1a3a6a" stroke="#2a4a8a" stroke-width="0.5" opacity="0.9"/>
+      <rect x="20" y="4" width="16" height="10" rx="1" fill="#1a3060" stroke="#2a4a8a" stroke-width="0.5" opacity="0.9"/>
+      <rect x="20" y="15" width="16" height="9" rx="1" fill="#1a3060" stroke="#2a4a8a" stroke-width="0.5" opacity="0.9"/>
+      <rect x="37" y="4" width="16" height="10" rx="1" fill="#1a3a6a" stroke="#2a4a8a" stroke-width="0.5" opacity="0.9"/>
+      <rect x="37" y="15" width="16" height="9" rx="1" fill="#1a3a6a" stroke="#2a4a8a" stroke-width="0.5" opacity="0.9"/>
+      <!-- Cell grid lines -->
+      <line x1="3" y1="14" x2="54" y2="14" stroke="#2a4a8a" stroke-width="0.4" opacity="0.6"/>
+      <line x1="19" y1="4" x2="19" y2="25" stroke="#2a4a8a" stroke-width="0.4" opacity="0.6"/>
+      <line x1="36" y1="4" x2="36" y2="25" stroke="#2a4a8a" stroke-width="0.4" opacity="0.6"/>
+      <!-- Solar glint -->
+      <rect x="4" y="5" width="14" height="3" rx="1" fill="rgba(100,180,255,0.2)"/>
+      <rect x="21" y="5" width="14" height="3" rx="1" fill="rgba(100,180,255,0.15)"/>
+    </svg>
+
+    <!-- Disco ball canvas -->
+    <canvas id="discoCanvas" width="90" height="90"></canvas>
+
+    <!-- Right solar panel -->
+    <svg viewBox="0 0 90 28" width="90" height="28" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;">
+      <!-- Strut -->
+      <line x1="0" y1="14" x2="35" y2="14" stroke="#999" stroke-width="1.5"/>
+      <!-- Panel frame -->
+      <rect x="36" y="3" width="52" height="22" rx="2" fill="none" stroke="#7090b0" stroke-width="1.2"/>
+      <!-- Panel cells -->
+      <rect x="37" y="4" width="16" height="10" rx="1" fill="#1a3a6a" stroke="#2a4a8a" stroke-width="0.5" opacity="0.9"/>
+      <rect x="37" y="15" width="16" height="9" rx="1" fill="#1a3a6a" stroke="#2a4a8a" stroke-width="0.5" opacity="0.9"/>
+      <rect x="54" y="4" width="16" height="10" rx="1" fill="#1a3060" stroke="#2a4a8a" stroke-width="0.5" opacity="0.9"/>
+      <rect x="54" y="15" width="16" height="9" rx="1" fill="#1a3060" stroke="#2a4a8a" stroke-width="0.5" opacity="0.9"/>
+      <rect x="71" y="4" width="16" height="10" rx="1" fill="#1a3a6a" stroke="#2a4a8a" stroke-width="0.5" opacity="0.9"/>
+      <rect x="71" y="15" width="16" height="9" rx="1" fill="#1a3a6a" stroke="#2a4a8a" stroke-width="0.5" opacity="0.9"/>
+      <!-- Cell grid lines -->
+      <line x1="37" y1="14" x2="86" y2="14" stroke="#2a4a8a" stroke-width="0.4" opacity="0.6"/>
+      <line x1="53" y1="4" x2="53" y2="25" stroke="#2a4a8a" stroke-width="0.4" opacity="0.6"/>
+      <line x1="70" y1="4" x2="70" y2="25" stroke="#2a4a8a" stroke-width="0.4" opacity="0.6"/>
+      <!-- Solar glint -->
+      <rect x="38" y="5" width="14" height="3" rx="1" fill="rgba(100,180,255,0.2)"/>
+      <rect x="55" y="5" width="14" height="3" rx="1" fill="rgba(100,180,255,0.15)"/>
+    </svg>
+  </div>
+
+</div>
+<canvas id="beamCanvas" style="position:fixed;inset:0;z-index:7;pointer-events:none;"></canvas>
+<canvas id="fireflyCanvas" style="position:fixed;inset:0;z-index:8;pointer-events:none;"></canvas>
+
+<!-- FREE-FLOATING ASTRONAUT -->
+<div id="free-astronaut" style="position:fixed;z-index:10;pointer-events:none;opacity:0.85;">
+  <svg viewBox="0 0 90 120" width="68" height="90" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;filter:drop-shadow(0 0 6px rgba(200,220,255,0.25));">
+    <defs>
+      <radialGradient id="free-visor" cx="38%" cy="35%" r="60%">
+        <stop offset="0%" stop-color="#2a4a8a"/>
+        <stop offset="40%" stop-color="#1a2a5a"/>
+        <stop offset="100%" stop-color="#0a1020"/>
+      </radialGradient>
+    </defs>
+    <g id="free-astro-group" transform="translate(45,60)">
+      <!-- Backpack -->
+      <rect x="8" y="-8" width="11" height="15" rx="2.5" fill="#c0c5cc" stroke="#909aaa" stroke-width="0.5"/>
+      <rect x="10" y="-6" width="4" height="4" rx="1" fill="#707888"/>
+      <rect x="13" y="-4" width="3" height="3" rx="1" fill="#5a8aff" opacity="0.8"/>
+      <!-- Torso -->
+      <ellipse cx="0" cy="2" rx="13" ry="15" fill="white" stroke="#d0d5de" stroke-width="0.7"/>
+      <!-- Chest panel -->
+      <rect x="-5" y="-3" width="11" height="7" rx="2" fill="#e8ecf2" stroke="#b0b8c4" stroke-width="0.4"/>
+      <rect x="-3" y="-1" width="5" height="3" rx="1" fill="#4a7aff" opacity="0.6"/>
+      <!-- Helmet -->
+      <circle cx="0" cy="-15" r="12" fill="white" stroke="#c8cdd4" stroke-width="0.9"/>
+      <ellipse cx="-0.5" cy="-14" rx="7.5" ry="6.5" fill="url(#free-visor)"/>
+      <ellipse cx="-3.5" cy="-18" rx="2.5" ry="1.5" fill="rgba(255,255,255,0.32)" transform="rotate(-20,-3.5,-18)"/>
+      <ellipse cx="0" cy="-3.5" rx="12.5" ry="2.5" fill="none" stroke="#c0c5ce" stroke-width="1"/>
+      <!-- Left arm -->
+      <ellipse cx="-16" cy="-2" rx="4.5" ry="9" fill="white" stroke="#d0d5de" stroke-width="0.7" transform="rotate(35,-16,-2)"/>
+      <circle cx="-24" cy="6" r="4.5" fill="#d5dae2" stroke="#b0b5be" stroke-width="0.5"/>
+      <!-- Right arm -->
+      <ellipse cx="16" cy="1" rx="4.5" ry="9" fill="white" stroke="#d0d5de" stroke-width="0.7" transform="rotate(20,16,1)"/>
+      <circle cx="20" cy="10" r="4.5" fill="#d5dae2" stroke="#b0b5be" stroke-width="0.5"/>
+      <!-- Legs -->
+      <ellipse cx="-6" cy="21" rx="5.5" ry="10" fill="white" stroke="#d0d5de" stroke-width="0.7" transform="rotate(-8,-6,21)"/>
+      <ellipse cx="-8" cy="31" rx="6" ry="3.5" fill="#c0c5cc" stroke="#a0a5ae" stroke-width="0.5"/>
+      <ellipse cx="6" cy="21" rx="5.5" ry="10" fill="white" stroke="#d0d5de" stroke-width="0.7" transform="rotate(8,6,21)"/>
+      <ellipse cx="8" cy="31" rx="6" ry="3.5" fill="#c0c5cc" stroke="#a0a5ae" stroke-width="0.5"/>
+      <!-- Seams -->
+      <line x1="-4" y1="-3" x2="-4" y2="15" stroke="#c8cdd4" stroke-width="0.4" opacity="0.5"/>
+      <line x1="4" y1="-3" x2="4" y2="15" stroke="#c8cdd4" stroke-width="0.4" opacity="0.5"/>
+    </g>
+  </svg>
+</div>
+<script>
+(function(){
+  var el = document.getElementById('free-astronaut');
+  var grp = document.getElementById('free-astro-group');
+  var t = Math.random() * Math.PI * 2;
+  var W = window.innerWidth, H = window.innerHeight;
+  // Start in upper-center zone
+  var cx = W * 0.35 + Math.random() * W * 0.3;
+  var cy = H * 0.15 + Math.random() * H * 0.3;
+  var vx = (Math.random() - 0.5) * 0.12;
+  var vy = (Math.random() - 0.5) * 0.07;
+  window.addEventListener('resize', function(){ W=window.innerWidth; H=window.innerHeight; });
+  function loop(){
+    t += 0.009;
+    cx += vx; cy += vy;
+    // Bounds: upper half, weighted center
+    if(cx < 60)       { cx = 60;       vx =  Math.abs(vx); }
+    if(cx > W - 60)   { cx = W - 60;   vx = -Math.abs(vx); }
+    if(cy < 80)       { cy = 80;       vy =  Math.abs(vy); }
+    if(cy > H * 0.55) { cy = H * 0.55; vy = -Math.abs(vy); }
+    var wobX = Math.sin(t * 0.6) * 5;
+    var wobY = Math.cos(t * 0.4) * 6;
+    var tilt = Math.sin(t * 0.35) * 10;
+    el.style.left = (cx - 34 + wobX) + 'px';
+    el.style.top  = (cy - 45 + wobY) + 'px';
+    grp.setAttribute('transform', 'translate(45,60) rotate(' + tilt + ',0,0)');
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+</script>
+
 
 <div class="page">
 
-  <!-- HEADER -->
-  <a href="https://musicrow.us" class="site-link fade">MusicRow.US — The Forest Sessions</a>
+  <a href="https://musicrow.us" class="site-link fade">🚀 MusicRow.US — The Forest Sessions</a>
 
-  <!-- HERO -->
   <div class="fade">
-    <p class="hero-eyebrow">🎸 MusicRow.us Giveaway — Free To Enter</p>
+    <p class="hero-eyebrow">👽 MusicRow.us Giveaway — Free To Enter</p>
     <h1 class="hero-headline">
-      You COULD Win This Prize.
-      <em>Why couldn't it be YOU?</em>
+      <span style="color:var(--gold);text-shadow:0 0 40px rgba(245,192,48,.6);">CASH GIVEAWAY</span>
+      <em style="color:#ffffff;text-shadow:0 0 30px rgba(255,255,255,0.4);">BE A WINNER!</em>
     </h1>
-    <p class="hero-sub">You can't win if you don't enter.</p>
+    <p class="hero-sub"><strong>But you can't win if you don't enter.</strong></p>
     <div class="hero-prize">
       <div class="medal-badge">
-        <div class="medal-circle" style="width:120px;height:120px;font-size:52px;">💵</div>
-        <div class="medal-text" style="font-size:18px;">$100 Cash<br>One Lucky Winner!</div>
+        <div class="medal-circle">💵</div>
+        <div class="medal-text">$100 Cash<br>One Lucky Winner!</div>
       </div>
     </div>
   </div>
@@ -666,97 +639,16 @@ body {
     <div class="carousel-wrap">
       <span class="carousel-label">🎵 The Music</span>
       <div class="carousel-track" id="track">
-
-        <div class="carousel-slide">
-          <div class="slide-icon">⚡</div>
-          <div class="slide-content">
-            <div class="slide-genre">Hard Rock</div>
-            <div class="slide-title">War Pigs</div>
-            <div class="slide-desc">The men who send others to war from safe rooms — and the reckoning they never saw coming.</div>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <div class="slide-icon">🚗</div>
-          <div class="slide-content">
-            <div class="slide-genre">Country Rock</div>
-            <div class="slide-title">Crazy Boy</div>
-            <div class="slide-desc">A real friend. A red Rolls Royce Silver Spur. A tree. Told without flinching.</div>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <div class="slide-icon">🙏</div>
-          <div class="slide-content">
-            <div class="slide-genre">Worship</div>
-            <div class="slide-title">There's Nothin' Like Me with You</div>
-            <div class="slide-desc">A narration of strings and violins. The tears stayed on the recording. If God is in you, this will move you.</div>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <div class="slide-icon">🏙️</div>
-          <div class="slide-content">
-            <div class="slide-genre">Country</div>
-            <div class="slide-title">Honky Tonk Hell</div>
-            <div class="slide-desc">Nashville's dirty secret — the moguls, the myths, the machine. One man calls it out by name.</div>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <div class="slide-icon">🌲</div>
-          <div class="slide-content">
-            <div class="slide-genre">Country Rock</div>
-            <div class="slide-title">Runnin Wild</div>
-            <div class="slide-desc">The woods — where God knew we'd find peace and life in abundance.</div>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <div class="slide-icon">🚀</div>
-          <div class="slide-content">
-            <div class="slide-genre">Country Rock</div>
-            <div class="slide-title">Starman</div>
-            <div class="slide-desc">The astronaut — risking everything for science. The most underrated hero of our time.</div>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <div class="slide-icon">🎉</div>
-          <div class="slide-content">
-            <div class="slide-genre">Rock</div>
-            <div class="slide-title">Party Town</div>
-            <div class="slide-desc">A town with one mission — to be the most fun place on earth. Full volume. No apologies.</div>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <div class="slide-icon">🌅</div>
-          <div class="slide-content">
-            <div class="slide-genre">Country</div>
-            <div class="slide-title">Sail Away</div>
-            <div class="slide-desc">A guitar and a porch and a daydream. The only cure for a week spent at a job you hate.</div>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <div class="slide-icon">🚜</div>
-          <div class="slide-content">
-            <div class="slide-genre">Country</div>
-            <div class="slide-title">Farm Memories</div>
-            <div class="slide-desc">Miserable then. Priceless now. The simple life you didn't know you'd miss until it was gone.</div>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <div class="slide-icon">🚓</div>
-          <div class="slide-content">
-            <div class="slide-genre">Country Rock</div>
-            <div class="slide-title">The Bank Job</div>
-            <div class="slide-desc">You decided to be a fool. You entered the fools hall of fame. Now you're running forever.</div>
-          </div>
-        </div>
-
+        <div class="carousel-slide"><div class="slide-icon">⚡</div><div class="slide-content"><div class="slide-genre">Hard Rock</div><div class="slide-title">War Pigs</div><div class="slide-desc">The men who send others to war from safe rooms — and the reckoning they never saw coming.</div></div></div>
+        <div class="carousel-slide"><div class="slide-icon">🚗</div><div class="slide-content"><div class="slide-genre">Country Rock</div><div class="slide-title">Crazy Boy</div><div class="slide-desc">A real friend. A red Rolls Royce Silver Spur. A tree. Told without flinching.</div></div></div>
+        <div class="carousel-slide"><div class="slide-icon">🙏</div><div class="slide-content"><div class="slide-genre">Worship</div><div class="slide-title">There's Nothin' Like Me with You</div><div class="slide-desc">A narration of strings and violins. The tears stayed on the recording. If God is in you, this will move you.</div></div></div>
+        <div class="carousel-slide"><div class="slide-icon">🏙️</div><div class="slide-content"><div class="slide-genre">Country</div><div class="slide-title">Honky Tonk Hell</div><div class="slide-desc">Nashville's dirty secret — the moguls, the myths, the machine. One man calls it out by name.</div></div></div>
+        <div class="carousel-slide"><div class="slide-icon">🌲</div><div class="slide-content"><div class="slide-genre">Country Rock</div><div class="slide-title">Runnin Wild</div><div class="slide-desc">The woods — where God knew we'd find peace and life in abundance.</div></div></div>
+        <div class="carousel-slide"><div class="slide-icon">🚀</div><div class="slide-content"><div class="slide-genre">Country Rock</div><div class="slide-title">Starman</div><div class="slide-desc">A guitar. A launchpad. A dream bigger than the sky. Steve's most electrifying track.</div></div></div>
+        <div class="carousel-slide"><div class="slide-icon">🎉</div><div class="slide-content"><div class="slide-genre">Rock</div><div class="slide-title">Party Town</div><div class="slide-desc">A town with one mission — to be the most fun place on earth. Full volume. No apologies.</div></div></div>
+        <div class="carousel-slide"><div class="slide-icon">🌅</div><div class="slide-content"><div class="slide-genre">Country</div><div class="slide-title">Sail Away</div><div class="slide-desc">A guitar and a porch and a daydream. The only cure for a week spent at a job you hate.</div></div></div>
+        <div class="carousel-slide"><div class="slide-icon">🚜</div><div class="slide-content"><div class="slide-genre">Country</div><div class="slide-title">Farm Memories</div><div class="slide-desc">Miserable then. Priceless now. The simple life you didn't know you'd miss until it was gone.</div></div></div>
+        <div class="carousel-slide"><div class="slide-icon">🚓</div><div class="slide-content"><div class="slide-genre">Country Rock</div><div class="slide-title">The Bank Job</div><div class="slide-desc">You decided to be a fool. You entered the fools hall of fame. Now you're running forever.</div></div></div>
       </div>
       <div class="carousel-dots" id="dots"></div>
       <div class="carousel-footer">26 original songs · A Whole Life In Song · MusicRow.US</div>
@@ -765,52 +657,28 @@ body {
 
   <div class="divider fade">✦ ✦ ✦</div>
 
+
   <!-- FORM -->
   <div class="fade">
     <div class="form-wrap" id="formWrap">
-      <h2 class="form-title">🔥 Fill Out This Form To Enter! 🔥</h2>
+      <h2 class="form-title">🛸 Beam Me Into The Drawing! 🛸</h2>
       <p class="form-sub">That's right — $100 CASH waiting for the lucky winner! Fill out the form completely for YOUR chance to win. This is a drawing and we will draw a winner from the entries.</p>
 
       <form id="entryForm" action="https://formspree.io/f/mbdqpkzw" method="POST">
         <input type="hidden" name="_subject" value="New Giveaway Entry — MusicRow.US">
         <input type="hidden" name="_next" value="https://giveaway.musicrow.us/giveaway.html?success=true">
-        <div class="field-row">
-          <div class="field">
-            <label>First Name *</label>
-            <input type="text" name="first_name" required placeholder="First name">
-          </div>
-          <div class="field">
-            <label>Last Name *</label>
-            <input type="text" name="last_name" required placeholder="Last name">
-          </div>
-        </div>
-
-        <div class="field">
-          <label>Email Address *</label>
-          <input type="email" name="email" required placeholder="your@email.com">
-        </div>
 
         <div class="field-row">
-          <div class="field">
-            <label>City</label>
-            <input type="text" name="city" placeholder="City">
-          </div>
-          <div class="field">
-            <label>State</label>
-            <input type="text" name="state" placeholder="State" maxlength="2">
-          </div>
+          <div class="field"><label>First Name *</label><input type="text" name="first_name" required placeholder="First name"></div>
+          <div class="field"><label>Last Name *</label><input type="text" name="last_name" required placeholder="Last name"></div>
         </div>
-
-        <div class="field">
-          <label>Phone Number</label>
-          <input type="tel" name="phone" placeholder="(555) 000-0000">
+        <div class="field"><label>Email Address *</label><input type="email" name="email" required placeholder="your@email.com"></div>
+        <div class="field-row">
+          <div class="field"><label>City</label><input type="text" name="city" placeholder="City"></div>
+          <div class="field"><label>State</label><input type="text" name="state" placeholder="State" maxlength="2"></div>
         </div>
-
-        <div class="field">
-          <label>Listener Comments</label>
-          <textarea name="listener_comments" rows="2" placeholder="Leave us a comment..." style="width:100%;padding:13px 14px;background:rgba(255,255,255,.06);border:1px solid rgba(245,192,48,.2);color:var(--cream);font-family:'Lato',sans-serif;font-size:15px;outline:none;border-radius:2px;resize:vertical;box-sizing:border-box;"></textarea>
-        </div>
-
+        <div class="field"><label>Phone Number</label><input type="tel" name="phone" placeholder="(555) 000-0000"></div>
+        <div class="field"><label>Listener Comments</label><textarea name="listener_comments" rows="2" placeholder="Leave us a comment..."></textarea></div>
         <div class="field">
           <label>How Did You Find Our FREE Giveaway?</label>
           <select name="how_found">
@@ -823,22 +691,17 @@ body {
             <option>Other</option>
           </select>
         </div>
-
-        <button type="submit" class="submit-btn">🔥 YES! Enter Me In The Drawing! 🔥</button>
-
-        <p class="legal">No purchase necessary. Maximum one entry and one bonus entry per person. Open to US residents 18+. Winner selected randomly and notified by email. Prize: $100 Cash (approx. value $100). Void where prohibited. Winner consent to use of likeness required for prize acceptance. We will draw a winner from the entries once they reach a predetermined threshold.</p>
+        <button type="submit" class="submit-btn">🚀 Launch Me Into The Drawing! 🚀</button>
+        <p class="legal">No purchase necessary. Maximum one entry and one bonus entry per person. Open to US residents 18+. Winner selected randomly and notified by email. Prize: $100 Cash (approx. value $100). Void where prohibited.</p>
       </form>
 
       <!-- SUCCESS -->
-      <!-- SUCCESS SCREEN -->
       <div class="success" id="success">
-
         <div class="success-inner">
           <div class="success-icon">🛸</div>
           <h2>You've Been Beamed Up!</h2>
           <p>You're officially in the drawing! A winner is selected randomly and notified by email. Good luck! 🌟</p>
 
-          <!-- BONUS ENTRY SONG FORM -->
           <div class="bonus-wrap" id="bonusWrap">
             <div class="bonus-title">🎸 BONUS ENTRY! 🎸</div>
             <p class="bonus-sub">Tell us 3 songs you played on MusicRow.US for an additional submission!</p>
@@ -857,155 +720,407 @@ body {
           </div>
 
           <div style="margin-top:28px;">
-            <p style="font-size:15px; color:rgba(254,252,232,.8); margin-bottom:16px; line-height:1.7;">Did you visit the webpage and play songs? Come see us again and enter to win!</p>
-            <a href="https://musicrow.us" class="fire-btn" id="artistBtn" style="position:relative; overflow:hidden; display:block;">
-<span style="position:relative; z-index:2;">🔥 Listen To Our Featured Artist For Bonus Credit To WIN 🔥</span>
+            <p style="font-size:15px; color:rgba(254,252,232,.8); margin-bottom:16px; line-height:1.7;">Come explore the music and enter to win!</p>
+            <a href="https://musicrow.us" class="fire-btn" style="display:block; text-align:center;">
+              🔥 Listen To Our Featured Artist For Bonus Credit To WIN 🔥
             </a>
           </div>
 
-          <!-- FEATURED ARTIST BUTTON -->
           <div style="margin-top:28px;">
-            <p style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:rgba(245,192,48,.5); margin-bottom:14px;">✦ Featured Artist ✦</p>
+            <p style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:rgba(96,224,255,.4); margin-bottom:14px;">✦ Featured Artist ✦</p>
             <a href="https://musicrow.us" class="space-artist-btn">
-              <span class="space-artist-glow"></span>
-              <span class="space-artist-stars"></span>
-              <span class="space-artist-inner">
+              <div class="space-artist-inner">
                 <span class="space-artist-site">MusicRow.US</span>
                 <span class="space-artist-name">Steven Douglas Bickham</span>
-                <span class="space-artist-tag">🚀 Our Featured Artist → Enter Now</span>
-              </span>
+                <span class="space-artist-tag">🚀 Our Featured Artist → Listen Now</span>
+              </div>
             </a>
           </div>
 
-          <div style="margin-top:24px; padding-top:24px; border-top:1px solid rgba(245,192,48,.2);">
+          <div style="margin-top:24px; padding-top:24px; border-top:1px solid rgba(96,224,255,.15);">
             <p style="font-size:14px; color:rgba(254,252,232,.5); margin-bottom:12px;">Are you an up and coming music artist?</p>
-            <a href="mailto:steve@musicrow.us" class="success-btn" style="background:transparent; border:1px solid rgba(245,192,48,.4); color:var(--gold); font-size:12px; padding:12px 24px;">Click Here → Get Featured on MusicRow.US</a>
+            <a href="mailto:steve@musicrow.us" class="success-btn" style="background:transparent; border:1px solid rgba(96,224,255,.4); color:var(--cyan); font-size:12px; padding:12px 24px;">Click Here → Get Featured on MusicRow.US</a>
           </div>
         </div>
-
       </div>
 
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <div class="page-footer fade">
-    <a href="https://musicrow.us">← Back to MusicRow.US — The Forest Sessions</a>
+  <div style="text-align:center;padding:20px 0 48px;">
+    <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:rgba(254,252,232,.5);margin-bottom:16px;">Not ready to enter? Come hear the music first.</p>
+    <a href="https://musicrow.us" style="
+      display:inline-block;
+      font-family:'Abril Fatface',cursive;
+      font-size:1.1rem;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      text-decoration:none;
+      color:#fff;
+      background:linear-gradient(180deg,#ff4400,#cc1100);
+      border:2px solid #ff3300;
+      border-radius:10px;
+      padding:16px 36px;
+      box-shadow:0 0 20px rgba(255,60,0,.7), 0 0 50px rgba(255,40,0,.35);
+      animation:redBtnPulse 2s ease-in-out infinite;
+    ">🚀 BLAST OFF TO THE MUSIC! 🚀</a>
   </div>
+  <style>
+  @keyframes redBtnPulse {
+    0%,100%{ box-shadow:0 0 20px rgba(255,60,0,.7), 0 0 50px rgba(255,40,0,.35); }
+    50%    { box-shadow:0 0 35px rgba(255,60,0,1),  0 0 80px rgba(255,40,0,.6);  }
+  }
+  </style>
 
 </div>
 
 <!-- BACKGROUND AUDIO -->
-<audio id="ga-audio">
-  <source src="ga.mp3" type="audio/mpeg">
-</audio>
-<script>
-  const gaAudio = document.getElementById('ga-audio');
+<audio id="ga-audio"><source src="ga.mp3" type="audio/mpeg"></audio>
 
-  function playAudio() {
-    gaAudio.muted = true;
-    gaAudio.currentTime = 0;
-    gaAudio.play().then(() => { gaAudio.muted = false; }).catch(() => {});
+<script>
+// ── STAR FIELD ──
+(function(){
+  const c = document.getElementById('star-canvas');
+  const ctx = c.getContext('2d');
+  function resize(){ c.width = window.innerWidth; c.height = window.innerHeight; drawStars(); }
+  function drawStars(){
+    ctx.clearRect(0,0,c.width,c.height);
+    const stars = 320;
+    for(let i=0;i<stars;i++){
+      const x = Math.random()*c.width;
+      const y = Math.random()*c.height;
+      const r = Math.random()*1.6+0.2;
+      const a = 0.3+Math.random()*0.7;
+      const hue = Math.random() > 0.85 ? `rgba(200,220,255,${a})` : `rgba(255,255,255,${a})`;
+      ctx.beginPath();
+      ctx.arc(x,y,r,0,Math.PI*2);
+      ctx.fillStyle = hue;
+      ctx.fill();
+    }
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  // Twinkle a few stars
+  const twinklers = Array.from({length:30},()=>({
+    x:Math.random()*window.innerWidth, y:Math.random()*window.innerHeight,
+    r:Math.random()*1.5+0.5, phase:Math.random()*Math.PI*2, speed:0.03+Math.random()*0.05
+  }));
+  function twinkle(){
+    twinklers.forEach(s=>{
+      s.phase += s.speed;
+      const a = 0.3 + 0.7*Math.abs(Math.sin(s.phase));
+      ctx.clearRect(s.x-s.r*4,s.y-s.r*4,s.r*8,s.r*8);
+      ctx.beginPath();
+      ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle = `rgba(255,255,255,${a})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(twinkle);
+  }
+  twinkle();
+})();
+
+// ── SHOOTING STARS ──
+(function(){
+  const c = document.getElementById('shoot-canvas');
+  const ctx = c.getContext('2d');
+  function resize(){ c.width=window.innerWidth; c.height=window.innerHeight; }
+  resize(); window.addEventListener('resize',resize);
+  const shoots = [];
+  function spawnShoot(){
+    if(shoots.length < 3){
+      shoots.push({
+        x: Math.random()*c.width*0.7,
+        y: Math.random()*c.height*0.4,
+        vx: 4+Math.random()*6,
+        vy: 1.5+Math.random()*3,
+        len: 80+Math.random()*120,
+        alpha: 1,
+        hue: Math.random()>0.5?'255,255,255':'200,240,255'
+      });
+    }
+    setTimeout(spawnShoot, 2000+Math.random()*4000);
+  }
+  spawnShoot();
+  function loop(){
+    ctx.clearRect(0,0,c.width,c.height);
+    for(let i=shoots.length-1;i>=0;i--){
+      const s=shoots[i];
+      s.x+=s.vx; s.y+=s.vy; s.alpha-=0.015;
+      if(s.alpha<=0){ shoots.splice(i,1); continue; }
+      const grad=ctx.createLinearGradient(s.x-s.vx*10,s.y-s.vy*10,s.x,s.y);
+      grad.addColorStop(0,`rgba(${s.hue},0)`);
+      grad.addColorStop(1,`rgba(${s.hue},${s.alpha})`);
+      ctx.strokeStyle=grad; ctx.lineWidth=1.5;
+      ctx.beginPath(); ctx.moveTo(s.x-s.vx*10,s.y-s.vy*10); ctx.lineTo(s.x,s.y); ctx.stroke();
+    }
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+
+// ── DISCO BALL ──
+(function(){
+  const canvas = document.getElementById('discoCanvas');
+  const ctx = canvas.getContext('2d');
+  const W=90, H=90, R=36, CX=45, CY=48;
+  let spin=0;
+  const TILES=[];
+  const rows=30, cols=42;
+  for(let r=0;r<rows;r++){
+    const phi0 = Math.PI*(r/rows), phi1 = Math.PI*((r+1)/rows);
+    for(let c=0;c<cols;c++){
+      const th0=2*Math.PI*(c/cols), th1=2*Math.PI*((c+1)/cols);
+      const thMid=(th0+th1)/2, phiMid=(phi0+phi1)/2;
+      TILES.push({
+        th:thMid, phi:phiMid,
+        dTh:th1-th0, dPhi:phi1-phi0,
+        hue: Math.floor(Math.random()*360)
+      });
+    }
+  }
+  function drawBall(a){
+    ctx.clearRect(0,0,W,H);
+    const sph = Math.sin(Math.PI/6), cph = Math.cos(Math.PI/6);
+    for(const t of TILES){
+      const th = t.th+a;
+      const nx = Math.sin(t.phi)*Math.cos(th);
+      const ny = Math.sin(t.phi)*Math.sin(th);
+      const nz = Math.cos(t.phi);
+      const rNz = nz*cph - ny*sph;
+      if(rNz<0.05) continue;
+      const px = CX + R*nx;
+      const py = CY + R*(nz*sph+ny*cph);
+      const w = R*t.dTh*Math.abs(Math.sin(t.phi))*0.82;
+      const h2 = R*t.dPhi*0.82;
+      const bright = Math.floor(60+rNz*195);
+      ctx.save();
+      ctx.translate(px,py);
+      ctx.rotate(th*0.25);
+      ctx.fillStyle = `hsl(${t.hue},90%,${bright}%)`;
+      ctx.strokeStyle = 'rgba(0,0,0,0.18)';
+      ctx.lineWidth = 0.5;
+      ctx.fillRect(-w/2,-h2/2,w,h2);
+      ctx.strokeRect(-w/2,-h2/2,w,h2);
+      ctx.restore();
+    }
+    // Hanging string
+    ctx.strokeStyle='rgba(255,255,255,0.3)';
+    ctx.lineWidth=1.5;
+    ctx.beginPath(); ctx.moveTo(CX,0); ctx.lineTo(CX,CY-R); ctx.stroke();
+    // Glow
+    const g=ctx.createRadialGradient(CX,CY,R*0.3,CX,CY,R*1.3);
+    g.addColorStop(0,'rgba(255,255,255,0)');
+    g.addColorStop(0.7,'rgba(200,240,255,0)');
+    g.addColorStop(1,'rgba(100,200,255,0.10)');
+    ctx.fillStyle=g;
+    ctx.beginPath(); ctx.arc(CX,CY,R*1.3,0,Math.PI*2); ctx.fill();
   }
 
-  gaAudio.addEventListener('ended', () => {
-    setTimeout(playAudio, 20000);
+  // BEAM CANVAS
+  const bc = document.getElementById('beamCanvas');
+  const bctx = bc.getContext('2d');
+  function resizeBC(){ bc.width=window.innerWidth; bc.height=window.innerHeight; }
+  resizeBC(); window.addEventListener('resize',resizeBC);
+
+  const fc = document.getElementById('fireflyCanvas');
+  const fctx = fc.getContext('2d');
+  function resizeFC(){ fc.width=window.innerWidth; fc.height=window.innerHeight; }
+  resizeFC(); window.addEventListener('resize',resizeFC);
+
+  function getBallCenter(){
+    const canvas = document.getElementById('discoCanvas');
+    const rect = canvas.getBoundingClientRect();
+    return { x: rect.left + CX, y: rect.top + CY };
+  }
+
+  const BEAM_COLORS=[
+    [255,100,100],[100,255,200],[255,220,80],[100,180,255],
+    [255,100,255],[80,255,160],[255,160,80],[160,220,255],
+    [255,255,180],[200,255,200],[255,200,255]
+  ];
+  const LAYERS=[
+    {elevation:-0.9,count:6,len:1600,width:0.7},
+    {elevation:-0.5,count:10,len:1600,width:0.6},
+    {elevation:-0.1,count:14,len:1600,width:0.5},
+    {elevation:0.3, count:14,len:1600,width:0.5},
+    {elevation:0.7, count:10,len:1600,width:0.6},
+  ];
+  const rays=[];
+  let colorIdx=0;
+  LAYERS.forEach((layer,li)=>{
+    for(let i=0;i<layer.count;i++){
+      rays.push({
+        azimuth:(2*Math.PI*i/layer.count)+(li*0.3),
+        elevation:layer.elevation,
+        len:layer.len, width:layer.width,
+        color:BEAM_COLORS[colorIdx++%BEAM_COLORS.length]
+      });
+    }
   });
 
-  playAudio();
-</script>
+  function updateBeams(a){
+    const vw=bc.width, vh=bc.height;
+    const bc2=getBallCenter();
+    const ballX=bc2.x, ballY=bc2.y;
+    const ballR=R;
+    bctx.clearRect(0,0,vw,vh);
+    for(const ray of rays){
+      const az=ray.azimuth+a;
+      const el=ray.elevation;
+      const cosEl=Math.cos(Math.asin(Math.max(-1,Math.min(1,el))));
+      const dx3=cosEl*Math.cos(az);
+      const dy3=cosEl*Math.sin(az);
+      const dz3=el;
+      const screenDX=dx3; const screenDY=dz3;
+      const len2D=Math.hypot(screenDX,screenDY);
+      const ux=len2D>0.001?screenDX/len2D:1;
+      const uy=len2D>0.001?screenDY/len2D:0;
+      const originX=ballX+ux*ballR; const originY=ballY+uy*ballR;
+      const endX=originX+ux*ray.len; const endY=originY+uy*ray.len;
+      const px=-uy, py=ux;
+      const depthOpacity=0.05+(1-Math.abs(dy3)*0.5)*0.10;
+      const spreadEnd=ray.width*14;
+      const p=new Path2D();
+      p.moveTo(originX+px*ray.width,originY+py*ray.width);
+      p.lineTo(originX-px*ray.width,originY-py*ray.width);
+      p.lineTo(endX-px*spreadEnd,endY-py*spreadEnd);
+      p.lineTo(endX+px*spreadEnd,endY+py*spreadEnd);
+      p.closePath();
+      const [r,g,bl]=ray.color;
+      const grad=bctx.createLinearGradient(originX,originY,endX,endY);
+      grad.addColorStop(0,`rgba(${r},${g},${bl},0)`);
+      grad.addColorStop(0.05,`rgba(${r},${g},${bl},${depthOpacity.toFixed(3)})`);
+      grad.addColorStop(0.4,`rgba(${r},${g},${bl},${(depthOpacity*0.5).toFixed(3)})`);
+      grad.addColorStop(1,`rgba(${r},${g},${bl},0)`);
+      bctx.save(); bctx.fillStyle=grad; bctx.fill(p); bctx.restore();
+    }
+  }
 
-<script>
+  // Fireflies
+  const NUM_FLIES=25;
+  const flies=Array.from({length:NUM_FLIES},()=>({
+    angle:Math.random()*Math.PI*2,
+    radius:25+Math.random()*55,
+    speed:(Math.random()>0.5?1:-1)*(0.006+Math.random()*0.014),
+    phase:Math.random()*Math.PI*2,
+    flashRate:0.12+Math.random()*0.32,
+    burstPhase:Math.random()*Math.PI*2,
+    burstRate:0.04+Math.random()*0.09,
+    size:1.2+Math.random()*2.4,
+    drift:(Math.random()-0.5)*0.003,
+    hue:[[255,255,255],[200,230,255],[255,245,180],[180,255,220],[96,224,255]][Math.floor(Math.random()*5)]
+  }));
+  function updateFireflies(){
+    fctx.clearRect(0,0,fc.width,fc.height);
+    const bc2=getBallCenter();
+    flies.forEach(f=>{
+      f.angle+=f.speed; f.radius+=f.drift;
+      if(f.radius<22) f.drift=Math.abs(f.drift);
+      if(f.radius>80) f.drift=-Math.abs(f.drift);
+      f.phase+=f.flashRate; f.burstPhase+=f.burstRate;
+      const flicker=Math.max(0,Math.sin(f.phase));
+      const bloom=0.3+0.7*Math.max(0,Math.sin(f.burstPhase));
+      const alpha=flicker*bloom;
+      if(alpha<0.02) return;
+      const x=bc2.x+Math.cos(f.angle)*f.radius;
+      const y=bc2.y+Math.sin(f.angle)*f.radius*0.55;
+      const [r,g,b]=f.hue;
+      const core=f.size*(1+bloom*0.6);
+      const glow=core*5;
+      fctx.save();
+      fctx.globalAlpha=alpha;
+      const grad=fctx.createRadialGradient(x,y,0,x,y,glow);
+      grad.addColorStop(0,`rgba(${r},${g},${b},1)`);
+      grad.addColorStop(0.15,`rgba(${r},${g},${b},0.8)`);
+      grad.addColorStop(0.4,`rgba(${r},${g},${b},0.25)`);
+      grad.addColorStop(1,`rgba(${r},${g},${b},0)`);
+      fctx.fillStyle=grad;
+      fctx.beginPath(); fctx.arc(x,y,glow,0,Math.PI*2); fctx.fill();
+      fctx.globalAlpha=Math.min(1,alpha*1.8);
+      fctx.fillStyle=`rgba(${r},${g},${b},1)`;
+      fctx.beginPath(); fctx.arc(x,y,core,0,Math.PI*2); fctx.fill();
+      fctx.restore();
+    });
+  }
+
+  const SPEED=0.009;
+  function loop(){
+    spin+=SPEED;
+    drawBall(spin);
+    updateBeams(spin);
+    updateFireflies();
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+
 // ── CAROUSEL ──
 const slides = document.querySelectorAll('.carousel-slide');
 const track = document.getElementById('track');
 const dotsWrap = document.getElementById('dots');
 let current = 0;
 const total = slides.length;
-
-// Build dots
-slides.forEach((_, i) => {
-  const d = document.createElement('div');
-  d.className = 'dot' + (i === 0 ? ' active' : '');
-  d.addEventListener('click', () => goTo(i));
+slides.forEach((_,i)=>{
+  const d=document.createElement('div');
+  d.className='dot'+(i===0?' active':'');
+  d.addEventListener('click',()=>goTo(i));
   dotsWrap.appendChild(d);
 });
-
-function goTo(n) {
-  current = (n + total) % total;
-  track.style.transform = `translateX(-${current * 100}%)`;
-  document.querySelectorAll('.dot').forEach((d, i) => {
-    d.classList.toggle('active', i === current);
-  });
+function goTo(n){
+  current=(n+total)%total;
+  track.style.transform=`translateX(-${current*100}%)`;
+  document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===current));
 }
-
-// Auto advance every 2.8 seconds
-setInterval(() => goTo(current + 1), 2800);
+setInterval(()=>goTo(current+1),2800);
 
 // ── FORM ──
 const form = document.getElementById('entryForm');
-form.addEventListener('submit', async function(e) {
+form.addEventListener('submit', async function(e){
   e.preventDefault();
   const btn = form.querySelector('.submit-btn');
-  btn.textContent = 'Submitting...';
-  btn.disabled = true;
-
+  btn.textContent='Launching...'; btn.disabled=true;
   try {
-    const response = await fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-      form.style.display = 'none';
-      document.getElementById('success').style.display = 'block';
-      document.getElementById('success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const r = await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+    if(r.ok){
+      form.style.display='none';
+      document.getElementById('success').style.display='block';
+      document.getElementById('success').scrollIntoView({behavior:'smooth',block:'center'});
     } else {
-      btn.textContent = '🔥 YES! Enter Me In The Drawing! 🔥';
-      btn.disabled = false;
+      btn.textContent='🚀 Launch Me Into The Drawing! 🚀'; btn.disabled=false;
       alert('Something went wrong. Please try again.');
     }
-  } catch (err) {
-    btn.textContent = '🔥 YES! Enter Me In The Drawing! 🔥';
-    btn.disabled = false;
+  } catch(err){
+    btn.textContent='🚀 Launch Me Into The Drawing! 🚀'; btn.disabled=false;
     alert('Something went wrong. Please try again.');
   }
 });
 
-// Input focus
-document.querySelectorAll('input, select').forEach(el => {
-  el.addEventListener('focus', () => el.style.borderColor = 'rgba(245,192,48,.7)');
-  el.addEventListener('blur',  () => el.style.borderColor = 'rgba(245,192,48,.2)');
+document.querySelectorAll('input, select').forEach(el=>{
+  el.addEventListener('focus',()=>el.style.borderColor='rgba(96,224,255,.6)');
+  el.addEventListener('blur', ()=>el.style.borderColor='rgba(96,224,255,.15)');
 });
 
 // ── BONUS FORM ──
-document.getElementById('bonusForm').addEventListener('submit', async function(e) {
+document.getElementById('bonusForm').addEventListener('submit', async function(e){
   e.preventDefault();
-  const btn = this.querySelector('.bonus-btn');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
+  const btn=this.querySelector('.bonus-btn');
+  btn.textContent='Sending...'; btn.disabled=true;
   try {
-    const res = await fetch(this.action, {
-      method: 'POST',
-      body: new FormData(this),
-      headers: { 'Accept': 'application/json' }
-    });
-    if (res.ok) {
-      this.style.display = 'none';
-      document.getElementById('bonusSuccess').style.display = 'block';
-    } else {
-      btn.textContent = '🚀 Submit My Bonus Entry!';
-      btn.disabled = false;
-      alert('Something went wrong. Please try again.');
-    }
-  } catch(err) {
-    btn.textContent = '🚀 Submit My Bonus Entry!';
-    btn.disabled = false;
-  }
+    const res=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}});
+    if(res.ok){ this.style.display='none'; document.getElementById('bonusSuccess').style.display='block'; }
+    else { btn.textContent='🚀 Submit My Bonus Entry!'; btn.disabled=false; alert('Something went wrong.'); }
+  } catch(err){ btn.textContent='🚀 Submit My Bonus Entry!'; btn.disabled=false; }
 });
 
-
+// ── AUDIO ──
+const gaAudio = document.getElementById('ga-audio');
+function playAudio(){
+  gaAudio.muted=true; gaAudio.currentTime=0;
+  gaAudio.play().then(()=>{ gaAudio.muted=false; }).catch(()=>{});
+}
+gaAudio.addEventListener('ended',()=>setTimeout(playAudio,20000));
+playAudio();
 </script>
 
 </body>
