@@ -372,6 +372,20 @@ body {
 }
 .bonus-btn:hover { background:var(--gold2); }
 
+/* ── AUDIO BUTTON ── */
+#audio-btn {
+  position:fixed; bottom:20px; right:20px; z-index:100;
+  width:48px; height:48px; border-radius:50%;
+  background:rgba(6,13,31,.85);
+  border:1px solid rgba(96,224,255,.35);
+  color:var(--cyan); font-size:20px;
+  cursor:pointer; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 0 14px rgba(96,224,255,.2);
+  backdrop-filter:blur(8px);
+  transition:box-shadow .2s, border-color .2s;
+}
+#audio-btn:hover { box-shadow:0 0 24px rgba(96,224,255,.5); border-color:rgba(96,224,255,.7); }
+
 /* ── FOOTER ── */
 .page-footer { text-align:center; margin-top:48px; padding-top:24px; border-top:1px solid rgba(96,224,255,.1); }
 .page-footer a {
@@ -774,6 +788,9 @@ body {
 
 </div>
 
+<!-- AUDIO CONTROL BUTTON -->
+<button id="audio-btn" title="Play/Pause music">⏸</button>
+
 <!-- BACKGROUND AUDIO -->
 <audio id="ga-audio"><source src="ga.mp3" type="audio/mpeg"></audio>
 
@@ -1115,11 +1132,30 @@ document.getElementById('bonusForm').addEventListener('submit', async function(e
 
 // ── AUDIO ──
 const gaAudio = document.getElementById('ga-audio');
+const audioBtn = document.getElementById('audio-btn');
+
 function playAudio(){
-  gaAudio.muted=true; gaAudio.currentTime=0;
-  gaAudio.play().then(()=>{ gaAudio.muted=false; }).catch(()=>{});
+  gaAudio.muted = true;
+  gaAudio.currentTime = 0;
+  gaAudio.play().then(() => {
+    gaAudio.muted = false;
+    audioBtn.textContent = '⏸';
+  }).catch(() => {
+    audioBtn.textContent = '▶';
+  });
 }
-gaAudio.addEventListener('ended',()=>setTimeout(playAudio,20000));
+
+gaAudio.addEventListener('ended', () => setTimeout(playAudio, 20000));
+
+audioBtn.addEventListener('click', () => {
+  if (gaAudio.paused) {
+    gaAudio.play().then(() => { audioBtn.textContent = '⏸'; }).catch(() => {});
+  } else {
+    gaAudio.pause();
+    audioBtn.textContent = '▶';
+  }
+});
+
 playAudio();
 </script>
 
