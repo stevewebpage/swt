@@ -1062,13 +1062,15 @@ function playSong(i) {
   audio.play();
   btn.textContent = '⏸ Pause';
   currentIndex = i;
+  // GA event: song play
+  gtag('event', 'song_play', { song_title: songs[i].title, song_genre: songs[i].genre, page: 'Page 4' });
   audio.onended = () => { btn.textContent = '▶ Listen'; currentIndex = null; };
 }
 
 
 const venmoModal   = document.getElementById('venmoModal');
 const venmoClose   = document.getElementById('venmoClose');
-function openVenmo(mp3path) { venmoModal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function openVenmo(mp3path) { venmoModal.classList.add('open'); document.body.style.overflow = 'hidden'; gtag('event', 'buy_click', { mp3: mp3path, page: 'Page 4' }); }
 function closeVenmo() { venmoModal.classList.remove('open'); document.body.style.overflow=''; }
 venmoClose.addEventListener('click', closeVenmo);
 venmoModal.addEventListener('click', e => { if(e.target===venmoModal) closeVenmo(); });

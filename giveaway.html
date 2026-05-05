@@ -1105,6 +1105,7 @@ form.addEventListener('submit', async function(e){
   try {
     const r = await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
     if(r.ok){
+      gtag('event', 'giveaway_entry', { form: 'main_entry' });
       form.style.display='none';
       document.getElementById('success').style.display='block';
       document.getElementById('success').scrollIntoView({behavior:'smooth',block:'center'});
@@ -1130,7 +1131,7 @@ document.getElementById('bonusForm').addEventListener('submit', async function(e
   btn.textContent='Sending...'; btn.disabled=true;
   try {
     const res=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}});
-    if(res.ok){ this.style.display='none'; document.getElementById('bonusSuccess').style.display='block'; }
+    if(res.ok){ gtag('event', 'giveaway_entry', { form: 'bonus_entry' }); this.style.display='none'; document.getElementById('bonusSuccess').style.display='block'; }
     else { btn.textContent='🚀 Submit My Bonus Entry!'; btn.disabled=false; alert('Something went wrong.'); }
   } catch(err){ btn.textContent='🚀 Submit My Bonus Entry!'; btn.disabled=false; }
 });
@@ -1154,7 +1155,7 @@ gaAudio.addEventListener('ended', () => setTimeout(playAudio, 20000));
 
 audioBtn.addEventListener('click', () => {
   if (gaAudio.paused) {
-    gaAudio.play().then(() => { audioBtn.textContent = '⏸'; }).catch(() => {});
+    gaAudio.play().then(() => { audioBtn.textContent = '⏸'; gtag('event', 'audio_play', { page: 'giveaway' }); }).catch(() => {});
   } else {
     gaAudio.pause();
     audioBtn.textContent = '▶';

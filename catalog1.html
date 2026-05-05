@@ -1296,6 +1296,8 @@ function playSong(i) {
   audio.play();
   btn.textContent = '⏸ Pause';
   currentIndex = i;
+  // GA event: song play
+  gtag('event', 'song_play', { song_title: songs[i].title, song_genre: songs[i].genre, page: 'Page 2' });
   audio.onended = () => { btn.textContent = '▶ Listen'; currentIndex = null; };
 }
 
@@ -1304,7 +1306,7 @@ function playSong(i) {
 const venmoModal   = document.getElementById('venmoModal');
 const venmoClose   = document.getElementById('venmoClose');
 
-function openVenmo(mp3path) { venmoModal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function openVenmo(mp3path) { venmoModal.classList.add('open'); document.body.style.overflow = 'hidden'; gtag('event', 'buy_click', { mp3: mp3path, page: 'Page 2' }); }
 function closeVenmo() {
   venmoModal.classList.remove('open');
   document.body.style.overflow = '';
