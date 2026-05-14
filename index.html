@@ -598,7 +598,7 @@ to   { transform: rotate(360deg); }
 /* 3D BEATING HEART */
 .heart-bg {
   position: fixed;
-  top: 44%;
+  top: calc(44% + 15px);
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 149;
@@ -739,7 +739,7 @@ to   { transform: rotate(360deg); }
   #top-ufo-xenu { right: 5% !important; transform: scale(0.7); transform-origin: right top; }
   #top-ufo-blip { transform: scale(0.9) !important; }
   /* Heart and beat meter */
-  .heart-bg { top: 32% !important; }
+  .heart-bg { top: calc(32% + 15px) !important; }
   /* Mothership smaller */
   .amph-tiers { bottom: 0; }
   /* Nav buttons */
@@ -789,7 +789,7 @@ to   { transform: rotate(360deg); }
 <body>
 
 <!-- 3D BEATING HEART -->
-<div style="position:fixed;top:37%;left:50%;transform:translateX(-50%);z-index:150;pointer-events:none;font-family:'Abril Fatface',cursive;font-size:1.3rem;letter-spacing:4px;color:#e0103a;text-shadow:0 0 10px rgba(220,16,58,.8);text-align:center;">BEAT METER</div>
+<div style="position:fixed;top:calc(37% + 15px);left:50%;transform:translateX(-50%);z-index:150;pointer-events:none;font-family:'Abril Fatface',cursive;font-size:1.3rem;letter-spacing:4px;color:#e0103a;text-shadow:0 0 10px rgba(220,16,58,.8);text-align:center;">BEAT METER</div>
 <div class="heart-bg">
   <svg viewBox="0 0 200 180" width="105" height="95" xmlns="http://www.w3.org/2000/svg">
     <defs>
