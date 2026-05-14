@@ -786,7 +786,11 @@ to   { transform: rotate(360deg); }
 }
 </style>
 </head>
-<body>
+<body style="visibility:hidden;">
+<script>
+document.fonts.ready.then(function(){ document.body.style.visibility='visible'; });
+setTimeout(function(){ document.body.style.visibility='visible'; }, 1500);
+</script>
 
 <!-- 3D BEATING HEART -->
 <div style="position:fixed;top:calc(37% + 15px);left:50%;transform:translateX(-50%);z-index:150;pointer-events:none;font-family:'Abril Fatface',cursive;font-size:1.3rem;letter-spacing:4px;color:#e0103a;text-shadow:0 0 10px rgba(220,16,58,.8);text-align:center;">BEAT METER</div>
@@ -900,7 +904,7 @@ to   { transform: rotate(360deg); }
 </div>
 
 <!-- BLIP UFO -->
-<div style="position:fixed;top:340px;left:50%;transform:translateX(-50%);z-index:140;pointer-events:none;">
+<div style="position:fixed;top:325px;left:50%;transform:translateX(-50%);z-index:140;pointer-events:none;">
   <div style="width:172px;height:172px;border-radius:50%;border:2px solid rgba(255,220,80,0.5);box-shadow:0 0 20px rgba(255,180,30,0.4),0 0 40px rgba(255,100,0,0.2);overflow:hidden;opacity:0.85;">
     <img src="steve-delta.jpg" style="width:172px;height:172px;object-fit:cover;object-position:center 10px;margin-left:16px;display:block;"/>
   </div>
