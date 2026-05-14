@@ -1029,14 +1029,18 @@ const gaAudio = document.getElementById('ga-audio');
 const audioBtn = document.getElementById('audio-btn');
 
 function playAudio(){
-  gaAudio.muted = true;
-  gaAudio.currentTime = 0;
-  gaAudio.play().then(() => {
-    gaAudio.muted = false;
-    audioBtn.textContent = '⏸';
-  }).catch(() => {
+  try {
+    gaAudio.muted = true;
+    gaAudio.currentTime = 0;
+    gaAudio.play().then(() => {
+      gaAudio.muted = false;
+      audioBtn.textContent = '⏸';
+    }).catch(() => {
+      audioBtn.textContent = '▶';
+    });
+  } catch(e) {
     audioBtn.textContent = '▶';
-  });
+  }
 }
 
 gaAudio.addEventListener('ended', () => setTimeout(playAudio, 20000));
