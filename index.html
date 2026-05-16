@@ -1898,7 +1898,14 @@ function toggleDownloadAccess() {
 document.addEventListener('click', function(e) {
   const btn = e.target.closest('.btn-download');
   if (!btn) return;
-  openVenmo(btn.getAttribute('data-mp3'));
+  const mp3 = btn.getAttribute('data-mp3');
+  gtag('event', 'download_click', {
+    event_category: 'Music',
+    event_label: mp3,
+    song_file: mp3,
+    page: 'Page 1'
+  });
+  openVenmo(mp3);
 });
 
 // Fireflies
