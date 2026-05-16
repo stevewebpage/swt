@@ -788,8 +788,11 @@ to   { transform: rotate(360deg); }
 </head>
 <body style="visibility:hidden;">
 <script>
-document.fonts.ready.then(function(){ document.body.style.visibility='visible'; });
-setTimeout(function(){ document.body.style.visibility='visible'; }, 1500);
+(function(){
+  function show(){ document.body.style.visibility='visible'; }
+  var t = setTimeout(show, 400);
+  document.fonts.ready.then(function(){ clearTimeout(t); show(); });
+})();
 </script>
 
 <!-- 3D BEATING HEART -->
