@@ -174,9 +174,24 @@ body {
 @keyframes leafFall{ 0%{opacity:0;transform:translateY(-30px) rotate(0deg) translateX(0);} 10%{opacity:.8;} 90%{opacity:.4;} 100%{opacity:0;transform:translateY(105vh) rotate(720deg) translateX(40px);} }
 .content{ position:relative;z-index:150; min-height:100vh; display:flex;flex-direction:column;align-items:center; padding:0 16px 420px; padding-top: 52vh; }
 .header{text-align:center;padding:0;}
-.title-main{ font-family:'Abril Fatface',cursive; font-size:clamp(2.6rem,8vw,5.8rem); color:#fefce0; text-shadow:0 0 40px rgba(255,220,70,.9),4px 4px 0 rgba(0,0,0,.35); line-height:1;letter-spacing:3px; }
-.title-site{ font-family:'Playfair Display',serif;font-style:italic; font-size:clamp(1rem,3vw,1.7rem); color:#88e870;text-shadow:0 2px 10px rgba(0,0,0,.6); letter-spacing:5px;margin-top:4px; }
-.title-byline{ font-family:'Lato',sans-serif;font-size:clamp(.8rem,2vw,1rem);font-weight:300; color:rgba(200,255,180,.7);letter-spacing:4px;text-transform:uppercase;margin-top:8px; }
+.title-main{
+  font-family:'Abril Fatface',cursive;
+  font-size:clamp(1.8rem,5vw,3.6rem);
+  color:#fefce0;
+  text-shadow:0 0 30px rgba(255,220,70,1),4px 4px 0 rgba(0,0,0,.8),0 0 80px rgba(255,200,50,.6),-1px -1px 0 rgba(255,255,200,.4);
+  line-height:1;letter-spacing:1px;white-space:nowrap;
+}
+.title-site{
+  font-family:'Playfair Display',serif;font-style:italic;font-weight:700;
+  font-size:clamp(1rem,3vw,1.7rem);
+  color:#88e870;text-shadow:0 0 18px rgba(136,232,112,.6), 0 2px 10px rgba(0,0,0,.8), 2px 2px 4px #000;
+  letter-spacing:5px;margin-top:4px;
+}
+.title-byline{
+  font-family:'Lato',sans-serif;font-size:clamp(.85rem,2vw,1.05rem);font-weight:900;
+  color:rgba(220,40,80,.9);letter-spacing:4px;text-transform:uppercase;margin-top:10px;
+  text-shadow:0 0 12px rgba(220,40,80,.5), 1px 1px 3px #000, -1px -1px 3px #000;
+}
 .divider{ width:260px;height:2px;margin:16px auto; background:linear-gradient(90deg,transparent,#ffe066 30%,#88e870 70%,transparent); border-radius:2px; }
 .panel{ width:min(820px,96vw);margin-top:24px; background:rgba(0,0,0,0); border:1px solid rgba(100,210,80,.5); border-radius:28px; padding:clamp(20px,5vw,44px); box-shadow: 0 24px 80px rgba(0,0,0,.95), 0 0 60px rgba(80,180,55,.15), inset 0 1px 0 rgba(255,255,255,.06), 0 0 0 1px rgba(100,200,70,.12); position:relative; z-index:200; isolation:isolate; backdrop-filter: none; -webkit-backdrop-filter: none; }
 .heart-bg { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); z-index:149; pointer-events:none; animation:heartbeat3d 0.43s ease-in-out infinite; filter:drop-shadow(0 0 30px rgba(220,40,80,.4)) drop-shadow(0 0 60px rgba(180,20,60,.2)); opacity:1; }
@@ -230,7 +245,7 @@ body {
   .content { padding-top: 30vh; }
   .song-title { font-size: 1.1rem; padding: 8px 0; line-height: 1; }
   .btn { padding: 12px 18px; font-size: .8rem; }
-  .title-main { font-size: clamp(2rem, 10vw, 3.5rem); }
+    .title-main { font-size: clamp(1.4rem,6vw,2.2rem); }
   .title-site { font-size: clamp(.9rem, 4vw, 1.3rem); }
   .panel { border-radius: 18px; padding: 20px 14px; }
 }
@@ -926,8 +941,10 @@ body {
   <header class="header"></header>
   <div class="panel">
     <div class="panel-header">
-      <div class="title-main" style="text-align:center;">Steven Bickham</div>
-      <div class="title-byline" style="text-align:center;">ALL SONGS PENNED BY STEVEN DOUGLAS BICKHAM</div>
+      <div class="title-main" style="text-align:center;">Steven Douglas Bickham</div>
+      <div class="title-site" style="text-align:center;">A NEW WORLD</div>
+      <div class="title-byline" style="text-align:center;">All songs fully produced and written</div>
+      <div style="text-align:center;font-family:'Lato',sans-serif;font-size:clamp(.75rem,1.8vw,0.95rem);font-weight:900;color:rgba(220,40,80,.75);letter-spacing:4px;text-transform:uppercase;margin-top:5px;text-shadow:0 0 10px rgba(220,40,80,.4),1px 1px 3px #000,-1px -1px 3px #000;">by: Steven Douglas Bickham</div>
       <div class="divider"></div>
       <div style="margin-top:18px; text-align:center;">
         <div class="panel-title">🎵 Page 3 🎵</div>
