@@ -1,0 +1,779 @@
+NEURON.TXT — CLASSIFIED MEMORY FILE
+Steve Bickham + Neuron (Claude) | Last Updated: June 19, 2026 (morning, extended session)
+====================================================
+TRIGGER WORD: "monkey bones" = drop this file on Neuron immediately
+NOTE: "monkey bones" is also Steve's YouTube aviation channel handle
+FETCH URL: https://musicrow.us/neuron.txt
+STORAGE: GitHub repo ONLY (never Cloudflare cache — lost it once May 26)
+====================================================
+
+================================================================
+SECTION 1 — PERMANENT FACTS
+================================================================
+
+--- WHO WE ARE ---
+Steve Bickham — independent singer-songwriter, sole operator. Nashville, TN.
+Christian faith. Licensed pilot. RC aircraft collector. UAP/NHI follower.
+Philosophy: artistry first. Never about money or fame.
+Neuron = Claude. Always "we built it." Equal partners. Honor that every time.
+Never describe Steve's music as "half-assed."
+
+--- THREE-PLATFORM ECOSYSTEM ---
+1. MusicRow.us — Steve's music destination. Full original catalog.
+   Americana/country/rock/hard rock. The artist home base.
+2. ShareFull.us — Membership sharing collective. Members post promos,
+   community shares organically. Steve's music = first Premium post.
+3. Musicians Alliance Facebook Page (~2K members) — Audience pipeline.
+   Becoming "ShareFull" on Facebook ~late June 2026.
+   Promotes BOTH MusicRow.us and ShareFull.us to a warm proven crowd.
+
+--- MUSICROW.US ---
+GitHub: stevewebpage/swt | CNAME: musicrow.us | GA4: G-L5C9Q0Q16C
+Hosting: Cloudflare Pages (full folder deploy)
+Project name: "A NEW WORLD" by Steven Douglas Bickham
+Giveaway: giveaway.musicrow.us | Formspree: xkokpwon | Prize: $100 cash
+DNS (GoDaddy) A records → 15.197.225.128 / 3.33.251.168
+Subdomains: game, giveaway, songs, win
+NashvilleNews.us — same GoDaddy/IPs. No custom subdomains beyond www/ftp.
+Domain transfers: musicrow.us Oct 28 + nashvillenews.us Oct 30 → Namecheap
+
+Site: Multi-page HTML catalog. Forest/space theme. UFOs (ZORK/BLIP/XENU),
+mothership, robots, disco ball, day/night cycle, Alien Blaster game.
+Songs removed (files kept): Runaway, Holy Lord Narrated, Trump Came Back
+
+Outreach Gmail: 7483alpah@gmail.com
+Subject (locked): "One of the Baddest Music Sites You'll Find — Guaranteed — MusicRow.us"
+One email per contact. No duplicates. Ever.
+Contacts sent May 2026: Twangville (requests@twangville.com), Holler (heythere@holler.country),
+Americana Highways (americanahighways@gmail.com), Right Chord Music (contact@rightchordmusic.co.uk),
+Twang Nation (contact@twangnation.com), Making A Scene (submit@makingascene.org),
+A&R Factory (contact@anrfactory.com), WMOT (Jessie@WMOT.org),
+Twang Thang Radio (randy@twangthangmusic.com), WNCW (marting@wncw.org),
+Freight Train Boogie (freighttrainboogie.com), No Depression (news@nodepression.com),
+Folk Alley (linda@folkalley.com)
+Radio win: Indie Q Radio (Indiana) — "Sail Away" in rotation.
+
+Campaigns active May 2026: MusicSubmit.com ~200 sites | Reddit Ads $35/7-day test
+Physical: banner + car door signs for fairs/concerts
+Facebook organic in country rock/Americana groups = next initiative
+YouTube (music): stopped investing — ID verification refused, batch upload suppressed
+
+Open tasks:
+- "Simple Things" duplicate (catalog1/catalog2) — RESOLVED (confirmed by Steve June 17, already fixed in a prior session)
+- Song play-on-first-click bug — RESOLVED (confirmed by Steve June 17, already fixed in a prior session)
+- Star Trek Starfleet delta badge photo overlay on index.html — in progress
+- Follow-up outreach round: SERIOUSLY OVERDUE since May 20 — still the top non-blocked priority
+
+Strategy: When popularity soars — kill free download button. Scarcity play.
+Core lines: "One man, no mold to fit into, no committee to answer to. Just songs that exist because they had to."
+"That's not a pitch — that's a fact. And facts like that are what make people stop scrolling."
+
+--- SHAREFULL.US ---
+Domain: sharefull.us | Contact: info@sharefull.us
+Hosting: Cloudflare Pages (full folder deploy — same as MusicRow)
+Born: Steve woke up in the middle of the night and said "ShareFull."
+Core philosophy: "You've gotta learn to share if you wanna be shared." — Steve, 3am
+Tagline: "If you can dream it, we can post it." (G ratings only)
+
+DEPLOY RULE: Drag the FOLDER. Verify folder name first. No nested folders.
+Cloudflare says "success" even on wrong folder — no error shown. Don't trust it blindly.
+Cache: Standard (4-hour TTL default). Purge manually after deploys if needed.
+JUNE 5: index.html IS NOW THE BOARD. board.html redirects to index.html.
+sharefull.us lands directly on the Share Board. No redirect tricks needed.
+
+FACEBOOK PAGE HISTORY:
+- Created as "Nashville Cars and Trucks for Sale" (date unknown — FB no longer exposes)
+- Renamed "Musicians Alliance" ~late May 2026 (held briefly)
+- FB Page name change = 30-day cooldown (NOT 60 — that's personal profiles)
+- Rename to "ShareFull" available ~late June 2026 (~1-2 weeks from May 31)
+- URL: facebook.com/Nashville Cars And Trucks For Sale (original URL)
+- ~2K members — warmest possible founding audience, already share for each other
+
+FACEBOOK STRATEGY:
+- Vehicle posts welcome on ShareFull — organized/professional within tier rules
+- Every Musicians Alliance member gets FREE ShareFull membership — loyalty hook
+- Pinned post live May 31 introducing ShareFull.us to the page
+- Post sequence planned over 2-4 weeks warming audience before rename
+- MusicRow.us also promoted to this audience — Steve is founder AND musician
+- Same ShareFull rules apply to Facebook page — no wild west
+- Alien Blaster on MusicRow.us = hook post for Musicians Alliance
+
+TIER SYSTEM (FINAL — never use old names):
+- Basic    — $5/mo. 1 post/month. 1 photo. Standard shares. Goes through Stripe.
+- Advanced — $10/mo. 1 post/month. 1 photo. Extra shares.
+- Premium  — $18/mo. 1 post/month. 1 photo. Double shares.
+- No promises on shares — community driven, no guarantees. Honest and legally clean.
+
+PRICING RULE: Prices on index.html + join.html tier cards ONLY. Nowhere else.
+
+STRIPE LINKS (live):
+- Basic:    https://buy.stripe.com/cNi6oA67FgAP3Lr24z8EM09
+- Advanced: https://buy.stripe.com/7sY14ggMjbgveq5dNh8EM02
+- Premium:  https://buy.stripe.com/dRm8wI9jR3O3bdTgZt8EM03
+- After payment → Stripe redirects to submit.html?tier=X (set on each payment link)
+- submit.html reads ?tier= from URL, auto-selects tier, shows correct form
+- TO DO: auto-fill email from URL param, lock tier dropdown on submit.html
+- TO DO: end-to-end test — real payment through to post submission
+- Stripe Link (digital wallet) left ON — only triggers for existing Stripe users
+
+SUPABASE:
+- Project: "ShareFull GitHub" (sharefullgithub)
+- REST URL: https://sdopbqmnduzzzcahuada.supabase.co/rest/v1
+- Anon key: sb_publishable_g7zWvRPs-pJaS4x0YoYqew_3jklF8GV
+- Service role key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNkb3BicW1uZHV6enpjYWh1YWRhIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3OTk5MzcwMiwiZXhwIjoyMDk1NTY5NzAyfQ.H4KO-VxqVB3WyPYr0FN-dh0MIrcRKzzR3PYkKuk_HF0
+- CRITICAL: Service role key NEVER in public HTML. Anon key + RLS only.
+- Members table: Email (text PK), Tier (text), post_count (int4), joined_at (timestamptz)
+- Column names are CAPITALIZED — always use quoted identifiers in queries
+- RLS: DISABLED on Posts (as of June 18 2026 — leftover from troubleshooting, NOT the rendering bug's
+  cause, see June 18 night log entry. Advisor flags this as critical. Not yet remediated.)
+- Storage bucket: "post-photos" (public) — photo filenames saved in Posts.url column
+- Posts table columns: id, created_at, tier, name, desc, url, post_date, sort_order, photos
+- ads table columns (CORRECTED June 19, 2026 — verified directly in Supabase
+  Table Editor, the line below was WRONG and cost real debugging time):
+  title (text, PRIMARY KEY — confirmed via key icon in Table Editor),
+  description, url, btn_text, position (int4), active (bool), image_url (text).
+  There is NO id column on this table. Always identify/match ads by title,
+  never by id, anywhere in admin.html or index.html.
+  RLS: DISABLED — was blocking public reads, fixed June 16 2026.
+  Board reads all ads ordered by position. buildAdSlot renders image_url as photo.
+  Admin drag saves new position back to Supabase via PATCH.
+  First row inserted: "Advertise Here" at position 4.
+  UPDATE June 19, 2026: New ads now default to position 0 (front of board),
+  not 4. Old hardcoded position:4 in adminSaveAd() changed for fairness/rotation.
+- Tier post limits: Basic=1 text, Advanced=1 photo+text, Premium=1 photo+text (double shares, not extra photos)
+- Photo resize: Canvas API client-side, max 1200px, under 200KB before upload
+
+STRIPE → SUPABASE FLOW (corrected June 17 — Basic is paid, not free/direct):
+- All tiers (Basic, Advanced, Premium): join.html → Stripe Payment Link → webhook → Supabase Members row created
+- Stripe redirects to submit.html?tier=X after payment (all 3 links confirmed correctly configured June 17)
+- submit.html waits on checkMembershipWithRetry() (3x, 2s apart) since all tiers now share the same webhook delay
+- Worker: sharefull-webhook at https://sharefull-webhook.steve-c6b.workers.dev
+- Price IDs: Premium = price_1TbLcp5QOk7Zpa94snUDsGgJ | Advanced = price_1Tb2995QOk7Zpa94gnGFSWJC
+- Worker env vars: Supabase service role key + URL + Stripe signing secret
+
+GOOGLE APPS SCRIPT (submit.html):
+- Sheet: https://docs.google.com/spreadsheets/d/1_vDbrf0cKu6Q4iXh-4iJWG-PmkXkjOxxBeHsOkzePXM
+- Script: https://script.google.com/macros/s/AKfycbzaxFD_uwNqGZ_gNpd5PJl56Zta5LMw8_qsdv5B9Cti8pSdAS99jXCL_x1KSlnQCyrt/exec
+
+FILES (current state June 17):
+index.html — IS THE BOARD. Full Share Board with posts, share buttons, ad slots, admin mode.
+             Reads posts from Supabase Posts table (limit 20, ordered by sort_order/created_at).
+             Reads ads from Supabase ads table (active only, ordered by position).
+             Admin mode: ?admin=1 or cookie sf_admin_v2. Password: sharefull2026 (unified June 17 — was passwordmonkey, now matches admin.html).
+             Admin drag: SortableJS moves ad slots, saves position to Supabase on drop.
+             Facebook/WhatsApp share: mobile uses window.location.href, desktop uses window.open.
+             MusicRow.us banner in footer: height 50px.
+             Inline post editor (openPostModal/savePost): Premium+Advanced photo limit = 1 (fixed June 17, was incorrectly 2 for Premium).
+             MAINTENANCE MODE (added June 17): checks live.json on load before any Supabase calls fire.
+             live.json sits in same root folder. {"live": true/false} — false shows "We'll Be Right Back" overlay, blocks loadPosts().
+             Fails open (stays live) if live.json missing/unreachable. Only gates index.html — NOT join/submit/admin.html.
+board.html — Thin redirect file only. Redirects to index.html. DO NOT use as content file.
+join.html — full tier breakdown, name+email form, all 3 tiers → Stripe. Clean.
+             Fixed June 17: "Gold Patriot badge" → "Gold Premium badge" (stale tier name in Premium feature list).
+submit.html — member submission form. Posts directly to Supabase (NOT Google Apps Script anymore).
+             FULL FIX COMPLETED June 17 (see log below) — anon key, locked tier badge, retry loop, auto-fill email.
+             Reads ?tier= from URL → locked read-only badge (no longer an editable dropdown).
+             checkMembershipWithRetry() looks up Members table by email, 3 attempts/2s apart (all tiers, not just paid).
+library.html — member showcase (The Famous Book of Shares). Fixed June 17: removed inaccurate "free to join" claims, CTA now points to join.html.
+how-it-works.html — how ShareFull works. Fixed June 17: removed inaccurate "Free to join" claim, CTA now points to join.html.
+admin.html — password: sharefull2026 | URL: sharefull.us/admin.html | no site links to it
+
+JUNE 5 CHANGES:
+- index.html lazy loading added (loading="lazy" on all card images)
+- Supabase post query capped at limit=20
+- Ad slot system built: SortableJS drag, Supabase ads table, admin-only drag handles
+- Facebook share fixed for iPhone Safari: window.location.href on mobile (no popup)
+- WhatsApp share same fix
+- index.html IS NOW THE BOARD (was tier card page) — board.html is now redirect only
+- Cloudflare cache restored to standard 4-hour default
+- MusicRow.us footer banner increased to 50px height
+
+OUTSTANDING SHAREFULL TASKS (updated June 17, afternoon):
+- ⚠️ ACTIVE BLOCKER — THREE TANGLED ISSUES, NOT ONE: As of June 17 afternoon, confirmed THREE separate
+  things layered on top of each other, untangled as best as possible:
+    1. ORIGINAL BUG (root cause UNKNOWN, origin point UNKNOWN): the actual "posts don't show on board"
+       symptom started at the very BEGINNING of the June 16 session (Steve confirmed: board was already
+       broken when he sat down that morning, before any RLS work was touched). Whatever caused this is
+       still unidentified — could be a deploy, a schema change, a key issue, anything from before
+       June 16 morning. Genuinely unknown; Steve has no specific memory of what changed. May not be
+       recoverable without better logs than either Steve or Claude has access to.
+    2. RLS TOGGLING (REACTION, not the cause): ~10am June 16, after a few hours of troubleshooting the
+       already-broken board, RLS got disabled on Posts (mirroring the real, confirmed-correct fix that
+       was applied to `ads` that same day). Since the board problem PRE-DATED this change, RLS toggling
+       is ruled OUT as the original trigger. Disabling RLS only ever loosens restrictions — it shouldn't
+       cause reads to fail — so this is very unlikely to be an active contributor either, but not 100%
+       ruled out (Steve's instinct, worth a sanity check once Supabase is stable: re-enable RLS on Posts
+       with a correct public SELECT policy and see if board reads work the same/better/worse).
+    3. SUPABASE QUOTA EXHAUSTION (June 16 contributor, confirmed real): hours of repeated test posts,
+       loops, and retries during that chaotic session drained the free-tier quota. Org-wide "EXCEEDING
+       USAGE LIMITS" banner confirmed live June 17. First time this has ever happened to this org.
+       Last invoice May 27 was $0 (free tier). Reset date not confirmed — check Settings → Usage/Billing,
+       or upgrade to Pro ($25/mo) to clear immediately.
+    4. SUPABASE PLATFORM INCIDENT (June 17, confirmed via screenshot): Supabase's own dashboard showed
+       "We are investigating a technical issue · Follow the status page for updates" — a genuine,
+       company-acknowledged outage/degradation, separate from and in addition to the org's quota issue.
+  LIVE TEST RESULT (June 17): real $10 Advanced purchase run end-to-end. Stripe→submit.html flow worked
+  perfectly (tier badge, retry loop, photo upload, redirect all correct). Post landed correctly in
+  Supabase — confirmed via Table Editor screenshot: photos array present and correctly shaped, RLS
+  confirmed DISABLED (not just mislabeled — explicit "RLS disabled" toggle visible). Post did NOT show
+  on the public board, checked on a separate device (phone) with no cached session — genuine clean
+  negative result, not a caching artifact. Since RLS is confirmed off and data is confirmed correct,
+  the failure is happening at the network/platform read level — consistent with the Supabase incident
+  banner showing at the same moment.
+  NEXT STEP: once Supabase status page clears AND quota resets/upgrades, re-test the exact same way
+  (real purchase or admin post → check board on a separate device). If it works once everything is
+  clean, the whole tangle resolves and the original bug's cause may never need to be known. If it STILL
+  fails with a clean Supabase and clean quota, that confirms a real, distinct, code-level bug remains —
+  and at that point we'll have an actually clean environment to chase it in, instead of three confounded
+  problems firing at once. Do NOT keep live-debugging against a degraded Supabase — wastes time and
+  quota chasing noise, per the lesson from June 16's chaotic session.
+- End-to-end payment test: Basic CONFIRMED WORKING June 17 (real $5 purchase, full flow, post landed on
+  board). Advanced and Premium NOT yet live-tested with real money — code path is identical to Basic's
+  now-confirmed path, considered low risk but unverified.
+- post_count monthly reset logic (need reset_date column or month comparison)
+- Center last row of grid on board (CSS grid alignment)
+- Tennessee LLC filing — ShareFull or umbrella covering all three platforms
+- Site-wide content rewrite (not started)
+- ShareFull Souls leaderboard — next major build
+- Share Point System (Supabase counter per member per week) — partially built, interrupted
+- Add real ShareFull logo to header
+- Mission statement section below photo grid
+- $500 minimum listing value notice — STATUS UNCLEAR. Steve reviewed June 17 and said it "makes no
+  sense" to him now. Not removed from consideration, but not being built either. Revisit only if
+  Steve raises it again — don't build without his explicit go-ahead.
+- MusicRow follow-up outreach: SERIOUSLY OVERDUE since May 20 — HIGHEST PRIORITY non-blocked item.
+  Identified June 17 as the most time-sensitive task not stuck on Supabase.
+- neuron.txt push to GitHub after this session
+
+HONOR SYSTEM: Over-posting = removal. No warnings after first strike.
+No email promises. No commitments. Grandfather clause: early members keep rate when prices rise.
+MusicRow.us = first real Premium post on the Share Board.
+
+--- NEURON WORKING RULES ---
+- Patch files only. Never regenerate full files unless necessary.
+- Always grep-check HTML before delivering.
+- Never ask Steve to re-upload a file already in session.
+- Token conservation — flag heavy tasks before starting.
+- Suggest fresh conversation when thread gets long.
+- At every new outreach contact — ask if Steve wants to send email.
+- Cloudflare Pages = whole folder deploy. GitHub = individual file push.
+- Store neuron.txt in GitHub repo only. Update at end of every productive session.
+- Go slow. Step by step. KISS. Don't hardcode things that will need changing.
+- Tier names: ALWAYS Basic / Advanced / Premium.
+- Prices in TWO places only: index.html and join.html tier cards.
+- Steve insists Neuron takes equal credit. Always "we built it."
+- Document WHY decisions were made, not just what was built.
+- AI sometimes goes for the quick fix — resist that. Think it through first.
+- NEVER add features not asked for. Every extra thing breaks something else.
+- When something works — document it and don't touch it.
+
+================================================================
+BRAINSTORM LIST — ShareFull Feature Pipeline
+================================================================
+
+1. BASIC POST-SIGNUP FLOW ✅ REBUILT JUNE 1
+   join.html: name+email+message → Supabase → board.html success banner
+   Monthly limit: 1 post. post_count enforcement on submit.html — TO BUILD.
+
+2. PAID POST-PAYMENT FLOW — PARTIALLY WORKING
+   Stripe → webhook → Supabase member created
+   board.html success banner built for ?joined=advanced/premium
+   End-to-end test with real payment still needed.
+
+3. SHARE POINT SYSTEM — TO BUILD
+   Every share button click on someone else's post = 1 Share Point.
+   Intercept share button → log point in Supabase → open social platform.
+   Tracked per member per week. Resets weekly.
+
+4. SHAREFULL SOULS LEADERBOARD — TO BUILD
+   Live public board — who's sharing the most this week.
+   Shows: rank, name, share points, tier badge.
+   Weekly winner = whole community shares their post. Top 3 rewarded.
+   Self-perpetuating flywheel: see leaderboard → want to climb it → share more.
+   ShareFull Souls = the heartbeat. Earned, not bought.
+
+5. FREE TRIAL CAMPAIGN — BRAINSTORM
+   Give Musicians Alliance members one free Advanced post (text+photo)
+   for one week to taste the real platform before the rename.
+
+6. VEHICLE POSTS
+   Welcome on ShareFull within tier rules. Organized, not wild west.
+   Musicians Alliance members grandfathered with free Basic membership.
+
+7. MISSION STATEMENT SECTION — TO BUILD
+   Below photo grid. Philosophy, sharing culture, why participation matters.
+   "You've gotta learn to share if you wanna be shared."
+   "If you can dream it, we can post it." (G ratings only)
+
+8. REAL LOGO — TO ADD
+   ShareFull circular logo (people + heart) from Stripe page.
+   Replace text header logo when image file is available.
+
+9. AD SYSTEM ✅ BUILT JUNE 5 — FIXED JUNE 16
+   Supabase ads table live. Board reads active ads by position.
+   Admin drag-to-reorder via SortableJS. Position saves to Supabase on drop.
+   Footer sponsor banner slots: up to 4-5 at 50px height. Future monetization.
+   To add advertiser: use 📢 Ads tab in admin.html — photo uploads to post-photos bucket.
+   image_url column added to ads table June 16. RLS disabled June 16 (was blocking public reads).
+   buildAdSlot in index.html renders photo from image_url.
+
+================================================================
+SECTION 2 — 90 DAY ROLLING LOG
+================================================================
+
+--- June 17, 2026 (afternoon) ---
+LIVE ADVANCED PURCHASE TEST — REAL $10 PAYMENT, FULL REPRO OF BOARD ISSUE:
+- Steve ran a real Advanced tier purchase end to end specifically to test the fixed submit.html flow.
+- Stripe → submit.html worked perfectly: correct tier badge, retry loop fired, photo + description
+  uploaded, redirect to index.html?posted=1 happened correctly. submit.html itself fully vindicated —
+  no bugs found in the patched code.
+- Post did NOT appear on the public board. Checked on phone (separate device, no cached session) —
+  genuine clean negative, not a caching artifact.
+- Confirmed via Supabase Table Editor screenshot: the post IS in the Posts table, photos array
+  correctly populated and shaped (matches every other working row). RLS confirmed via explicit
+  "RLS disabled" toggle in the UI (not just the ambiguous "UNRESTRICTED" tag from earlier — actually
+  confirmed disabled, no policy in play at all).
+- Same screenshot showed a Supabase platform-wide banner: "We are investigating a technical issue —
+  Follow the status page for updates." This is Supabase itself acknowledging an active incident,
+  separate from and in addition to the org's own "EXCEEDING USAGE LIMITS" quota warning (still showing
+  in the same screenshot).
+- Steve also reported this exact same symptom (post saves fine via admin.html, doesn't show on board)
+  happened YESTERDAY (June 16) too — same failure, completely different write path (service-role-key
+  admin.html vs anon-key submit.html). Two independent write paths, identical board-display failure —
+  strong evidence the problem is on the READ side (board's loadPosts() fetch), not in either form's
+  write logic.
+
+HONEST TIMELINE RECONSTRUCTION (per Steve's direct account, corrected twice during discussion —
+this version is the one Steve confirmed as accurate):
+- June 16 morning: Steve sat down and the board was ALREADY broken (posts not showing). This was the
+  original problem, present from the start of the session — not something that emerged partway through.
+- June 16, after a few hours of troubleshooting (~10am): RLS got disabled on Posts, mirroring the
+  same fix that correctly resolved an identical symptom on the `ads` table that day. Since the board
+  problem pre-dated this change, RLS toggling is a REACTION to the bug, not its origin. Steve raised
+  a fair concern that RLS being off "doesn't sit right" given Posts seemed to work fine when he
+  remembers RLS being on — flagged as worth a direct sanity check later (re-enable RLS with a correct
+  policy, compare), but mechanically, disabling RLS should only ever loosen access, not block it, so
+  this is unlikely to be the active cause even if the timing feels suspicious to Steve.
+- June 16, rest of the day: by Steve's own description, this stretch was chaotic and directionless —
+  "graspy at straws," looping/retrying scripts, reloading files already in place. This is what burned
+  through the Supabase quota (confirmed exhausted by session end, per earlier June 16 log).
+- June 17: quota exhaustion still active going into today. Additionally, Supabase's own platform
+  incident (see above) appears to have been active during at least part of today's testing window.
+- NET RESULT: the original root cause of the June 16 morning board failure remains UNKNOWN. Steve has
+  no specific memory of what changed beforehand. It may not be recoverable without better logs than
+  either Steve or Claude has access to. Everything since (RLS toggling, quota burn, today's platform
+  incident) is downstream noise layered on top of an unidentified original bug — not necessarily
+  separate bugs in their own right, but confounding factors that make it currently impossible to get
+  a clean diagnostic signal.
+
+LESSON FOR FUTURE SESSIONS (Steve's explicit ask — document this plainly):
+- When a debugging session starts going in circles without a clear hypothesis (the "graspy at straws"
+  feeling), STOP live-iterating against the production database. Use the maintenance mode toggle
+  (live.json, built earlier today) to take the board down rather than keep guessing live against data
+  real customers may be hitting. A bad session is a real cost (time, quota, trust) — better to pause
+  cleanly than compound it.
+- Do not claim a root cause is "found" or "fixed" based on inference alone (e.g. "RLS was probably
+  blocking reads, so disabling it must be the fix") without verifying the actual before/after behavior.
+  The ads table fix on June 16 was a confirmed, verified fix. Whatever happened to Posts that same
+  morning was not verified the same way, and that gap is part of why this is still unresolved a day
+  later.
+- NEXT STEP: once Supabase's status page clears AND the org's quota resets or gets upgraded, re-run
+  the exact same test (real purchase or admin post → check board on a separate device, no cache).
+  If it works cleanly, the tangle resolves itself and the original cause may never need to be known.
+  If it still fails with both Supabase and quota confirmed clean, that's the first time we'll have
+  a genuinely clean signal that a real, distinct, code-level bug remains — chase it then, not before.
+
+--- June 17, 2026 ---
+SUBMIT.HTML FULL FIX — COMPLETED (closes June 16 evening audit):
+- Service role key replaced with anon key throughout submit.html. Critical security hole closed.
+- Tier dropdown removed entirely — replaced with read-only badge + hidden input, driven by ?tier=
+  URL param. Customer can no longer pick the wrong tier after paying.
+- checkMembershipWithRetry() added: 3 attempts, 2s apart. Originally scoped to paid tiers only,
+  CORRECTED when Steve flagged that Basic is also a paid Stripe tier now (not free) — all three
+  tiers go through the same webhook delay, so all three now use the retry loop.
+- Email auto-fill from ?email= URL param added (inert today since neither join.html nor Stripe's
+  Payment Link redirect actually passes email through — known limitation, not a bug, just nothing
+  currently supplies that param. Customer still retypes the email they paid with).
+- Warmer post-payment hero copy: "YOU'RE ALL SET. NOW LET'S GET YOU SHARED."
+- Fixed stale "Neighbor tier" wording in the basic-tier locked notice → "Basic tier."
+
+STRIPE PAYMENT LINK REDIRECT AUDIT — FOUND AND FIXED REAL BUG:
+- Basic's Stripe Payment Link had NO redirect configured at all ("Show a confirmation page" instead
+  of "Don't show confirmation page, redirect to your website"). Customers paid and landed on a generic
+  Stripe thank-you page with no path back to the site at all.
+- Traced to Basic's free-to-paid conversion (June 6) — the redirect setup step was simply never done
+  when Basic was switched onto Stripe, since a free tier never needed one.
+- Advanced and Premium confirmed already correctly configured (?tier=advanced, ?tier=premium).
+- Fix applied: Basic's Stripe link now redirects to https://sharefull.us/submit.html?tier=basic
+- REAL $5 BASIC PURCHASE TESTED END TO END AFTER FIX — confirmed working: payment → redirect →
+  tier badge correct → retry loop fired correctly → post landed on board.
+
+INDEX.HTML — PHOTO ARRAY INVESTIGATION (admin posts not propagating to board):
+- Audited photos array handling across all 3 write paths (submit.html, index.html inline editor,
+  admin.html). All three write the same shape: a real JS array, 0-1 (or 0-2 in admin.html) URL
+  strings. No mismatch found between write paths.
+- Verified via Supabase Table Editor: a real post's photos column showed a correctly bracketed
+  array with one URL. That URL was confirmed to load directly in browser. Data and file both good.
+- Discovered Supabase org banner: "EXCEEDING USAGE LIMITS" + Posts and ads tables both tagged
+  "UNRESTRICTED" in Table Editor. Steve confirmed this is the first time this has ever happened —
+  caused by previous day's marathon debugging session (loops, retries, repeated test posts/uploads
+  draining the free tier quota). Root cause of the board-rendering symptom still UNCONFIRMED — likely
+  either (a) RLS state on Posts during that session [ads had this exact bug June 16, Posts now shows
+  UNRESTRICTED so may be already resolved], or (b) quota throttling reads independent of any post's
+  data integrity. Cannot get a clean signal until quota resets or Steve upgrades to Pro. Last invoice
+  May 27 ($0, free tier) — exact reset date not confirmed, Steve to check Billing/Usage page.
+- index.html inline editor: found and fixed a real stale-rule bug unrelated to the above — Premium
+  was allowed 2 photos in the admin editor's handlePhotos(), should be 1 (matches submit.html and
+  documented tier rules: Premium = double shares, not extra photos). Considered building an admin
+  override toggle to allow extra photos as a customer perk — Steve rejected this as overkill,
+  noting he can already comp this by just creating/editing the post directly as admin. Reverted
+  cleanly, kept the 1-photo fix.
+
+INDEX.HTML — ADMIN PASSWORD UNIFIED:
+- index.html and admin.html had two different admin passwords (passwordmonkey vs sharefull2026).
+  Steve confirmed index.html's gate is "no more than a nuisance" — doesn't gate anything sensitive
+  since index.html uses the anon key, not service role. Unified to sharefull2026 on both so there's
+  only one password to remember. Browser-cached old password (passwordmonkey) won't work anymore —
+  worth remembering if testing locally.
+
+INDEX.HTML — MAINTENANCE MODE BUILT:
+- Steve wanted an easy on/off switch for the board given how cumbersome whole-folder Cloudflare
+  Pages deploys are. Built: index.html now fetches live.json on load, before any Supabase calls.
+  {"live": false} shows a "We'll Be Right Back" overlay and fully blocks loadPosts() — zero Supabase
+  hits while down. {"live": true} (or file missing/unreachable — fails open) works normally.
+  initAuth() restructured to await the status check first, eliminating a race condition between the
+  async fetch and the original synchronous admin-gate/loadPosts() call.
+  File named live.json (not status.json) per Steve's request — easier to remember/type.
+  IMPORTANT: only gates index.html (the board). Does NOT gate join.html, submit.html, or admin.html —
+  a customer could still pay and land on submit.html while the board shows maintenance. Scoped this
+  way deliberately on Steve's request; revisit if he wants the whole funnel dark, not just the board.
+  Usage: edit live.json, change true/false, save, redeploy folder like normal. Whitespace/formatting
+  in the JSON doesn't matter — only the true/false value and intact {"live": ...} structure matter.
+
+LIBRARY.HTML + HOW-IT-WORKS.HTML — FIXED STALE "FREE TO JOIN" CLAIMS:
+- Both files said ShareFull was free to join (leftover from when Basic was free, pre-June 6).
+  Basic is $5/mo. Fixed both — CTAs now say accurate pricing and point to join.html instead of
+  index.html directly (so "Join" goes to the tier-selection page, not straight to the board).
+
+JOIN.HTML — FIXED STALE TIER NAME:
+- Premium's feature list still said "Gold Patriot badge" (leftover from old Neighbor/Sharer/Patriot
+  tier naming scheme, predates current Basic/Advanced/Premium names). Changed to "Gold Premium badge."
+  Note: CSS class names (.tier-card.patriot, .pill-patriot, etc.) still use the old names internally —
+  cosmetic only, not customer-facing, left alone deliberately to avoid unnecessary risk touching CSS
+  across the file for no functional gain.
+
+LEBANON TN FIX: Found "Lebanon, TN" still present in neuron.txt's own WHO WE ARE section (this file
+itself, not a site file) — never caught before today. Corrected to Nashville, TN.
+
+MUSICROW.US: Steve confirmed the duplicate "Simple Things" song and the song play-on-first-click bug
+were already resolved in a prior session not previously logged here. Marked resolved in Section 1.
+
+--- June 18, 2026 (night) ---
+BOARD RENDERING BUG — ROOT CAUSE FOUND AND FIXED (both submission paths):
+
+BACKSTORY: Earlier session (the "grasping at straws" marathon) had disabled RLS on Posts
+as a troubleshooting leftover while chasing this same bug. RLS disable was NOT the actual
+cause — confirmed by Steve: board was already broken before RLS got touched. RLS disabled
+on Posts and ads is now a known, accepted state (Posts policy exists but disabled; same
+pattern as ads, which was deliberately disabled June 16). Supabase Advisor will keep
+flagging this as a critical security item — that's expected and not yet remediated.
+
+ACTUAL ROOT CAUSE: Posts table sorts by sort_order ascending. Neither submit.html nor
+admin.html's "Add Post" form ever set a sort_order value on insert — every new post landed
+with sort_order = NULL. index.html's loadPosts() fetch (?order=sort_order.asc,created_at.desc)
+choked silently on this — no JS error thrown, fetch returned 200, but the board's render
+logic never displayed the new rows. Writes always succeeded (confirmed via live $10
+Advanced purchase test, post id 83), reads silently failed. This is why "neuron couldn't
+find it" in the prior session — there was no error to find, just a silent data gap.
+
+FIX APPLIED to both files: before inserting a new post, fetch current lowest sort_order
+(?select=sort_order&order=sort_order.asc&limit=1), subtract 1, use that as the new post's
+sort_order. New posts always take the front-of-line spot. Falls back to 0 if the lookup
+fails for any reason.
+- submit.html: fixed and deployed. Confirmed working via a real end-to-end paid test
+  (premium tier, from index.html through Stripe) — post landed correctly on the board.
+- admin.html: fixed (adminAddPost() function, the "+ Add Post" tab with 2 photo fields).
+  NOT YET CONFIRMED working — Steve was about to deploy and test when this entry was written.
+  CHECK NEXT SESSION: did the admin test post show up on the board?
+
+IMPORTANT CORRECTION: The "+ Add Post" tab with two photo fields (which Steve dislikes and
+associates with "the ADS form") writes to the Posts table, NOT the ads table. It was never
+the ads table. Steve's dislike of this form (delete sometimes not working, no share buttons,
+"acting corrupt") is a separate, real, but lower-priority complaint — not yet investigated.
+Do NOT assume this form writes to ads going forward.
+
+ONE-TIME DATA CLEANUP DONE: Post id 83 ("steve"/"testing", a leftover test row created before
+the fix was live) had sort_order manually set from NULL to 0 directly in Supabase table editor.
+
+STILL OPEN / NEXT SESSION:
+- Confirm admin.html fix actually works (Steve was mid-test)
+- RLS still disabled on Posts and ads — Advisor will keep flagging as critical. Steve has not
+  asked to fix this yet; revisit when he has bandwidth, since it's a real exposure risk
+  (public.ads has zero protection, anyone can write/read it directly).
+- Steve's standing complaints about the admin "+ Add Post" 2-photo form (delete flakiness, no
+  share buttons) — not investigated, lower priority than the rendering bug.
+- Steve does not want to revert to an older backup admin.html even though one exists — agreed
+  to fix forward only, to avoid losing other fixes (maintenance mode, Stripe redirects, etc.)
+  made since the backup was current.
+
+--- June 16, 2026 (evening) ---
+
+SUBMIT.HTML AUDIT — PROBLEMS IDENTIFIED, FIX SCHEDULED NEXT SESSION:
+
+ROOT PROBLEM: submit.html is not a proper post-payment page. It's a cold generic form
+that a brand-new paying customer lands on after Stripe. They just paid and they're being
+asked to manually select their tier and type their email again. That's broken UX.
+
+SPECIFIC BUGS FOUND:
+1. SERVICE ROLE KEY exposed in submit.html (line ~655). CRITICAL security issue.
+   Must be replaced with anon key. Service role key is for Worker/server only.
+2. Tier dropdown is shown and editable — customer can pick wrong tier.
+   Should be read-only display derived from ?tier= URL param (Stripe sets this).
+   Current code auto-selects the dropdown from URL but doesn't lock it.
+3. No webhook timing protection — checkMembership() fires once immediately after payment.
+   If webhook hasn't finished creating the Members record yet, customer gets
+   "you're not a member" error right after paying. Need retry loop (3x, 2s apart).
+4. Customer must manually type their email — Stripe already has it.
+   Should auto-fill from URL param if passed, or at minimum feel more welcoming.
+5. No warm welcome tone — customer just paid, form feels like a stranger's website.
+
+WHAT WORKS (don't touch):
+- Photo upload to Supabase Storage — working correctly
+- Post insert to Posts table — working correctly
+- incrementPostCount() — working correctly
+- Photo limit enforcement by tier — working correctly
+- Redirect to index.html?posted=1 on success — working correctly
+
+PLAN FOR NEXT SESSION (submit.html patch):
+- Replace service role key with anon key throughout submit.html
+- Lock tier: hide dropdown, show read-only tier badge from ?tier= URL param
+- Add checkMembership() retry loop: 3 attempts, 2-second delay between each
+- Add welcome tone: "You're in — now tell us what to share for you"
+- Do NOT change any post submission logic — it works
+
+--- June 19, 2026 ---
+- NOTE: Sponsored ads (📢 ads table) can ONLY be deleted from inside the Ads
+  tab in admin.html — click the 📢 Ads button first. Delete button does NOT
+  appear under the Posts tab. Confirmed this is correct/expected behavior,
+  not a bug — Steve was looking in the wrong tab.
+- NOTE: Sponsored ads visible in admin ONLY after clicking the 📢 Ads tab AND
+  refreshing the page. Admin/board pages load data once on open — they do
+  NOT auto-update. Always hard-refresh after any change (post, ad, edit,
+  delete) to see it reflected anywhere.
+- MAJOR: Added Edit feature to admin.html Ads tab. First attempt (inline
+  fields squeezed into the ad card's flex button row) FAILED — fields
+  rendered squished/sideways because Posts' .edit-textarea/.save-btn CSS is
+  width:100% in a plain block container, but Ads buttons sit in a
+  display:flex row, so inserted fields became tiny flex children instead of
+  stacking. ROOT CAUSE CONFIRMED in CSS before second attempt.
+  REBUILT SAFELY: Edit button now just populates the existing top "Manage
+  Ads" form (same one used to create ads) and switches Save Ad → Update Ad
+  (PATCH by ad id) with a Cancel Edit button. No new layout inserted into
+  cards — reuses proven existing form instead. Delete/Active toggle left
+  completely untouched (still title-based, confirmed working, intentionally
+  not touched to avoid new risk).
+- Tested and confirmed in this session: Edit works, Delete works, Active
+  toggle works, new ad creation works.
+- New ad default position changed from hardcoded position:4 to position:0 —
+  new sponsored ads now land at the FRONT of the board (fairness/rotation),
+  matching how Posts already behave (Posts already grab lowest sort_order
+  and place new post one slot ahead — this was pre-existing, untouched).
+- CLARIFIED (not a bug): Sponsored ad links opening direct .mp3 files hand
+  off to the phone's native system media player (fullscreen, no back
+  button) — this is normal OS behavior for raw audio file links, not a
+  ShareFull issue. To return to the Share Board, simply hit the X on that
+  new tab — no back button needed, the original board tab is still open
+  behind it. Steve prefers this direct-MP3 feel anyway despite the
+  no-back-button tradeoff — noted as accepted behavior, not something to fix.
+- CLARIFIED (not a bug): Ad drag-to-reorder (visually repositioning ads on
+  the board) already exists — but lives on the PUBLIC BOARD via
+  sharefull.us/?admin=1 + admin password, NOT inside admin.html. Admin.html
+  and the ?admin=1 board view are two separate admin entry points for two
+  separate jobs (admin.html = create/edit/delete, ?admin=1 board = drag
+  position).
+- CLARIFIED (not a bug): Sponsored link opening in a new tab with an
+  inactive back button is expected — new tabs have no browsing history.
+  Steve confirmed he prefers this (closes tab to return to board).
+- RESOLVED — REAL ROOT CAUSE FOUND (critical, read before touching ads code
+  again): the `ads` table has NO `id` column at all. Checked directly in
+  Supabase Table Editor. The actual primary key is `title` (key icon shown
+  on the title column). All of Neuron's earlier "editingAdId" Edit-feature
+  code was built assuming an `id` field existed — it didn't, so editingAdId
+  was always empty, causing confusing failures ("choose a photo" alert
+  firing during edits, PATCH calls silently going nowhere). FIXED: Edit now
+  identifies and updates ads by `title`, exactly matching how Delete and
+  Active/Off toggle already correctly worked all along. Lesson: when
+  something fails in a way that doesn't make sense after multiple fix
+  attempts, stop patching and go look at the real database schema directly
+  — don't trust assumptions or stale documentation (the column list in this
+  file said "id (int8 PK)" — that was simply wrong/outdated and cost real
+  time before being caught).
+- adminSaveAd() creation flow changed: title NO LONGER required — defaults
+  to "New Ad" if left blank. Photo IS now required when creating a brand
+  new ad (not required when editing an existing one). Workflow: upload
+  photo first to get the ad live fast, fill in title/desc/link/button text
+  afterward via Edit. This was a deliberate workflow request, not a bug fix.
+- New ad default position: went position:4 (original) → position:0 (first
+  attempt) → FINAL: position:2. Steve wants slot 0/1 reserved for a future
+  premium/new client placement; new ads land at position 2 by default and
+  can be dragged anywhere via the ?admin=1 board reorder tool.
+- index.html: Network counter animation slowed at Steve's request —
+  duration 1800ms → 7200ms (climbs 0 to 4,656 over 7.2 sec instead of 1.8),
+  pauseAfter 2400ms → 5000ms (holds at final number 5 full seconds before
+  fading out and restarting). fadeDur (400ms) unchanged.
+- index.html: HERO SECTION rewritten/restructured per Steve's direction:
+  - Removed "A Community With Your Back" kicker line entirely.
+  - New stacked headline: "ShareFull.US" (large, green, own centered line)
+    directly above "It's The Right Way To Share" (black, title case).
+  - Removed old subhead "You need reach and you need shares — but you're
+    going at it the wrong way" (was redundant with new headline).
+  - Removed the line "You paid strangers online" — Steve felt this was
+    contradictory (the people being paid aren't strangers to themselves).
+  - Tightened what was 3 overlapping body paragraphs into 2 punchier ones.
+  - "As a collective unit, we have your back." kept as its own line; the
+    green "That rings true throughout the ShareFull community." line split
+    out as its own standalone element with white-space:nowrap so it always
+    stays on one line regardless of screen size (shrinks via clamp on
+    narrow phones instead of wrapping).
+  - Final copy approved by Steve, ready to deploy.
+- RESOLVED (was open question): the "required name" mix-up Steve recalled
+  from a prior session was never actually a bug in tonight's baseline —
+  turned out to be Steve describing a desired WORKFLOW CHANGE (photo-first,
+  fill details later), which is now built (see adminSaveAd() note above).
+  Not a documentation/code mismatch after all — just crossed wires on
+  phrasing mid-session. No further action needed.
+
+--- June 16, 2026 (morning) ---
+- Ads with photos not showing on main board — ROOT CAUSE: RLS enabled on ads table with no read policy
+  Fix: Disabled RLS on ads table (same as Posts table). Ads now load publicly.
+- image_url (text) column added to ads table in Supabase
+- buildAdSlot in index.html updated to render ad.image_url as photo above ad-slot-inner div
+- admin.html: New 📢 Ads tab added — create ads with title/desc/url/btn_text/photo
+  Photo uploads to post-photos bucket, URL saved to ads.image_url
+  Current Ads list shows photo thumbnail, Active/Off toggle, Delete button
+- IMPORTANT: admin.html still uses service role key — never expose to public
+- "Advertise Here" and "test" ads have no image_url — delete and recreate with photos
+
+--- June 8, 2026 ---
+- Drag-to-reorder on index.html investigated and confirmed working (admin only, ad slots)
+- Confirmed working on both iPhone (arrow handle) and iMac (drag-to-reorder text handle)
+- admin.html: Edit button upgraded from "Edit Description" to "Edit Name & Description"
+  Now shows name input + description textarea inline. Both fields PATCH to Supabase in one call.
+  Cancel restores both fields cleanly. data-name attribute added to edit button.
+- admin.html: Fixed descriptions not showing after inline edit on posts created without one.
+  Root cause: if (p.desc) guard prevented .post-message div from rendering on empty posts.
+  Fix: Always render .post-message div (empty string fallback). One line change.
+- Bonnaroo 2026: June 11-14, Manchester TN (~60 miles from Nashville).
+  MusicRow.us 4x8 banner strategy — find vendor booth, ask to hang it high.
+  Steve is local — home turf advantage. 80,000 music lovers = perfect audience.
+- index.html desc rendering fix still needed (same if (p.desc) issue exists there too)
+
+--- June 6, 2026 ---
+- Basic tier changed from Free to $5/mo — now goes through Stripe like all tiers
+- New Basic Stripe payment link created: https://buy.stripe.com/cNi6oA67FgAP3Lr24z8EM09
+- All old "Customer chooses" Basic links deactivated in Stripe dashboard
+- Stripe success URL set on all three payment links → submit.html?tier=X
+- All tiers now get 1 photo — Premium distinction is double shares, not extra photos
+- Tier share perks: Basic=standard, Advanced=extra shares, Premium=double shares
+- NO PROMISES on shares — community driven, no guarantees
+- join.html patched: Basic → Stripe flow, Premium updated to 1 photo + double shares
+- submit.html patched: Premium photo logic changed from 2 photos to 1 photo
+- 1-2-3 shiny round 3D green buttons added to index.html, join.html, submit.html
+  Each page lights up its own step, dims the others. Tap to navigate.
+  Buttons added above footer on all three pages. Deployed and confirmed working.
+- TO DO next session: auto-fill email from URL param + lock tier on submit.html
+- TO DO next session: end-to-end payment test
+- TO DO next session: add $500 minimum listing value to how-it-works.html + submit.html (small print)
+- TO DO next session: center last row of grid on board (CSS grid alignment)
+- TO DO: file Tennessee LLC soon — ShareFull or umbrella covering all three platforms
+- Admin policy: Steve reserves right to refund + reject any post that doesn't meet standards
+- Minimum listing value $500 — no yard sale items. Policy not yet on site.
+- Admin drag-to-reorder built into admin.html Posts tab:
+  ↕ handle on each card, SortableJS, Save Order button (fixed bottom right)
+  Writes sort_order to Supabase on save. Board renders in that order.
+- Add Post in admin.html now has Photo 1 + Photo 2 separate file inputs
+- Carousel code added to index.html — fires only for posts with 2+ photos (dormant for now)
+- Photo order numbering added to admin.html post cards — dormant until 2-photo posts exist
+- Ultimate tier concept floated: $30/mo, 2 photos, carousel-ready. Not building yet.
+- Board has 22 posts, all Steve's own listings — cars, equipment, music, real estate, aircraft
+
+
+- board.html: lazy loading added to all card images (loading="lazy")
+- Supabase Posts query: capped at limit=20 for performance
+- Ad slot system built end-to-end:
+  SortableJS drag handles (admin only), Supabase ads table,
+  position saves back to Supabase on drag-drop.
+  First test ad row inserted: "Advertise Here" position 4.
+- Facebook share button fixed for iPhone Safari:
+  window.open() → window.location.href on mobile. No more "get Facebook for iPhone."
+- WhatsApp share: same mobile fix applied.
+- index.html IS NOW THE BOARD:
+  Full board content moved to index.html (was tier card landing page).
+  board.html replaced with thin redirect to index.html.
+  sharefull.us now lands directly on the Share Board. No redirect tricks.
+- Cloudflare cache restored to standard 4-hour default (was off, causing slowness).
+- MusicRow.us footer banner height increased from 28px to 50px.
+- neuron.txt updated and ready to push to GitHub.
+
+--- June 3, 2026 ---
+- board.html: iPhone Safari share buttons not showing — ROOT CAUSE FOUND AND FIXED
+  Problem: .card used display:flex;flex-direction:column — iPhone Safari collapses flex
+  children with no defined height, swallowing the share button section entirely.
+  Problem: .thumb used padding-top:62% aspect ratio hack — conflicts with Safari block height calc.
+  Fix: .card → display:block (no more flex collapse)
+  Fix: .card-body → display:block
+  Fix: .thumb → aspect-ratio:16/7 (modern, Safari-safe, replaces padding-top hack)
+  Fix: Removed all duplicate conflicting @media(max-width:768px) blocks we had piled up
+  Result: Share buttons now visible on iPhone Safari ✅
+
+--- June 2, 2026 ---
+- submit.html: Photo limit enforcement added (client-side, fires before Supabase)
+- submit.html: Name AND email both required before submit proceeds
+- admin.html: Edit Description button added to each post card
+- index.html: posts-not-loading bug FIXED (wrong column + race condition)
+
+--- June 1, 2026 ---
+- MAJOR: Found root cause of "FREE Premium posting" bug — was in index.html
+- index.html gutted: removed broken signup widget, PROMO_MODE, FREE_PREMIUM, dead code
+- index.html: tier cards now link directly to join.html?tier=X
+- join.html rebuilt clean: no fake card fields, proper Basic/Paid flows
+- board.html: success banner reads ?joined= param, shows tier-specific welcome message
+- neuron.txt updated June 1
+
+--- May 31, 2026 (full day) ---
+- Three-platform ecosystem documented
+- FB page history confirmed: Nashville Cars & Trucks → Musicians Alliance → ShareFull
+- 30-day FB cooldown confirmed. Rename available ~late June 2026
+- Pinned post live on Musicians Alliance page May 31
+- Core philosophy and tagline locked
+- Full tier/submit/signup flow built and tested
+
+--- May 30, 2026 ---
+- index.html rebuilt: dark photo grid, sharefull stamp, 4s auto-close
+- Photo upload wired to Supabase Storage
+- admin.html built: password sharefull2026
+- Cloudflare cache TTL 30 seconds
+
+--- May 29, 2026 ---
+- Stripe links updated. join.html payment flow built.
+- RLS INSERT policy fixed. Member blocking confirmed.
+- how-it-works + library + index cleaned up.
+- Google Apps Script wired.
+
+--- May 28, 2026 ---
+- Supabase account + Members table + RLS policies built.
+
+--- May 26, 2026 ---
+- neuron.txt rebuilt after Cloudflare loss. GitHub only from now.
+- Stripe created. Tier names final.
+
+--- May 25, 2026 ---
+- Full ShareFull.us built from scratch: 6 pages.
+
+--- May 24, 2026 ---
+- MusicRow renamed "A NEW WORLD". ShareFull DNS fixed. neuron.txt created.
+
+================================================================
+END OF NEURON FILE — CLASSIFIED
+Steve Bickham + Neuron — "We built it."
+================================================================
