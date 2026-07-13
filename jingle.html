@@ -10,6 +10,14 @@
 <meta property="og:title" content="Join the ShareFull Jingle Challenge">
 <meta property="og:description" content="We made a jingle, then stripped the vocals so you could make it yours. Sing it, rap it, make it yours — then tag it #ShareFullJingleChallenge.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://sharefull.us/images/sfjc-og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://sharefull.us/jingle-challenge.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Join the ShareFull Jingle Challenge">
+<meta name="twitter:description" content="We made a jingle, then stripped the vocals so you could make it yours. Sing it, rap it, make it yours — then tag it #ShareFullJingleChallenge.">
+<meta name="twitter:image" content="https://sharefull.us/images/sfjc-og-image.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -188,17 +196,33 @@
     color: #FFE8A3;
     letter-spacing: 0.5px;
   }
-  .sfjc-video-embed {
-    background: rgba(0,0,0,0.25);
+  .sfjc-video-link {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+  .sfjc-video-link:hover { transform: translateY(-3px); }
+  .sfjc-video-thumb {
+    background: linear-gradient(135deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
     border-radius: 12px;
-    min-height: 120px;
+    min-height: 160px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba(255,255,255,0.6);
-    font-size: 13px;
-    padding: 10px;
-    overflow: hidden;
+  }
+  .sfjc-play-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #FFD23F;
+    color: #2D1B4E;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 4px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
   }
 
   .sfjc-steps {
@@ -299,20 +323,20 @@
     <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
   </div>
 
-  <!-- VIDEO EMBEDS -->
+  <!-- VIDEO LINKS (clean cards, no TikTok related-video clutter) -->
   <div class="sfjc-videos">
-    <div class="sfjc-video-card">
-      <div class="sfjc-video-embed">
-        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@stevebickham/video/7661981300919749902" data-video-id="7661981300919749902" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@stevebickham" href="https://www.tiktok.com/@stevebickham?refer=embed">@stevebickham</a> We made ShareFull.US a jingle 🎶 Don&#39;t say we didn&#39;t warn you. Post it. Sell it. Share it. Find it. 👉 ShareFull.US MusicRow.US <a title="sharefull" target="_blank" href="https://www.tiktok.com/tag/sharefull?refer=embed">#ShareFull</a> <a title="communityboard" target="_blank" href="https://www.tiktok.com/tag/communityboard?refer=embed">#CommunityBoard</a> <a title="nashville" target="_blank" href="https://www.tiktok.com/tag/nashville?refer=embed">#Nashville</a> <a title="fyp" target="_blank" href="https://www.tiktok.com/tag/fyp?refer=embed">#fyp</a> <a target="_blank" title="♬ original sound  - stevebickham" href="https://www.tiktok.com/music/original-sound-stevebickham-7661981599441783565?refer=embed">♬ original sound  - stevebickham</a> </section> </blockquote>
+    <a class="sfjc-video-card sfjc-video-link" href="https://www.tiktok.com/@stevebickham/video/7661981300919749902" target="_blank" rel="noopener">
+      <div class="sfjc-video-thumb">
+        <div class="sfjc-play-btn">▶</div>
       </div>
-      <p>🎤 Vocal</p>
-    </div>
-    <div class="sfjc-video-card">
-      <div class="sfjc-video-embed">
-        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@stevebickham/video/7661780089490689294" data-video-id="7661780089490689294" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@stevebickham" href="https://www.tiktok.com/@stevebickham?refer=embed">@stevebickham</a> This is our jingle... minus the words. Think you can write a better rhyme? Use this sound and show us 😂 <a title="sharefulljingle" target="_blank" href="https://www.tiktok.com/tag/sharefulljingle?refer=embed">#SharefullJingle</a> <a title="sharefullkaraoke" target="_blank" href="https://www.tiktok.com/tag/sharefullkaraoke?refer=embed">#SharefullKaraoke</a> <a target="_blank" title="♬ original sound  - stevebickham" href="https://www.tiktok.com/music/original-sound-stevebickham-7661780183145401102?refer=embed">♬ original sound  - stevebickham</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+      <p>🎤 Vocal — Watch on TikTok</p>
+    </a>
+    <a class="sfjc-video-card sfjc-video-link" href="https://www.tiktok.com/@stevebickham/video/7661780089490689294" target="_blank" rel="noopener">
+      <div class="sfjc-video-thumb">
+        <div class="sfjc-play-btn">▶</div>
       </div>
-      <p>🎶 Non-Vocal</p>
-    </div>
+      <p>🎶 Non-Vocal — Watch on TikTok</p>
+    </a>
   </div>
 
   <!-- HOW TO ENTER -->
@@ -335,13 +359,6 @@
       <p>Post it and tag it #ShareFullJingleChallenge</p>
     </div>
   </div>
-
-  <!-- CALL TO ACTION -->
-  <a href="https://www.tiktok.com/tag/sharefulljinglechallenge"
-     target="_blank"
-     class="sfjc-cta">
-    See the Challenge on TikTok
-  </a>
 
   <p class="sfjc-footnote">Best entries get a featured spot on ShareFull.US.</p>
 
